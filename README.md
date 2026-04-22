@@ -43,6 +43,8 @@ The goal is to build one of the strongest publicly available learning systems fo
 ### Core program
 
 - [Program Overview](curriculum/program-overview.md)
+- [Instructor Handbook](curriculum/instructor-handbook.md)
+- [Course Syllabus Template](curriculum/course-syllabus-template.md)
 - [Prerequisite Bridge](curriculum/prerequisite-bridge.md)
 - [Competency Framework](curriculum/competency-framework.md)
 - [Assessment Map](curriculum/assessment-map.md)
@@ -70,11 +72,22 @@ The goal is to build one of the strongest publicly available learning systems fo
 - [Labs Index](curriculum/labs/index.md)
 - [Lab Authoring Standard](curriculum/labs/lab-authoring-standard.md)
 - [Lab Catalog](curriculum/labs/lab-catalog.md)
+- [Core Lab Guides](curriculum/labs/core-lab-guides.md)
+- [Advanced Lab Guides](curriculum/labs/advanced-lab-guides.md)
+- [Specialization Lab Guides](curriculum/labs/specialization-lab-guides.md)
 - [Environment Lanes](curriculum/labs/environment-lanes.md)
 - [Capstones Index](curriculum/capstones/index.md)
 - [Capstone Specs](curriculum/capstones/capstone-specs.md)
 - [Rubrics Index](curriculum/rubrics/index.md)
 - [Master Rubric](curriculum/rubrics/master-rubric.md)
+- [Track Rubrics](curriculum/rubrics/track-rubrics.md)
+
+### Assessment assets
+
+- [Assessment Index](curriculum/assessment/index.md)
+- [Question Bank](curriculum/assessment/question-bank.md)
+- [Practical Exams](curriculum/assessment/practical-exams.md)
+- [Oral Defense Bank](curriculum/assessment/oral-defense-bank.md)
 
 ### Validation and evidence
 
@@ -111,19 +124,22 @@ This repository is in active build-out. The backbone now exists, including:
 
 - the curriculum architecture
 - weekly semester maps
+- full semester teaching guides
+- instructor delivery handbook
+- detailed core, advanced, and specialization lab guides
 - specialization tracks
-- lab catalog and environment lanes
 - capstone framework
-- master rubric
+- master and track-specific rubrics
+- assessment bank and practical exam assets
 - official-source reading map
 - independent validation reviews
 
-The next major phase is deeper execution quality:
+The next major phase is iteration and refinement:
 
-- full runnable lab guides
-- instructor notes and teaching packets
-- track-specific scoring rubrics
-- challenge banks and certification-grade assessments
+- strengthen lab-by-lab screenshots and classroom artifacts
+- add cohort-tested timing adjustments
+- add semester-specific slide decks if needed by the instructor
+- continue updating against OpenClaw release drift
 
 ## Quality Rules
 

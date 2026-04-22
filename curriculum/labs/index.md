@@ -8,6 +8,9 @@ Labs are the proof layer of this curriculum. They should make learners touch the
 
 - [Lab Authoring Standard](lab-authoring-standard.md)
 - [Lab Catalog](lab-catalog.md)
+- [Core Lab Guides](core-lab-guides.md)
+- [Advanced Lab Guides](advanced-lab-guides.md)
+- [Specialization Lab Guides](specialization-lab-guides.md)
 - [Environment Lanes](environment-lanes.md)
 
 ## Lab rules

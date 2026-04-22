@@ -32,6 +32,13 @@ This program is project-heavy because OpenClaw competence is operational. Learne
 
 - track-specific, defended verbally and with artifacts
 
+## Assessment support documents
+
+- [Question Bank](assessment/question-bank.md)
+- [Practical Exams](assessment/practical-exams.md)
+- [Oral Defense Bank](assessment/oral-defense-bank.md)
+- [Track Rubrics](rubrics/track-rubrics.md)
+
 ## Semester weighting recommendation
 
 ### Semester 1

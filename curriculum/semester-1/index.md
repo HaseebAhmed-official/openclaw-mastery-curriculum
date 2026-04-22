@@ -47,3 +47,10 @@ By the end of Semester 1, a learner should be able to install OpenClaw, onboard 
 - memory, models, tools, channels, nodes, doctor, and troubleshooting docs
 
 See the [Official Reading Map](../sources/official-reading-map.md) for the exact links.
+
+## Teaching support
+
+- [Semester 1 Teaching Guide](teaching-guide.md)
+- [Core Lab Guides](../labs/core-lab-guides.md)
+- [Question Bank](../assessment/question-bank.md)
+- [Practical Exams](../assessment/practical-exams.md)

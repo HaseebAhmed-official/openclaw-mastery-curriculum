@@ -50,3 +50,11 @@ By the end of Semester 2, a learner should be able to design and defend an OpenC
 - updating and release channels
 
 See the [Official Reading Map](../sources/official-reading-map.md) for the exact links.
+
+## Teaching support
+
+- [Semester 2 Teaching Guide](teaching-guide.md)
+- [Advanced Lab Guides](../labs/advanced-lab-guides.md)
+- [Specialization Lab Guides](../labs/specialization-lab-guides.md)
+- [Question Bank](../assessment/question-bank.md)
+- [Oral Defense Bank](../assessment/oral-defense-bank.md)

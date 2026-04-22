@@ -108,9 +108,11 @@ By the end of the full program, learners should be able to:
 
 This program depends on the following companion documents:
 
+- [Instructor Handbook](instructor-handbook.md)
 - [Prerequisite Bridge](prerequisite-bridge.md)
 - [Competency Framework](competency-framework.md)
 - [Assessment Map](assessment-map.md)
+- [Assessment Assets](assessment/index.md)
 - [Governance and Security Strand](governance-and-security-strand.md)
 - [Automation and Detached Work](automation-and-detached-work.md)
 - [Update and Release Discipline](update-and-release-discipline.md)

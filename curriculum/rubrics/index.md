@@ -3,6 +3,7 @@
 ## Rubric guide
 
 - [Master Rubric](master-rubric.md)
+- [Track Rubrics](track-rubrics.md)
 
 ## Rubric principle
 
