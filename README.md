@@ -88,6 +88,21 @@ The goal is to build one of the strongest publicly available learning systems fo
 - [Question Bank](curriculum/assessment/question-bank.md)
 - [Practical Exams](curriculum/assessment/practical-exams.md)
 - [Oral Defense Bank](curriculum/assessment/oral-defense-bank.md)
+- [Assessor Calibration Guide](curriculum/assessment/assessor-calibration-guide.md)
+- [Grading Packet Templates](curriculum/assessment/grading-packet-templates.md)
+- [Answer Key Guidance](curriculum/assessment/answer-key-guidance.md)
+- [Feedback Bank](curriculum/assessment/feedback-bank.md)
+- [Track Evaluation Sheets](curriculum/assessment/track-evaluation-sheets.md)
+
+### Submission assets
+
+- [Submission Templates](curriculum/templates/index.md)
+- [Lab Submission Template](curriculum/templates/lab-submission-template.md)
+- [Runbook Template](curriculum/templates/runbook-template.md)
+- [Design Review Template](curriculum/templates/design-review-template.md)
+- [Threat Model Template](curriculum/templates/threat-model-template.md)
+- [Capstone Submission Template](curriculum/templates/capstone-submission-template.md)
+- [Release-Aware Note Template](curriculum/templates/release-aware-note-template.md)
 
 ### Validation and evidence
 
@@ -130,14 +145,15 @@ This repository is in active build-out. The backbone now exists, including:
 - specialization tracks
 - capstone framework
 - master and track-specific rubrics
-- assessment bank and practical exam assets
+- assessment bank, grading, and practical exam assets
+- reusable submission templates for students
 - official-source reading map
 - independent validation reviews
 
 The next major phase is iteration and refinement:
 
 - strengthen lab-by-lab screenshots and classroom artifacts
-- add cohort-tested timing adjustments
+- add cohort-tested timing adjustments and model answer examples
 - add semester-specific slide decks if needed by the instructor
 - continue updating against OpenClaw release drift
 

@@ -37,7 +37,13 @@ This program is project-heavy because OpenClaw competence is operational. Learne
 - [Question Bank](assessment/question-bank.md)
 - [Practical Exams](assessment/practical-exams.md)
 - [Oral Defense Bank](assessment/oral-defense-bank.md)
+- [Assessor Calibration Guide](assessment/assessor-calibration-guide.md)
+- [Grading Packet Templates](assessment/grading-packet-templates.md)
+- [Answer Key Guidance](assessment/answer-key-guidance.md)
+- [Feedback Bank](assessment/feedback-bank.md)
+- [Track Evaluation Sheets](assessment/track-evaluation-sheets.md)
 - [Track Rubrics](rubrics/track-rubrics.md)
+- [Submission Templates](templates/index.md)
 
 ## Semester weighting recommendation
 

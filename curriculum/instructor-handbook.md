@@ -136,6 +136,7 @@ Students must be taught to verify current defaults and release notes, not to mem
 
 - [Program Overview](program-overview.md)
 - [Prerequisite Bridge](prerequisite-bridge.md)
+- [Submission Templates](templates/index.md)
 - [Semester 1 Teaching Guide](semester-1/teaching-guide.md)
 - [Semester 2 Teaching Guide](semester-2/teaching-guide.md)
 - [Lab Guides](labs/core-lab-guides.md)
@@ -144,6 +145,11 @@ Students must be taught to verify current defaults and release notes, not to mem
 - [Question Bank](assessment/question-bank.md)
 - [Practical Exams](assessment/practical-exams.md)
 - [Oral Defense Bank](assessment/oral-defense-bank.md)
+- [Assessor Calibration Guide](assessment/assessor-calibration-guide.md)
+- [Grading Packet Templates](assessment/grading-packet-templates.md)
+- [Answer Key Guidance](assessment/answer-key-guidance.md)
+- [Feedback Bank](assessment/feedback-bank.md)
+- [Track Evaluation Sheets](assessment/track-evaluation-sheets.md)
 - [Track Rubrics](rubrics/track-rubrics.md)
 
 ## Remediation policy
