@@ -85,6 +85,7 @@ By the end of the course, students should be able to:
 - see [Question Bank](assessment/question-bank.md)
 - see [Practical Exams](assessment/practical-exams.md)
 - see [Oral Defense Bank](assessment/oral-defense-bank.md)
+- see [Model Artifacts](examples/index.md)
 - see [Submission Templates](templates/index.md)
 - see [Assessor Calibration Guide](assessment/assessor-calibration-guide.md)
 - see [Grading Packet Templates](assessment/grading-packet-templates.md)

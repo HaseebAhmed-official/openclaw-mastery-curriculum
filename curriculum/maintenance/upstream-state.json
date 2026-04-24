@@ -1,0 +1,18 @@
+{
+  "tracked_repo": "openclaw/openclaw",
+  "last_reviewed_release": "v2026.4.23",
+  "last_reviewed_date": "2026-04-24",
+  "curriculum_repo": "HaseebAhmed-official/openclaw-mastery-curriculum",
+  "review_cadence": "weekly",
+  "review_surfaces": [
+    "curriculum/sources/official-reading-map.md",
+    "curriculum/sources/validation-register.md",
+    "curriculum/update-and-release-discipline.md",
+    "curriculum/semester-1/index.md",
+    "curriculum/semester-2/index.md",
+    "curriculum/labs/core-lab-guides.md",
+    "curriculum/labs/advanced-lab-guides.md",
+    "curriculum/templates/release-aware-note-template.md",
+    "curriculum/assessment-map.md"
+  ]
+}

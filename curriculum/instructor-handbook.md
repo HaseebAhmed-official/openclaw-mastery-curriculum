@@ -142,6 +142,7 @@ Students must be taught to verify current defaults and release notes, not to mem
 - [Lab Guides](labs/core-lab-guides.md)
 - [Advanced Lab Guides](labs/advanced-lab-guides.md)
 - [Specialization Lab Guides](labs/specialization-lab-guides.md)
+- [Model Artifacts](examples/index.md)
 - [Question Bank](assessment/question-bank.md)
 - [Practical Exams](assessment/practical-exams.md)
 - [Oral Defense Bank](assessment/oral-defense-bank.md)
@@ -151,6 +152,7 @@ Students must be taught to verify current defaults and release notes, not to mem
 - [Feedback Bank](assessment/feedback-bank.md)
 - [Track Evaluation Sheets](assessment/track-evaluation-sheets.md)
 - [Track Rubrics](rubrics/track-rubrics.md)
+- [Maintenance System](maintenance/index.md)
 
 ## Remediation policy
 

@@ -104,6 +104,24 @@ The goal is to build one of the strongest publicly available learning systems fo
 - [Capstone Submission Template](curriculum/templates/capstone-submission-template.md)
 - [Release-Aware Note Template](curriculum/templates/release-aware-note-template.md)
 
+### Model artifacts
+
+- [Model Artifacts Index](curriculum/examples/index.md)
+- [Model Lab Submission](curriculum/examples/model-lab-submission.md)
+- [Model Design Review](curriculum/examples/model-design-review.md)
+- [Model Capstone Summary](curriculum/examples/model-capstone-summary.md)
+- [Instructor Model Feedback](curriculum/examples/instructor-model-feedback.md)
+- [Weak Submission Red Flags](curriculum/examples/weak-submission-red-flags.md)
+
+### Maintenance system
+
+- [Maintenance Index](curriculum/maintenance/index.md)
+- [Continuous Improvement System](curriculum/maintenance/continuous-improvement-system.md)
+- [Upstream Review Playbook](curriculum/maintenance/upstream-review-playbook.md)
+- [Change Control Checklist](curriculum/maintenance/change-control-checklist.md)
+- [Review Log](curriculum/maintenance/review-log.md)
+- Automated release drift workflow: `.github/workflows/openclaw-upstream-drift-check.yml`
+
 ### Validation and evidence
 
 - [Validation Register](curriculum/sources/validation-register.md)
@@ -147,6 +165,8 @@ This repository is in active build-out. The backbone now exists, including:
 - master and track-specific rubrics
 - assessment bank, grading, and practical exam assets
 - reusable submission templates for students
+- model artifacts for students and instructors
+- maintenance docs and automated upstream drift detection
 - official-source reading map
 - independent validation reviews
 

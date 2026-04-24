@@ -1,0 +1,55 @@
+name: OpenClaw Upstream Drift Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 4 * * 1"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run upstream drift check
+        id: drift
+        run: |
+          python3 scripts/check_openclaw_release_drift.py \
+            --state curriculum/maintenance/upstream-state.json \
+            --issue-body /tmp/upstream-review.md \
+            --outputs "$GITHUB_OUTPUT"
+
+      - name: Ensure upstream-review label exists
+        if: steps.drift.outputs.drift == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create upstream-review \
+            --color 1d76db \
+            --description "Upstream OpenClaw release needs curriculum review" || true
+
+      - name: Create or update upstream review issue
+        if: steps.drift.outputs.drift == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_TITLE: OpenClaw upstream review required: ${{ steps.drift.outputs.latest_tag }}
+        run: |
+          existing="$(gh issue list --state open --search "$ISSUE_TITLE in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file /tmp/upstream-review.md --add-label upstream-review
+          else
+            gh issue create --title "$ISSUE_TITLE" --body-file /tmp/upstream-review.md --label upstream-review
+          fi
+
+      - name: Report healthy baseline
+        if: steps.drift.outputs.drift != 'true'
+        run: |
+          echo "No upstream release drift beyond reviewed baseline ${BASELINE}."
+        env:
+          BASELINE: ${{ steps.drift.outputs.baseline_tag }}
