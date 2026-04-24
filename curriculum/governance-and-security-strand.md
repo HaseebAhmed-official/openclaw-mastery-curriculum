@@ -38,6 +38,7 @@ OpenClaw is valuable because it can connect models to channels, tools, nodes, an
 - trusted proxy auth risks
 - webhook ingress and token hygiene
 - secret and config handling
+- config include and workspace dotenv ownership boundaries
 
 ### Stage 6: automation and detached authority
 
@@ -45,6 +46,7 @@ OpenClaw is valuable because it can connect models to channels, tools, nodes, an
 - hooks as event-driven code execution
 - task records and detached auditability
 - sub-agents and ACP agents as coordination boundaries
+- inherited sub-agent and ACP security-envelope constraints
 
 ### Stage 7: formal assurance and threat models
 

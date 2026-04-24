@@ -12,6 +12,14 @@
 - Follow-up validation: targeted revalidation of Semester 2 security teaching and audit labs before the next formal curriculum review
 - Established the automated drift-check system for future upstream review
 
+### 2026-04-24 targeted follow-up
+
+- Upstream release/advisory baseline unchanged from the same-day review
+- Change category: targeted Semester 2 security-teaching revalidation
+- Curriculum files touched: `curriculum/governance-and-security-strand.md`, `curriculum/semester-2/index.md`, `curriculum/semester-2/teaching-guide.md`, `curriculum/labs/advanced-lab-guides.md`, `curriculum/assessment/question-bank.md`, `curriculum/assessment/practical-exams.md`, `curriculum/rubrics/master-rubric.md`
+- Outcome: clarified `security audit --deep` vs `--fix`, trusted-proxy failure modes, workspace dotenv ownership boundaries, and ACP child-session constraint inheritance
+- Follow-up validation: include these items in the next external curriculum audit
+
 ## Logging rule
 
 Every future upstream review should append:

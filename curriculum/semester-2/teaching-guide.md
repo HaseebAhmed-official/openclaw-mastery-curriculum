@@ -25,20 +25,20 @@ This guide assumes learners have passed the Semester 1 baseline. The emphasis no
 ## Week 3: Configuration architecture
 
 - Goal: make students comfortable navigating real config complexity
-- Prep: prepare examples of core config, plugin-owned config, and schema-backed validation
-- Live session: schema reading, ownership boundaries, and where settings should live
+- Prep: prepare examples of core config, plugin-owned config, schema-backed validation, and workspace `.env` ownership boundaries
+- Live session: schema reading, ownership boundaries, environment loading, and where settings should live
 - Activity: trace a config key from reading map to operational outcome
 - Homework: configuration review note
-- Watchouts: students scattering settings without understanding ownership
+- Watchouts: students scattering settings without understanding ownership, or assuming workspace `.env` is an acceptable place to steer security-sensitive connector endpoints
 
-## Week 4: Security audit, webhook ingress, and hardening
+## Week 4: Security audit, advisories, webhook ingress, and hardening
 
 - Goal: make the audit workflow real and actionable
-- Prep: run `openclaw security audit` on a controlled setup, prepare a webhook-focused example, and review the latest official OpenClaw security advisories
-- Live session: audit categories, JSON export, remediation prioritization, advisory-driven case analysis, and webhook token/path hygiene
+- Prep: run `openclaw security audit` on a controlled setup, compare it with `openclaw security audit --deep` when the environment permits, prepare a webhook-focused example, and review the latest official OpenClaw security advisories
+- Live session: audit categories, baseline vs deep-probe coverage, JSON export, `--fix` limits, remediation prioritization, advisory-driven case analysis, and webhook token/path hygiene
 - Activity: students triage findings into must-fix, should-fix, and accepted-risk
 - Homework: complete LAB-C2
-- Watchouts: students treating the audit as a checklist rather than a risk review
+- Watchouts: students treating the audit as a checklist rather than a risk review, or assuming `--fix` solves auth, exposure, token rotation, or plugin-risk decisions
 
 ## Week 5: Exec approvals and host authority
 
@@ -52,11 +52,11 @@ This guide assumes learners have passed the Semester 1 baseline. The emphasis no
 ## Week 6: Remote access and proxy patterns
 
 - Goal: move from "it works remotely" to "it is remotely exposed with intent"
-- Prep: compare SSH, Tailscale Serve, and trusted proxy auth with explicit trust assumptions
-- Live session: ingress, headers, identity forwarding, and failure modes
+- Prep: compare SSH, Tailscale Serve, and trusted proxy auth with explicit trust assumptions, including the official same-host loopback failure case for trusted-proxy auth
+- Live session: ingress, headers, identity forwarding, explicit origin policy, proxy-only path requirements, and failure modes
 - Activity: students review and reject one unsafe proxy design
 - Homework: deployment review
-- Watchouts: students over-trusting reverse proxies and under-documenting identity assumptions
+- Watchouts: students over-trusting reverse proxies, under-documenting identity assumptions, or proposing trusted-proxy auth where the proxy is not the only path to the gateway
 
 ## Week 7: Shared inboxes and DM scope
 
@@ -97,11 +97,11 @@ This guide assumes learners have passed the Semester 1 baseline. The emphasis no
 ## Week 11: Sub-agents, ACP agents, headless nodes, and task auditability
 
 - Goal: teach delegation and detached execution with control and traceability
-- Prep: prepare one delegated-workflow example and one ACP-style integration example
-- Live session: ownership, audit trail, task records, and distributed execution
+- Prep: prepare one delegated-workflow example and one ACP-style integration example that shows inherited security-envelope constraints
+- Live session: ownership, audit trail, task records, inherited child-session limits, and distributed execution
 - Activity: students inspect a delegated workflow and identify what must be logged or reviewed
 - Homework: complete LAB-C7
-- Watchouts: students treating sub-agents as magic parallelism without governance
+- Watchouts: students treating sub-agents as magic parallelism without governance, or forgetting that child sessions must stay inside the parent security envelope
 
 ## Week 12: Memory strategy, Dreaming, and advanced knowledge layers
 

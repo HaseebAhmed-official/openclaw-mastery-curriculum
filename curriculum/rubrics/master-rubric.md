@@ -46,4 +46,7 @@
 - omits discussion of tool risk for tool-enabled agents
 - designs a production memory strategy without considering `DREAMS.md` and dreaming configuration
 - ignores webhook ingress, detached authority, or auditability in a production-facing design that uses automation or hooks
+- treats `openclaw security audit --fix` as equivalent to completed hardening
+- proposes trusted-proxy auth without a proxy-only path, explicit origin policy, or by relying on a same-host loopback proxy
+- uses sub-agents or ACP agents without explaining inherited child-session constraints
 - cannot explain why a chosen model/provider is acceptable for the use case

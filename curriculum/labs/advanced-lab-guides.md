@@ -42,22 +42,26 @@ Use the security audit like an operator, not like a checkbox runner.
 ### Procedure
 
 1. Run `openclaw security audit`.
-2. Export machine-readable findings with `--json`.
-3. Review at least one current official OpenClaw advisory that overlaps with the deployment surface.
-4. Identify webhook, plugin, hook, auth, or advisory-related findings.
-5. Prioritize remediation.
-6. Record accepted risks and why.
+2. Run `openclaw security audit --deep` when the environment permits, or explain why only the baseline audit was feasible.
+3. Export machine-readable findings with `--json` from at least one audit run.
+4. Review at least one current official OpenClaw advisory that overlaps with the deployment surface.
+5. Identify webhook, plugin, hook, auth, proxy, or advisory-related findings.
+6. Explain which findings `openclaw security audit --fix` could address and which require manual/operator action.
+7. Prioritize remediation.
+8. Record accepted risks and why.
 
 ### Required evidence
 
 - audit report
 - remediation plan
 - JSON artifact
+- short note comparing baseline audit, deep audit, and `--fix` limits
 
 ### Common failure modes
 
 - collecting findings without prioritization
 - ignoring webhook-specific controls
+- assuming `--fix` completes hardening or exposure remediation
 - ignoring upstream advisories because the local audit output looked clean
 
 ## LAB-C3: Trusted proxy and ingress review
@@ -75,7 +79,9 @@ Evaluate remote ingress patterns rather than blindly deploying them.
 1. Compare SSH, Tailscale Serve, and trusted proxy auth.
 2. Write the identity and trust assumptions for each.
 3. Identify where headers can be spoofed or misapplied.
-4. Recommend one approach for a bounded scenario.
+4. Explain why same-host loopback reverse proxies do not satisfy trusted-proxy auth.
+5. Document the proxy-only path, explicit origin policy, and mixed-token rejection requirements for trusted-proxy mode.
+6. Recommend one approach for a bounded scenario.
 
 ### Required evidence
 
@@ -85,6 +91,7 @@ Evaluate remote ingress patterns rather than blindly deploying them.
 
 - over-trusting proxy headers
 - not explaining where auth happens
+- proposing trusted-proxy auth without a proxy-only path or with a same-host loopback proxy
 
 ## LAB-C4: Shared inbox policy lab
 
@@ -174,8 +181,9 @@ Teach delegation with ownership and traceability.
 
 1. Define a delegated task.
 2. Explain whether sub-agents or ACP agents fit better.
-3. Document expected task records, artifacts, and ownership.
-4. Explain how you would audit the result later.
+3. Document the inherited child-session constraints that must remain in force.
+4. Document expected task records, artifacts, and ownership.
+5. Explain how you would audit the result later.
 
 ### Required evidence
 
@@ -185,3 +193,4 @@ Teach delegation with ownership and traceability.
 
 - treating delegation as invisible parallelism
 - no ownership model
+- no explanation of depth, child-count, sandbox, or target-agent constraints on child sessions

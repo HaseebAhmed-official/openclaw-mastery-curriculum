@@ -81,3 +81,11 @@ This bank is designed for quizzes, written exams, recitations, and oral warm-up 
 58. A hook executes on external events and writes to the workspace. What must be reviewed?
 59. A sub-agent workflow returns a result but no one can explain who owned which step. What is wrong?
 60. A contribution proposal modifies multiple subsystems but ignores scoped contributor guidance. What should happen next?
+61. What does `openclaw security audit --deep` reveal that a baseline audit may not?
+62. Why is `openclaw security audit --fix` intentionally narrow?
+63. Why can trusted-proxy auth be the correct design and still appear as a critical reminder in the audit?
+64. Why does a same-host loopback reverse proxy fail closed for trusted-proxy auth?
+65. Why is steering security-sensitive connector endpoints from workspace `.env` the wrong ownership boundary?
+66. Why must ACP child sessions inherit sub-agent security-envelope constraints?
+67. What should be reviewed before allowing `sessions_spawn` in a production design?
+68. Why is an empty `allowUsers` set in trusted-proxy mode a governance issue even when the proxy authenticates users?

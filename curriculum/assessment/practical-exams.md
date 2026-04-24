@@ -51,8 +51,8 @@ Students must:
 
 1. review a multi-agent or production scenario
 2. write an isolation or ingress design
-3. run or interpret a security audit workflow
-4. document one automation or detached-work authority review
+3. run or interpret a security audit workflow, including `--deep` when feasible and the limits of `--fix`
+4. document one automation or detached-work authority review and map at least one current official advisory to the scenario
 5. identify one plugin or supply-chain risk
 6. defend the design orally
 
@@ -67,6 +67,8 @@ Students must:
 
 - no explanation of webhook, hook, or detached authority risk
 - misuse of multi-agent language without workspace separation
+- treats `security audit --fix` as sufficient remediation for exposure, auth, or token-rotation problems
+- proposes trusted-proxy auth with a same-host loopback proxy or without a proxy-only path
 - overstating formal verification
 
 ## Practical exam administration notes
