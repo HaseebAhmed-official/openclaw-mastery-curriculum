@@ -11,6 +11,7 @@
 ## Sources checked
 
 - release notes:
+- security advisories:
 - official docs page:
 - local version output:
 
@@ -21,6 +22,13 @@ List the defaults or behaviors your work assumes.
 1. 
 2. 
 3. 
+
+## Current advisories reviewed
+
+List any official advisories that materially affect this module, lab, or artifact.
+
+1. 
+2. 
 
 ## Drift risks
 

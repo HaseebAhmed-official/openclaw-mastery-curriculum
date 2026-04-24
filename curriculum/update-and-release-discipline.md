@@ -10,8 +10,9 @@ Before any week involving providers, security controls, plugins, channels, autom
 
 1. check the current installed version
 2. read the latest release notes relevant to that module
-3. verify the current update channel
-4. note any behavior changes that affect labs or grading
+3. review current official security advisories that overlap with that module's surface
+4. verify the current update channel
+5. note any behavior changes that affect labs or grading
 
 ## Operational topics learners must know
 
@@ -29,6 +30,12 @@ Before any week involving providers, security controls, plugins, channels, autom
 - `beta`: candidate or pre-promoted stable
 - `dev`: active development and not a production baseline
 
+### Security cadence
+
+- treat new official advisories as teaching inputs, not just maintainer notes
+- revalidate security, deployment, and contributor modules when advisories touch their scope
+- document whether a lab or rubric assumes behavior before or after a specific security fix
+
 ### Cohort consistency
 
 - freeze teaching cohorts to a known version or channel when needed
@@ -40,6 +47,7 @@ Before any week involving providers, security controls, plugins, channels, autom
 Any curriculum statement about defaults, model choices, or current behavior must either:
 
 - cite the official docs and validation date, or
+- cite the official advisories if security behavior changed recently, or
 - tell the learner to check the current release notes before proceeding
 
 ## Best insertion points in the program

@@ -13,7 +13,7 @@ By the end of Semester 2, a learner should be able to design and defend an OpenC
 | 1 | Production framing | Translate baseline setups into production design questions | Production gap analysis | Readiness memo |
 | 2 | Multi-agent routing and workspace identity files | Explain agent isolation, session stores, `SOUL.md`, `AGENTS.md`, `USER.md`, and workspace boundaries | Multi-agent design lab with differentiated agent files | Isolation review |
 | 3 | Configuration architecture | Navigate config schema, plugin-owned config, and control-plane settings | Schema and config drill | Config review |
-| 4 | Security audit, webhook ingress, and hardening | Use `openclaw security audit`, interpret findings, review webhook risks, and prioritize fixes | Audit lab with JSON export and remediation plan | Hardening worksheet |
+| 4 | Security audit, advisories, webhook ingress, and hardening | Use `openclaw security audit`, interpret findings, review current official advisories, review webhook risks, and prioritize fixes | Audit lab with JSON export and remediation plan | Hardening worksheet |
 | 5 | Exec approvals and host authority | Explain host execution, approvals, allowlists, and node-host controls | Approval policy lab | Policy defense |
 | 6 | Remote access and proxy patterns | Compare SSH, Tailscale Serve, and trusted proxy auth | Proxy and remote lab | Deployment review |
 | 7 | Shared inboxes and DM scope | Reason about cooperative vs adversarial usage and session isolation | Shared-inbox design lab | Routing critique |
@@ -41,6 +41,7 @@ By the end of Semester 2, a learner should be able to design and defend an OpenC
 - multi-agent routing
 - configuration reference
 - security guide and audit docs
+- current official security advisories
 - sandboxing and exec approvals
 - remote access, Tailscale, and trusted proxy auth
 - automation, tasks, cron, hooks, standing orders, heartbeat, sub-agents, and ACP agents

@@ -34,8 +34,8 @@ This guide assumes learners have passed the Semester 1 baseline. The emphasis no
 ## Week 4: Security audit, webhook ingress, and hardening
 
 - Goal: make the audit workflow real and actionable
-- Prep: run `openclaw security audit` on a controlled setup and prepare a webhook-focused example
-- Live session: audit categories, JSON export, remediation prioritization, and webhook token/path hygiene
+- Prep: run `openclaw security audit` on a controlled setup, prepare a webhook-focused example, and review the latest official OpenClaw security advisories
+- Live session: audit categories, JSON export, remediation prioritization, advisory-driven case analysis, and webhook token/path hygiene
 - Activity: students triage findings into must-fix, should-fix, and accepted-risk
 - Homework: complete LAB-C2
 - Watchouts: students treating the audit as a checklist rather than a risk review

@@ -3,6 +3,7 @@
 ## Before editing
 
 - identify the exact upstream source
+- identify whether new official advisories are part of the review window
 - identify whether the change is stable, preview, or draft
 - identify which curriculum files are affected
 

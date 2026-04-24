@@ -43,9 +43,10 @@ Use the security audit like an operator, not like a checkbox runner.
 
 1. Run `openclaw security audit`.
 2. Export machine-readable findings with `--json`.
-3. Identify webhook, plugin, hook, or auth findings.
-4. Prioritize remediation.
-5. Record accepted risks and why.
+3. Review at least one current official OpenClaw advisory that overlaps with the deployment surface.
+4. Identify webhook, plugin, hook, auth, or advisory-related findings.
+5. Prioritize remediation.
+6. Record accepted risks and why.
 
 ### Required evidence
 
@@ -57,6 +58,7 @@ Use the security audit like an operator, not like a checkbox runner.
 
 - collecting findings without prioritization
 - ignoring webhook-specific controls
+- ignoring upstream advisories because the local audit output looked clean
 
 ## LAB-C3: Trusted proxy and ingress review
 

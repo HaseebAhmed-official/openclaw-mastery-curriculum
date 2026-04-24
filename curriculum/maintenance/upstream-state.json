@@ -2,11 +2,21 @@
   "tracked_repo": "openclaw/openclaw",
   "last_reviewed_release": "v2026.4.23",
   "last_reviewed_date": "2026-04-24",
+  "last_reviewed_advisory_date": "2026-04-24",
+  "last_reviewed_advisories": [
+    "GHSA-93rg-2xm5-2p9v",
+    "GHSA-55cf-xx38-4p9p",
+    "GHSA-x3h8-jrgh-p8jx",
+    "GHSA-r6xh-pqhr-v4xh",
+    "GHSA-q3jj-46pq-826r",
+    "GHSA-wppj-c6mr-83jj"
+  ],
   "curriculum_repo": "HaseebAhmed-official/openclaw-mastery-curriculum",
   "review_cadence": "weekly",
   "review_surfaces": [
     "curriculum/sources/official-reading-map.md",
     "curriculum/sources/validation-register.md",
+    "curriculum/governance-and-security-strand.md",
     "curriculum/update-and-release-discipline.md",
     "curriculum/semester-1/index.md",
     "curriculum/semester-2/index.md",

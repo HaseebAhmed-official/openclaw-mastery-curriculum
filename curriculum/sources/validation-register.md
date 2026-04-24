@@ -27,6 +27,7 @@
 | Multi-agent workspaces | Per-agent workspaces include `SOUL.md`, `AGENTS.md`, and optional `USER.md` alongside isolated state and sessions | official-docs | Multi-Agent Routing |
 | Approvals | Host exec must be governed by tool policy plus approvals/allowlists when enabled | official-docs | Exec Tool, Exec Approvals, Approvals CLI |
 | Diagnostics | `doctor`, `status`, `gateway probe`, and `security audit` form the operational debugging backbone | official-docs | Doctor, Troubleshooting, Security CLI |
+| Security maintenance | Current official OpenClaw advisories should be treated as first-class teaching inputs for security and production modules | official-repo | Security Advisories |
 | Automation | Cron, tasks, task flow, hooks, standing orders, heartbeat, sub-agents, and ACP agents are core OpenClaw execution surfaces | official-docs | Automation & Tasks, Sub-Agents, ACP Agents |
 | Updates | Teaching materials should account for update channels, dry runs, pinning, and rollback when behavior can drift across releases | official-docs | Updating, Release Channels |
 | Formal assurance | OpenClaw has formal security models, but they are bounded models rather than proof of total implementation security | official-docs | Formal Verification |

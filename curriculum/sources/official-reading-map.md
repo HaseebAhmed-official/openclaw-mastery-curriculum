@@ -36,6 +36,7 @@
 ## OpenClaw security and controls
 
 - [Security](https://docs.openclaw.ai/security)
+- [Security Advisories](https://github.com/openclaw/openclaw/security/advisories)
 - [Sandboxing](https://docs.openclaw.ai/sandboxing)
 - [Exec Tool](https://docs.openclaw.ai/tools/exec)
 - [Exec Approvals](https://docs.openclaw.ai/tools/exec-approvals)
@@ -44,6 +45,15 @@
 - [Trusted Proxy Auth](https://docs.openclaw.ai/gateway/trusted-proxy-auth)
 - [Threat Model (MITRE ATLAS)](https://docs.openclaw.ai/security/THREAT-MODEL-ATLAS)
 - [Formal Verification](https://docs.openclaw.ai/security/formal-verification/)
+
+### Current advisory exemplars reviewed at the 2026-04-24 baseline
+
+- [GHSA-93rg-2xm5-2p9v](https://github.com/openclaw/openclaw/security/advisories/GHSA-93rg-2xm5-2p9v) - Gateway Control UI bootstrap config required Gateway auth
+- [GHSA-55cf-xx38-4p9p](https://github.com/openclaw/openclaw/security/advisories/GHSA-55cf-xx38-4p9p) - Workspace dotenv files cannot override connector endpoint hosts
+- [GHSA-x3h8-jrgh-p8jx](https://github.com/openclaw/openclaw/security/advisories/GHSA-x3h8-jrgh-p8jx) - Exec allowlist analysis rejects shell expansion in unquoted heredocs
+- [GHSA-r6xh-pqhr-v4xh](https://github.com/openclaw/openclaw/security/advisories/GHSA-r6xh-pqhr-v4xh) - MCP loopback owner context is derived from server-issued bearer tokens
+- [GHSA-q3jj-46pq-826r](https://github.com/openclaw/openclaw/security/advisories/GHSA-q3jj-46pq-826r) - ACP child sessions inherit subagent security envelope constraints
+- [GHSA-wppj-c6mr-83jj](https://github.com/openclaw/openclaw/security/advisories/GHSA-wppj-c6mr-83jj) - OpenShell FS bridge writes stay pinned to the sandbox mount root
 
 ## OpenClaw extensibility
 

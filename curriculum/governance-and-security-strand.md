@@ -49,6 +49,7 @@ OpenClaw is valuable because it can connect models to channels, tools, nodes, an
 ### Stage 7: formal assurance and threat models
 
 - security audit usage
+- advisory-driven case review from the official OpenClaw advisory feed
 - ATLAS-based threat modeling
 - formal verification models and their limits
 
@@ -67,4 +68,5 @@ OpenClaw is valuable because it can connect models to channels, tools, nodes, an
 - fail projects that treat one shared gateway as an adversarial-user boundary
 - require learners to explain the limits of sandboxing
 - require learners to explain the limits of formal verification claims
+- require learners to review current official advisories when evaluating production or contributor-facing changes
 - require learners to address prompt injection, detached authority, and webhook ingress in any production-facing design

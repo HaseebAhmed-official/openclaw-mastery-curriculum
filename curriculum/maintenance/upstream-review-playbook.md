@@ -14,6 +14,8 @@ Run this playbook when:
 
 Do not start rewriting curriculum files before understanding what actually changed.
 
+Then review any new official security advisories published after the last baseline if the same review window includes security-sensitive changes.
+
 ### 2. Classify the change
 
 - provider or model default change
@@ -31,6 +33,7 @@ Check at minimum:
 - `curriculum/update-and-release-discipline.md`
 - `curriculum/sources/official-reading-map.md`
 - `curriculum/sources/validation-register.md`
+- `curriculum/governance-and-security-strand.md`
 - `curriculum/semester-1/index.md`
 - `curriculum/semester-2/index.md`
 - relevant lab guides
@@ -54,6 +57,8 @@ Update:
 
 - `curriculum/maintenance/review-log.md`
 - `curriculum/maintenance/upstream-state.json`
+
+If advisories were part of the review window, update the advisory fields there as well.
 
 ## Special review triggers
 
