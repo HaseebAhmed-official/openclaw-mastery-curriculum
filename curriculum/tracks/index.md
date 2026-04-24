@@ -20,6 +20,15 @@ Each track:
 - [Contributor / Core Developer](contributor-core.md)
 - [Local Models Specialization](local-models.md)
 
+## Instructor calibration packs
+
+- [Operator Answer Pack](../model-answers/operator-answer-pack.md)
+- [Production / DevOps Answer Pack](../model-answers/production-devops-answer-pack.md)
+- [Security / Hardening Answer Pack](../model-answers/security-hardening-answer-pack.md)
+- [Plugin Developer Answer Pack](../model-answers/plugin-developer-answer-pack.md)
+- [Contributor / Core Answer Pack](../model-answers/contributor-core-answer-pack.md)
+- [Local Models Answer Pack](../model-answers/local-models-answer-pack.md)
+
 ## Track selection guidance
 
 ### Choose Operator if you want to:

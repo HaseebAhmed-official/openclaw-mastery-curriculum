@@ -10,6 +10,7 @@
 - [Answer Key Guidance](answer-key-guidance.md)
 - [Feedback Bank](feedback-bank.md)
 - [Track Evaluation Sheets](track-evaluation-sheets.md)
+- [Model Answer Packs](../model-answers/index.md)
 
 ## Purpose
 
@@ -27,3 +28,4 @@ Use them together with:
 - [Master Rubric](../rubrics/master-rubric.md)
 - [Track Rubrics](../rubrics/track-rubrics.md)
 - [Submission Templates](../templates/index.md)
+- [Model Answer Packs](../model-answers/index.md)

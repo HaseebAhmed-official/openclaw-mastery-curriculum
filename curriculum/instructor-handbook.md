@@ -142,7 +142,10 @@ Students must be taught to verify current defaults and release notes, not to mem
 - [Lab Guides](labs/core-lab-guides.md)
 - [Advanced Lab Guides](labs/advanced-lab-guides.md)
 - [Specialization Lab Guides](labs/specialization-lab-guides.md)
+- [Classroom Lab Manuals](lab-manuals/index.md)
+- [Slide Deck Outlines](slides/index.md)
 - [Model Artifacts](examples/index.md)
+- [Model Answer Packs](model-answers/index.md)
 - [Question Bank](assessment/question-bank.md)
 - [Practical Exams](assessment/practical-exams.md)
 - [Oral Defense Bank](assessment/oral-defense-bank.md)
@@ -180,5 +183,6 @@ This pack is ready to teach when the instructor can answer yes to all of these:
 - I know which weekly modules depend on current release notes
 - I know which real channels are allowed in my course
 - I have a grading workflow for labs, reviews, and capstones
+- I know which slide outlines and classroom manuals I am using each week
 - I can articulate the OpenClaw trust model clearly to students
 - I have reviewed the validation register and current official reading map

@@ -12,6 +12,8 @@ Labs are the proof layer of this curriculum. They should make learners touch the
 - [Advanced Lab Guides](advanced-lab-guides.md)
 - [Specialization Lab Guides](specialization-lab-guides.md)
 - [Environment Lanes](environment-lanes.md)
+- [Classroom Lab Manuals](../lab-manuals/index.md)
+- [Screenshot Capture Standard](../lab-manuals/screenshot-capture-standard.md)
 
 ## Lab rules
 
@@ -20,3 +22,4 @@ Labs are the proof layer of this curriculum. They should make learners touch the
 - every lab must include rollback or recovery guidance
 - every lab must identify security implications
 - high-risk labs must explain why a safer baseline exists
+- classroom delivery should include required visual checkpoints

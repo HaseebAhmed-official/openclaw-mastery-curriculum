@@ -70,6 +70,7 @@ The goal is to build one of the strongest publicly available learning systems fo
 ### Hands-on delivery
 
 - [Labs Index](curriculum/labs/index.md)
+- [Classroom Lab Manuals](curriculum/lab-manuals/index.md)
 - [Lab Authoring Standard](curriculum/labs/lab-authoring-standard.md)
 - [Lab Catalog](curriculum/labs/lab-catalog.md)
 - [Core Lab Guides](curriculum/labs/core-lab-guides.md)
@@ -81,6 +82,17 @@ The goal is to build one of the strongest publicly available learning systems fo
 - [Rubrics Index](curriculum/rubrics/index.md)
 - [Master Rubric](curriculum/rubrics/master-rubric.md)
 - [Track Rubrics](curriculum/rubrics/track-rubrics.md)
+
+### Classroom delivery assets
+
+- [Slide Deck Outlines](curriculum/slides/index.md)
+- [Semester 1 Weekly Slide Outlines](curriculum/slides/semester-1-weekly-outlines.md)
+- [Semester 2 Weekly Slide Outlines](curriculum/slides/semester-2-weekly-outlines.md)
+- [Track Workshop Slide Outlines](curriculum/slides/track-workshop-outlines.md)
+- [Screenshot Capture Standard](curriculum/lab-manuals/screenshot-capture-standard.md)
+- [Core Classroom Lab Manuals](curriculum/lab-manuals/core-classroom-manuals.md)
+- [Advanced Classroom Lab Manuals](curriculum/lab-manuals/advanced-classroom-manuals.md)
+- [Specialization Classroom Lab Manuals](curriculum/lab-manuals/specialization-classroom-manuals.md)
 
 ### Assessment assets
 
@@ -112,6 +124,16 @@ The goal is to build one of the strongest publicly available learning systems fo
 - [Model Capstone Summary](curriculum/examples/model-capstone-summary.md)
 - [Instructor Model Feedback](curriculum/examples/instructor-model-feedback.md)
 - [Weak Submission Red Flags](curriculum/examples/weak-submission-red-flags.md)
+
+### Instructor calibration packs
+
+- [Model Answer Packs](curriculum/model-answers/index.md)
+- [Operator Answer Pack](curriculum/model-answers/operator-answer-pack.md)
+- [Production / DevOps Answer Pack](curriculum/model-answers/production-devops-answer-pack.md)
+- [Security / Hardening Answer Pack](curriculum/model-answers/security-hardening-answer-pack.md)
+- [Plugin Developer Answer Pack](curriculum/model-answers/plugin-developer-answer-pack.md)
+- [Contributor / Core Answer Pack](curriculum/model-answers/contributor-core-answer-pack.md)
+- [Local Models Answer Pack](curriculum/model-answers/local-models-answer-pack.md)
 
 ### Maintenance system
 
@@ -160,21 +182,24 @@ This repository is in active build-out. The backbone now exists, including:
 - full semester teaching guides
 - instructor delivery handbook
 - detailed core, advanced, and specialization lab guides
+- classroom lab manuals and screenshot capture standards
 - specialization tracks
 - capstone framework
 - master and track-specific rubrics
 - assessment bank, grading, and practical exam assets
 - reusable submission templates for students
 - model artifacts for students and instructors
+- weekly slide-deck outlines and track workshop deck outlines
+- track-specific model answer packs for instructor calibration
 - maintenance docs and automated upstream drift detection
 - official-source reading map
 - independent validation reviews
 
 The next major phase is iteration and refinement:
 
-- strengthen lab-by-lab screenshots and classroom artifacts
-- add cohort-tested timing adjustments and model answer examples
-- add semester-specific slide decks if needed by the instructor
+- populate the classroom manuals with locally captured reference screenshots
+- add cohort-tested timing adjustments and pacing evidence
+- build optional presentation-ready slide files from the current outlines
 - continue updating against OpenClaw release drift
 
 ## Quality Rules

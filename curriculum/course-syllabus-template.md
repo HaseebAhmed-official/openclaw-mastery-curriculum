@@ -73,12 +73,14 @@ By the end of the course, students should be able to:
 
 - see [Semester 1 Teaching Guide](semester-1/teaching-guide.md)
 - see [Semester 2 Teaching Guide](semester-2/teaching-guide.md)
+- optional lecture support: [Slide Deck Outlines](slides/index.md)
 
 ## Lab structure
 
 - see [Core Lab Guides](labs/core-lab-guides.md)
 - see [Advanced Lab Guides](labs/advanced-lab-guides.md)
 - see [Specialization Lab Guides](labs/specialization-lab-guides.md)
+- classroom delivery support: [Classroom Lab Manuals](lab-manuals/index.md)
 
 ## Assessment support
 
@@ -86,6 +88,7 @@ By the end of the course, students should be able to:
 - see [Practical Exams](assessment/practical-exams.md)
 - see [Oral Defense Bank](assessment/oral-defense-bank.md)
 - see [Model Artifacts](examples/index.md)
+- see [Model Answer Packs](model-answers/index.md)
 - see [Submission Templates](templates/index.md)
 - see [Assessor Calibration Guide](assessment/assessor-calibration-guide.md)
 - see [Grading Packet Templates](assessment/grading-packet-templates.md)
