@@ -143,6 +143,8 @@ Students must be taught to verify current defaults and release notes, not to mem
 - [Advanced Lab Guides](labs/advanced-lab-guides.md)
 - [Specialization Lab Guides](labs/specialization-lab-guides.md)
 - [Classroom Lab Manuals](lab-manuals/index.md)
+- [Reference Screenshot Manifest](lab-manuals/reference-screenshot-manifest.md)
+- [WSL Ubuntu Capture Workflow](lab-manuals/wsl-ubuntu-capture-workflow.md)
 - [Slide Deck Outlines](slides/index.md)
 - [Model Artifacts](examples/index.md)
 - [Model Answer Packs](model-answers/index.md)

@@ -90,6 +90,8 @@ The goal is to build one of the strongest publicly available learning systems fo
 - [Semester 2 Weekly Slide Outlines](curriculum/slides/semester-2-weekly-outlines.md)
 - [Track Workshop Slide Outlines](curriculum/slides/track-workshop-outlines.md)
 - [Screenshot Capture Standard](curriculum/lab-manuals/screenshot-capture-standard.md)
+- [Reference Screenshot Manifest](curriculum/lab-manuals/reference-screenshot-manifest.md)
+- [WSL Ubuntu Capture Workflow](curriculum/lab-manuals/wsl-ubuntu-capture-workflow.md)
 - [Core Classroom Lab Manuals](curriculum/lab-manuals/core-classroom-manuals.md)
 - [Advanced Classroom Lab Manuals](curriculum/lab-manuals/advanced-classroom-manuals.md)
 - [Specialization Classroom Lab Manuals](curriculum/lab-manuals/specialization-classroom-manuals.md)

@@ -40,3 +40,8 @@ For each taught lab, maintain:
 - one failure-state screenshot set
 - one sample student-quality evidence set
 - one strong-vs-weak comparison example for calibration
+
+## File management rule
+
+- use the [Reference Screenshot Manifest](reference-screenshot-manifest.md) as the filename authority
+- use the [WSL Ubuntu Capture Workflow](wsl-ubuntu-capture-workflow.md) when building the canonical learner-lane screenshot set

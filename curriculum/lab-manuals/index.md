@@ -7,6 +7,8 @@ These manuals convert the lab guides into classroom-delivery packets. They add v
 ## Included assets
 
 - [Screenshot Capture Standard](screenshot-capture-standard.md)
+- [Reference Screenshot Manifest](reference-screenshot-manifest.md)
+- [WSL Ubuntu Capture Workflow](wsl-ubuntu-capture-workflow.md)
 - [Core Classroom Lab Manuals](core-classroom-manuals.md)
 - [Advanced Classroom Lab Manuals](advanced-classroom-manuals.md)
 - [Specialization Classroom Lab Manuals](specialization-classroom-manuals.md)
@@ -17,6 +19,7 @@ These manuals convert the lab guides into classroom-delivery packets. They add v
 - use the visual checkpoints as required screenshot moments
 - replace screenshot placeholders with locally captured images if you maintain a reference deployment
 - keep all captures release-aware and redact tokens, secrets, and personal identities
+- follow the manifest so all cohorts use the same file names and evidence slots
 
 ## Manual rules
 
