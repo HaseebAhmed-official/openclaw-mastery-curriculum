@@ -15,6 +15,8 @@ It is not just a reading list. It is a structured curriculum system with:
 - capstones and rubrics
 - source-backed validation artifacts
 
+For project continuity after chat resets or context clearing, start from [Project State](PROJECT_STATE.md).
+
 ## Vision
 
 The goal is to build one of the strongest publicly available learning systems for OpenClaw:
@@ -148,6 +150,8 @@ The goal is to build one of the strongest publicly available learning systems fo
 
 ### Validation and evidence
 
+- [Project State](PROJECT_STATE.md)
+- [Master Validation Prompt](Validations/master-validation-prompt.md)
 - [Validation Register](curriculum/sources/validation-register.md)
 - [Official Reading Map](curriculum/sources/official-reading-map.md)
 - [External Validation Reviews](Validations/)

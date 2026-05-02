@@ -4,6 +4,7 @@ This folder contains independent review passes used to challenge and improve the
 
 ## Included reviews
 
+- [Master validation prompt](master-validation-prompt.md)
 - [Codex review](codex-review/openclaw-curriculum-pack-validation-review-2026-04-22.md)
 - [Claude review](Claude-code-review/openclaw-mastery-curriculum-full-validation-review-2026-04-22.md)
 
@@ -18,3 +19,5 @@ They should be treated as:
 - useful for prioritizing revision work
 
 Official OpenClaw docs and release material remain the primary source of truth for platform correctness.
+
+Future validation sessions should read [../PROJECT_STATE.md](../PROJECT_STATE.md) first, then use the master validation prompt.
