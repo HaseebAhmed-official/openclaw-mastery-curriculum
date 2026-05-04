@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "elite-mentor-os",
+  "version": "0.1.0",
+  "description": "Local-first AI mentor workflows for rigorous learning in any directory.",
+  "author": {
+    "name": "Haseeb Ahmed",
+    "url": "https://github.com/HaseebAhmed-official"
+  },
+  "homepage": "https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum",
+  "repository": "https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum",
+  "license": "MIT",
+  "keywords": [
+    "learning",
+    "curriculum",
+    "mentorship",
+    "assessment",
+    "research",
+    "portfolio",
+    "openclaw"
+  ],
+  "skills": "./skills/",
+  "agents": [
+    "./agents/mentor-professor.md",
+    "./agents/research-auditor.md",
+    "./agents/assessment-board.md"
+  ]
+}

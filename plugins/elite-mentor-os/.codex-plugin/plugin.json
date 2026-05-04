@@ -1,0 +1,43 @@
+{
+  "name": "elite-mentor-os",
+  "version": "0.1.0",
+  "description": "Local-first AI mentor workflows for rigorous learning in any directory.",
+  "author": {
+    "name": "Haseeb Ahmed",
+    "url": "https://github.com/HaseebAhmed-official"
+  },
+  "homepage": "https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum",
+  "repository": "https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum",
+  "license": "MIT",
+  "keywords": [
+    "learning",
+    "curriculum",
+    "mentorship",
+    "assessment",
+    "research",
+    "portfolio",
+    "openclaw"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Elite Mentor OS",
+    "shortDescription": "Turn any directory into a rigorous AI mentor workspace.",
+    "longDescription": "Elite Mentor OS provides local-first diagnosis, teaching, roadmap, review, and OpenClaw mastery workflows. It keeps project state in .mentor only after explicit user approval.",
+    "developerName": "Haseeb Ahmed",
+    "category": "Education",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum",
+    "privacyPolicyURL": "https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum",
+    "termsOfServiceURL": "https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Diagnose this directory and plan my learning."
+    ],
+    "brandColor": "#0F5132",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

@@ -8,7 +8,7 @@ If a new Codex, Claude, or other LLM session starts from this file, it should un
 
 ## Current date captured
 
-- Captured on: 2026-05-02
+- Captured on: 2026-05-04
 - Timezone context: Asia/Karachi
 - Primary repo branch: `main`
 - Committed baseline before this state-file update: `366d3e0` - `Add WSL screenshot capture curriculum assets`
@@ -31,6 +31,23 @@ The goal is not a simple course, roadmap, tutorial, or reading list. The target 
 - open-source contributors
 
 The curriculum must be strong enough that a serious instructor or institution can teach from it without reconstructing the structure from scratch.
+
+## Expanded Elite Mentor OS vision
+
+The repository now also contains the first implementation of **Elite Mentor OS**: a local-first native plugin system for Claude Code and Codex that can turn any directory into a rigorous AI mentor workspace.
+
+The expanded product vision is broader than OpenClaw:
+
+- adapt to any directory, subject, topic, repo, study folder, or provided resource set
+- help serious self-learners compete with elite university students and top-company developers
+- teach technical subjects plus communication, critical thinking, strategic thinking, problem solving, English proficiency, business, philosophy, and other academic domains
+- preserve context through project-local `.mentor/MENTOR_STATE.md`
+- produce roadmaps, lessons, deliberate practice, assessments, source validation, and portfolio evidence
+- remain local-first, consent-first, evidence-first, mastery-first, portfolio-first, and safety-first
+- work through native Claude Code and Codex plugin surfaces, not custom installers or package installers
+- use English by default, with Roman Urdu only when explicitly requested as clarification
+
+OpenClaw Mastery is the first proof case for Elite Mentor OS.
 
 ## Product standard
 
@@ -106,10 +123,63 @@ Estimated status:
 
 - Standalone ready-to-teach curriculum: approximately 85-90%
 - True world-class, institution-proof polished product: approximately 70-75%
+- Elite Mentor OS native plugin v0.1 implementation: approximately 90-92% after lean hardening
+- Elite Mentor OS production/sellable institutional product: early proof stage, approximately 35-45%
 
 The core architecture is implemented. The remaining work is mainly validation, depth expansion, real-world calibration, and final polish.
 
+For the plugin layer, the implementation has been hardened toward a lean comfort-first surface: consolidated core, five public skills, three Claude agents, one OpenClaw proof-pack, one validation file, and one mentor state file. Remaining work is mainly real plugin-load testing in Claude Code and Codex, external adversarial review, packaging polish, and user-tested learning sessions.
+
+The completion path is now explicit in `.mentor/MENTOR_STATE.md` and `plugins/elite-mentor-os/core/MENTOR_OS.md`: P0 lean plugin foundation, P1 live plugin proof, P2 learning proof, P3 validation proof, P4 institution proof, P5 enterprise proof, and P6 product proof. Do not claim 99% confidence until those exit gates are satisfied with evidence.
+
 ## Implemented major components
+
+### Elite Mentor OS native plugin
+
+Plugin package:
+
+- `plugins/elite-mentor-os/core/MENTOR_OS.md`
+- `plugins/elite-mentor-os/.claude-plugin/plugin.json`
+- `plugins/elite-mentor-os/.codex-plugin/plugin.json`
+- `.claude-plugin/marketplace.json`
+- `.agents/plugins/marketplace.json`
+
+Shared core:
+
+- `plugins/elite-mentor-os/core/MENTOR_OS.md`
+
+Native skills:
+
+- `plugins/elite-mentor-os/skills/diagnose/SKILL.md`
+- `plugins/elite-mentor-os/skills/mentor/SKILL.md`
+- `plugins/elite-mentor-os/skills/roadmap/SKILL.md`
+- `plugins/elite-mentor-os/skills/review/SKILL.md`
+- `plugins/elite-mentor-os/skills/openclaw-master/SKILL.md`
+
+Practice, research, state, and portfolio behavior are folded into the five public skills to reduce clutter.
+
+Claude-only agents:
+
+- `plugins/elite-mentor-os/agents/mentor-professor.md`
+- `plugins/elite-mentor-os/agents/research-auditor.md`
+- `plugins/elite-mentor-os/agents/assessment-board.md`
+
+State and proof-pack:
+
+- `.mentor/MENTOR_STATE.md`
+- `plugins/elite-mentor-os/proof-packs/openclaw/OPENCLAW_PROOF_PACK.md`
+- `plugins/elite-mentor-os/validation/VALIDATION.md`
+
+Local validation completed on 2026-05-04:
+
+- all plugin and marketplace JSON files parse with `python3 -m json.tool`
+- `claude plugin validate .` passed for the marketplace before final tiny cleanup
+- `claude plugin validate plugins/elite-mentor-os` passed for the Claude plugin manifest before final tiny cleanup
+- all skill and agent files have frontmatter and descriptions
+- key manifest-referenced paths exist
+- `git diff --check` reported no whitespace errors
+- plugin-eval improved from 46/100 Grade F to 91/100 Grade B after the main lean hardening pass
+- final plugin-eval and Claude validator reruns after the last tiny cleanup were blocked by WSL/Windows interop socket errors, not by plugin file errors
 
 ### Core curriculum
 
@@ -344,6 +414,13 @@ Future validation must re-check current releases, docs, and advisories because t
 
 - The curriculum is university-first but enterprise-usable.
 - The program is English-only.
+- Elite Mentor OS uses English by default and Roman Urdu only on explicit request.
+- Elite Mentor OS is native-plugin-first for Claude Code and Codex.
+- Elite Mentor OS must not use a custom command installer or package installer.
+- Elite Mentor OS uses shared core files plus native adapters to avoid Claude/Codex behavior drift.
+- `.mentor/MENTOR_STATE.md` is the project-local source of truth for AI-mentor continuity.
+- Elite Mentor OS is guided-action by default: it proposes writes and asks before changing state, curriculum, portfolio, or repo files.
+- High-stakes domains are learning-only unless qualified professional context is supplied.
 - The main shape is a two-semester core plus specialization tracks.
 - The canonical learning lane is WSL Ubuntu / Linux plus browser-based Control UI.
 - Stable OpenClaw behavior is the baseline.
@@ -359,6 +436,9 @@ Future validation must re-check current releases, docs, and advisories because t
 
 The curriculum is strong, but not final-perfect. Remaining likely gaps:
 
+- Elite Mentor OS has not yet been plugin-load tested inside Claude Code or Codex after implementation
+- Elite Mentor OS needs fresh adversarial review after this native plugin layer
+- Elite Mentor OS is an early proof system, not yet a packaged commercial product
 - real captured screenshots are not yet committed
 - slide outlines are not full slide decks
 - no rendered docs site or GitHub Pages layer yet
@@ -370,9 +450,10 @@ The curriculum is strong, but not final-perfect. Remaining likely gaps:
 
 ## Current best next step
 
-Run a fresh external validation round using the master validation prompt:
+Run local validation checks and then a fresh external validation round using:
 
 - `Validations/master-validation-prompt.md`
+- `plugins/elite-mentor-os/validation/VALIDATION.md`
 
 Recommended reviewers:
 
@@ -395,22 +476,25 @@ After receiving new reviews:
 2. Compare overlap across reviewers.
 3. Create a prioritized remediation backlog.
 4. Patch the curriculum.
-5. Update this `PROJECT_STATE.md`.
-6. Commit and push.
-7. Sync the Windows study copy at `E:\Study\Openclaw mastery`.
+5. Patch the Elite Mentor OS plugin if needed.
+6. Update this `PROJECT_STATE.md` and `.mentor/MENTOR_STATE.md`.
+7. Commit and push.
+8. Sync the Windows study copy at `E:\Study\Openclaw mastery`.
 
 ## Future session startup instructions
 
 If a future session starts after chat clear:
 
 1. Open this file first.
-2. Run `git status --short` in the repo.
-3. Read `README.md`.
-4. Read `Validations/master-validation-prompt.md`.
-5. Check `curriculum/maintenance/upstream-state.json`.
-6. If the user asks for validation, use the prompt and source rules from `Validations/master-validation-prompt.md`.
-7. If the user asks for implementation, inspect relevant files before editing.
-8. After any meaningful update, update this file, commit, push, and sync to `E:\Study\Openclaw mastery` if possible.
+2. Open `.mentor/MENTOR_STATE.md`.
+3. Run `git status --short` in the repo.
+4. Read `README.md`.
+5. Read `plugins/elite-mentor-os/core/MENTOR_OS.md`.
+6. Read `Validations/master-validation-prompt.md`.
+7. Check `curriculum/maintenance/upstream-state.json`.
+8. If the user asks for validation, use the prompt and source rules from `Validations/master-validation-prompt.md` plus `plugins/elite-mentor-os/validation/VALIDATION.md`.
+9. If the user asks for implementation, inspect relevant files before editing.
+10. After any meaningful update, update this file and `.mentor/MENTOR_STATE.md`, commit, push, and sync to `E:\Study\Openclaw mastery` if possible.
 
 ## Strict working rules for future agents
 
@@ -423,6 +507,7 @@ If a future session starts after chat clear:
 - Do not ignore official advisories.
 - Do not represent OpenClaw as a hostile multi-tenant security boundary.
 - Do not mark the curriculum world-class without fresh validation.
+- Do not mark Elite Mentor OS production-ready or sellable without plugin-load testing, adversarial review, and real learner trials.
 - Always preserve source-quality labels: official, verified inference, secondary, weak, uncertain, incorrect.
 
 ## Definition of done for final world-class target
@@ -438,3 +523,6 @@ The curriculum can be considered near final when:
 - maintenance automation and manual review workflow are working
 - the README and instructor handbook can onboard a new instructor without chat context
 - this `PROJECT_STATE.md` is current
+- Elite Mentor OS loads correctly in Claude Code and Codex
+- Elite Mentor OS passes its validation scenarios and adversarial plugin review
+- `.mentor/MENTOR_STATE.md` can restore context after clearing chat

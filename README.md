@@ -6,6 +6,8 @@
 
 This repository is a university-grade, enterprise-usable **OpenClaw mastery curriculum** designed to take a learner from prerequisite foundations to production operations, security hardening, extension development, and contributor-level understanding.
 
+It also contains the first proof implementation of **Elite Mentor OS**, a local-first native plugin system for Claude Code and Codex that turns any directory into a rigorous AI mentor workspace.
+
 It is not just a reading list. It is a structured curriculum system with:
 
 - a prerequisite bridge for beginners
@@ -15,7 +17,7 @@ It is not just a reading list. It is a structured curriculum system with:
 - capstones and rubrics
 - source-backed validation artifacts
 
-For project continuity after chat resets or context clearing, start from [Project State](PROJECT_STATE.md).
+For project continuity after chat resets or context clearing, start from [Project State](PROJECT_STATE.md) and [Mentor State](.mentor/MENTOR_STATE.md).
 
 ## Vision
 
@@ -26,6 +28,54 @@ The goal is to build one of the strongest publicly available learning systems fo
 - production-aware
 - pedagogically structured
 - reusable by universities, instructors, and enterprise teams
+
+The broader Elite Mentor OS goal is to make this curriculum teachable through native AI mentor workflows that can diagnose a directory, build a roadmap, teach lessons, assign deliberate practice, review evidence, validate sources, and preserve continuity through `.mentor/MENTOR_STATE.md`.
+
+## Elite Mentor OS Native Plugin
+
+Elite Mentor OS is implemented under `plugins/elite-mentor-os/`. Its runtime contract is [Mentor OS Core](plugins/elite-mentor-os/core/MENTOR_OS.md). It is designed as:
+
+- a shared mentor core for Claude Code and Codex
+- a Claude native plugin with `.claude-plugin/plugin.json`, skills, and agents
+- a Codex native plugin with `.codex-plugin/plugin.json` and skills
+- a local-first state system using `.mentor/MENTOR_STATE.md`
+- an OpenClaw proof-pack that maps this curriculum into mentor-guided sessions
+- a guided-action system that proposes writes before changing state, curriculum, or portfolio files
+
+Native marketplace files:
+
+- Claude Code marketplace: [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json)
+- Codex marketplace: [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json)
+
+Remote plugin use after this repo is pushed:
+
+Claude Code:
+
+```text
+/plugin marketplace add HaseebAhmed-official/openclaw-mastery-curriculum
+/plugin install elite-mentor-os@elite-mentor-os-marketplace
+/elite-mentor-os:diagnose
+```
+
+Claude Code CLI, sparse checkout variant:
+
+```bash
+claude plugin marketplace add HaseebAhmed-official/openclaw-mastery-curriculum --sparse .claude-plugin plugins/elite-mentor-os
+```
+
+Codex CLI:
+
+```bash
+codex plugin marketplace add HaseebAhmed-official/openclaw-mastery-curriculum --sparse .agents/plugins --sparse plugins/elite-mentor-os
+```
+
+Then open `/plugins`, install `elite-mentor-os` from `Elite Mentor OS Marketplace`, start a new thread, and invoke the plugin or one of its bundled skills with `@`.
+
+Plugin references:
+
+- [Mentor OS Core](plugins/elite-mentor-os/core/MENTOR_OS.md)
+- [OpenClaw Proof-Pack](plugins/elite-mentor-os/proof-packs/openclaw/OPENCLAW_PROOF_PACK.md)
+- [Validation](plugins/elite-mentor-os/validation/VALIDATION.md)
 
 ## Program Baseline
 
@@ -41,6 +91,13 @@ The goal is to build one of the strongest publicly available learning systems fo
 - Validation stance: official sources first, validated inference second, community guidance explicitly labeled
 
 ## Repository Structure
+
+### Elite Mentor OS
+
+- [Mentor OS Core](plugins/elite-mentor-os/core/MENTOR_OS.md)
+- [OpenClaw Proof-Pack](plugins/elite-mentor-os/proof-packs/openclaw/OPENCLAW_PROOF_PACK.md)
+- [Validation](plugins/elite-mentor-os/validation/VALIDATION.md)
+- [Mentor State](.mentor/MENTOR_STATE.md)
 
 ### Core program
 
@@ -150,6 +207,7 @@ The goal is to build one of the strongest publicly available learning systems fo
 
 ### Validation and evidence
 
+- [Mentor State](.mentor/MENTOR_STATE.md)
 - [Project State](PROJECT_STATE.md)
 - [Master Validation Prompt](Validations/master-validation-prompt.md)
 - [Validation Register](curriculum/sources/validation-register.md)
@@ -165,6 +223,15 @@ The goal is to build one of the strongest publicly available learning systems fo
 3. Work through [Semester 1](curriculum/semester-1/index.md) and [Semester 2](curriculum/semester-2/index.md).
 4. Choose a role path from [Tracks](curriculum/tracks/index.md).
 5. Complete the mapped labs, capstone, and final defense.
+
+### AI-mentor learning
+
+1. Start with [Mentor State](.mentor/MENTOR_STATE.md).
+2. Use `elite-mentor-os:diagnose` to locate your current level.
+3. Use `elite-mentor-os:openclaw-master` for the next OpenClaw session.
+4. Use `elite-mentor-os:mentor` for lessons and deliberate practice.
+5. Use `elite-mentor-os:review` to prove mastery through artifacts.
+6. Approve `.mentor` updates only after the proposed state change is accurate.
 
 ### Instructors
 
@@ -200,9 +267,13 @@ This repository is in active build-out. The backbone now exists, including:
 - maintenance docs and automated upstream drift detection
 - official-source reading map
 - independent validation reviews
+- native Elite Mentor OS plugin package for Claude Code and Codex
+- project-local mentor state and OpenClaw proof-pack mapping
 
 The next major phase is iteration and refinement:
 
+- test plugin loading in Claude Code and Codex
+- run adversarial validation against the new plugin layer
 - populate the classroom manuals with locally captured reference screenshots
 - add cohort-tested timing adjustments and pacing evidence
 - build optional presentation-ready slide files from the current outlines
