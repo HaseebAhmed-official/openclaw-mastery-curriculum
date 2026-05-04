@@ -26,8 +26,8 @@
 
 ### LAB-B1: OpenClaw install and onboard
 
-- focus: install, provider auth, daemon setup
-- output: working OpenClaw installation
+- focus: current official install path, provider auth, daemon setup, and package/release baseline
+- output: working OpenClaw installation with installed package version and current GitHub release noted
 
 ### LAB-B2: Control UI and diagnostics ladder
 
@@ -44,7 +44,7 @@
 ### LAB-B4: Provider and model selection
 
 - focus: auth, model defaults, fallback awareness, release-note drift, and cost/rate-limit awareness
-- output: configured model baseline, rationale, and release-aware note documenting the current default assumptions
+- output: configured model baseline, rationale, release-aware note, and npm/GitHub version comparison documenting the current default assumptions
 
 ### LAB-B5: Sandbox and exec policy
 
@@ -71,7 +71,7 @@
 ### LAB-C2: Security audit and remediation
 
 - focus: `openclaw security audit`, webhook findings, plugin and hook install records, and JSON export
-- output: audit findings, remediation plan, and machine-readable audit artifact using `--json`
+- output: audit findings, remediation plan, machine-readable audit artifact using `--json`, and current advisory/release note cross-check
 
 ### LAB-C3: Trusted proxy and ingress review
 
@@ -90,8 +90,8 @@
 
 ### LAB-C6: Automation and standing-orders design
 
-- focus: cron, heartbeat, task flow, standing orders, and hooks
-- output: detached-work design note choosing the correct primitive for multiple scenarios
+- focus: cron, heartbeat, task flow, standing orders, hooks, `/steer`, and `/side`
+- output: detached-work design note choosing the correct primitive for multiple scenarios and explaining when steering is not a new task
 
 ### LAB-C7: Sub-agent and ACP auditability lab
 
@@ -102,8 +102,8 @@
 
 ### LAB-D1: Plugin manifest inspection
 
-- focus: `openclaw.plugin.json`, plugin bundles, schema-driven validation, and install/update behavior
-- output: manifest review
+- focus: `openclaw.plugin.json`, plugin bundles, ClawHub/npm source choice, dependency status, runtime inspection, file-transfer policy, schema-driven validation, and install/update behavior
+- output: manifest, runtime, supply-chain, and file-transfer policy review
 
 ### LAB-D2: Skills precedence and install flow
 

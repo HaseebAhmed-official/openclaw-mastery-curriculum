@@ -108,13 +108,15 @@ Build confidence reading structured configuration and verifying runtime requirem
 
 1. Verify Node.js version.
 2. Record the current OpenClaw-supported version range from official docs.
-3. Inspect a sample JSON or JSON-like config.
-4. Identify required fields, optional fields, and one likely validation risk.
-5. Make a valid edit and explain its effect.
+3. Check the current OpenClaw release notes and installed package channel.
+4. Inspect a sample JSON or JSON-like config.
+5. Identify required fields, optional fields, and one likely validation risk.
+6. Make a valid edit and explain its effect.
 
 ### Required evidence
 
 - terminal output showing Node version
+- release-aware note comparing current release notes with installed package version
 - a before/after config snippet
 - one paragraph explaining the edit
 
@@ -181,22 +183,25 @@ Produce a working local OpenClaw install with a successful onboarding flow.
 
 ### Procedure
 
-1. Confirm current supported install path and version guidance.
-2. Install OpenClaw using the official documented method.
-3. Run the onboarding flow.
-4. Configure one provider or approved classroom auth path.
-5. Verify the gateway launches and responds.
-6. Record version, environment, provider, and any deviations from default instructions.
+1. Confirm current supported install path, Node guidance, and version guidance from official docs.
+2. Check the latest GitHub release and the latest package version for the install channel actually used.
+3. Install OpenClaw using the official documented method.
+4. Run `openclaw onboard --install-daemon`.
+5. Configure one provider or approved classroom auth path.
+6. Verify the gateway launches and responds.
+7. Record version, environment, provider, package channel, and any deviations from default instructions.
 
 ### Required evidence
 
 - version output
+- GitHub release and installed package version note
 - onboarding completion evidence
 - one page install runbook
 
 ### Common failure modes
 
 - stale install instructions
+- GitHub release and npm package version mismatch not documented
 - provider auth pasted into the wrong environment
 - students skipping version checks
 
@@ -285,16 +290,18 @@ Teach learners to choose a provider baseline with current release awareness.
 ### Procedure
 
 1. Read the latest release notes relevant to provider defaults.
-2. Identify the current default or recommended model path.
-3. Configure the provider.
-4. Explain why the selected model is acceptable for the use case.
-5. Record one fallback or alternative.
-6. Note one cost or rate-limit consideration.
+2. Compare the current GitHub release with the installed package or update channel.
+3. Identify the current default or recommended model path.
+4. Configure the provider.
+5. Explain why the selected model is acceptable for the use case.
+6. Record one fallback or alternative.
+7. Note one cost or rate-limit consideration.
 
 ### Required evidence
 
 - provider setup review
 - release-aware note with date and release reference
+- installed package or update-channel note when it differs from GitHub latest
 
 ### Common failure modes
 

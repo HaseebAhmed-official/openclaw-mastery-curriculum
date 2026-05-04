@@ -11,8 +11,52 @@ If a new Codex, Claude, or other LLM session starts from this file, it should un
 - Captured on: 2026-05-04
 - Timezone context: Asia/Karachi
 - Primary repo branch: `main`
-- Committed baseline before this state-file update: `366d3e0` - `Add WSL screenshot capture curriculum assets`
+- Committed baseline before this state-file update: `6d243d5` - `Add Elite Mentor OS native plugin`
 - To get the latest commit after future edits, run `git log -1 --oneline`
+
+## Mandatory state-preservation protocol
+
+State continuity is the highest-priority operating rule for this project. The curriculum and plugin can be improved only if future Codex, Claude, or other LLM sessions can resume without guessing from chat history.
+
+Use only the existing state surfaces unless a new file is clearly necessary:
+
+- `PROJECT_STATE.md` is the canonical long-form source of truth for project vision, decisions, progress, gaps, rules, and future-session startup.
+- `.mentor/MENTOR_STATE.md` is the compact operational source of truth for current mentor/product state, current roadmap, evidence, session log, and next actions.
+- `curriculum/maintenance/upstream-state.json` is the machine-readable OpenClaw release baseline.
+- `curriculum/maintenance/review-log.md` is the human-readable release/advisory review history.
+
+Every meaningful work session must update state before stopping, compacting, committing a milestone, changing direction, or pushing. A meaningful update is any change to curriculum scope, release baseline, plugin architecture, validation outcome, user goal, unresolved blocker, or next action. Tiny typo fixes do not require state updates.
+
+Future agents must follow this sequence:
+
+1. Read `PROJECT_STATE.md`.
+2. Read `.mentor/MENTOR_STATE.md`.
+3. Run `git status -sb`.
+4. Check `curriculum/maintenance/upstream-state.json`.
+5. If OpenClaw release-sensitive work is requested, verify current upstream release before editing.
+6. Edit only targeted files that reduce real gaps.
+7. Run validation appropriate to the changed files.
+8. Update `PROJECT_STATE.md` and `.mentor/MENTOR_STATE.md` with concise facts, not chat transcripts.
+9. Commit and push only when the staged scope is understood.
+
+State entries should be compressed into decisions, evidence, blockers, and next actions. Do not paste long conversation summaries, release notes, or duplicate curriculum content into state files.
+
+## Product separation and repository boundary
+
+There are two related but separate products:
+
+1. **OpenClaw Mastery Curriculum**: the domain-specific curriculum in this repository. It teaches OpenClaw from beginner to expert, with production, enterprise, security, extension, contributor, and teaching pathways.
+2. **Elite Mentor OS**: a subject-agnostic mentor-learning system intended to work for any subject, topic, repo, directory, or provided resource set.
+
+The current repository owns the OpenClaw curriculum. It currently includes `plugins/elite-mentor-os/` only as a v0.1 proof/integration case so the mentor system can be tested against a real curriculum and installed remotely during early validation.
+
+Future work must label changes explicitly:
+
+- `OpenClaw Curriculum update`: changes to OpenClaw teaching content, labs, assessment, release drift, screenshots, or curriculum validation.
+- `Elite Mentor OS update`: changes to the subject-agnostic mentor engine, plugin behavior, skills, agents, pedagogy, or product packaging.
+- `Integration/proof-pack update`: changes that connect Elite Mentor OS to the OpenClaw curriculum.
+
+Long-term target: split Elite Mentor OS into its own standalone repository after the proof case stabilizes. The OpenClaw curriculum should then consume it as a proof-pack/user, not own it as the final product.
 
 ## Primary vision
 
@@ -34,7 +78,7 @@ The curriculum must be strong enough that a serious instructor or institution ca
 
 ## Expanded Elite Mentor OS vision
 
-The repository now also contains the first implementation of **Elite Mentor OS**: a local-first native plugin system for Claude Code and Codex that can turn any directory into a rigorous AI mentor workspace.
+The repository now also contains the first proof implementation of **Elite Mentor OS**: a local-first native plugin system for Claude Code and Codex that can turn any directory into a rigorous AI mentor workspace. This proof implementation is related to the OpenClaw curriculum but is not the same product.
 
 The expanded product vision is broader than OpenClaw:
 
@@ -47,7 +91,7 @@ The expanded product vision is broader than OpenClaw:
 - work through native Claude Code and Codex plugin surfaces, not custom installers or package installers
 - use English by default, with Roman Urdu only when explicitly requested as clarification
 
-OpenClaw Mastery is the first proof case for Elite Mentor OS.
+OpenClaw Mastery is the first proof case for Elite Mentor OS. The two should evolve with clear separation of concerns.
 
 ## Product standard
 
@@ -99,15 +143,16 @@ Old GitHub remote retained locally:
 At the time this file was written:
 
 - branch: `main`
-- latest pushed commit before this state-file update: `366d3e0`
+- latest pushed commit before this state-file update: `6d243d5`
 - latest actual commit should be checked with `git log -1 --oneline`
-- local repo was clean before this state-file update
+- local repo was clean before the current release-drift/state update
 - current remote `origin`: `https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum.git`
 - repo visibility: public
 - license: MIT
 
 Recent important commits:
 
+- `6d243d5` - Add Elite Mentor OS native plugin
 - `366d3e0` - Add WSL screenshot capture curriculum assets
 - `f791682` - Add classroom delivery and calibration assets
 - `a3e120e` - Deepen Semester 2 security teaching guidance
@@ -395,8 +440,9 @@ The reviews should remain preserved as historical validation artifacts, but futu
 As of the latest maintenance work:
 
 - OpenClaw tracked repo: `openclaw/openclaw`
-- Last reviewed OpenClaw release in state file: `v2026.4.23`
-- Last reviewed date in state file: `2026-04-24`
+- Last reviewed OpenClaw GitHub release in state file: `v2026.5.3`
+- Last reviewed OpenClaw npm package in state file: `2026.5.3-1`
+- Last reviewed date in state file: `2026-05-04`
 - Latest curriculum advisory integration included official advisories published around `2026-04-23`
 
 Important advisory examples integrated into teaching:
@@ -409,6 +455,15 @@ Important advisory examples integrated into teaching:
 - `GHSA-wppj-c6mr-83jj` - OpenShell FS bridge writes stay pinned to the sandbox mount root
 
 Future validation must re-check current releases, docs, and advisories because the project moves quickly.
+
+Latest release-drift repair integrated on 2026-05-04:
+
+- plugin install/update hardening and official externalized plugin behavior
+- file-transfer plugin as a capability and policy case study
+- channel streaming progress drafts and command steering surfaces such as `/steer` and `/side`
+- `openclaw update --dry-run`, `--json`, update status, npm hotfix awareness, `doctor`, restart, health verification, and rollback
+- invalid config fail-closed behavior and doctor-owned safe repair
+- non-authoritative open GitHub issues used only as risk signals, not as curriculum truth
 
 ## Key design decisions
 
@@ -445,7 +500,7 @@ The curriculum is strong, but not final-perfect. Remaining likely gaps:
 - labs are strong manuals but not all are fully command-by-command runnable scripts
 - certification tiers are implied but could be formalized more
 - external validation after the newest commits is still needed
-- current OpenClaw release state must be rechecked because this state file is dated 2026-05-02 and upstream may have changed
+- latest release-drift repair needs fresh adversarial review after commit
 - more top-quality community/blog/Reddit evidence can be reviewed and categorized, but official sources must stay primary
 
 ## Current best next step

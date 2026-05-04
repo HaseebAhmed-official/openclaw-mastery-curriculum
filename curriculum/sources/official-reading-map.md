@@ -58,7 +58,10 @@
 ## OpenClaw extensibility
 
 - [Plugins](https://docs.openclaw.ai/plugins)
+- [Manage Plugins](https://docs.openclaw.ai/plugins/manage-plugins)
 - [Plugin Manifest](https://docs.openclaw.ai/plugins/manifest)
+- [Plugin Inventory](https://docs.openclaw.ai/plugins/plugin-inventory)
+- [File Transfer Plugin](https://docs.openclaw.ai/plugins/reference/file-transfer)
 - [Skills](https://docs.openclaw.ai/skills)
 - [Skills CLI](https://docs.openclaw.ai/cli/skills)
 - [ClawHub](https://docs.openclaw.ai/tools/clawhub)
@@ -80,6 +83,15 @@
 - [Updating](https://docs.openclaw.ai/install/updating)
 - [Release Channels](https://docs.openclaw.ai/install/development-channels)
 - [Releases](https://github.com/openclaw/openclaw/releases)
+- [OpenClaw 2026.5.3 release](https://github.com/openclaw/openclaw/releases/tag/v2026.5.3)
+- [OpenClaw 2026.5.3-1 npm hotfix release](https://github.com/openclaw/openclaw/releases/tag/v2026.5.3-1)
+
+### Current release baseline reviewed at the 2026-05-04 baseline
+
+- GitHub release: `v2026.5.3`
+- npm package: `openclaw@2026.5.3-1`
+- High-impact teaching surfaces: plugin install/update hardening, official plugin externalization, file-transfer plugin, channel streaming progress drafts, `/steer`, `/side`, `doctor --fix` migration behavior, invalid config fail-closed behavior, provider/proxy handling, memory/search reliability, and Codex harness/persona forwarding
+- Open issue signal reviewed: current GitHub issues were used only as risk signals, not as authoritative curriculum facts
 
 ## Prerequisite technologies
 

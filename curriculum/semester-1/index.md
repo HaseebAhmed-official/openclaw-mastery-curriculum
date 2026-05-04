@@ -16,10 +16,10 @@ By the end of Semester 1, a learner should be able to install OpenClaw, onboard 
 | 4 | Docker and networking basics | Explain containers, localhost, ports, and tunnels | Docker and port-mapping lab | Networking worksheet |
 | 5 | LLM agent fundamentals | Explain provider, model, tools, and prompt injection basics | Tool-risk analysis | Reflection memo |
 | 6 | OpenClaw overview and trust model | Explain gateway, control plane, channels, nodes, and personal-assistant trust model | Architecture mapping lab | Concept check |
-| 7 | Installation and onboarding | Install OpenClaw, run `openclaw onboard`, understand auth and daemon setup | First install and onboarding | Install lab |
+| 7 | Installation and onboarding | Install OpenClaw through the current official path, run `openclaw onboard --install-daemon`, understand auth and daemon setup | First install and onboarding | Install lab |
 | 8 | Control UI, doctor, status, health | Use the basic operational commands and browser UI | Local ops and diagnostics ladder | Midterm practical 1 |
 | 9 | Sessions, workspace, and memory | Explain session boundaries, workspace files, and memory model | Workspace + memory inspection lab | Session/memory quiz |
-| 10 | Models, providers, and release-aware defaults | Configure a model, understand fallback ordering, inspect model status, and check current release notes before trusting defaults | Provider auth, model selection, and release-note diff lab | Provider setup review |
+| 10 | Models, providers, and release-aware defaults | Configure a model, understand fallback ordering, inspect model status, and check current release notes plus installed package version before trusting defaults | Provider auth, model selection, npm/GitHub version check, and release-note diff lab | Provider setup review |
 | 11 | Tools, sandboxing, and approvals | Distinguish sandbox vs host execution and approval flows | Sandbox + exec policy lab | Safety review |
 | 12 | Channels and pairing | Safely connect a channel and reason about DM/group policy | Telegram or WhatsApp lab | Channel policy check |
 | 13 | Nodes and multimodal surfaces | Explain node role, pairing, command surface, talk mode, voice wake, and third-party dependencies like TTS providers | Node architecture walkthrough | Node concept check |
@@ -34,6 +34,7 @@ By the end of Semester 1, a learner should be able to install OpenClaw, onboard 
 - a working local gateway with Control UI access
 - one configured provider and model baseline
 - one release-aware note describing what defaults were current during the lab run
+- one version note comparing installed package version with current GitHub release when relevant
 - one safe channel or equivalent webchat-only baseline
 - one troubleshooting runbook
 - one secure baseline design note

@@ -1,8 +1,10 @@
 {
   "tracked_repo": "openclaw/openclaw",
-  "last_reviewed_release": "v2026.4.23",
-  "last_reviewed_date": "2026-04-24",
+  "last_reviewed_release": "v2026.5.3",
+  "last_reviewed_npm_version": "2026.5.3-1",
+  "last_reviewed_date": "2026-05-04",
   "last_reviewed_advisory_date": "2026-04-24",
+  "last_review_notes": "Reviewed GitHub release v2026.5.3, npm hotfix 2026.5.3-1, official docs surfaces, and selected open GitHub issues as non-authoritative risk signals. No new security advisory was integrated in this pass.",
   "last_reviewed_advisories": [
     "GHSA-93rg-2xm5-2p9v",
     "GHSA-55cf-xx38-4p9p",

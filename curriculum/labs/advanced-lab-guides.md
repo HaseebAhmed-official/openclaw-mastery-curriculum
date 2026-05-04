@@ -44,11 +44,12 @@ Use the security audit like an operator, not like a checkbox runner.
 1. Run `openclaw security audit`.
 2. Run `openclaw security audit --deep` when the environment permits, or explain why only the baseline audit was feasible.
 3. Export machine-readable findings with `--json` from at least one audit run.
-4. Review at least one current official OpenClaw advisory that overlaps with the deployment surface.
-5. Identify webhook, plugin, hook, auth, proxy, or advisory-related findings.
+4. Review at least one current official OpenClaw advisory or current release note that overlaps with the deployment surface.
+5. Identify webhook, plugin, hook, auth, proxy, file-transfer, or advisory-related findings.
 6. Explain which findings `openclaw security audit --fix` could address and which require manual/operator action.
-7. Prioritize remediation.
-8. Record accepted risks and why.
+7. Cross-check whether open issue signals suggest extra caution without treating issues as authoritative documentation.
+8. Prioritize remediation.
+9. Record accepted risks and why.
 
 ### Required evidence
 
@@ -56,13 +57,45 @@ Use the security audit like an operator, not like a checkbox runner.
 - remediation plan
 - JSON artifact
 - short note comparing baseline audit, deep audit, and `--fix` limits
+- source note distinguishing official docs/release notes from non-authoritative issue signals
 
 ### Common failure modes
 
 - collecting findings without prioritization
 - ignoring webhook-specific controls
+- ignoring plugin, file-transfer, or hook authority
 - assuming `--fix` completes hardening or exposure remediation
 - ignoring upstream advisories because the local audit output looked clean
+
+## LAB-C2A: Config fail-closed and doctor repair drill
+
+### Objective
+
+Teach learners that invalid configuration is an operational safety event, not a formatting inconvenience.
+
+### Duration
+
+- 60 minutes
+
+### Procedure
+
+1. Inspect the current configuration reference and release notes for config-load behavior.
+2. Review a safe instructor-provided invalid config sample.
+3. Explain why fail-closed behavior is safer than auto-restoring invalid config during startup or hot reload.
+4. Run or conceptually trace the `doctor --fix` repair path in a controlled environment.
+5. Record which repairs are safe migrations and which require operator judgment.
+
+### Required evidence
+
+- config repair note
+- before/after explanation
+- one decision table separating automatic repair from manual review
+
+### Common failure modes
+
+- assuming every config error should auto-repair
+- treating `doctor --fix` as permission to ignore review
+- failing to preserve operator-owned secrets or plugin config boundaries
 
 ## LAB-C3: Trusted proxy and ingress review
 
@@ -154,18 +187,21 @@ Choose the right detached-work primitive and defend the choice.
 
 ### Procedure
 
-1. Compare cron, heartbeat, hooks, task flow, and standing orders.
+1. Compare cron, heartbeat, hooks, task flow, standing orders, `/steer`, and `/side`.
 2. Match each primitive to one scenario.
 3. Identify authority, auditability, and failure implications.
-4. Reject at least one tempting but wrong choice.
+4. Explain why `/steer` changes the active run while cron/tasks create durable work records.
+5. Reject at least one tempting but wrong choice.
 
 ### Required evidence
 
 - detached-work design note
+- steering-vs-task distinction
 
 ### Common failure modes
 
 - using hooks where scheduled or session-bound behavior would be safer
+- using `/steer` when the work needs a durable task record
 
 ## LAB-C7: Sub-agent and ACP auditability lab
 

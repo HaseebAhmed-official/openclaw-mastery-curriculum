@@ -14,12 +14,25 @@ Teach extension review with manifest, schema, and install/update behavior in vie
 
 1. Inspect a native plugin manifest.
 2. Identify capabilities, config surface, and schema expectations.
-3. Record install/update and compatibility assumptions.
-4. Flag one supply-chain or operational concern.
+3. Compare ClawHub, npm, git, and local-path install sources for the plugin.
+4. Inspect or describe `openclaw plugins list --json` dependency status.
+5. Inspect or describe `openclaw plugins inspect <plugin-id> --runtime --json` as proof of runtime loading.
+6. Review the official file-transfer plugin as a capability and policy example.
+7. Record install/update and compatibility assumptions.
+8. Flag one supply-chain or operational concern.
 
 ### Required evidence
 
 - manifest review
+- runtime inspection note
+- dependency status note
+- file-transfer policy note
+
+### Common failure modes
+
+- assuming installed inventory means the running Gateway loaded the plugin
+- skipping source provenance because the plugin appears official or familiar
+- ignoring per-node file-transfer path policy and byte limits
 
 ## LAB-D2: Skills precedence and install flow
 

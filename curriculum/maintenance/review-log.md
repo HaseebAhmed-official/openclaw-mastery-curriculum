@@ -20,6 +20,17 @@
 - Outcome: clarified `security audit --deep` vs `--fix`, trusted-proxy failure modes, workspace dotenv ownership boundaries, and ACP child-session constraint inheritance
 - Follow-up validation: include these items in the next external curriculum audit
 
+## 2026-05-04
+
+- Reviewed upstream baseline through OpenClaw GitHub release `v2026.5.3`
+- Reviewed npm package baseline `openclaw@2026.5.3-1`, published after `v2026.5.3` as a core npm hotfix
+- Reviewed official release highlights touching plugin install/update hardening, externalized official plugin behavior, file-transfer tooling, channel streaming progress drafts, `/steer`, `/side`, update/doctor behavior, invalid-config fail-closed behavior, provider/proxy handling, memory/search reliability, and Codex harness/persona forwarding
+- Reviewed selected open GitHub issues as non-authoritative risk signals, including current plugin, Discord, WSL/browser, security-audit, and performance reports
+- Change category: release-drift curriculum repair
+- Curriculum files touched: `PROJECT_STATE.md`, `.mentor/MENTOR_STATE.md`, `curriculum/maintenance/upstream-state.json`, `curriculum/maintenance/review-log.md`, `curriculum/sources/official-reading-map.md`, `curriculum/sources/validation-register.md`, `curriculum/update-and-release-discipline.md`, `curriculum/semester-1/index.md`, `curriculum/semester-2/index.md`, `curriculum/labs/lab-catalog.md`, `curriculum/labs/core-lab-guides.md`, `curriculum/labs/advanced-lab-guides.md`, `curriculum/labs/specialization-lab-guides.md`, `curriculum/tracks/plugin-developer.md`, `curriculum/tracks/production-devops.md`, `curriculum/tracks/security-hardening.md`
+- Outcome: curriculum baseline updated from `v2026.4.23` to `v2026.5.3` / `2026.5.3-1`; latest plugin/update/file-transfer/release-discipline changes mapped into teaching surfaces
+- Follow-up validation: run fresh external Codex/Claude adversarial review after this patch and convert at least the highest-value labs into fully command-by-command manuals
+
 ## Logging rule
 
 Every future upstream review should append:
