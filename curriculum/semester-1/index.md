@@ -12,15 +12,15 @@ By the end of Semester 1, a learner should be able to install OpenClaw, onboard 
 | --- | --- | --- | --- | --- |
 | 1 | Environment baseline | Verify WSL2/Linux, shell, editor, package tooling | WSL2/Linux setup checklist | Environment verification |
 | 2 | Git and repo hygiene | Read diffs, branch safely, inspect state | Git mini-workflow | Git workflow check |
-| 3 | Node.js, JSON, TypeScript literacy | Understand runtime, packages, and config shape | Node versioning and JSON drill | Config reading quiz |
+| 3 | Node.js, JSON, TypeScript literacy | Verify the current supported Node floor and understand runtime, packages, and config shape | Node versioning and JSON drill against current official requirements | Config reading quiz |
 | 4 | Docker and networking basics | Explain containers, localhost, ports, and tunnels | Docker and port-mapping lab | Networking worksheet |
 | 5 | LLM agent fundamentals | Explain provider, model, tools, and prompt injection basics | Tool-risk analysis | Reflection memo |
 | 6 | OpenClaw overview and trust model | Explain gateway, control plane, channels, nodes, and personal-assistant trust model | Architecture mapping lab | Concept check |
 | 7 | Installation and onboarding | Install OpenClaw through the current official path, run `openclaw onboard --install-daemon`, understand auth and daemon setup | First install and onboarding | Install lab |
 | 8 | Control UI, doctor, status, health | Use the basic operational commands and browser UI | Local ops and diagnostics ladder | Midterm practical 1 |
 | 9 | Sessions, workspace, and memory | Explain session boundaries, workspace files, and memory model | Workspace + memory inspection lab | Session/memory quiz |
-| 10 | Models, providers, and release-aware defaults | Configure a model, understand fallback ordering, inspect model status, and check current release notes plus installed package version before trusting defaults | Provider auth, model selection, npm/GitHub version check, and release-note diff lab | Provider setup review |
-| 11 | Tools, sandboxing, and approvals | Distinguish sandbox vs host execution and approval flows | Sandbox + exec policy lab | Safety review |
+| 10 | Models, providers, and release-aware defaults | Configure a model, understand fallback ordering, inspect model status, and distinguish stable, extended-stable, beta, and dev before trusting defaults | Provider auth, model selection, npm dist-tag/GitHub version check, and release-note diff lab | Provider setup review |
+| 11 | Tools, sandboxing, and approvals | Distinguish sandbox vs host execution, verify what is actually approved, and reason about wrapper plus Gateway/node environment equivalence | Sandbox + exec policy and approval-integrity lab | Safety review |
 | 12 | Channels and pairing | Safely connect a channel and reason about DM/group policy | Telegram or WhatsApp lab | Channel policy check |
 | 13 | Nodes and multimodal surfaces | Explain node role, pairing, command surface, talk mode, voice wake, and third-party dependencies like TTS providers | Node architecture walkthrough | Node concept check |
 | 14 | Remote access patterns | Compare loopback, SSH tunnels, and Tailscale Serve patterns | Remote access lab | Remote access review |

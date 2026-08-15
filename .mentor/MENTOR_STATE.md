@@ -17,7 +17,7 @@ The goal is to create a system that can help a serious self-learner compete with
 
 ## Product Boundary
 
-OpenClaw Mastery Curriculum and Elite Mentor OS are separate products. This repository owns the OpenClaw curriculum and currently carries Elite Mentor OS only as a v0.1 proof/integration case. Future work must be labeled as `OpenClaw Curriculum update`, `Elite Mentor OS update`, or `Integration/proof-pack update`. The long-term target is a standalone Elite Mentor OS repository after the proof case stabilizes.
+OpenClaw Mastery Curriculum and Elite Mentor OS are separate products. This repository owns the OpenClaw curriculum and currently carries Elite Mentor OS only as a v0.2 extraction-ready proof/integration case. Future work must be labeled as `OpenClaw Curriculum update`, `Elite Mentor OS update`, or `Integration/proof-pack update`. The long-term target is a standalone Elite Mentor OS repository after the proof case stabilizes.
 
 ## State Continuity Contract
 
@@ -42,16 +42,16 @@ State updates must be compact and factual:
 
 ## Active Roadmap
 
-- Current implementation track: build Elite Mentor OS as a dual-native plugin with a shared core.
-- Current milestone: lean v0.1 native plugin package completed with manifests, 5 skills, 3 Claude agents, one consolidated core, one OpenClaw proof-pack, one validation file, continuity state, and local checks.
-- Next milestone: run real Claude Code and Codex plugin-load tests in interactive sessions, then use the system to guide OpenClaw learning sessions.
+- Current implementation track: harden Elite Mentor OS as a lean, subject-agnostic dual-native plugin with OpenClaw as proof-pack only.
+- Current milestone: v0.2 extraction-ready proof with manifests, 5 skills, 3 Claude agents, one consolidated core, one plugin README, one OpenClaw proof-pack, one validation file, continuity state, and local checks.
+- Next milestone: run real Claude Code and Codex plugin-load tests in interactive sessions, then trial the system in at least three non-OpenClaw directories and one OpenClaw learning session.
 - Mastery target: a reusable mentor system that can adapt to any directory, subject, topic, or resource set while maintaining auditable quality gates.
 
 ## Complete Dream Roadmap
 
 | Phase | Goal | Exit evidence |
 | --- | --- | --- |
-| P0 Lean plugin foundation | Keep native plugin surface minimal and usable. | 17-file surface, JSON checks, no stale references, plugin-eval 91/100 baseline. |
+| P0 Lean plugin foundation | Keep native plugin surface minimal and usable. | 18-file surface including one product README, JSON checks, no stale references, plugin-eval 91/100 baseline. |
 | P1 Live plugin proof | Prove Claude and Codex can load and use the plugin. | Claude install/load test and Codex fresh-session discovery test pass. |
 | P2 Learning proof | Prove the system teaches a real learner. | One OpenClaw session produces roadmap, practice, review, and state update proposal. |
 | P3 Validation proof | Prove quality under adversarial review. | Fresh Codex/Claude review finds no critical blockers or all are patched. |
@@ -63,7 +63,7 @@ State updates must be compact and factual:
 
 | Source | Tier | Purpose | Status |
 | --- | --- | --- | --- |
-| OpenClaw upstream release `v2026.5.3` and npm `2026.5.3-1` | S0 | Current release drift, plugin install/update, file-transfer, channel streaming, update/doctor behavior | Checked on 2026-05-04 |
+| OpenClaw stable `v2026.7.1-2`, extended-stable `2026.6.34`, beta signal `2026.8.1-beta.1`, and advisories through 2026-06-30 | S0 | Current runtime, channel semantics, attach/coding-agent workflows, plugin corrections, detached work, and security failure families | Checked on 2026-08-13 |
 | Claude Code plugin docs | S0 | Claude native plugin manifest, skills, agents, marketplace behavior | Checked on 2026-05-04 |
 | Local Codex plugin creator spec | S0 | Codex plugin manifest and marketplace layout | Checked during implementation |
 | Existing OpenClaw curriculum files | S0/S2 by claim | First proof case and curriculum mapping | Present in repo |
@@ -76,7 +76,7 @@ State updates must be compact and factual:
 | Artifact | Mastery level | Evidence quality | Review status |
 | --- | --- | --- | --- |
 | OpenClaw curriculum repository | L4-L6 curriculum and production-readiness design | Strong but still needs cohort testing and screenshot population | Reviewed by Codex and Claude in `Validations/` |
-| Elite Mentor OS plugin package | L5-L7 learning-system design and native plugin architecture | Lean v0.1 implemented; 17-file surface; plugin-eval improved from 46/100 to 91/100 before final tiny cleanup | Needs plugin-load testing and adversarial review |
+| Elite Mentor OS plugin package | L5-L7 learning-system design and native plugin architecture | v0.2 extraction-ready proof; lean 18-file surface including one product README; plugin-eval improved from 46/100 to 91/100 before final tiny cleanup | Needs plugin-load testing, non-OpenClaw trials, and adversarial review |
 | Validation prompt pack | L5 adversarial review readiness | Strong | Needs rerun after plugin completion |
 
 ## Session Log
@@ -85,6 +85,8 @@ State updates must be compact and factual:
 | --- | --- | --- | --- |
 | 2026-05-04 | Hardened Elite Mentor OS into a lean native Claude/Codex plugin surface. | 17 plugin/state files; 5 skills; 3 Claude agents; consolidated `MENTOR_OS.md`, `OPENCLAW_PROOF_PACK.md`, and `VALIDATION.md`; JSON checks and `git diff --check` passed; plugin-eval reached 91/100 before final tiny cleanup. | Run interactive Claude/Codex plugin-load tests and external adversarial review. |
 | 2026-05-04 | Repaired OpenClaw release-drift baseline and clarified product separation. | Baseline updated to GitHub `v2026.5.3` and npm `2026.5.3-1`; OpenClaw Curriculum, Elite Mentor OS, and Integration/proof-pack boundaries documented; affected release, plugin, lab, track, and state files patched. | Run local validation, commit, push, then request fresh adversarial validation. |
+| 2026-05-05 | Advanced Elite Mentor OS from v0.1 proof to v0.2 extraction-ready proof. | Added product README; updated manifests to `0.2.0`; centralized directory adaptation, state-update protocol, and v1.0 gates; tightened generic/OpenClaw boundary and any-directory validation scenarios; preserved as commit `50f6439` after JSON, Claude, diff, and plugin-eval checks. | Push, then test live plugin loading and non-OpenClaw directory behavior. |
+| 2026-08-13 | Repaired material OpenClaw release, docs, runtime, coding-agent, update-channel, and advisory drift. | Stable baseline `v2026.7.1-2`; extended-stable `2026.6.34`; 112 post-cutoff advisories reviewed; source, security, semester, lab, release-template, maintenance, and state surfaces updated. | Validate the drift patch, map advisory families into assessment/model answers, then commit separately from Elite Mentor OS v0.2. |
 
 ## Quality Gates
 
@@ -99,17 +101,18 @@ State updates must be compact and factual:
 
 ## Open Questions
 
-- Need real plugin-load tests inside Claude Code and Codex after the package is complete.
-- Need external validation after the plugin layer is added.
+- Need real plugin-load tests inside Claude Code and Codex after v0.2 is pushed.
+- Need external validation after the v0.2 plugin layer is pushed.
 - Need decide later whether to publish a separate product repository after the OpenClaw proof case stabilizes.
 - Need design a future update/drift automation plan separately after current implementation is complete.
 
 ## Next Actions
 
-1. Run local validation for the current release-drift and state-boundary patch.
-2. Commit and push the targeted `OpenClaw Curriculum update`.
-3. Run fresh adversarial validation against the updated curriculum.
-4. Run Claude Code local marketplace install test.
-5. Run Codex plugin discovery test in a fresh session.
-6. Use `plugins/elite-mentor-os/validation/VALIDATION.md` for external review and behavior testing.
-7. Start the first OpenClaw learning session with `elite-mentor-os:openclaw-master`.
+1. Keep the validated Elite Mentor OS commit `50f6439` separate from curriculum commits.
+2. Commit and push the August OpenClaw release/advisory drift repair separately.
+4. Map the new advisory failure families into assessment questions and model answers, then run command-level labs on stable OpenClaw.
+5. Run Claude Code remote marketplace install/load test.
+6. Run Codex plugin discovery test in a fresh session.
+7. Test `diagnose`, `roadmap`, `mentor`, and `review` in at least three non-OpenClaw directories.
+8. Use `plugins/elite-mentor-os/validation/VALIDATION.md` for external review and behavior testing.
+9. Start the first OpenClaw learning session with `elite-mentor-os:openclaw-master`.

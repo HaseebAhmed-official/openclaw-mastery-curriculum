@@ -12,7 +12,7 @@
 
 | Domain | Claim | Status | Primary sources |
 | --- | --- | --- | --- |
-| Install baseline | OpenClaw recommends Node 24 and supports Node 22.14+ | official-docs | Getting Started |
+| Install baseline | OpenClaw requires Node 22.22.3+, 24.15+, or 25.9+; Install/Getting Started recommend Node 26 while the current Security page still says Node 24, so the recommendation is documented drift rather than a settled claim | official-docs | Install, Getting Started, Security |
 | Windows baseline | WSL2 is the recommended Windows path for the full experience | official-docs | Windows, Getting Started |
 | Architecture | The gateway is the long-lived owner of messaging surfaces and control-plane APIs | official-docs | Gateway Architecture |
 | Trust model | OpenClaw is designed around one trusted operator boundary per gateway | official-docs | Security |
@@ -30,7 +30,12 @@
 | Security maintenance | Current official OpenClaw advisories should be treated as first-class teaching inputs for security and production modules | official-repo | Security Advisories |
 | Automation | Cron, tasks, task flow, hooks, standing orders, heartbeat, sub-agents, and ACP agents are core OpenClaw execution surfaces | official-docs | Automation & Tasks, Sub-Agents, ACP Agents |
 | Updates | Teaching materials should account for update channels, dry runs, pinning, and rollback when behavior can drift across releases | official-docs | Updating, Release Channels |
-| Updates | `openclaw update` should be taught with dry-run, JSON/status inspection, channel semantics, `doctor`, restart, health verification, rollback, and npm hotfix awareness | official-docs/official-repo | Updating, Release `v2026.5.3-1` |
+| Updates | `openclaw update` should be taught with dry-run, JSON/status inspection, channel semantics, `doctor`, restart, health verification, rollback, and correction-release awareness | official-docs/official-repo | Updating, Release `v2026.7.1-2` |
+| Release channels | Stable, package-only extended-stable, beta, and dev have different fallback, update, and production semantics; npm dist-tags are authoritative for package installs | official-docs | Release Channels, Updating |
+| Connected coding agents | `openclaw attach` grants Claude Code temporary, session-scoped Gateway access and revokes normal-launch grants on exit | official-docs/official-repo | Attach CLI, Release `v2026.7.1` |
+| Durable work | Sessions, goals, tasks, coding-agent delegation, and heartbeat/cron recovery are release-sensitive operational surfaces that require audit evidence | official-docs/official-repo | Release `v2026.7.1`, Tasks, Automation |
+| Workspace terminals | Guarded workspace terminals are authenticated administrative capability surfaces, can be disabled by policy, and must not be taught as ordinary chat UI | official-docs/official-repo | Release `v2026.7.1`, Control UI |
+| Advisory case method | Current advisories should be grouped into recurring failure families such as authorization provenance, approval equivalence, plugin persistence, sandbox/SSRF containment, credential ownership, and detached-authority inheritance | official-repo/validated-inference | Security Advisories reviewed through 2026-06-30 |
 | Plugin lifecycle | Plugin install, update, uninstall, runtime inspect, dependency status, ClawHub/npm source choice, and official externalized plugin repair are required mastery topics | official-docs/official-repo | Manage Plugins, Release `v2026.5.3` |
 | File transfer | The official file-transfer plugin introduces node file fetch/list/write capabilities with policy and size boundaries that belong in plugin/security teaching | official-docs/official-repo | File Transfer Plugin, Release `v2026.5.3` |
 | Channel streaming | Streaming progress drafts and channel-specific delivery behavior can affect learner expectations and evidence collection | official-docs/official-repo | Release `v2026.5.3`, channel docs |
@@ -41,9 +46,11 @@
 
 ## Freshness target
 
-- baseline date: May 4, 2026
-- reviewed release baseline: OpenClaw `v2026.5.3`
-- reviewed npm baseline: `openclaw@2026.5.3-1`
+- baseline date: August 13, 2026
+- reviewed stable baseline: OpenClaw `v2026.7.1-2` / `openclaw@2026.7.1-2`
+- reviewed extended-stable baseline: `openclaw@2026.6.34`
+- observed beta tag: `openclaw@2026.8.1-beta.1`, not a teaching baseline
+- reviewed advisory publication cutoff: June 30, 2026
 - teaching baseline: stable-release behavior
 - preview or source-build material: must be labeled in module notes and capstone expectations
 

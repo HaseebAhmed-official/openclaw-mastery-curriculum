@@ -8,10 +8,10 @@ If a new Codex, Claude, or other LLM session starts from this file, it should un
 
 ## Current date captured
 
-- Captured on: 2026-05-04
+- Captured on: 2026-08-15
 - Timezone context: Asia/Karachi
 - Primary repo branch: `main`
-- Committed baseline before this state-file update: `6d243d5` - `Add Elite Mentor OS native plugin`
+- Committed baseline before this state-file update: `50f6439` - `Harden Elite Mentor OS v0.2 proof`
 - To get the latest commit after future edits, run `git log -1 --oneline`
 
 ## Mandatory state-preservation protocol
@@ -48,7 +48,7 @@ There are two related but separate products:
 1. **OpenClaw Mastery Curriculum**: the domain-specific curriculum in this repository. It teaches OpenClaw from beginner to expert, with production, enterprise, security, extension, contributor, and teaching pathways.
 2. **Elite Mentor OS**: a subject-agnostic mentor-learning system intended to work for any subject, topic, repo, directory, or provided resource set.
 
-The current repository owns the OpenClaw curriculum. It currently includes `plugins/elite-mentor-os/` only as a v0.1 proof/integration case so the mentor system can be tested against a real curriculum and installed remotely during early validation.
+The current repository owns the OpenClaw curriculum. It currently includes `plugins/elite-mentor-os/` only as a v0.2 extraction-ready proof/integration case so the mentor system can be tested against a real curriculum and installed remotely during early validation.
 
 Future work must label changes explicitly:
 
@@ -143,15 +143,19 @@ Old GitHub remote retained locally:
 At the time this file was written:
 
 - branch: `main`
-- latest pushed commit before this state-file update: `6d243d5`
+- latest pushed commit before this state-file update: `870e7dc`
 - latest actual commit should be checked with `git log -1 --oneline`
-- local repo was clean before the current release-drift/state update
+- local repo was clean before the Elite Mentor OS v0.2 hardening began
+- Elite Mentor OS v0.2 hardening is preserved separately in commit `50f6439`
+- current working tree contains only the uncommitted August OpenClaw drift repair and shared continuity updates
 - current remote `origin`: `https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum.git`
 - repo visibility: public
 - license: MIT
 
 Recent important commits:
 
+- `50f6439` - Harden Elite Mentor OS v0.2 proof
+- `870e7dc` - Update OpenClaw release baseline and state boundaries
 - `6d243d5` - Add Elite Mentor OS native plugin
 - `366d3e0` - Add WSL screenshot capture curriculum assets
 - `f791682` - Add classroom delivery and calibration assets
@@ -168,12 +172,12 @@ Estimated status:
 
 - Standalone ready-to-teach curriculum: approximately 85-90%
 - True world-class, institution-proof polished product: approximately 70-75%
-- Elite Mentor OS native plugin v0.1 implementation: approximately 90-92% after lean hardening
-- Elite Mentor OS production/sellable institutional product: early proof stage, approximately 35-45%
+- Elite Mentor OS native plugin v0.2 extraction-ready proof: approximately 92-94% for local proof scope after this hardening
+- Elite Mentor OS production/sellable institutional product: early proof stage, approximately 40-50%
 
 The core architecture is implemented. The remaining work is mainly validation, depth expansion, real-world calibration, and final polish.
 
-For the plugin layer, the implementation has been hardened toward a lean comfort-first surface: consolidated core, five public skills, three Claude agents, one OpenClaw proof-pack, one validation file, and one mentor state file. Remaining work is mainly real plugin-load testing in Claude Code and Codex, external adversarial review, packaging polish, and user-tested learning sessions.
+For the plugin layer, the implementation has been hardened toward a lean comfort-first surface: consolidated core, five public skills, three Claude agents, one product README, one OpenClaw proof-pack, one validation file, and one mentor state file. Remaining work is mainly real plugin-load testing in Claude Code and Codex, non-OpenClaw directory trials, external adversarial review, packaging polish, and user-tested learning sessions.
 
 The completion path is now explicit in `.mentor/MENTOR_STATE.md` and `plugins/elite-mentor-os/core/MENTOR_OS.md`: P0 lean plugin foundation, P1 live plugin proof, P2 learning proof, P3 validation proof, P4 institution proof, P5 enterprise proof, and P6 product proof. Do not claim 99% confidence until those exit gates are satisfied with evidence.
 
@@ -183,6 +187,7 @@ The completion path is now explicit in `.mentor/MENTOR_STATE.md` and `plugins/el
 
 Plugin package:
 
+- `plugins/elite-mentor-os/README.md`
 - `plugins/elite-mentor-os/core/MENTOR_OS.md`
 - `plugins/elite-mentor-os/.claude-plugin/plugin.json`
 - `plugins/elite-mentor-os/.codex-plugin/plugin.json`
@@ -215,7 +220,7 @@ State and proof-pack:
 - `plugins/elite-mentor-os/proof-packs/openclaw/OPENCLAW_PROOF_PACK.md`
 - `plugins/elite-mentor-os/validation/VALIDATION.md`
 
-Local validation completed on 2026-05-04:
+Local validation completed on 2026-05-04 for v0.1:
 
 - all plugin and marketplace JSON files parse with `python3 -m json.tool`
 - `claude plugin validate .` passed for the marketplace before final tiny cleanup
@@ -225,6 +230,14 @@ Local validation completed on 2026-05-04:
 - `git diff --check` reported no whitespace errors
 - plugin-eval improved from 46/100 Grade F to 91/100 Grade B after the main lean hardening pass
 - final plugin-eval and Claude validator reruns after the last tiny cleanup were blocked by WSL/Windows interop socket errors, not by plugin file errors
+
+Elite Mentor OS v0.2 hardening on 2026-05-05:
+
+- added one product README instead of multiple docs/templates
+- updated native plugin version metadata to `0.2.0`
+- made the subject-agnostic/OpenClaw proof-pack boundary explicit in README, core, proof-pack, validation, and state
+- added directory adaptation, state-update protocol, any-directory prompts, and v1.0 gates
+- kept the five public skills and avoided adding public skill clutter
 
 ### Core curriculum
 
@@ -440,30 +453,33 @@ The reviews should remain preserved as historical validation artifacts, but futu
 As of the latest maintenance work:
 
 - OpenClaw tracked repo: `openclaw/openclaw`
-- Last reviewed OpenClaw GitHub release in state file: `v2026.5.3`
-- Last reviewed OpenClaw npm package in state file: `2026.5.3-1`
-- Last reviewed date in state file: `2026-05-04`
-- Latest curriculum advisory integration included official advisories published around `2026-04-23`
+- Reviewed stable GitHub/npm baseline: `v2026.7.1-2` / `openclaw@2026.7.1-2`
+- Reviewed extended-stable npm baseline: `openclaw@2026.6.34`
+- Observed beta npm tag: `openclaw@2026.8.1-beta.1`, not a teaching baseline
+- Last reviewed date in state file: `2026-08-13`
+- Latest reviewed advisory publication date: `2026-06-30`
+- Full post-cutoff advisory scope: 112 official advisories published after 2026-04-24
 
-Important advisory examples integrated into teaching:
+Representative advisory families integrated into teaching:
 
-- `GHSA-93rg-2xm5-2p9v` - Gateway Control UI bootstrap config required Gateway auth
-- `GHSA-55cf-xx38-4p9p` - Workspace dotenv files cannot override connector endpoint hosts
-- `GHSA-x3h8-jrgh-p8jx` - Exec allowlist analysis rejects shell expansion in unquoted heredocs
-- `GHSA-r6xh-pqhr-v4xh` - MCP loopback owner context is derived from server-issued bearer tokens
-- `GHSA-q3jj-46pq-826r` - ACP child sessions inherit subagent security envelope constraints
-- `GHSA-wppj-c6mr-83jj` - OpenShell FS bridge writes stay pinned to the sandbox mount root
+- approval display and exact command/environment binding: `GHSA-xww8-gqvh-92x9`, `GHSA-3fp5-v549-9v66`, `GHSA-8f46-3xx3-8c9m`
+- plugin payload provenance and owner-only persistence: `GHSA-v6r2-jh58-xx6w`, `GHSA-7vrr-rp4x-4g76`
+- MCP and requester authority: `GHSA-52xj-c9p8-78cv`, `GHSA-jhfx-v2j8-x3m6`
+- sandbox, SSRF, and browser containment: `GHSA-mgvr-6gvw-3rgr`, `GHSA-575v-8hfq-m3mc`, `GHSA-x863-pqjw-hmgf`
+- credential and detached-authority inheritance: `GHSA-4pqj-3c56-5fqq`, `GHSA-mm9g-83wh-mhwj`
 
-Future validation must re-check current releases, docs, and advisories because the project moves quickly.
+Future validation must re-check current releases, docs, npm dist-tags, and advisories because the project moves quickly.
 
-Latest release-drift repair integrated on 2026-05-04:
+Latest release-drift repair integrated on 2026-08-13:
 
-- plugin install/update hardening and official externalized plugin behavior
-- file-transfer plugin as a capability and policy case study
-- channel streaming progress drafts and command steering surfaces such as `/steer` and `/side`
-- `openclaw update --dry-run`, `--json`, update status, npm hotfix awareness, `doctor`, restart, health verification, and rollback
-- invalid config fail-closed behavior and doctor-owned safe repair
-- non-authoritative open GitHub issues used only as risk signals, not as curriculum truth
+- current Node runtime floor plus an explicit official-doc inconsistency: Install/Getting Started recommend Node 26 while Security still says Node 24
+- stable, package-only extended-stable, beta, and dev channel semantics
+- redesigned Control UI/task visibility, durable sessions and goals, and scheduled-work recovery
+- scoped `openclaw attach` grants plus Codex/connected coding-agent task evidence
+- guarded workspace terminals as administrative capability surfaces
+- correction-release plugin updates and channel-aware plugin convergence
+- advisory-family teaching for authorization, approvals, plugins, sandbox/SSRF, credentials, channel identity, and detached authority
+- exact-version evidence and current official sources retained as the claim boundary
 
 ## Key design decisions
 
@@ -500,12 +516,12 @@ The curriculum is strong, but not final-perfect. Remaining likely gaps:
 - labs are strong manuals but not all are fully command-by-command runnable scripts
 - certification tiers are implied but could be formalized more
 - external validation after the newest commits is still needed
-- latest release-drift repair needs fresh adversarial review after commit
+- August 2026 release/advisory drift repair needs command-level lab validation and fresh adversarial review after its separate commit
 - more top-quality community/blog/Reddit evidence can be reviewed and categorized, but official sources must stay primary
 
 ## Current best next step
 
-Run local validation checks and then a fresh external validation round using:
+First validate and commit the in-progress Elite Mentor OS v0.2 hardening and this OpenClaw Curriculum drift repair as separate scopes. Then run a fresh external validation round using:
 
 - `Validations/master-validation-prompt.md`
 - `plugins/elite-mentor-os/validation/VALIDATION.md`

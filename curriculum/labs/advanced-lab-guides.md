@@ -44,7 +44,7 @@ Use the security audit like an operator, not like a checkbox runner.
 1. Run `openclaw security audit`.
 2. Run `openclaw security audit --deep` when the environment permits, or explain why only the baseline audit was feasible.
 3. Export machine-readable findings with `--json` from at least one audit run.
-4. Review at least one current official OpenClaw advisory or current release note that overlaps with the deployment surface.
+4. Review current official advisories for the deployment components, classify at least two by failure family, and record exact affected and patched versions before drawing conclusions.
 5. Identify webhook, plugin, hook, auth, proxy, file-transfer, or advisory-related findings.
 6. Explain which findings `openclaw security audit --fix` could address and which require manual/operator action.
 7. Cross-check whether open issue signals suggest extra caution without treating issues as authoritative documentation.
@@ -58,6 +58,7 @@ Use the security audit like an operator, not like a checkbox runner.
 - JSON artifact
 - short note comparing baseline audit, deep audit, and `--fix` limits
 - source note distinguishing official docs/release notes from non-authoritative issue signals
+- advisory matrix with component, failure family, affected version, patched version, control, and residual risk
 
 ### Common failure modes
 
@@ -189,14 +190,17 @@ Choose the right detached-work primitive and defend the choice.
 
 1. Compare cron, heartbeat, hooks, task flow, standing orders, `/steer`, and `/side`.
 2. Match each primitive to one scenario.
-3. Identify authority, auditability, and failure implications.
-4. Explain why `/steer` changes the active run while cron/tasks create durable work records.
-5. Reject at least one tempting but wrong choice.
+3. Identify authority, auditability, failure, retry, and delivery implications.
+4. Prove an isolated job cannot regain a tool denied by its effective policy, using a safe simulation or documented trace.
+5. Explain how completed heartbeat work is distinguished from notification delivery and duplicate retry.
+6. Explain why `/steer` changes the active run while cron/tasks create durable work records.
+7. Reject at least one tempting but wrong choice.
 
 ### Required evidence
 
 - detached-work design note
 - steering-vs-task distinction
+- policy-inheritance and idempotent-delivery evidence
 
 ### Common failure modes
 
@@ -216,10 +220,11 @@ Teach delegation with ownership and traceability.
 ### Procedure
 
 1. Define a delegated task.
-2. Explain whether sub-agents or ACP agents fit better.
-3. Document the inherited child-session constraints that must remain in force.
-4. Document expected task records, artifacts, and ownership.
-5. Explain how you would audit the result later.
+2. Explain whether sub-agents, ACP agents, or `openclaw attach` fit better.
+3. For an attach case, document target-session selection, grant TTL, credential transport, strict MCP configuration, and revocation behavior.
+4. Document the inherited child-session constraints that must remain in force.
+5. Document expected task records, artifacts, requester provenance, and ownership.
+6. Explain how you would audit the result later.
 
 ### Required evidence
 
@@ -230,3 +235,4 @@ Teach delegation with ownership and traceability.
 - treating delegation as invisible parallelism
 - no ownership model
 - no explanation of depth, child-count, sandbox, or target-agent constraints on child sessions
+- treating temporary attach access as ambient or process-wide authority

@@ -23,7 +23,8 @@ OpenClaw is valuable because it can connect models to channels, tools, nodes, an
 - tool policy
 - sandboxing
 - exec approvals
-- node-host command exposure
+- node-host command exposure and Gateway/node approval equivalence
+- approval-display completeness and wrapper/interpreter revalidation
 
 ### Stage 4: external content risk
 
@@ -45,13 +46,14 @@ OpenClaw is valuable because it can connect models to channels, tools, nodes, an
 - standing orders as durable authority
 - hooks as event-driven code execution
 - task records and detached auditability
-- sub-agents and ACP agents as coordination boundaries
-- inherited sub-agent and ACP security-envelope constraints
+- sub-agents, ACP agents, and scoped `openclaw attach` grants as coordination boundaries
+- inherited child constraints, requester provenance, and task-record evidence
+- isolated automation must not regain tools denied by its effective policy
 
 ### Stage 7: formal assurance and threat models
 
 - security audit usage
-- advisory-driven case review from the official OpenClaw advisory feed
+- advisory-driven case review grouped by authorization, approval, plugin, sandbox/SSRF, credential, channel-identity, and detached-authority failure families
 - ATLAS-based threat modeling
 - formal verification models and their limits
 
@@ -70,5 +72,5 @@ OpenClaw is valuable because it can connect models to channels, tools, nodes, an
 - fail projects that treat one shared gateway as an adversarial-user boundary
 - require learners to explain the limits of sandboxing
 - require learners to explain the limits of formal verification claims
-- require learners to review current official advisories when evaluating production or contributor-facing changes
+- require learners to review current official advisories by affected component and exact version when evaluating production or contributor-facing changes
 - require learners to address prompt injection, detached authority, and webhook ingress in any production-facing design

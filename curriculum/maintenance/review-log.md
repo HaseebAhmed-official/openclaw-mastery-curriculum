@@ -31,6 +31,17 @@
 - Outcome: curriculum baseline updated from `v2026.4.23` to `v2026.5.3` / `2026.5.3-1`; latest plugin/update/file-transfer/release-discipline changes mapped into teaching surfaces
 - Follow-up validation: run fresh external Codex/Claude adversarial review after this patch and convert at least the highest-value labs into fully command-by-command manuals
 
+## 2026-08-13
+
+- Reviewed current stable GitHub/npm baseline `v2026.7.1-2` / `openclaw@2026.7.1-2`
+- Reviewed package-only extended-stable baseline `openclaw@2026.6.34` and observed beta tag `openclaw@2026.8.1-beta.1` without promoting beta into the teaching baseline
+- Reviewed current official install, update-channel, `openclaw attach`, release-note, security-policy, and advisory surfaces
+- Reviewed all 112 official advisories published after the prior 2026-04-24 advisory cutoff; integrated representative cases by recurring failure family instead of copying the full feed into teaching material
+- Change category: major release, documentation, runtime, coding-agent, update-channel, and advisory drift repair
+- Curriculum files touched: `PROJECT_STATE.md`, `.mentor/MENTOR_STATE.md`, `curriculum/maintenance/upstream-state.json`, `curriculum/maintenance/review-log.md`, `curriculum/sources/official-reading-map.md`, `curriculum/sources/validation-register.md`, `curriculum/update-and-release-discipline.md`, `curriculum/governance-and-security-strand.md`, `curriculum/automation-and-detached-work.md`, `curriculum/semester-1/index.md`, `curriculum/semester-2/index.md`, `curriculum/labs/advanced-lab-guides.md`, `curriculum/tracks/security-hardening.md`, `curriculum/templates/release-aware-note-template.md`
+- Outcome: refreshed the supported Node floor and flagged conflicting Node 24/26 recommendation text across official docs; taught stable, extended-stable, beta, and dev semantics; added scoped `openclaw attach` and durable coding-agent evidence; strengthened approval, plugin persistence, sandbox/SSRF, credential ownership, channel identity, and detached-authority casework
+- Follow-up validation: map the advisory-family cases into assessment questions and model answers, run command-level labs on an installed stable OpenClaw environment, and obtain fresh external adversarial review
+
 ## Logging rule
 
 Every future upstream review should append:

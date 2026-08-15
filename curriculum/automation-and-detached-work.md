@@ -41,24 +41,26 @@ OpenClaw is no longer just an interactive chat-and-tool system. It has a durable
 - periodic main-session turn
 - best for routine awareness work with full session context
 - does not create task records like cron does
+- completion and notification delivery are separate concerns; quiet acknowledgment failure must not cause duplicate work
 
 ### Sub-agents
 
 - bounded delegated work inside the agent runtime
 - introduce task ownership, auditability, and coordination concerns
 
-### ACP agents
+### ACP agents and scoped coding-agent attachment
 
 - external or protocol-based agent coordination surface
-- must be taught as an integration and trust-boundary topic, not just a feature checkbox
+- `openclaw attach` can grant Claude Code temporary access to one selected Gateway session through a strict MCP configuration
+- grants, credentials, target-session selection, TTL, revocation, and requester provenance must be taught as explicit trust-boundary evidence
 
 ## Security and governance implications
 
-- cron and hooks widen execution authority
+- cron and hooks widen execution authority; isolated work must not regain tools denied by its effective policy
 - webhook-driven automation creates its own ingress and token-management surface
 - standing orders grant durable authority and must be reviewed like policy
-- detached work must be auditable through task records and logs
-- sub-agents and ACP agents require explicit ownership and result-tracking discipline
+- detached work must be auditable through task records and logs, with idempotent delivery and duplicate-retry reasoning
+- sub-agents, ACP agents, and attached coding agents require scoped authority, explicit ownership, requester provenance, and result-tracking discipline
 
 ## What learners must be able to do
 
