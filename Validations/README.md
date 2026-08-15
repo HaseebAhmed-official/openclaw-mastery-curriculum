@@ -4,4 +4,6 @@ Use [Master Validation Prompt](master-validation-prompt.md) in a fresh, capable 
 
 The 2026-04-22 [Codex](codex-review/openclaw-curriculum-pack-validation-review-2026-04-22.md) and [Claude](Claude-code-review/openclaw-mastery-curriculum-full-validation-review-2026-04-22.md) reviews are preserved as historical evidence for the former OpenClaw-specific scope. They are not validation of the platform-agnostic Agent Harness Systems Engineering migration.
 
+The [2026-08-15 internal migration audit](internal-migration-audit-2026-08-15.md) records executable checks, repaired findings, source-drift boundaries, current rejection decisions, and the evidence still required before stronger readiness claims. Because it was produced by the authoring session, it does not satisfy the independent-review gate.
+
 Future review artifacts should record repository commit, date, tools/sources used, executable checks, claim boundaries, findings, repairs, and retest outcome. Independent review is evidence input, not the source of truth.

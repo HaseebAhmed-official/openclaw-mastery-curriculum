@@ -61,15 +61,17 @@ User study environment:
 
 ## Current Baseline
 
-The platform-agnostic architecture and support-asset migration are pushed through `c136a86`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
+The platform-agnostic architecture and support-asset migration are pushed through `c136a86`; advanced fixture and source hardening is fixed at candidate commit `eb8d423`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
 
-The reference harness now covers the minimal runtime plus bounded Semester 2 starting fixtures for memory, orchestration, protocol/telemetry ports, per-attempt events, persistence, and policy-based evaluation. These fixtures support learning; they do not replace actual protocol implementations, clean lab reproduction, or production infrastructure.
+The reference harness now covers the minimal runtime plus bounded Semester 2 starting fixtures for memory, orchestration, protocol/telemetry ports, per-attempt events, persistence, and policy-based evaluation. Its 20 current tests pass at `eb8d423`. These fixtures support learning; they do not replace actual protocol implementations, clean lab reproduction, or production infrastructure.
+
+The consolidated [internal migration audit](Validations/internal-migration-audit-2026-08-15.md) conditionally accepts a strong self-study draft and supervised-pilot candidate, but rejects standalone ready-to-teach, institution-ready, enterprise-ready, and world-class claims at the current evidence level.
 
 ### Honest Progress Snapshot
 
 | Scope | Evidence-based completion | Interpretation |
 | --- | ---: | --- |
-| Platform-agnostic curriculum artifact implementation | about 74% | Canonical/support migration and bounded advanced fixtures exist; real protocol/provider examples, deeper case ledgers, lab reproduction records, and final audit remain. |
+| Platform-agnostic curriculum artifact implementation | about 74% | Canonical/support migration, dated case ledgers, bounded advanced fixtures, and an internal audit exist; real protocol/provider examples, lab reproduction records, and complete delivery evidence remain. |
 | Hands-on reproducibility evidence | about 25% | Reference tests pass, but authored labs have not been independently reproduced and calibrated in clean learner environments. |
 | Expanded curriculum institution/enterprise proof | about 30% | Alignment and delivery contracts are strong, but no real cohort, measured assessor reliability, full lab reproduction, accessibility audit, or independent adoption evidence exists. |
 
@@ -191,10 +193,10 @@ The project is complete only when every applicable gate has evidence:
 
 | Gate | Required evidence | Current state |
 | --- | --- | --- |
-| G0 Scope and boundary | Stable outcomes, product separation, claim limits | Implemented; independent audit pending |
-| G1 Source integrity | Claim-source map, versions/dates, independent spot checks | Partial |
-| G2 Curriculum alignment | Outcome-to-module-to-lab-to-assessment traceability | Implemented; audit/calibration pending |
-| G3 Reference implementation | Runnable harness, tests, fixtures, documented failure modes | Partial; bounded fixtures pass, production adapters absent |
+| G0 Scope and boundary | Stable outcomes, product separation, claim limits | Implemented; internal audit complete, independent audit pending |
+| G1 Source integrity | Claim-source map, versions/dates, independent spot checks | Improved but partial; current protocol and case claims rechecked internally |
+| G2 Curriculum alignment | Outcome-to-module-to-lab-to-assessment traceability | Implemented; internal structural audit passed, assessor calibration pending |
+| G3 Reference implementation | Runnable harness, tests, fixtures, documented failure modes | Partial; 20 bounded fixture tests pass, production adapters absent |
 | G4 Hands-on reproducibility | Labs executed in clean environments with expected evidence | Early; reference suite only |
 | G5 Assessment validity | Authentic tasks, oral defense, transfer, anti-outsourcing controls | Strong authored system; empirical validity pending |
 | G6 Security and governance | Threat labs, controls, privacy, change management, audits | Strong authored system; execution/audit pending |
@@ -207,20 +209,19 @@ No completion percentage overrides a failed gate.
 
 ## Implementation Sequence
 
-1. Run internal adversarial validation across alignment, source integrity, code, security, accessibility, delivery, and claim boundaries; repair findings.
-2. Execute every critical lab in clean environments and record reproduction status.
-3. Complete dated claim ledgers/exercises for non-OpenClaw cases and reverify current protocol/framework sources.
-4. Add actual pinned protocol/provider/telemetry examples only where they materially improve labs.
-5. Run independent adversarial academic, enterprise, security, and practitioner reviews; repair findings.
-6. Pilot with real learners and assessors before institution-ready or enterprise-ready claims.
+1. Execute every critical lab in clean learner environments and record reproduction status without promoting authored guidance to reproduced evidence.
+2. Add actual pinned protocol/provider/telemetry examples only where they materially improve the labs and can be maintained.
+3. Run accessibility review and measured assessor calibration against the practical, oral-defense, and transfer gates.
+4. Run independent adversarial academic, enterprise, security, and practitioner reviews; repair findings.
+5. Pilot with real learners and assessors before institution-ready or enterprise-ready claims.
 
 ## Immediate Next Actions
 
 1. Keep `../elite-mentor-os` frozen until the user explicitly resumes that product.
-2. Finish the internal adversarial validation and write one consolidated current evidence report.
-3. Align detailed lab verification status with actual execution evidence; do not mark authored labs reproduced.
-4. Complete dated non-OpenClaw case claim ledgers and exercises.
-5. Reproduce critical labs cleanly, then seek independent review and pilot evidence.
+2. Reproduce the critical lab path cleanly and preserve environment, command, output, failure, timing, and assessor evidence.
+3. Implement pinned MCP, A2A, OpenTelemetry, and provider examples only where the lab evidence justifies their maintenance cost.
+4. Run accessibility and assessor-calibration audits, then repair findings.
+5. Seek independent review and pilot evidence only after the internal blockers are materially reduced.
 
 ## State-Preservation Protocol
 

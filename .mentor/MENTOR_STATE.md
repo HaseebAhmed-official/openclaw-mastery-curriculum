@@ -22,16 +22,17 @@ Build a university-presentable, enterprise-relevant curriculum through which a s
 ## Verified Baseline
 
 - Date: 2026-08-15, Asia/Karachi.
-- Platform-agnostic curriculum migration is pushed through `c136a86`.
+- Platform-agnostic curriculum migration is pushed through `c136a86`; advanced fixture/source hardening is fixed at candidate commit `eb8d423`.
 - Current tree has 68 curriculum files; 15 OpenClaw references remain in intentional case/source/maintenance/comparative contexts.
-- The reference harness has a minimal runtime and bounded memory, orchestration, protocol/telemetry-port, persistence, and evaluation fixtures.
+- The reference harness has a minimal runtime and bounded memory, orchestration, protocol/telemetry-port, persistence, and evaluation fixtures; 20 current tests pass.
+- The 2026-08-15 internal migration audit rejects standalone, institution, enterprise, and world-class readiness claims pending real evidence.
 - Elite Mentor OS is separate and frozen; do not work on it until the user explicitly resumes it.
 
 ## Honest Progress
 
 | Scope | Estimate | Critical remaining evidence |
 | --- | ---: | --- |
-| Expanded agent-harness curriculum artifacts | 74% | real adapters, case ledgers, lab reproduction, final audits |
+| Expanded agent-harness curriculum artifacts | 74% | real adapters, lab reproduction, complete delivery evidence, independent audits |
 | Hands-on reproducibility evidence | 25% | clean independent lab runs and calibration |
 | Expanded curriculum institution/enterprise proof | 30% | cohort, measured calibration, accessibility audit, external adoption evidence |
 
@@ -39,15 +40,15 @@ These are planning estimates. Completion gates in `PROJECT_STATE.md` control cla
 
 ## Current Milestone
 
-Run rigorous internal curriculum validation after completing canonical/support migration and the bounded advanced-fixture milestone.
+Reproduce the critical lab path in clean learner environments after the bounded advanced-fixture and internal-audit milestone.
 
 ## Next Actions
 
 1. Do not work on `../elite-mentor-os` until the user explicitly resumes it.
-2. Run and repair the internal adversarial curriculum audit; preserve one consolidated report.
-3. Mark lab verification from real execution only and reproduce critical labs cleanly.
-4. Complete dated non-OpenClaw case evidence and actual pinned adapter examples where justified.
-5. Request independent reviews and pilots only after internal gates pass.
+2. Mark lab verification from real execution only and reproduce critical labs cleanly with retained evidence.
+3. Add actual pinned MCP, A2A, OpenTelemetry, and provider examples where justified by lab value.
+4. Run accessibility and measured assessor-calibration audits.
+5. Request independent reviews and pilots only after internal blockers are materially reduced.
 
 ## Required Curriculum Layers
 
@@ -75,6 +76,7 @@ Run rigorous internal curriculum validation after completing canonical/support m
 | 2026-08-15 | Migrated canonical curriculum, semesters, teaching guides, labs, assessments, tracks, sources, governance, and case method; removed embedded plugin and redundant screenshot manuals; added tested minimal Python reference harness. | Consolidate remaining support assets and extend advanced executable evidence. |
 | 2026-08-15 | Consolidated model answers; migrated examples, templates, decks, environment lanes, maintenance, calibration, and validation prompt; added explicit PLO alignment plus context-budget and SQLite reset-recovery tests. | Extend advanced contracts and run internal adversarial validation. |
 | 2026-08-15 | Added per-attempt event identity, bounded memory/orchestration, checked protocol/telemetry ports, policy-based evaluation gates, schema migration coverage, and adversarial tests. Mentor OS remains frozen. | Complete internal curriculum audit and repair findings. |
+| 2026-08-15 | Fixed candidate `eb8d423`: 20 harness tests and 4 drift tests pass; current MCP/A2A/OpenTelemetry sources and non-OpenClaw case ledgers were repaired; internal audit conditionally accepts self-study/supervised-pilot use and rejects stronger readiness claims. | Reproduce the critical lab path cleanly; then add justified real adapters and run accessibility/calibration review. |
 
 ## Resume Protocol
 
