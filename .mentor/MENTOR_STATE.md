@@ -22,9 +22,9 @@ Build a university-presentable, enterprise-relevant curriculum through which a s
 ## Verified Baseline
 
 - Date: 2026-08-16, Asia/Karachi.
-- Platform-agnostic curriculum migration is pushed through `c136a86`; advanced fixture/source hardening is fixed at candidate commit `eb8d423`.
+- Platform-agnostic curriculum migration and advanced interoperability hardening are fixed through implementation commit `25d06ae`.
 - Current tree has 68 curriculum files; 15 OpenClaw references remain in intentional case/source/maintenance/comparative contexts.
-- The reference harness has a minimal runtime, bounded memory/orchestration/persistence/evaluation fixtures, and an optional exact-version MCP/A2A/OpenTelemetry lane; 24 tests pass on Windows and in a fresh WSL `/tmp` copy.
+- The reference harness has a minimal runtime, bounded memory/orchestration/persistence/evaluation fixtures, and an optional exact-version MCP/A2A/OpenTelemetry lane; 24 tests pass on Windows and from a clean WSL extraction of Git archive `25d06ae`.
 - The 2026-08-15 internal migration audit rejects standalone, institution, enterprise, and world-class readiness claims pending real evidence.
 - Elite Mentor OS is separate and frozen; do not work on it until the user explicitly resumes it.
 
@@ -77,7 +77,7 @@ Move from the instructor-executed shared fixture to independently reproduced cri
 | 2026-08-15 | Consolidated model answers; migrated examples, templates, decks, environment lanes, maintenance, calibration, and validation prompt; added explicit PLO alignment plus context-budget and SQLite reset-recovery tests. | Extend advanced contracts and run internal adversarial validation. |
 | 2026-08-15 | Added per-attempt event identity, bounded memory/orchestration, checked protocol/telemetry ports, policy-based evaluation gates, schema migration coverage, and adversarial tests. Mentor OS remains frozen. | Complete internal curriculum audit and repair findings. |
 | 2026-08-15 | Fixed candidate `eb8d423`: 20 harness tests and 4 drift tests pass; current MCP/A2A/OpenTelemetry sources and non-OpenClaw case ledgers were repaired; internal audit conditionally accepts self-study/supervised-pilot use and rejects stronger readiness claims. | Reproduce the critical lab path cleanly; then add justified real adapters and run accessibility/calibration review. |
-| 2026-08-16 | Added exact optional MCP `2.0.0`, A2A SDK `1.1.2`, and OpenTelemetry SDK `1.44.0` proofs. All 24 tests passed on Windows and in a fresh offline WSL `/tmp` copy using Python 3.14.2. Only the shared fixture is `executed`; advanced labs remain `authored`, and Mentor OS remains frozen. | Validate the complete repository, commit/push this milestone, then implement the highest-value remaining production fixture and independent lab evidence. |
+| 2026-08-16 | Added exact optional MCP `2.0.0`, A2A SDK `1.1.2`, and OpenTelemetry SDK `1.44.0` proofs at `25d06ae`. All 24 tests passed on Windows and from that commit's Git archive in fresh offline WSL using Python 3.14.2; the WSL test run took 3.182 seconds. Only the shared fixture is `executed`; advanced labs remain `authored`, and Mentor OS remains frozen. | Implement the highest-value remaining production fixture and pursue independent lab reproduction without promoting unearned readiness claims. |
 
 ## Resume Protocol
 

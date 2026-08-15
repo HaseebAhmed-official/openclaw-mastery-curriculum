@@ -61,9 +61,9 @@ User study environment:
 
 ## Current Baseline
 
-The platform-agnostic architecture and support-asset migration are pushed through `c136a86`; advanced fixture and source hardening is fixed at candidate commit `eb8d423`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
+The platform-agnostic architecture, support-asset migration, and advanced interoperability fixture are fixed through implementation commit `25d06ae`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
 
-The reference harness now covers the minimal runtime plus bounded Semester 2 starting fixtures for memory, orchestration, protocol/telemetry ports, per-attempt events, persistence, and policy-based evaluation. An optional exact-version lane adds real in-process MCP `2.0.0`, A2A SDK `1.1.2` JSON-RPC/ASGI, and OpenTelemetry SDK `1.44.0` in-memory proofs. All 24 tests passed in Windows and a fresh WSL `/tmp` copy on 2026-08-16. These fixtures support learning; they do not replace complete labs, independent reproduction, external transports, or production infrastructure.
+The reference harness now covers the minimal runtime plus bounded Semester 2 starting fixtures for memory, orchestration, protocol/telemetry ports, per-attempt events, persistence, and policy-based evaluation. An optional exact-version lane adds real in-process MCP `2.0.0`, A2A SDK `1.1.2` JSON-RPC/ASGI, and OpenTelemetry SDK `1.44.0` in-memory proofs. All 24 tests passed on Windows and from a clean WSL extraction of Git archive `25d06ae` on 2026-08-16. These fixtures support learning; they do not replace complete labs, independent reproduction, external transports, or production infrastructure.
 
 The consolidated [internal migration audit](Validations/internal-migration-audit-2026-08-15.md) conditionally accepts a strong self-study draft and supervised-pilot candidate, but rejects standalone ready-to-teach, institution-ready, enterprise-ready, and world-class claims at the current evidence level.
 
