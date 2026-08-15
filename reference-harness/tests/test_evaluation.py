@@ -34,7 +34,9 @@ class EvaluationTests(unittest.TestCase):
 
         self.assertAlmostEqual(2 / 3, report.pass_rate)
         self.assertEqual(3, len(report.trials))
-        self.assertEqual("final-answer-3", report.trials[2].run.session_id)
+        final_run = report.trials[2].run
+        assert final_run is not None
+        self.assertEqual("final-answer-3", final_run.session_id)
         self.assertTrue(report.decision.approved)
 
     def test_critical_failure_rejects_release_even_when_average_passes(self):

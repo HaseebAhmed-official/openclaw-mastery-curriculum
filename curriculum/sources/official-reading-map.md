@@ -59,12 +59,15 @@ These sources justify design hypotheses, not effectiveness claims for this progr
 - [Google ADK Plugins](https://adk.dev/plugins/) - cross-cutting policies and lifecycle behavior
 - [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/) - agents, workflows, persistence, hosting, and migration context
 - [Microsoft Agent Resources](https://microsoft.github.io/agent-resources/develop-agents/) - development and harness examples
+- [Temporal Retry Policies](https://docs.temporal.io/encyclopedia/retry-policies) - activity versus workflow retry behavior, backoff, attempt limits, and non-retryable failures
+- [Temporal Python Error Handling](https://docs.temporal.io/develop/python/best-practices/error-handling) - at-least-once activities, idempotency keys, atomic activity boundaries, failure classification, and compensation examples
 - [LangGraph Overview](https://docs.langchain.com/oss/python/langgraph/overview) - graph runtime and durable execution
 - [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence) - checkpoints and state
 - [LangGraph Human-in-the-Loop](https://docs.langchain.com/oss/python/langchain/human-in-the-loop) - interrupts and approval patterns
 - [PydanticAI Durable Execution](https://ai.pydantic.dev/durable_execution/overview/) - integration with durable workflow systems
+- [AWS Builders' Library: Making Retries Safe with Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) - caller-provided request identity, semantic equivalence, parameter mismatch, late requests, and the atomicity problem at side-effect boundaries
 
-Framework documentation is an adapter study. Learners must compare semantics against the curriculum's stable contracts and verify current versions.
+Framework documentation is an adapter study. The AWS article is a provider engineering pattern, not a universal API guarantee. Learners must compare semantics against the curriculum's stable contracts and verify current versions.
 
 ## Protocols and Observability
 

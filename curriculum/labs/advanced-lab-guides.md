@@ -9,6 +9,7 @@ The reference harness supplies bounded starting fixtures, not completed advanced
 | Labs | Starting code | Learner must still add and prove |
 | --- | --- | --- |
 | LAB-C1 | `reference-harness/src/agent_harness/orchestration.py` | a second real pattern, timing/cost evidence, concurrency where claimed, authority propagation, and comparative ablation |
+| LAB-C2 | `reference-harness/src/agent_harness/durability.py` | real process termination, actual timeout/cancellation boundary, queue/worker contention and heartbeat, external-service reconciliation, migration/backup/restore, chosen delivery semantics, and comparison with an approved durable engine |
 | LAB-C3 | `reference-harness/src/agent_harness/memory.py` | durable/indexed retrieval, contamination corpus, privacy/deletion propagation, quality metrics, and unavailable-store behavior |
 | LAB-C4 | `reference-harness/src/agent_harness/integration.py` plus the optional MCP proof in `protocol_proofs.py` | external transport, controlled side effect plus harness approval, returned-content injection, disconnect/timeout/retry, legacy compatibility if claimed, and safe protocol traces |
 | LAB-C5 | `reference-harness/src/agent_harness/integration.py` plus the optional A2A JSON-RPC/ASGI proof in `protocol_proofs.py` | asynchronous or streaming transition, capability/authorization mismatch, duplicate handling, cancellation/timeout, malformed artifact, remote implementation swap, and safe protocol traces |

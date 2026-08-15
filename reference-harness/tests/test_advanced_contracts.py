@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import unittest
 from dataclasses import replace
+from typing import cast
 
 from agent_harness import (
     AdapterContractError,
@@ -65,7 +66,9 @@ class MemoryTests(unittest.TestCase):
         self.assertFalse(store.delete("user-a", "other-user"))
         self.assertEqual((), store.search("user-a", "deploy rollback", now=20))
 
-        invalid_policy_store = InMemoryMemoryStore(lambda _record: ("yes", "wrong"))
+        invalid_policy_store = InMemoryMemoryStore(
+            lambda _record: cast(tuple[bool, str], ("yes", "wrong"))
+        )
         with self.assertRaises(TypeError):
             invalid_policy_store.put(
                 MemoryRecord("invalid-policy", "user-a", "data", "verified", 1)

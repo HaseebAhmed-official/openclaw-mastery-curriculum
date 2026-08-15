@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from typing import cast
 
 from agent_harness import (
     Approval,
@@ -55,7 +56,8 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual("run.finished", result.events[-1].kind)
 
     def test_malformed_provider_turn_becomes_provider_error(self):
-        harness = Harness(ScriptedProvider(["not-a-model-turn"]))
+        malformed = cast(ModelTurn, "not-a-model-turn")
+        harness = Harness(ScriptedProvider([malformed]))
 
         result = harness.run("malformed", "work")
 
