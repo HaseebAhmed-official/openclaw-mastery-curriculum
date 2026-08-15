@@ -32,12 +32,20 @@ class SQLiteSessionStore:
             CREATE TABLE IF NOT EXISTS events (
                 session_id TEXT NOT NULL,
                 sequence INTEGER NOT NULL,
+                attempt_id TEXT NOT NULL,
                 kind TEXT NOT NULL,
                 data_json TEXT NOT NULL,
                 PRIMARY KEY (session_id, sequence)
             );
             """
         )
+        event_columns = {
+            row[1] for row in self._connection.execute("PRAGMA table_info(events)")
+        }
+        if "attempt_id" not in event_columns:
+            self._connection.execute(
+                "ALTER TABLE events ADD COLUMN attempt_id TEXT NOT NULL DEFAULT 'legacy'"
+            )
         self._connection.commit()
 
     def close(self) -> None:
@@ -65,14 +73,14 @@ class SQLiteSessionStore:
     def events(self, session_id: str) -> tuple[Event, ...]:
         rows = self._connection.execute(
             """
-            SELECT sequence, kind, data_json
+            SELECT sequence, attempt_id, kind, data_json
             FROM events WHERE session_id = ? ORDER BY sequence
             """,
             (session_id,),
         ).fetchall()
         return tuple(
-            Event(sequence, session_id, kind, json.loads(data_json))
-            for sequence, kind, data_json in rows
+            Event(sequence, session_id, attempt_id, kind, json.loads(data_json))
+            for sequence, attempt_id, kind, data_json in rows
         )
 
     def append_message(self, session_id: str, message: Message) -> None:
@@ -95,18 +103,22 @@ class SQLiteSessionStore:
                 ),
             )
 
-    def append_event(self, session_id: str, kind: str, data: JsonObject) -> Event:
+    def append_event(
+        self, session_id: str, attempt_id: str, kind: str, data: JsonObject
+    ) -> Event:
         with self._connection:
             sequence = self._next_sequence("events", session_id)
-            event = Event(sequence, session_id, kind, dict(data))
+            event = Event(sequence, session_id, attempt_id, kind, dict(data))
             self._connection.execute(
                 """
-                INSERT INTO events (session_id, sequence, kind, data_json)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO events
+                    (session_id, sequence, attempt_id, kind, data_json)
+                VALUES (?, ?, ?, ?, ?)
                 """,
                 (
                     session_id,
                     sequence,
+                    attempt_id,
                     kind,
                     json.dumps(dict(data), sort_keys=True, default=str),
                 ),
@@ -129,6 +141,7 @@ class SQLiteSessionStore:
                 {
                     "sequence": event.sequence,
                     "session_id": event.session_id,
+                    "attempt_id": event.attempt_id,
                     "kind": event.kind,
                     "data": dict(event.data),
                 }

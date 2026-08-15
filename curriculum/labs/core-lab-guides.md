@@ -32,7 +32,7 @@ Bridge B0-B3; 60-90 minutes.
 ### Procedure
 
 1. Record Python and Git versions and active working directory.
-2. Run the baseline suite and capture all eight test outcomes.
+2. Run the complete current baseline suite and capture every test outcome.
 3. Create a learning branch.
 4. Add one harmless assertion to an existing test, make it fail intentionally, then correct it.
 5. Inspect status and diff; explain every changed line.

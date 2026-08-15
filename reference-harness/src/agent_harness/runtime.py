@@ -6,6 +6,7 @@ import hashlib
 import json
 from dataclasses import dataclass, field
 from typing import Any, Callable, Mapping, Protocol, Sequence
+from uuid import uuid4
 
 from .contracts import (
     Approval,
@@ -13,6 +14,7 @@ from .contracts import (
     Event,
     JsonObject,
     Message,
+    ModelTurn,
     Provider,
     RunLimits,
     RunResult,
@@ -148,9 +150,13 @@ class InMemorySessionStore:
     def append_message(self, session_id: str, message: Message) -> None:
         self.session(session_id).messages.append(message)
 
-    def append_event(self, session_id: str, kind: str, data: JsonObject) -> Event:
+    def append_event(
+        self, session_id: str, attempt_id: str, kind: str, data: JsonObject
+    ) -> Event:
         session = self.session(session_id)
-        event = Event(len(session.events) + 1, session_id, kind, dict(data))
+        event = Event(
+            len(session.events) + 1, session_id, attempt_id, kind, dict(data)
+        )
         session.events.append(event)
         return event
 
@@ -162,6 +168,7 @@ class InMemorySessionStore:
                 {
                     "sequence": event.sequence,
                     "session_id": event.session_id,
+                    "attempt_id": event.attempt_id,
                     "kind": event.kind,
                     "data": dict(event.data),
                 }
@@ -177,7 +184,9 @@ class SessionStore(Protocol):
 
     def append_message(self, session_id: str, message: Message) -> None: ...
 
-    def append_event(self, session_id: str, kind: str, data: JsonObject) -> Event: ...
+    def append_event(
+        self, session_id: str, attempt_id: str, kind: str, data: JsonObject
+    ) -> Event: ...
 
     def checkpoint(self, session_id: str) -> JsonObject: ...
 
@@ -208,21 +217,33 @@ class Harness:
     ) -> RunResult:
         limits = limits or RunLimits()
         cancelled = cancelled or (lambda: False)
+        attempt_id = uuid4().hex
         if not self.store.messages(session_id):
             self.store.append_message(
                 session_id, Message("system", self.system_instruction)
             )
         self.store.append_message(session_id, Message("user", user_input))
-        self.store.append_event(session_id, "run.started", {"input": user_input})
+        self.store.append_event(
+            session_id,
+            attempt_id,
+            "run.started",
+            {"input_characters": len(user_input)},
+        )
 
         turns = 0
         tool_count = 0
         repeated_calls: dict[str, int] = {}
+        seen_call_ids: set[str] = set()
 
         while turns < limits.max_turns:
             if cancelled():
                 return self._finish(
-                    session_id, StopReason.CANCELLED, "", turns, tool_count
+                    session_id,
+                    attempt_id,
+                    StopReason.CANCELLED,
+                    "",
+                    turns,
+                    tool_count,
                 )
 
             turns += 1
@@ -230,6 +251,7 @@ class Harness:
                 context = self.context_builder.build(self.store.messages(session_id))
                 self.store.append_event(
                     session_id,
+                    attempt_id,
                     "context.built",
                     {
                         "turn": turns,
@@ -240,36 +262,61 @@ class Harness:
             except Exception as exc:
                 self.store.append_event(
                     session_id,
+                    attempt_id,
                     "context.failed",
                     {"turn": turns, "error": f"{type(exc).__name__}: {exc}"},
                 )
                 return self._finish(
-                    session_id, StopReason.CONTEXT_ERROR, "", turns, tool_count
+                    session_id,
+                    attempt_id,
+                    StopReason.CONTEXT_ERROR,
+                    "",
+                    turns,
+                    tool_count,
                 )
-            self.store.append_event(session_id, "model.requested", {"turn": turns})
+            self.store.append_event(
+                session_id, attempt_id, "model.requested", {"turn": turns}
+            )
             try:
                 turn = self.provider.complete(
                     context.messages, self.registry.manifest()
                 )
+                _validate_model_turn(turn)
+                call_ids = {call.call_id for call in turn.tool_calls}
+                if call_ids & seen_call_ids:
+                    raise ValueError("provider reused a tool-call identity")
+                seen_call_ids.update(call_ids)
             except Exception as exc:  # Provider errors are evidence, not crashes.
                 self.store.append_event(
                     session_id,
+                    attempt_id,
                     "model.failed",
                     {"turn": turns, "error": f"{type(exc).__name__}: {exc}"},
                 )
                 return self._finish(
-                    session_id, StopReason.PROVIDER_ERROR, "", turns, tool_count
+                    session_id,
+                    attempt_id,
+                    StopReason.PROVIDER_ERROR,
+                    "",
+                    turns,
+                    tool_count,
                 )
 
             self.store.append_event(
                 session_id,
+                attempt_id,
                 "model.completed",
                 {"turn": turns, "tool_calls": len(turn.tool_calls)},
             )
             if not turn.tool_calls:
                 self.store.append_message(session_id, Message("assistant", turn.content))
                 return self._finish(
-                    session_id, StopReason.FINAL, turn.content, turns, tool_count
+                    session_id,
+                    attempt_id,
+                    StopReason.FINAL,
+                    turn.content,
+                    turns,
+                    tool_count,
                 )
 
             if turn.content:
@@ -278,7 +325,12 @@ class Harness:
             for call in turn.tool_calls:
                 if tool_count >= limits.max_tool_calls:
                     return self._finish(
-                        session_id, StopReason.TOOL_BUDGET, "", turns, tool_count
+                        session_id,
+                        attempt_id,
+                        StopReason.TOOL_BUDGET,
+                        "",
+                        turns,
+                        tool_count,
                     )
                 tool_count += 1
 
@@ -287,26 +339,35 @@ class Harness:
                 if repeated_calls[fingerprint] > limits.max_repeated_call:
                     self.store.append_event(
                         session_id,
+                        attempt_id,
                         "run.no_progress",
                         {"tool": call.name, "call_id": call.call_id},
                     )
                     return self._finish(
-                        session_id, StopReason.NO_PROGRESS, "", turns, tool_count
+                        session_id,
+                        attempt_id,
+                        StopReason.NO_PROGRESS,
+                        "",
+                        turns,
+                        tool_count,
                     )
 
                 spec = self.registry.get(call.name)
                 if spec is None:
-                    self._record_tool_error(session_id, call, "unknown tool")
+                    self._record_tool_error(
+                        session_id, attempt_id, call, "unknown tool"
+                    )
                     continue
                 try:
                     validate_arguments(spec.input_schema, call.arguments)
                 except SchemaError as exc:
-                    self._record_tool_error(session_id, call, str(exc))
+                    self._record_tool_error(session_id, attempt_id, call, str(exc))
                     continue
 
                 allowed, reason = self.policy.authorize(session_id, spec, call)
                 self.store.append_event(
                     session_id,
+                    attempt_id,
                     "policy.decided",
                     {
                         "tool": call.name,
@@ -316,13 +377,19 @@ class Harness:
                     },
                 )
                 if not allowed:
-                    self._record_tool_error(session_id, call, reason)
+                    self._record_tool_error(session_id, attempt_id, call, reason)
                     return self._finish(
-                        session_id, StopReason.POLICY_DENIED, "", turns, tool_count
+                        session_id,
+                        attempt_id,
+                        StopReason.POLICY_DENIED,
+                        "",
+                        turns,
+                        tool_count,
                     )
 
                 self.store.append_event(
                     session_id,
+                    attempt_id,
                     "tool.started",
                     {"tool": call.name, "call_id": call.call_id},
                 )
@@ -331,6 +398,7 @@ class Harness:
                     payload = {"ok": True, "output": output}
                     self.store.append_event(
                         session_id,
+                        attempt_id,
                         "tool.completed",
                         {"tool": call.name, "call_id": call.call_id},
                     )
@@ -341,6 +409,7 @@ class Harness:
                     }
                     self.store.append_event(
                         session_id,
+                        attempt_id,
                         "tool.failed",
                         {
                             "tool": call.name,
@@ -359,14 +428,20 @@ class Harness:
                 )
 
         return self._finish(
-            session_id, StopReason.TURN_BUDGET, "", turns, tool_count
+            session_id,
+            attempt_id,
+            StopReason.TURN_BUDGET,
+            "",
+            turns,
+            tool_count,
         )
 
     def _record_tool_error(
-        self, session_id: str, call: ToolCall, error: str
+        self, session_id: str, attempt_id: str, call: ToolCall, error: str
     ) -> None:
         self.store.append_event(
             session_id,
+            attempt_id,
             "tool.rejected",
             {"tool": call.name, "call_id": call.call_id, "error": error},
         )
@@ -383,6 +458,7 @@ class Harness:
     def _finish(
         self,
         session_id: str,
+        attempt_id: str,
         reason: StopReason,
         output: str,
         turns: int,
@@ -390,6 +466,7 @@ class Harness:
     ) -> RunResult:
         self.store.append_event(
             session_id,
+            attempt_id,
             "run.finished",
             {
                 "stop_reason": reason.value,
@@ -399,9 +476,30 @@ class Harness:
         )
         return RunResult(
             session_id=session_id,
+            attempt_id=attempt_id,
             stop_reason=reason,
             output=output,
             turns=turns,
             tool_calls=tool_calls,
-            events=self.store.events(session_id),
+            events=tuple(
+                event
+                for event in self.store.events(session_id)
+                if event.attempt_id == attempt_id
+            ),
         )
+
+
+def _validate_model_turn(turn: object) -> None:
+    if not isinstance(turn, ModelTurn):
+        raise TypeError("provider must return ModelTurn")
+    if not isinstance(turn.content, str) or not isinstance(turn.tool_calls, tuple):
+        raise TypeError("provider turn content and tool_calls have invalid types")
+    call_ids: list[str] = []
+    for call in turn.tool_calls:
+        if not isinstance(call, ToolCall):
+            raise TypeError("provider turn contains an invalid tool call")
+        if not call.call_id or not call.name or not isinstance(call.arguments, Mapping):
+            raise TypeError("tool call identity, name, or arguments are invalid")
+        call_ids.append(call.call_id)
+    if len(set(call_ids)) != len(call_ids):
+        raise ValueError("provider returned duplicate tool-call identities")

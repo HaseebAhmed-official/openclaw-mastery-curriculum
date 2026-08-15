@@ -54,6 +54,14 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual("complete", result.output)
         self.assertEqual("run.finished", result.events[-1].kind)
 
+    def test_malformed_provider_turn_becomes_provider_error(self):
+        harness = Harness(ScriptedProvider(["not-a-model-turn"]))
+
+        result = harness.run("malformed", "work")
+
+        self.assertEqual(StopReason.PROVIDER_ERROR, result.stop_reason)
+        self.assertEqual("model.failed", result.events[-2].kind)
+
     def test_valid_tool_call_is_recorded_and_returned_to_provider(self):
         provider = ScriptedProvider(
             [
@@ -112,8 +120,12 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual(StopReason.FINAL, allowed.stop_reason)
 
     def test_repeated_identical_call_stops_no_progress(self):
-        call = ToolCall("same", "missing", {})
-        provider = ScriptedProvider([ModelTurn(tool_calls=(call,))] * 3)
+        provider = ScriptedProvider(
+            [
+                ModelTurn(tool_calls=(ToolCall(f"call-{index}", "missing", {}),))
+                for index in range(3)
+            ]
+        )
         harness = Harness(provider)
 
         result = harness.run(
@@ -121,6 +133,21 @@ class HarnessTests(unittest.TestCase):
         )
 
         self.assertEqual(StopReason.NO_PROGRESS, result.stop_reason)
+
+    def test_provider_cannot_reuse_tool_call_identity(self):
+        provider = ScriptedProvider(
+            [
+                ModelTurn(tool_calls=(ToolCall("duplicate", "add", {"a": 1, "b": 2}),)),
+                ModelTurn(tool_calls=(ToolCall("duplicate", "add", {"a": 3, "b": 4}),)),
+            ]
+        )
+        harness = Harness(provider, registry=registry_with_calculator())
+
+        result = harness.run("duplicate-call-id", "add twice")
+
+        self.assertEqual(StopReason.PROVIDER_ERROR, result.stop_reason)
+        self.assertEqual(1, result.tool_calls)
+        self.assertIn("reused a tool-call identity", result.events[-2].data["error"])
 
     def test_turn_budget_and_checkpoint_are_explicit(self):
         provider = ScriptedProvider(

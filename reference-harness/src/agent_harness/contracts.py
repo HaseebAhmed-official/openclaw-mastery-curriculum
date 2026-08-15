@@ -95,6 +95,7 @@ class StopReason(str, Enum):
 class Event:
     sequence: int
     session_id: str
+    attempt_id: str
     kind: str
     data: JsonObject = field(default_factory=dict)
 
@@ -102,6 +103,7 @@ class Event:
 @dataclass(frozen=True)
 class RunResult:
     session_id: str
+    attempt_id: str
     stop_reason: StopReason
     output: str
     turns: int

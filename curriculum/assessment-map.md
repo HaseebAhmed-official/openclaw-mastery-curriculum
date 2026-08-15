@@ -81,16 +81,16 @@ Use multiple measures because no single quiz, benchmark, capstone, or oral defen
 
 | Outcome | Primary teaching locations | Required labs | High-stakes evidence |
 | --- | --- | --- | --- |
-| PLO-1 | Bridge B0-B11; Semester 1 weeks 1-3, 8 | LAB-A1-A4 | prerequisite exit; midterm trace/debug |
+| PLO-1 | Bridge B0-B11; Semester 1 weeks 1-3, 8 | LAB-A1 through LAB-A4 | prerequisite exit; midterm trace/debug |
 | PLO-2 | Semester 1 weeks 1, 15; Semester 2 weeks 1-2 | LAB-A4, LAB-C1 | architecture review; capstone agentic justification |
-| PLO-3 | Semester 1 weeks 3-7, 11-12, 15 | LAB-B1-B6 | minimal-harness final practical |
-| PLO-4 | Semester 1 weeks 9-10; Semester 2 weeks 3-4 | LAB-B5, LAB-C2-C3 | crash/recovery practical; capstone failure injection |
-| PLO-5 | Semester 2 weeks 5-6, 13 | LAB-C4-C5, LAB-D1-D3 | protocol adapter and portability test |
-| PLO-6 | Semester 1 weeks 6, 11-12; Semester 2 weeks 7-8, 11-12 | LAB-A4, LAB-B6, LAB-C3-C6, LAB-C9 | attack-and-repair exam; security board |
-| PLO-7 | Semester 1 weeks 13-14; Semester 2 weeks 9-10 | LAB-B7, LAB-C7-C8 | evaluation corpus/report; release gate |
-| PLO-8 | Semester 2 weeks 1, 3, 10-12, 15 | LAB-C2, LAB-C7-C9 | incident/rollback evidence; capstone operations board |
+| PLO-3 | Semester 1 weeks 3-7, 11-12, 15 | LAB-B1 through LAB-B6 | minimal-harness final practical |
+| PLO-4 | Semester 1 weeks 9-10; Semester 2 weeks 3-4 | LAB-B5, LAB-C2 through LAB-C3 | crash/recovery practical; capstone failure injection |
+| PLO-5 | Semester 2 weeks 5-6, 13 | LAB-C4 through LAB-C5; LAB-D1 through LAB-D3 | protocol adapter and portability test |
+| PLO-6 | Semester 1 weeks 6, 11-12; Semester 2 weeks 7-8, 11-12 | LAB-A4, LAB-B6, LAB-C3 through LAB-C6, LAB-C9 | attack-and-repair exam; security board |
+| PLO-7 | Semester 1 weeks 13-14; Semester 2 weeks 9-10 | LAB-B7, LAB-C7 through LAB-C8 | evaluation corpus/report; release gate |
+| PLO-8 | Semester 2 weeks 1, 3, 10-12, 15 | LAB-C2, LAB-C7 through LAB-C9 | incident/rollback evidence; capstone operations board |
 | PLO-9 | threaded through design reviews, labs, teams, source and risk decisions | all labs' evidence/defense sections | written/oral defense; governance review |
-| PLO-10 | Semester 2 weeks 13-14, 16; case studies and tracks | LAB-D1-D5 | unfamiliar-system audit; delayed portability task |
+| PLO-10 | Semester 2 weeks 13-14, 16; case studies and tracks | LAB-D1 through LAB-D5 | unfamiliar-system audit; delayed portability task |
 
 An institution should map local course/credit outcomes to this matrix and record any omitted evidence. A topic mention without direct assessment does not count as outcome coverage.
 

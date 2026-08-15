@@ -54,6 +54,17 @@
 - Validation: Markdown links, JSON parsing, formatting, Python compilation, and current reference tests passed during implementation; external validation and clean lab reproduction remain pending
 - Follow-up: finish advanced executable fixtures, run internal/external adversarial review, reproduce critical labs, calibrate assessors, and pilot with real learners before readiness claims
 
+## 2026-08-15 Internal Migration and Source Validation
+
+- Change category: bounded advanced-fixture implementation, source-drift repair, case-evidence hardening, and internal validation
+- Executable evidence: extended the reference harness with per-attempt event identity, schema migration, bounded memory and orchestration, checked protocol/telemetry ports, policy-based repeated-trial evaluation, malformed-provider handling, and adversarial tests
+- Protocol drift repaired: updated MCP teaching to the `2026-07-28` stateless per-request negotiation model, pinned A2A `1.0.0`, and moved OpenTelemetry GenAI references to the dedicated semantic-conventions repository
+- Case evidence: added dated claim ledgers for Hermes Agent `v2026.8.13`, ChatGPT Work public contracts, and current xAI agent tooling, including explicit unknown-internal boundaries
+- OpenClaw drift: authenticated release check remained at `v2026.7.1-2`, extended-stable remained `2026.6.34`, and the observed beta tag advanced to `2026.8.1-beta.2` without changing the stable teaching baseline; advisory metadata showed 647 published records, latest publication `2026-06-30T01:11:32Z`, latest update `2026-08-13T17:27:46Z`, and no later advisory update at review time
+- Validation evidence: reference-harness tests, drift-script tests, Python compilation, JSON parsing, local Markdown links, secret-pattern checks, and repository whitespace checks were run; detailed results and unavailable-tool boundaries are recorded in the current internal validation report
+- Evidence boundary: the 112 advisories published after the previous cutoff were reviewed in the 2026-08-13 pass; the 2026-08-15 metadata check did not reread the entire 647-record feed, and no authored lab was promoted to independently reproduced
+- Follow-up: reproduce critical labs in clean learner environments, implement pinned protocol/provider/telemetry examples where justified, run accessibility and assessor calibration audits, then obtain independent academic, practitioner, and security review
+
 ## Logging rule
 
 Every future upstream review should append:

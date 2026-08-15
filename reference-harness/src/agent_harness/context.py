@@ -47,7 +47,8 @@ class RecentContextBuilder:
                 selected_reversed.append(message)
                 remaining -= size
             else:
-                dropped += 1
+                dropped = len(conversation) - len(selected_reversed)
+                break
 
         if conversation and not selected_reversed:
             raise ContextBudgetError("latest conversation message exceeds context budget")

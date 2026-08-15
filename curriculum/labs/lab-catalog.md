@@ -116,7 +116,7 @@ Trace an unfamiliar harness/framework code path, reproduce an issue, propose or 
 
 ### One-Semester Foundations Course
 
-LAB-A1-A4 and LAB-B1-B7, ending with the minimal-harness practical.
+LAB-A1 through LAB-A4 and LAB-B1 through LAB-B7, ending with the minimal-harness practical.
 
 ### Two-Semester Engineering Program
 
@@ -124,7 +124,7 @@ All Phase A-C labs, LAB-D1, LAB-D2, and one additional specialization lab.
 
 ### Enterprise Capability Program
 
-Diagnostic Phase A evidence, LAB-B2-B7, LAB-C2, LAB-C6-C9, and a role-specific Phase D lab. Use production controls and incident simulations instead of academic-only exercises.
+Diagnostic Phase A evidence, LAB-B2 through LAB-B7, LAB-C2, LAB-C6 through LAB-C9, and a role-specific Phase D lab. Use production controls and incident simulations instead of academic-only exercises.
 
 ## Verification States
 

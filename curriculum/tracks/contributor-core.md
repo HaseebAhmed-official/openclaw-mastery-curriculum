@@ -15,7 +15,7 @@ Implement, audit, and maintain harness runtime, orchestration, context, state, p
 
 ## Required Evidence
 
-- LAB-B2-B7, LAB-C1, LAB-C2, LAB-D1, LAB-D5
+- LAB-B2 through LAB-B7, LAB-C1, LAB-C2, LAB-D1, LAB-D5
 - source-level control/data-flow trace
 - tested runtime subsystem or scoped upstream change
 - performance and failure evidence

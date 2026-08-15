@@ -17,7 +17,7 @@ The existing reference harness should deny a side effect without approval and al
 
 ## Work and Evidence
 
-1. Ran the baseline 8 tests: all passed.
+1. Ran the complete baseline suite at the recorded commit: all tests passed.
 2. Added tests for wrong session and changed destination arguments; both were denied with `policy.decided.allowed=false`.
 3. Added an exact matching approval; the handler ran once and emitted `tool.started` then `tool.completed`.
 4. Reused the same approval in the same session; the action ran again, confirming the documented one-time-use limitation.

@@ -33,7 +33,7 @@ Every deck begins with requirements/risk and ends with an injected failure, evid
 ## Week 5: MCP
 
 - question: what does protocol discovery authorize? Nothing by itself.
-- visuals: host/client/server and capability negotiation
+- visuals: host/client/server, per-request capabilities, `server/discover`, and legacy initialization contrast
 - activity: version/error/malicious-content contract test
 - exit: local policy boundary
 

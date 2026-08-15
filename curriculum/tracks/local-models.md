@@ -15,7 +15,7 @@ Select, serve, route, evaluate, and operate models under explicit hardware, work
 
 ## Required Evidence
 
-- LAB-B1, LAB-C7-C9, LAB-D1, LAB-D4
+- LAB-B1, LAB-C7 through LAB-C9, LAB-D1, LAB-D4
 - measured hardware/workload profile
 - at least two feasible model/serving configurations
 - quality, latency, throughput, resource, and failure report

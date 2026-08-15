@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import os
 import sys
 import textwrap
 import urllib.request
 from pathlib import Path
 
 
-def fetch_latest_release(repo: str) -> dict:
+def build_release_request(repo: str) -> urllib.request.Request:
     url = f"https://api.github.com/repos/{repo}/releases/latest"
-    request = urllib.request.Request(
-        url,
-        headers={
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "openclaw-mastery-curriculum",
-        },
-    )
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "agent-harness-systems-engineering-curriculum",
+    }
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    return urllib.request.Request(url, headers=headers)
+
+
+def fetch_latest_release(repo: str) -> dict:
+    request = build_release_request(repo)
     with urllib.request.urlopen(request, timeout=30) as response:
         return json.load(response)
 
@@ -23,6 +29,21 @@ def fetch_latest_release(repo: str) -> dict:
 def build_issue_body(state: dict, latest: dict) -> str:
     tracked_tag = state["last_reviewed_release"]
     latest_tag = latest["tag_name"]
+    if tracked_tag == latest_tag:
+        return textwrap.dedent(
+            f"""
+            # OpenClaw upstream baseline current
+
+            The curriculum and latest upstream release are both **{tracked_tag}**.
+
+            - Repository: `{state['tracked_repo']}`
+            - Release: [{latest_tag}]({latest['html_url']})
+            - Published at: `{latest['published_at']}`
+            - Curriculum review date: `{state['last_reviewed_date']}`
+
+            No release-drift review issue is required. Security advisories and documentation can still change independently and remain separate review triggers.
+            """
+        ).strip() + "\n"
     surfaces = "\n".join(f"- `{item}`" for item in state.get("review_surfaces", []))
     lines = [
         "# OpenClaw upstream review required",

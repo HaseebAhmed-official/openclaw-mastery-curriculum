@@ -44,15 +44,14 @@ Curriculum:
 
 - local: `C:\Users\Administrator\Documents\Codex\2026-04-22-openclaw-search-deeply-on-internet-github\openclaw-mastery`
 - branch: `main`
-- remote: `https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum.git`
-- latest verified pushed commits on 2026-08-15: `94aa38d` and `50f6439`
+- remote: `https://github.com/HaseebAhmed-official/agent-harness-systems-engineering-curriculum.git`
+- latest pushed curriculum migration milestones entering this work: `ed3c956` and `c136a86`; use Git rather than this file for the current head
 
-Mentor OS extraction:
+Paused external product:
 
 - local: `C:\Users\Administrator\Documents\Codex\2026-04-22-openclaw-search-deeply-on-internet-github\elite-mentor-os`
-- target remote: `https://github.com/HaseebAhmed-official/elite-mentor-os`
-- current version: `0.3.0` standalone alpha
-- current status: v0.3 static/native distribution milestone published at commit `8b637c3`; Codex and Claude remote installation were verified, but behavioral and learner-outcome testing remains. User froze Mentor OS work on 2026-08-15; do not continue it until explicitly resumed.
+- remote: `https://github.com/HaseebAhmed-official/elite-mentor-os`
+- status: separate and frozen by user decision on 2026-08-15; do not inspect, modify, validate, release, or include it in curriculum progress until explicitly resumed
 
 User study environment:
 
@@ -62,20 +61,17 @@ User study environment:
 
 ## Current Baseline
 
-The OpenClaw-specific curriculum baseline is clean, committed, and pushed. It contains 81 curriculum files plus validation, maintenance, and the legacy plugin snapshot. Fifty-five of the 81 curriculum files directly reference OpenClaw, including both semester spines, core labs, assessments, sources, and most specialization tracks.
+The platform-agnostic architecture and support-asset migration are pushed through `c136a86`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
 
-The existing package is strong as an OpenClaw-oriented document set, but it has not demonstrated institution-ready delivery through real cohorts or complete command-level lab evidence. It also does not yet meet the expanded platform-agnostic build-your-own-harness vision.
+The reference harness now covers the minimal runtime plus bounded Semester 2 starting fixtures for memory, orchestration, protocol/telemetry ports, per-attempt events, persistence, and policy-based evaluation. These fixtures support learning; they do not replace actual protocol implementations, clean lab reproduction, or production infrastructure.
 
 ### Honest Progress Snapshot
 
 | Scope | Evidence-based completion | Interpretation |
 | --- | ---: | --- |
-| Original OpenClaw document-set scope | about 82% | Broad structure, teaching guides, assessments, rubrics, maintenance, and release-aware content exist. |
-| Original OpenClaw institution-ready scope | about 55-60% | Live labs, cohort timing, assessor calibration, screenshots, learner outcomes, and independent revalidation are incomplete. |
-| Expanded platform-agnostic curriculum artifact implementation | about 70% | Canonical and support assets are migrated and consolidated; reference harness now covers context and persistent reset recovery. Advanced fixtures, lab reproduction records, deeper case evidence, and final internal/external audit remain. |
+| Platform-agnostic curriculum artifact implementation | about 74% | Canonical/support migration and bounded advanced fixtures exist; real protocol/provider examples, deeper case ledgers, lab reproduction records, and final audit remain. |
+| Hands-on reproducibility evidence | about 25% | Reference tests pass, but authored labs have not been independently reproduced and calibrated in clean learner environments. |
 | Expanded curriculum institution/enterprise proof | about 30% | Alignment and delivery contracts are strong, but no real cohort, measured assessor reliability, full lab reproduction, accessibility audit, or independent adoption evidence exists. |
-| Standalone Mentor OS static/native distribution | about 75% | v0.3 static validation and isolated Claude/Codex remote install pass; behavioral and learning evidence remain, but work is paused. |
-| Standalone Mentor OS institution/enterprise proof | about 20-25% | No real learner study, multi-directory evidence set, governance audit, or independent adoption proof yet. |
 
 Percentages are planning estimates, not quality claims. The gate ledger below is authoritative.
 
@@ -83,12 +79,11 @@ Percentages are planning estimates, not quality claims. The gate ledger below is
 
 - two-semester instructional structure
 - prerequisite bridge and competency framework
-- labs, classroom manuals, rubrics, practical exams, oral defenses, and feedback assets
+- labs, rubrics, practical exams, oral defenses, calibration, and feedback assets
 - production, security, operations, extension, and contributor tracks
 - release-aware maintenance and source-validation mechanisms
 - OpenClaw security/advisory baseline through the August 2026 review
 - historical Codex and Claude validation reports
-- lean dual-native Mentor OS design with explicit mastery and write-consent rules
 
 These assets should be migrated and improved, not discarded merely to make the repository look new.
 
@@ -101,10 +96,10 @@ These assets should be migrated and improved, not discarded merely to make the r
 
 ### Technical Depth
 
-- The executable reference harness proves deterministic provider behavior, bounded loop, typed tools, exact approval, context budgeting, session/event persistence across reopen, and repeated-trial evaluation. It still lacks real process isolation, full JSON Schema, distributed durability, memory, orchestration, MCP/A2A adapters, OpenTelemetry export, and production provider adapters.
-- MCP and A2A are not taught as independent interoperability contracts.
+- The executable reference harness proves deterministic provider behavior, bounded loop, typed tools, exact approval, context budgeting, per-attempt event identity, session/event persistence, bounded memory/orchestration, checked adapter ports, event export, and policy-based repeated-trial evaluation. It still lacks real process isolation, full JSON Schema, distributed durability, actual MCP/A2A implementations, OpenTelemetry export, and production provider adapters.
+- MCP and A2A are taught as independent interoperability contracts, but their labs still lack pinned executable reference implementations and reproduction evidence.
 - Durable workflow engines, checkpoint/replay semantics, idempotency, cancellation, and recovery need first-class treatment.
-- Evaluation does not yet include a maintained task corpus, repeated trials, graders, trace inspection, end-state checks, regression thresholds, cost, and latency.
+- Evaluation fixtures now implement repeated trials, per-task thresholds, critical gates, and retained runs, but the curriculum still lacks a maintained representative corpus, validated graders, uncertainty analysis, leakage checks, cost, and latency evidence.
 - Threat modeling needs platform-independent agentic attack labs and measurable mitigations.
 
 ### Delivery Evidence
@@ -196,36 +191,36 @@ The project is complete only when every applicable gate has evidence:
 
 | Gate | Required evidence | Current state |
 | --- | --- | --- |
-| G0 Scope and boundary | Stable outcomes, product separation, claim limits | In progress |
+| G0 Scope and boundary | Stable outcomes, product separation, claim limits | Implemented; independent audit pending |
 | G1 Source integrity | Claim-source map, versions/dates, independent spot checks | Partial |
-| G2 Curriculum alignment | Outcome-to-module-to-lab-to-assessment traceability | Needs migration |
-| G3 Reference implementation | Runnable harness, tests, fixtures, documented failure modes | Missing |
-| G4 Hands-on reproducibility | Labs executed in clean environments with expected evidence | Partial/OpenClaw-only |
-| G5 Assessment validity | Authentic tasks, oral defense, transfer, anti-outsourcing controls | Partial |
-| G6 Security and governance | Threat labs, controls, privacy, change management, audits | Partial |
+| G2 Curriculum alignment | Outcome-to-module-to-lab-to-assessment traceability | Implemented; audit/calibration pending |
+| G3 Reference implementation | Runnable harness, tests, fixtures, documented failure modes | Partial; bounded fixtures pass, production adapters absent |
+| G4 Hands-on reproducibility | Labs executed in clean environments with expected evidence | Early; reference suite only |
+| G5 Assessment validity | Authentic tasks, oral defense, transfer, anti-outsourcing controls | Strong authored system; empirical validity pending |
+| G6 Security and governance | Threat labs, controls, privacy, change management, audits | Strong authored system; execution/audit pending |
 | G7 Teaching readiness | Instructor notes, pacing, accessibility, calibration | Partial |
 | G8 Learner evidence | Pilot data and delayed changed-task transfer | Missing |
 | G9 External validation | Independent academic, practitioner, security reviews repaired | Missing for new scope |
-| G10 Release readiness | Clean repo, licensing, versioning, release notes, support boundary | Not started for migrated product |
+| G10 Release readiness | Clean repo, licensing, versioning, release notes, support boundary | In progress; repository/license exist, release package does not |
 
 No completion percentage overrides a failed gate.
 
 ## Implementation Sequence
 
-1. Extend the tested reference harness into memory, orchestration, stronger evaluation fixtures, and protocol/observability adapter contracts without hiding production limits.
+1. Run internal adversarial validation across alignment, source integrity, code, security, accessibility, delivery, and claim boundaries; repair findings.
 2. Execute every critical lab in clean environments and record reproduction status.
 3. Complete dated claim ledgers/exercises for non-OpenClaw cases and reverify current protocol/framework sources.
-4. Run security, accessibility, source, assessment-alignment, and reset-recovery validation.
+4. Add actual pinned protocol/provider/telemetry examples only where they materially improve labs.
 5. Run independent adversarial academic, enterprise, security, and practitioner reviews; repair findings.
 6. Pilot with real learners and assessors before institution-ready or enterprise-ready claims.
 
 ## Immediate Next Actions
 
 1. Keep `../elite-mentor-os` frozen until the user explicitly resumes that product.
-2. Add only the next high-value executable contracts: memory, orchestration, protocol/observability boundaries, and richer eval fixtures.
+2. Finish the internal adversarial validation and write one consolidated current evidence report.
 3. Align detailed lab verification status with actual execution evidence; do not mark authored labs reproduced.
-4. Run the new master validation prompt internally and repair findings before external review.
-5. Preserve OpenClaw drift monitoring as case-specific evidence without re-centering the curriculum.
+4. Complete dated non-OpenClaw case claim ledgers and exercises.
+5. Reproduce critical labs cleanly, then seek independent review and pilot evidence.
 
 ## State-Preservation Protocol
 

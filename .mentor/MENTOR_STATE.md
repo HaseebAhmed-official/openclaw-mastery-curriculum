@@ -22,36 +22,32 @@ Build a university-presentable, enterprise-relevant curriculum through which a s
 ## Verified Baseline
 
 - Date: 2026-08-15, Asia/Karachi.
-- Curriculum branch `main` is synchronized with `origin/main` at `94aa38d` before this state update.
-- Prior standalone Mentor OS snapshot is preserved in commit `50f6439`.
-- Current curriculum has 81 files; 55 directly reference OpenClaw.
-- Existing strengths: prerequisites, two semesters, labs/manuals, assessments, rubrics, tracks, maintenance, and historical reviews.
-- Main defect: these assets remain organized around OpenClaw rather than the transferable engineering discipline.
+- Platform-agnostic curriculum migration is pushed through `c136a86`.
+- Current tree has 68 curriculum files; 15 OpenClaw references remain in intentional case/source/maintenance/comparative contexts.
+- The reference harness has a minimal runtime and bounded memory, orchestration, protocol/telemetry-port, persistence, and evaluation fixtures.
+- Elite Mentor OS is separate and frozen; do not work on it until the user explicitly resumes it.
 
 ## Honest Progress
 
 | Scope | Estimate | Critical remaining evidence |
 | --- | ---: | --- |
-| OpenClaw-oriented document set | 82% | live lab proofs, cohort evidence, calibration, independent rerun |
-| OpenClaw institution-ready package | 55-60% | reproducibility, accessibility, outcomes, assessor reliability |
-| Expanded agent-harness curriculum artifacts | 70% | advanced executable fixtures, lab reproduction, final audits |
+| Expanded agent-harness curriculum artifacts | 74% | real adapters, case ledgers, lab reproduction, final audits |
+| Hands-on reproducibility evidence | 25% | clean independent lab runs and calibration |
 | Expanded curriculum institution/enterprise proof | 30% | cohort, measured calibration, accessibility audit, external adoption evidence |
-| Standalone Mentor OS static/native distribution | 75% | behavior and learner evidence remain; user paused work |
-| Mentor OS institution/enterprise proof | 20-25% | real learners, governance/security review, multi-directory outcomes |
 
 These are planning estimates. Completion gates in `PROJECT_STATE.md` control claims.
 
 ## Current Milestone
 
-Extend advanced executable evidence and begin rigorous internal validation after completing canonical and support-asset migration.
+Run rigorous internal curriculum validation after completing canonical/support migration and the bounded advanced-fixture milestone.
 
 ## Next Actions
 
 1. Do not work on `../elite-mentor-os` until the user explicitly resumes it.
-2. Extend the reference harness into memory, orchestration, protocol/observability adapter boundaries, and richer eval fixtures.
+2. Run and repair the internal adversarial curriculum audit; preserve one consolidated report.
 3. Mark lab verification from real execution only and reproduce critical labs cleanly.
-4. Run the new internal adversarial validation and repair findings.
-5. Complete comparative case evidence, then request external reviews and pilots.
+4. Complete dated non-OpenClaw case evidence and actual pinned adapter examples where justified.
+5. Request independent reviews and pilots only after internal gates pass.
 
 ## Required Curriculum Layers
 
@@ -78,6 +74,7 @@ Extend advanced executable evidence and begin rigorous internal validation after
 | 2026-08-15 | Published standalone Mentor OS v0.3 at `HaseebAhmed-official/elite-mentor-os`; static validators and isolated Codex/Claude remote installs passed. User then paused all Mentor OS work. | Focus only on curriculum until explicitly resumed. |
 | 2026-08-15 | Migrated canonical curriculum, semesters, teaching guides, labs, assessments, tracks, sources, governance, and case method; removed embedded plugin and redundant screenshot manuals; added tested minimal Python reference harness. | Consolidate remaining support assets and extend advanced executable evidence. |
 | 2026-08-15 | Consolidated model answers; migrated examples, templates, decks, environment lanes, maintenance, calibration, and validation prompt; added explicit PLO alignment plus context-budget and SQLite reset-recovery tests. | Extend advanced contracts and run internal adversarial validation. |
+| 2026-08-15 | Added per-attempt event identity, bounded memory/orchestration, checked protocol/telemetry ports, policy-based evaluation gates, schema migration coverage, and adversarial tests. Mentor OS remains frozen. | Complete internal curriculum audit and repair findings. |
 
 ## Resume Protocol
 

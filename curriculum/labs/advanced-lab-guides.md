@@ -4,6 +4,18 @@
 
 Every advanced lab preserves requirements, architecture, source/version baseline, failure injection, trace and end state, security/privacy review, rollback or recovery, measured result, and residual risk. Use bounded disposable environments for attack labs.
 
+The reference harness supplies bounded starting fixtures, not completed advanced labs:
+
+| Labs | Starting code | Learner must still add and prove |
+| --- | --- | --- |
+| LAB-C1 | `reference-harness/src/agent_harness/orchestration.py` | a second real pattern, timing/cost evidence, concurrency where claimed, authority propagation, and comparative ablation |
+| LAB-C3 | `reference-harness/src/agent_harness/memory.py` | durable/indexed retrieval, contamination corpus, privacy/deletion propagation, quality metrics, and unavailable-store behavior |
+| LAB-C4 through LAB-C5 | `reference-harness/src/agent_harness/integration.py` | pinned MCP/A2A implementation, protocol traces, auth/transport behavior, malformed content, timeout, cancellation, and compatibility tests |
+| LAB-C7 | `reference-harness/src/agent_harness/testing.py` | representative corpus, valid graders, repeated nondeterministic trials, uncertainty, leakage controls, latency/cost, and release rationale |
+| LAB-C8 | attempt-correlated runtime events plus `integration.py` | timestamps, trace/span model, metrics/logs, exporter/version pin, redaction, SLOs, alerts, and incident reconstruction |
+
+Passing reference tests proves only the local contract examples. It cannot be submitted as advanced-lab evidence without the required extensions and measurements.
+
 ## LAB-C1: Orchestration Pattern Comparison
 
 ### Objective
@@ -85,7 +97,7 @@ Pin a current MCP specification/SDK version. Build or use a minimal server and c
 
 ### Required Tests
 
-- initialization and capability negotiation
+- modern per-request version/capability declarations and `server/discover`; if legacy support is claimed, test its initialization-era path separately
 - unsupported capability/version behavior
 - invalid arguments and server error
 - authorization denial

@@ -15,10 +15,12 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Run upstream drift check
         id: drift
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           python3 scripts/check_openclaw_release_drift.py \
             --state curriculum/maintenance/upstream-state.json \

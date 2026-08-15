@@ -39,6 +39,20 @@ Current behavior, APIs, releases, advisories, and product capabilities require c
 
 Read papers for method, assumptions, evaluation, and limitations. Do not convert research prototypes into universal production recommendations.
 
+## Learning, Assessment, and Transfer
+
+- [How People Learn II](https://www.nationalacademies.org/publications/24783) - consensus synthesis on learning, prior knowledge, context/culture, motivation, self-regulation, and instructional environments
+- [IES: Organizing Instruction and Study to Improve Student Learning](https://ies.ed.gov/ncee/wwc/PracticeGuide/1) - evidence-graded guidance for spacing, interleaving worked examples and problems, representations, quizzing/retrieval, and metacognitive judgment
+- [Roediger and Karpicke: Test-Enhanced Learning](https://www.psychologicalscience.org/journals/psychological-science/j.1467-9280.2006.01693.x/) - delayed-retention evidence for retrieval practice in the studied prose-learning tasks
+- [Cepeda et al.: Distributed Practice Meta-Analysis](https://digitalcommons.usf.edu/psy_facpub/1771/) - spacing evidence and interaction between study interval and desired retention interval
+- [Freeman et al.: Active Learning in STEM](https://doi.org/10.1073/pnas.1319030111) - meta-analysis of undergraduate STEM courses; relevant evidence, not proof that every activity labeled active is effective
+- [Chi and Wylie: ICAP](https://icap.education.asu.edu/research) - framework and evidence for distinguishing passive, active, constructive, and interactive engagement
+- [Barnett and Ceci: Taxonomy for Far Transfer](https://doi.org/10.1037/0033-2909.128.4.612) - transfer dimensions and why changed-task evidence must state what changed rather than use an unqualified near/far label
+- [Macnamara et al.: Deliberate Practice Meta-Analysis](https://www.psychologicalscience.org/journals/psychological-science/0956797614535810/) - deliberate practice matters but does not explain all performance variance and varies materially by domain
+- [AERA/APA/NCME Standards for Educational and Psychological Testing](https://ncme.org/resources/books/testing-standards/) - validity, reliability/error, fairness, test design, administration, scoring, and use; current revision activity must be monitored
+
+These sources justify design hypotheses, not effectiveness claims for this program. The curriculum still requires local pilot data, transfer evidence, assessor agreement, accessibility review, and adverse-impact analysis.
+
 ## Framework and Adapter Studies
 
 - [Google Agent Development Kit](https://adk.dev/agents/) and [source](https://github.com/google/adk-python) - agents, workflows, tools, sessions, artifacts, evaluation, deployment
@@ -54,11 +68,14 @@ Framework documentation is an adapter study. Learners must compare semantics aga
 
 ## Protocols and Observability
 
-- [Model Context Protocol Architecture, 2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18/architecture) - host/client/server architecture and capability negotiation
-- [MCP 2026 Roadmap](https://blog.modelcontextprotocol.io/posts/2026-07-28/) - current direction including stateless core, routing, cache hints, authorization hardening, and Tasks; roadmap items are not settled behavior
-- [Agent2Agent Protocol Specification](https://github.com/a2aproject/A2A/blob/main/docs/specification.md) - AgentCard, message, task, artifact, parts, streaming, asynchronous work, bindings, and authentication
+- [Model Context Protocol Architecture, 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/architecture) - host/client/server architecture, stateless requests, per-request capabilities, and `server/discover`
+- [MCP Base Protocol, 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/basic) - JSON-RPC messages, statelessness, version metadata, schema rules, authorization boundary, and trace-context propagation
+- [MCP TypeScript SDK Protocol Eras](https://github.com/modelcontextprotocol/typescript-sdk/blob/main/docs/protocol-versions.md) - implementation-facing differences between initialization-era revisions and the modern `2026-07-28` revision; pin SDK behavior as well as specification text
+- [MCP 2026 Roadmap](https://blog.modelcontextprotocol.io/posts/2026-07-28/) - historical planning evidence; distinguish proposals from behavior now present in the normative specification
+- [Agent2Agent Protocol Specification, latest released version 1.0.0](https://a2a-protocol.org/latest/specification/) - AgentCard, message, task, artifact, parts, streaming, asynchronous work, bindings, versioning, and authentication
 - [A2A Project](https://a2a-protocol.org/) - current ecosystem and specification entry point
 - [OpenTelemetry Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/) - shared trace, metric, and log semantics
+- [OpenTelemetry GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai) - dedicated current source for GenAI, agent, MCP, and provider conventions after migration from the core repository
 - [OpenTelemetry Concepts: Semantic Conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) - stability and versioning guidance
 
 Pin protocol and semantic-convention versions in labs. Compatibility claims require contract tests, not only manifest discovery.
@@ -120,4 +137,4 @@ Use official Grok Build, Agent Tools, workflow, skill, and plugin materials. Tre
 
 ## Retrieval Baseline
 
-This map was restructured on 2026-08-15. Fast-moving sources must be re-opened before teaching or assessment. Stable URLs do not guarantee stable content.
+This map was restructured and protocol-spot-checked on 2026-08-15. At that check, MCP was `2026-07-28`, A2A's latest released specification was `1.0.0`, and GenAI conventions had moved out of the core OpenTelemetry semantic-conventions repository. Fast-moving sources must be re-opened before teaching or assessment; stable URLs do not guarantee stable content.

@@ -30,7 +30,7 @@ TARGET
 
 Read PROJECT_STATE.md and .mentor/MENTOR_STATE.md first. Then inspect the complete repository, Git status/log, curriculum, reference-harness code/tests, maintenance, workflows/scripts, templates, examples, and historical validations.
 
-Primary repository currently may be named openclaw-mastery-curriculum, but judge the current platform-agnostic content, not the historical name. Treat old OpenClaw-only reviews as historical inputs only.
+The canonical GitHub repository is HaseebAhmed-official/agent-harness-systems-engineering-curriculum. Treat old OpenClaw-only reviews and filenames as historical inputs only.
 
 NON-NEGOTIABLE REVIEW RULES
 

@@ -45,7 +45,7 @@ Each week uses a production case:
 
 ### Week 5: MCP
 
-- Trace host/client/server responsibilities, capability negotiation, transport, authorization, and lifecycle.
+- Trace host/client/server responsibilities, modern per-request version/capability metadata, discovery, transport, authorization, and legacy-era compatibility boundaries.
 - Test error and version behavior.
 - Prevent learners from equating discovery with trust.
 

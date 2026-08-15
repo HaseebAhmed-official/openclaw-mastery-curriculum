@@ -16,7 +16,7 @@ The learner can choose an orchestration pattern, implement durable state transit
 | 2 | Orchestration patterns | Routing, parallelization, manager, handoff, evaluator-optimizer; simplest-valid choice | Pattern selection practical |
 | 3 | Durable execution | Idempotency, retry policy, checkpoints, compensation, cancellation, crash recovery | Failure-injection lab |
 | 4 | Memory systems | Retrieval pipeline, isolation, freshness, contamination, deletion, quality metrics | Memory adversarial evaluation |
-| 5 | MCP interoperability | Capability negotiation, tools/resources/prompts, transport/auth boundaries, client/server tests | MCP adapter practical |
+| 5 | MCP interoperability | Versioned discovery and per-request capabilities, tools/resources/prompts, transport/auth boundaries, client/server tests | MCP adapter practical |
 | 6 | A2A interoperability | AgentCard, message, task, artifact, streaming, async and auth boundaries | Cross-agent task practical |
 | 7 | Agentic threat modeling | Injection, confused deputy, exfiltration, excessive agency, supply chain, persistence | Red-team plan and exploit |
 | 8 | Defense in depth | Policy, approvals, sandbox, network egress, secrets, identity, audit, recovery | Midterm attack-and-repair exam |
