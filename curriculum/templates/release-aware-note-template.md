@@ -1,50 +1,39 @@
-# Release-Aware Note Template
+# Release and Source Baseline Template
 
-## Module or artifact
+## Scope
 
-## Validation date
+- module/lab/artifact:
+- stable contract, protocol, framework adapter, or product case:
+- validation date and owner:
 
-## Installed OpenClaw version
+## Versions
 
-## Install kind and package source
+- repository commit/package version:
+- protocol/specification version:
+- framework/SDK/runtime version:
+- product release/channel/account/region where relevant:
 
-## Release channel and exact dist-tag or git target
+## Primary Sources
 
-## Sources checked
+For each source record title, URL/source location, tier, retrieval date, exact claim supported, contradiction, and residual uncertainty.
 
-- release notes:
-- security advisories:
-- official docs page:
-- local version output:
-- npm dist-tags or git release target:
-- selected channel semantics:
+## Claims Relied On
 
-## Current defaults relied on
+| Claim | Status | Source/version | Test or observation | Revalidation trigger |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
 
-List the defaults or behaviors your work assumes.
+Use `observed`, `documented`, `source-visible`, `inferred`, `unknown`, or `retired` for product cases.
 
-1. 
-2. 
-3. 
+## Security and Breaking Changes
 
-## Current advisories reviewed
+- advisories or threat changes:
+- changed defaults/authority/data behavior:
+- deprecations or compatibility risk:
+- affected tests, labs, assessments, and rollback:
 
-List any official advisories that materially affect this module, lab, or artifact. Record component, failure family, affected version, patched version, and why the case changes this work.
+## Decision
 
-1. 
-2. 
-
-## Coding-agent or detached-authority impact
-
-If this work uses tasks, goals, heartbeat, cron, sub-agents, ACP, or `openclaw attach`, record scope, ownership, approval, task evidence, and revocation or completion behavior.
-
-## Drift risks
-
-What might change in a future release that would invalidate this work?
-
-1. 
-2. 
-
-## Instructor or reviewer note
-
-Should this artifact be revalidated before reuse next term? Why or why not?
+- keep, update, pin, migrate, disable, retire, or monitor:
+- evidence and reviewer:
+- next review date or event trigger:

@@ -1,29 +1,42 @@
 # Change Control Checklist
 
-## Before editing
+## Intake
 
-- identify the exact upstream source
-- identify whether new official advisories are part of the review window
-- identify whether the change is stable, preview, or draft
-- identify which curriculum files are affected
+- [ ] Exact problem/change signal and owner recorded.
+- [ ] Stable foundation, harness contract, standard, framework, provider, product case, security, pedagogy, or delivery evidence classified.
+- [ ] Primary source/version/date and contradictions inspected.
+- [ ] Risk and urgency classified; security stop-ship considered.
 
-## During editing
+## Alignment Impact
 
-- keep edits narrow
-- preserve the trust model
-- preserve stable-vs-preview labeling
-- update release-aware language where needed
+- [ ] Outcomes/competencies affected.
+- [ ] Semester lessons and instructor guidance affected.
+- [ ] Labs/reference code/fixtures affected.
+- [ ] Assessments/rubrics/answers/examples/templates affected.
+- [ ] Case study/source register/maintenance baseline affected.
+- [ ] Accessibility, privacy, cost, or environment impact checked.
 
-## Before merging
+## Implementation
 
-- confirm the affected files now match the upstream change
-- confirm no unrelated files drifted
-- confirm examples, templates, and grading guidance still make sense
-- update the review log
-- update `upstream-state.json`
+- [ ] Smallest coherent change selected; duplicates retired.
+- [ ] Stable core kept separate from adapter/product details.
+- [ ] Current/draft/preview/inferred/unknown status labeled.
+- [ ] Migration, compatibility, cleanup, and rollback addressed.
+- [ ] State files updated with decision and next trigger.
 
-## If the change is large
+## Validation
 
-- note whether a revalidation pass is needed
-- update the README if the repository surface changed materially
-- check whether instructors need a teaching note for the next cohort
+- [ ] Markdown links, formatting, JSON/schema, and ID checks pass.
+- [ ] Reference code and affected fixtures/tests pass.
+- [ ] Critical labs executed or re-executed where behavior changed.
+- [ ] Security/privacy threat and regression checks pass.
+- [ ] Assessment alignment and calibration impact reviewed.
+- [ ] Independent reviewer used for high-risk changes.
+- [ ] Evidence supports the exact release/readiness claim.
+
+## Release
+
+- [ ] Review log and source/version baseline updated.
+- [ ] Commit scope is understood and working tree is clean.
+- [ ] Release note states outcome, evidence, limitations, migration/rollback, and next review.
+- [ ] Affected instructors/learners/operators notified where required.

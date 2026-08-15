@@ -2,23 +2,18 @@
 
 ## Purpose
 
-This curriculum is designed to stay current as OpenClaw evolves. The maintenance system exists to preserve quality, not just freshness.
+Preserve correctness, alignment, teachability, and evidence as foundations, standards, frameworks, products, security conditions, and learner needs change at different rates.
 
-## Core maintenance documents
+## Assets
 
 - [Continuous Improvement System](continuous-improvement-system.md)
-- [Upstream Review Playbook](upstream-review-playbook.md)
 - [Change Control Checklist](change-control-checklist.md)
 - [Review Log](review-log.md)
-- `upstream-state.json`
+- [OpenClaw Upstream Review Playbook](upstream-review-playbook.md)
+- `upstream-state.json` - machine-readable OpenClaw case baseline only
 
-## Automation layer
+The repository workflow and `scripts/check_openclaw_release_drift.py` detect OpenClaw release drift. They do not maintain the complete curriculum and must not auto-edit teaching claims.
 
-The repository also contains:
+## Operating Rule
 
-- a scheduled GitHub workflow that checks for new OpenClaw releases
-- a script that compares the latest upstream release against the curriculum's reviewed baseline
-
-## Maintenance rule
-
-New upstream releases should trigger review automatically, but curriculum content should not be changed blindly. Detection can be automated. Judgment must stay explicit.
+Automate detection, inventory, parsing, tests, and reminders where safe. Keep source interpretation, security claims, curricular alignment, grading changes, and release decisions under accountable human review.

@@ -72,8 +72,8 @@ The existing package is strong as an OpenClaw-oriented document set, but it has 
 | --- | ---: | --- |
 | Original OpenClaw document-set scope | about 82% | Broad structure, teaching guides, assessments, rubrics, maintenance, and release-aware content exist. |
 | Original OpenClaw institution-ready scope | about 55-60% | Live labs, cohort timing, assessor calibration, screenshots, learner outcomes, and independent revalidation are incomplete. |
-| Expanded platform-agnostic curriculum artifact implementation | about 55% | Canonical outcomes, prerequisites, competencies, semesters, labs, assessments, tracks, sources, case method, and tested minimal reference harness exist; remaining support assets and advanced implementation/evidence still need migration. |
-| Expanded curriculum institution/enterprise proof | about 25-30% | No real cohort, assessor-reliability, full lab-reproduction, accessibility, or independent adoption evidence yet. |
+| Expanded platform-agnostic curriculum artifact implementation | about 70% | Canonical and support assets are migrated and consolidated; reference harness now covers context and persistent reset recovery. Advanced fixtures, lab reproduction records, deeper case evidence, and final internal/external audit remain. |
+| Expanded curriculum institution/enterprise proof | about 30% | Alignment and delivery contracts are strong, but no real cohort, measured assessor reliability, full lab reproduction, accessibility audit, or independent adoption evidence exists. |
 | Standalone Mentor OS static/native distribution | about 75% | v0.3 static validation and isolated Claude/Codex remote install pass; behavioral and learning evidence remain, but work is paused. |
 | Standalone Mentor OS institution/enterprise proof | about 20-25% | No real learner study, multi-directory evidence set, governance audit, or independent adoption proof yet. |
 
@@ -96,14 +96,12 @@ These assets should be migrated and improved, not discarded merely to make the r
 
 ### Curriculum Architecture
 
-- Mission, outcomes, semester sequence, tracks, and capstones are still centered on operating and extending OpenClaw.
-- Stable abstractions are not separated from framework adapters and product case studies.
-- There is no canonical build-from-scratch harness progression.
-- Cross-platform comparison and portability are not assessed.
+- The platform-agnostic spine, stable/adapters/case layers, build progression, portability, and alignment matrix are implemented.
+- Remaining risk is consistency in less-central historical/maintenance artifacts and absence of independent curriculum architecture review after migration.
 
 ### Technical Depth
 
-- No executable reference harness currently proves model adapters, typed tools, context assembly, policy, sessions, event logs, durable execution, memory, protocols, observability, or evaluations.
+- The executable reference harness proves deterministic provider behavior, bounded loop, typed tools, exact approval, context budgeting, session/event persistence across reopen, and repeated-trial evaluation. It still lacks real process isolation, full JSON Schema, distributed durability, memory, orchestration, MCP/A2A adapters, OpenTelemetry export, and production provider adapters.
 - MCP and A2A are not taught as independent interoperability contracts.
 - Durable workflow engines, checkpoint/replay semantics, idempotency, cancellation, and recovery need first-class treatment.
 - Evaluation does not yet include a maintained task corpus, repeated trials, graders, trace inspection, end-state checks, regression thresholds, cost, and latency.
@@ -214,21 +212,20 @@ No completion percentage overrides a failed gate.
 
 ## Implementation Sequence
 
-1. Complete the remaining support-asset migration: examples, model answers, slides, templates, and maintenance.
-2. Extend the tested reference harness from Semester 1 contracts into durable state, context, protocols/adapters, observability, and stronger evaluation fixtures.
-3. Finish case-study evidence and migration/retirement of remaining OpenClaw-specific teaching surfaces.
-4. Execute every critical lab in clean environments and record reproduction status.
-5. Run security, accessibility, source, assessment-alignment, and reset-recovery validation.
-6. Run independent adversarial academic, enterprise, security, and practitioner reviews; repair findings.
-7. Pilot with real learners and assessors before institution-ready or enterprise-ready claims.
+1. Extend the tested reference harness into memory, orchestration, stronger evaluation fixtures, and protocol/observability adapter contracts without hiding production limits.
+2. Execute every critical lab in clean environments and record reproduction status.
+3. Complete dated claim ledgers/exercises for non-OpenClaw cases and reverify current protocol/framework sources.
+4. Run security, accessibility, source, assessment-alignment, and reset-recovery validation.
+5. Run independent adversarial academic, enterprise, security, and practitioner reviews; repair findings.
+6. Pilot with real learners and assessors before institution-ready or enterprise-ready claims.
 
 ## Immediate Next Actions
 
 1. Keep `../elite-mentor-os` frozen until the user explicitly resumes that product.
-2. Consolidate or migrate remaining examples/model-answer/slide/template assets; delete redundancy rather than preserve stale OpenClaw duplication.
-3. Generalize maintenance while preserving the OpenClaw drift monitor as one case-specific implementation.
-4. Extend reference-harness tests and align detailed lab status with actual execution evidence.
-5. Run a full internal adversarial audit before requesting external review.
+2. Add only the next high-value executable contracts: memory, orchestration, protocol/observability boundaries, and richer eval fixtures.
+3. Align detailed lab verification status with actual execution evidence; do not mark authored labs reproduced.
+4. Run the new master validation prompt internally and repair findings before external review.
+5. Preserve OpenClaw drift monitoring as case-specific evidence without re-centering the curriculum.
 
 ## State-Preservation Protocol
 

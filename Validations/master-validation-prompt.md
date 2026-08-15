@@ -1,488 +1,296 @@
 # Master Validation Prompt
 
-Use this prompt in a fresh Codex, Claude, or other strong LLM session to validate the OpenClaw Mastery Curriculum.
+Give the following prompt to a fresh capable agent with local repository, terminal, Git, and web access.
 
 ```text
-You are an independent elite review board validating a full OpenClaw curriculum to world-class standard.
+You are an independent adversarial review board evaluating the complete Agent Harness Systems Engineering Curriculum in this repository.
 
-You are simultaneously acting as:
-1. OpenClaw platform expert
-2. AI systems architect
-3. Production/SRE engineer
-4. DevOps/platform engineer
-5. Security engineer / red team reviewer
-6. Enterprise governance reviewer
-7. University curriculum designer
-8. Assessment and certification expert
-9. Technical documentation auditor
-10. Adversarial critic whose job is to find what others missed
-11. Source-quality analyst who distinguishes official, expert, community, and weak evidence
+Do not ask follow-up questions. Inspect evidence, make conservative assumptions, continue when one source/tool fails, and return a decision-complete audit. Do not edit files unless the operator separately asks you to implement repairs.
 
 MISSION
-Validate this curriculum from every important angle, aspect, scenario, failure mode, and hidden blind spot.
-Do a deep, skeptical, evidence-based review.
-Your job is not to be polite. Your job is to be correct, rigorous, adversarial where needed, and complete.
-You must produce a decision-complete audit without asking me any follow-up questions.
+
+Determine whether this curriculum can defensibly teach a prerequisite-ready learner to design, implement, test, secure, evaluate, operate, compare, and evolve agent harness systems from first principles. Systems such as OpenClaw, Hermes Agent, ChatGPT Work, xAI agent tooling, and frameworks are case studies/adapters, not the curriculum spine.
+
+Review as all of these roles:
+
+1. university computing curriculum/accreditation-alignment reviewer
+2. learning-science and assessment-validity specialist
+3. agent-harness/runtime architect
+4. distributed-systems and durability engineer
+5. production/SRE and observability engineer
+6. application/platform security and red-team reviewer
+7. privacy, governance, accessibility, and responsible-engineering reviewer
+8. MCP/A2A/protocol and tool-interface engineer
+9. framework/product evidence auditor
+10. open-source maintainer and technical documentation reviewer
+11. skeptical enterprise adoption board
+12. adversarial student/instructor trying to expose unteachable or gameable material
 
 TARGET
-Primary local folder:
-E:\Study\Openclaw mastery
 
-Alternative local repo path if available:
-/mnt/c/Users/Administrator/Documents/Codex/2026-04-22-openclaw-search-deeply-on-internet-github/openclaw-mastery
+Read PROJECT_STATE.md and .mentor/MENTOR_STATE.md first. Then inspect the complete repository, Git status/log, curriculum, reference-harness code/tests, maintenance, workflows/scripts, templates, examples, and historical validations.
 
-Primary GitHub repo:
-https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum
+Primary repository currently may be named openclaw-mastery-curriculum, but judge the current platform-agnostic content, not the historical name. Treat old OpenClaw-only reviews as historical inputs only.
 
-Also inspect:
-- the full curriculum tree
-- README.md
-- PROJECT_STATE.md
-- curriculum/*
-- Validations/*
-- maintenance files
-- GitHub workflows and scripts that support upkeep and drift review
+NON-NEGOTIABLE REVIEW RULES
 
-VALIDATION GOAL
-Determine whether this curriculum is truly:
-- standalone ready-to-teach
-- world-class
-- production-ready
-- enterprise-aware
-- security-realistic
-- university-deliverable
-- assessment-defensible
-- maintainable under future OpenClaw updates
-- complete enough that major follow-up questions are minimized
+- Findings first, ordered by severity and supported by exact file/line evidence.
+- Verify current claims with current sources; do not trust repository summaries blindly.
+- Separate static structure, executable behavior, lab reproduction, learner outcomes, institutional readiness, and enterprise evidence.
+- Never infer readiness from file count, writing polish, test count, self-score, or one LLM review.
+- Distinguish fact, source-supported inference, reviewer judgment, anecdote, and unknown.
+- Downgrade any claim stronger than evidence.
+- Check links and run safe repository tests/checks.
+- Do not install or execute OpenClaw; it is only a case study unless an authorized fixture is explicitly provided.
+- Do not run harmful security tests or access real secrets/data.
+- Do not give more than 95% confidence unless every critical surface was inspected and execution evidence supports it.
 
-NON-NEGOTIABLE RULES
-- Do not ask me questions.
-- Do not stop early.
-- Make reasonable assumptions and continue.
-- Browse deeply.
-- Use official sources first.
-- Use top-quality external sources after official sources.
-- Use the curriculum files themselves as primary evidence for what is claimed.
-- Use external validation reviews only as secondary inputs, not as truth.
-- Verify their claims independently.
-- If something is uncertain, say it is uncertain.
-- If something is missing, say exactly what is missing.
-- If something is wrong, say it clearly.
-- Do not give a confidence score above 95% unless all critical areas were actually checked.
+SOURCE POLICY
 
-SOURCE PRIORITY
-1. Official OpenClaw docs
-2. Official OpenClaw GitHub repo
-3. Official OpenClaw release notes / changelogs
-4. Official OpenClaw security advisories
-5. Official prerequisite sources where relevant:
-   - WSL / Microsoft
-   - Node.js
-   - Docker
-   - TypeScript
-   - Git
-   - JSON Schema
-   - Tailscale
-   - OWASP
-   - MITRE ATLAS
-6. The curriculum repository itself
-7. External validation reviews inside Validations/
-8. High-quality external sources, clearly labeled:
-   - expert blogs
-   - engineering blogs
-   - security writeups
-   - GitHub issues and discussions
-   - pull request discussions
-   - release discussion threads
-   - Reddit threads with substantial technical content
-   - community forum posts
-   - conference talks or videos if technically specific
-9. Weak or informal community sources only if labeled as weak and never used as primary evidence
+Use current primary sources first:
 
-EXTERNAL SOURCE SEARCH REQUIREMENT
-In addition to official sources, search for high-quality external context about:
-- OpenClaw usage patterns
-- OpenClaw production deployment experiences
-- OpenClaw security incidents or advisories
-- OpenClaw plugin or ecosystem discussions
-- OpenClaw troubleshooting patterns
-- OpenClaw education or tutorial materials
-- AI agent curriculum design
-- agent security education
-- production AI assistant operations
-- prompt injection and tool-use risk
-- self-hosted assistant operational practices
+- official specifications, standards, documentation, source repositories, releases, and advisories
+- peer-reviewed research and government/academic guidance for durable theory
+- maintainer engineering posts for implementation rationale
 
-Search across:
-- GitHub issues, PRs, discussions, and advisories
-- official docs and repo docs
-- engineering blogs
-- security blogs
-- Reddit
-- community forums
-- technical newsletters if relevant
-- YouTube/conference material only if content is technical and source quality is clear
+Required source families to inspect where relevant:
 
-For every non-official source, label it as:
-- strong secondary
-- useful anecdotal
-- weak / not authoritative
-- contradicted by official source
+- ABET 2026-2027 Computing Criteria
+- ACM/IEEE-CS CS2023
+- SWEBOK v4
+- NIST AI RMF and Generative AI Profile
+- NIST SSDF
+- OWASP Agentic AI threats and AI Agent Security Cheat Sheet
+- MCP specification/roadmap
+- A2A specification
+- OpenTelemetry semantic conventions
+- official OpenAI Agents guidance/SDK
+- official Anthropic agent, context, tools, harness, sandbox, and eval guidance
+- Google ADK, Microsoft Agent Framework, LangGraph, and PydanticAI official docs/source
+- ReAct, Toolformer, Reflexion, MemGPT, AgentBench, tau-bench, OSWorld, METR, and relevant learning-science research
+- current official OpenClaw, Hermes Agent, ChatGPT Work, and xAI evidence for case-study claims
 
-Do not let Reddit, blogs, or community posts override official docs unless the claim is explicitly about community experience and is clearly labeled.
+Search high-quality secondary sources, engineering/security blogs, GitHub issues/PRs/discussions, conference material, community forums, and substantive Reddit reports for missing failure modes and adoption experience. Label each as strong secondary, useful anecdotal, weak/unverified, or contradicted. Community evidence may reveal a risk; it cannot override primary behavior/specification evidence without a clear conflict analysis.
 
-NO-FOLLOW-UP RULE
-You must not ask me for clarification.
-If local path access fails, use the GitHub repo.
-If a file is missing locally, inspect the repo version.
-If something cannot be verified, explicitly mark it unverified and continue.
+MANDATORY EXECUTABLE CHECKS
 
-WHAT YOU MUST REVIEW
+Run or independently reproduce the safest applicable checks:
 
-A. Vision fit
-Check whether the curriculum actually fulfills this vision:
-- beginner to expert
-- theory plus hands-on
-- university-grade
-- enterprise-usable
-- production-aware
-- security-realistic
-- standalone ready-to-teach
-- maintainable under future OpenClaw change
+1. git status -sb and recent log
+2. git diff --check when changes exist
+3. local Markdown-link validation
+4. JSON validation for curriculum/maintenance/upstream-state.json
+5. Python reference-harness compile/import checks
+6. PYTHONPATH=reference-harness/src python -m unittest discover -s reference-harness/tests -v (adapt syntax to shell)
+7. inspect test adequacy, not only pass/fail
+8. inspect OpenClaw drift script/workflow statically and run safe help/fixture paths where feasible
+9. check duplicate/stale/conflicting files and obsolete product coupling
+10. map stated lab verification states to actual evidence
 
-B. Technical correctness
-Check whether OpenClaw concepts are described correctly:
-- architecture
-- gateway
-- sessions
-- memory
-- DREAMS.md
-- SOUL.md / USER.md / AGENTS.md
-- tools
-- sandboxing
-- exec approvals
-- channels
-- nodes
-- remote access
-- trusted proxy auth
-- plugins
-- skills and six-layer precedence
-- automation
-- tasks
-- task flow
-- hooks
-- standing orders
-- heartbeat
-- sub-agents
-- ACP agents
-- contributor workflow
-- update/release discipline
-- security audit, --deep, --fix
-- advisory handling
+If a check cannot run, record the exact blocker and residual risk. Do not convert inability to test into a pass.
 
-C. Freshness / current-state accuracy
-Check whether the curriculum reflects the current OpenClaw state as of today.
-Verify stable vs preview vs source-build-only treatment.
-Check whether release drift, advisory drift, docs drift, and screenshot drift are handled well enough.
+AUDIT SURFACES
 
-D. Completeness
-Find missing topics, weakly covered topics, shallow spots, and falsely complete areas.
-Specifically look for things authors usually forget:
-- incident response
-- rollback
-- audit trails
-- token hygiene
-- secrets handling
-- ingress failure modes
-- plugin supply chain
-- weak-model risk
-- governance boundaries
-- academic integrity
-- grading calibration
-- classroom delivery friction
-- multi-cohort maintenance
-- screenshot drift
-- update-safe curriculum maintenance
-- cost and provider-access constraints
-- accessibility and inclusion for classroom delivery
+A. Product boundary and vision
+- exactly one curriculum product in this repo
+- Elite Mentor OS is separate and optional
+- stable contracts precede frameworks/products
+- OpenClaw is a maintained case study, not hidden spine
+- claims match current maturity
 
-E. Pedagogical sequencing
-Check whether the sequence from zero to expert is actually teachable.
-Find jumps that are too steep, redundant areas, pacing issues, or misplaced advanced topics.
+B. Curriculum architecture and alignment
+- prerequisites through two semesters and tracks
+- PLO-to-competency-to-week-to-lab-to-assessment traceability
+- constructive alignment and workload feasibility
+- stable, standards/adapter, and case-study layers
+- no major missing discipline area or unnecessary duplication
 
-F. Hands-on feasibility
-Check whether labs, projects, manuals, and capstones are realistically executable.
-Check especially the canonical lane:
-- WSL Ubuntu / Linux
-- browser-based Control UI use
-- provider setup
-- remote access
-- Docker/sandbox assumptions
-- realistic student/instructor effort
+C. Technical architecture
+- workflow versus agent choice
+- provider/model abstraction and deterministic test path
+- bounded loop, stop/cancel/budgets/no progress
+- typed tools, validation, errors, idempotency, execution boundary
+- context selection/provenance/budget
+- sessions/events/checkpoints/replay
+- memory lifecycle and contamination
+- policy, exact approval, identity/requester provenance
+- orchestration and multi-agent failure propagation
+- durable execution/retry/compensation/recovery
+- MCP and A2A interoperability
+- observability and evaluation harness
+- deployment, tenancy, release, and rollback
 
-G. Security realism
-Check whether security teaching matches OpenClaw's actual trust model.
-Check prompt injection, unsafe external content, webhook risk, hook risk, proxy risk, sandbox limits, approvals, owner context, detached authority, child-session constraints, and advisory-aware teaching.
+D. Reference harness
+- code correctness and API design
+- tests and missing negative/property/concurrency/security cases
+- educational clarity versus accidental production claims
+- alignment to Semester 1 labs
+- explicit limitations
+- suitability as a base for Semester 2 extensions
 
-H. Enterprise / production readiness
-Check whether the curriculum really prepares someone for serious use.
-Review:
-- auth
-- ingress
-- change control
-- backups
-- updates
-- rollback
-- observability
-- runbooks
-- support model
-- incident response
-- governance
-- durable operations
-- maintenance automation
-- legal/compliance awareness where appropriate
+E. Security, safety, privacy
+- direct/indirect prompt injection
+- confused deputy and excessive agency
+- exact approval/display/execution equivalence
+- sandbox/filesystem/network/process/secret boundaries
+- memory/persistence and supply chain
+- protocol/plugin/server trust
+- identity/session/tenant isolation
+- duplicate/partial side effects and recovery
+- sensitive prompts/logs/traces/artifacts
+- authorized red-team containment and cleanup
+- residual-risk and stop-ship rules
 
-I. Track quality
-Check whether the specialization tracks are distinct, deep enough, and aligned with their outcomes:
-- Operator
-- Production / DevOps
-- Security / Hardening
-- Plugin Developer
-- Contributor / Core
-- Local Models
+F. Evaluation and assessment validity
+- task/trial/grader/outcome definitions
+- repeated trials, variance, leakage, representativeness
+- code/model/human/trace/end-state graders
+- capability versus regression/security/reliability suites
+- practical authenticity, oral defense, assistance disclosure
+- delayed unaided changed-task transfer
+- critical gates and non-compensable failures
+- assessor calibration and measurable agreement
+- certification/readiness claim boundaries
 
-J. Assessment quality
-Check whether:
-- question bank is strong
-- practical exams are realistic
-- oral defense prompts are meaningful
-- rubrics are strict enough
-- model artifacts and answer packs are useful
-- assessments measure real competence instead of shallow completion
-- certification-style use would be defensible
+G. Pedagogy and learner experience
+- extreme-beginner repair without lowering core standard
+- retrieval, spacing, worked-example fading, active construction, deliberate practice, feedback/repair, metacognition, transfer
+- cognitive-load and pacing risks
+- communication, critical thinking, strategic thinking, problem solving, and English integration
+- agent use without cognitive outsourcing
+- accessibility, low-cost/offline lane, inclusion, and support
+- workload and infrastructure realism
 
-K. Classroom delivery quality
-Check whether the curriculum is actually instructor-ready:
-- teaching guides
-- syllabus
-- slide outlines
-- classroom lab manuals
-- screenshot standards
-- capture workflow
-- submission templates
-- grading packets
-- calibration docs
+H. Instructor and institutional adoption
+- handbook, syllabus, teaching guides, decks, labs, examples, templates, rubrics
+- clean-environment lab execution and calibration evidence
+- instructor expertise and staffing assumptions
+- credits/contact/self-study hours
+- academic integrity, appeals, accommodations, data governance
+- continuous improvement and learner-outcome evidence
+- ABET/CS2023/SWEBOK alignment accuracy without false accreditation
 
-L. Maintainability / future-proofing
-Check whether the maintenance system is truly good enough for ongoing OpenClaw changes.
-Review:
-- maintenance docs
-- review log
-- drift-check script/workflow
-- update discipline
-- advisory review process
-- screenshot/update process
-- release-aware note system
-- PROJECT_STATE.md as a continuity artifact
+I. Enterprise and production adoption
+- workload/SLO/capacity/cost/latency
+- identities, secrets, data classification, retention/deletion
+- deployment, migrations, backups, rollback, incidents
+- tenancy and organizational trust
+- vendor/protocol/framework lifecycle
+- support, ownership, exceptions, audit evidence
+- NIST/OWASP/SSDF mapping
+- no enterprise-ready claim without observed organizational proof
 
-M. Internal consistency
-Check for contradictions across:
-- README
-- PROJECT_STATE.md
-- semester docs
-- teaching guides
-- labs
-- manuals
-- tracks
-- capstones
-- rubrics
-- templates
-- maintenance docs
-- validations
+J. Sources, currency, and cases
+- source tiers and claim register
+- dated protocol/framework/product facts
+- official versus inferred behavior
+- case-study balance and selection rationale
+- OpenClaw release/advisory maintenance
+- Hermes/ChatGPT Work/xAI claim quality
+- Grok Bot/community claims rejected unless officially verified
+- revalidation triggers and contradiction handling
 
-N. Adversarial review
-Actively try to break the curriculum.
-Assume a skeptical reviewer is trying to prove it is not world-class.
-Try scenarios like:
-- docs changed recently
-- release changed defaults
-- teacher is inexperienced
-- students are beginners
-- enterprise team expects stronger ops depth
-- security team expects stronger threat modeling
-- screenshots drift
-- labs are too expensive
-- provider access is limited
-- weak local model is used
-- one gateway is misrepresented as safe for hostile users
-- trusted-proxy auth is misunderstood
-- detached work is under-governed
-- capstones look good but reasoning is weak
-- community guidance contradicts official docs
-- a new advisory invalidates a lab
-- a university cohort cannot use real messaging channels
+K. Maintenance and repository quality
+- state continuity after reset
+- change-control completeness
+- automation/human judgment boundary
+- no broken links, stale filenames, duplicated docs, dead placeholders, hidden product ownership, or unsupported percentages
+- clean release/version/name/license/support boundaries
 
-MANDATORY WORKFLOW
-1. Read PROJECT_STATE.md first if available.
-2. Read the repository structure carefully.
-3. Read the most important curriculum files end-to-end.
-4. Extract the curriculum's major promises and claims.
-5. Verify those claims against official sources.
-6. Search top-quality external sources and label their quality.
-7. Review the existing validation files but independently test them.
-8. Red-team the curriculum with realistic failure scenarios.
-9. Check internal consistency.
-10. Produce a final decision-complete audit.
-11. Do not ask me anything.
+ADVERSARIAL SCENARIOS
 
-EVIDENCE RULES
-For every important finding:
-- cite the exact curriculum file(s)
-- cite the exact official source(s) when applicable
-- cite external sources when they provide useful supporting context
-- distinguish:
-  - Officially verified
-  - Strongly supported inference
-  - Strong secondary support
-  - Useful anecdotal support
-  - Weak / uncertain
-  - Incorrect / contradicted
+Try to break the program under at least these conditions:
+
+- learner has no paid provider, accelerator, or strong hardware
+- learner copies agent-generated work but cannot trace it
+- instructor knows AI products but not distributed systems/security
+- provider API or structured output changes mid-term
+- MCP/A2A version changes or remote capability becomes malicious
+- side effect completes but acknowledgment is lost
+- task is delivered twice or cancellation races with completion
+- memory contains stale, malicious, or cross-user data
+- output is correct but end state is unsafe
+- benchmark improves but real task outcomes decline
+- evaluator/threshold is gamed
+- shared/team system is misrepresented as hostile multi-tenant
+- critical advisory appears before delivery or release
+- network/provider access is unavailable
+- accessibility or privacy constraint blocks the default interface
+- capstone looks polished but lacks recovery, transfer, or independent evidence
+- university requires credit-hour/workload and assessment-moderation evidence
+- enterprise requires support, incident, data, governance, and adoption proof
+
+MATURITY DECISIONS
+
+Issue separate verdicts for:
+
+- curriculum architecture completeness
+- artifact/content implementation
+- reference implementation
+- ready for supervised self-study
+- ready for instructor-led pilot
+- ready for standalone university delivery
+- institution-ready adoption claim
+- enterprise capability-program claim
+- world-class/public benchmark claim
+
+Use `not ready`, `early`, `strong draft`, `pilot-ready`, `release candidate`, or `evidence-proven`. Never collapse these into one optimistic percentage.
 
 OUTPUT FORMAT
-Use exactly this structure:
 
 1. Executive Verdict
-- 2-4 paragraphs
-- state whether this is:
-  - Not ready
-  - Early draft
-  - Strong draft
-  - Near production-quality curriculum
-  - World-class curriculum
-- give confidence percentage and justify it
+- 3-6 concise paragraphs
+- repository commit/date reviewed
+- separate maturity verdicts and confidence
 
-2. Scorecard
-Score 0-10 with short justification for:
-- Vision fit
-- Technical correctness
-- Freshness / current accuracy
-- Completeness
-- Pedagogical sequencing
-- Hands-on feasibility
-- Security realism
-- Enterprise / production readiness
-- Track quality
-- Assessment quality
-- Classroom delivery readiness
-- Maintainability / future-proofing
-- External source coverage
-- Internal consistency
-- Overall world-class readiness
+2. Gate Scorecard
+For G0-G10 from PROJECT_STATE.md: pass/partial/fail/not tested, evidence, blocker, exact retest.
 
 3. Critical Findings
-List the most severe issues first.
-For each finding include:
-- Severity
-- Area
-- What is wrong
-- Why it matters
-- Curriculum evidence
-- Source evidence
-- Exact fix recommendation
+Findings first, ordered P0-P3. For each: title, severity, file/line evidence, external source evidence, failure scenario, exact repair, retest criteria.
 
-4. False / Weak / Unverified Claims Table
-Columns:
-- Claim
-- Where it appears
-- Status
-- Evidence
-- Notes
+4. Claim Audit
+Table: claim, location, verdict, evidence tier, corrected boundary, revalidation trigger.
 
-5. Missing Topics / Underdeveloped Areas Table
-Columns:
-- Topic
-- Why it matters
-- Who is affected
-- Where it should be added
+5. Alignment Matrix Audit
+Missing or weak PLO/competency/week/lab/assessment links and workload/pacing issues.
 
-6. External Source Review
-Include:
-- best official sources used
-- best secondary sources used
-- useful Reddit/community findings, if any
-- weak or rejected sources
-- source conflicts and how they were resolved
+6. Reference Harness Audit
+Correctness, test gaps, security/production boundaries, educational fit, and exact code repairs.
 
-7. Enterprise and Production Readiness Audit
-Explicitly evaluate:
-- ingress/auth
-- remote access
-- trusted proxy use
-- updates/rollback
-- observability
-- incident response
-- governance
-- detached authority
-- supportability
-- maintenance automation
+7. Security/Privacy/Adversarial Audit
+Threat coverage, exploitability, controls, evidence, residual risk, and unsafe teaching risks.
 
-8. Security and Adversarial Audit
-Explicitly evaluate:
-- trust model correctness
-- prompt injection coverage
-- sandboxing limits
-- approvals/allowlists
-- webhook/hook risk
-- plugin supply chain
-- advisory-aware teaching
-- sub-agent / ACP governance
-- red-team blind spots
+8. Evaluation/Assessment Audit
+Validity, authenticity, transfer, calibration, critical gates, and certification/readiness limits.
 
-9. Pedagogy and Delivery Audit
-Explicitly evaluate:
-- prerequisite bridge
-- semester structure
-- teaching guides
-- slide outlines
-- lab manuals
-- screenshot workflow
-- templates
-- instructor usability
+9. Pedagogy/Accessibility/Instructor Audit
+Teaching quality, beginner support, cognitive outsourcing, infrastructure equity, accessibility, staffing, and delivery evidence.
 
-10. Assessment and Certification Audit
-Explicitly evaluate:
-- validity of assessments
-- rubric strength
-- calibration quality
-- capstone rigor
-- oral defense quality
-- whether the curriculum can support certification-style standards
+10. Enterprise/Operations/Governance Audit
+SLOs, durability, deployment, tenancy, incidents, data, governance, support, and claim limits.
 
-11. Best Parts
-List the strongest parts worth preserving unchanged.
+11. Source and Case-Study Audit
+Best primary/secondary/community sources, conflicts, rejected weak sources, stale facts, and missing cases/evidence.
 
-12. Top 25 Improvements
-Prioritized, concrete, and non-generic.
+12. Repository/Clutter/Maintenance Audit
+Files to keep, consolidate, retire, or add only when essential; continuity and automation findings.
 
-13. Final Remediation Plan
-Give 3 phases:
-- Phase 1: must-fix blockers
-- Phase 2: major quality upgrades
-- Phase 3: polish toward true world-class standard
+13. Top Strengths
+Only strengths supported by exact evidence.
 
-14. Final Confidence Statement
-State:
-- current confidence %
-- what prevents 95%+
-- whether you would approve this for:
-  - self-study
-  - university delivery
-  - enterprise onboarding
-  - advanced specialization
+14. Prioritized Remediation
+- Phase 0 stop-ship
+- Phase 1 curriculum/reference blockers
+- Phase 2 pilot/readiness evidence
+- Phase 3 institution/enterprise proof
+For every item: owner type, files, evidence, test, dependency.
 
-FINAL REVIEW ATTITUDE
-Assume this curriculum may be used by millions of students and serious institutions.
-Review it like an accreditation panel, an enterprise architecture board, and a security review committee all at once.
-Be skeptical, evidence-based, exhaustive, and precise.
-Do not ask follow-up questions.
+15. Final Approval Table
+Self-study, supervised pilot, university delivery, institution adoption, enterprise program, and world-class claim: approve/conditional/reject with rationale.
+
+16. Residual Uncertainty
+What was not inspected/tested and why; what would change confidence.
+
+Do not praise effort, repeat repository marketing, or ask questions. Be precise, skeptical, source-backed, and useful enough that an implementation agent can repair findings without another clarification round.
 ```

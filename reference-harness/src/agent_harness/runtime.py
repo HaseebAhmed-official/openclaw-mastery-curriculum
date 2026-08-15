@@ -5,10 +5,11 @@ from __future__ import annotations
 import hashlib
 import json
 from dataclasses import dataclass, field
-from typing import Any, Callable, Iterable, Mapping, Sequence
+from typing import Any, Callable, Mapping, Protocol, Sequence
 
 from .contracts import (
     Approval,
+    ContextBuilder,
     Event,
     JsonObject,
     Message,
@@ -19,6 +20,7 @@ from .contracts import (
     ToolCall,
     ToolSpec,
 )
+from .context import AllContextBuilder
 
 
 class SchemaError(ValueError):
@@ -137,6 +139,12 @@ class InMemorySessionStore:
     def session(self, session_id: str) -> Session:
         return self._sessions.setdefault(session_id, Session())
 
+    def messages(self, session_id: str) -> tuple[Message, ...]:
+        return tuple(self.session(session_id).messages)
+
+    def events(self, session_id: str) -> tuple[Event, ...]:
+        return tuple(self.session(session_id).events)
+
     def append_message(self, session_id: str, message: Message) -> None:
         self.session(session_id).messages.append(message)
 
@@ -162,19 +170,33 @@ class InMemorySessionStore:
         }
 
 
+class SessionStore(Protocol):
+    def messages(self, session_id: str) -> tuple[Message, ...]: ...
+
+    def events(self, session_id: str) -> tuple[Event, ...]: ...
+
+    def append_message(self, session_id: str, message: Message) -> None: ...
+
+    def append_event(self, session_id: str, kind: str, data: JsonObject) -> Event: ...
+
+    def checkpoint(self, session_id: str) -> JsonObject: ...
+
+
 class Harness:
     def __init__(
         self,
         provider: Provider,
         registry: ToolRegistry | None = None,
         policy: Policy | None = None,
-        store: InMemorySessionStore | None = None,
+        store: SessionStore | None = None,
+        context_builder: ContextBuilder | None = None,
         system_instruction: str = "Act within the available tools and policy.",
     ) -> None:
         self.provider = provider
         self.registry = registry or ToolRegistry()
         self.policy = policy or Policy()
         self.store = store or InMemorySessionStore()
+        self.context_builder = context_builder or AllContextBuilder()
         self.system_instruction = system_instruction
 
     def run(
@@ -186,8 +208,7 @@ class Harness:
     ) -> RunResult:
         limits = limits or RunLimits()
         cancelled = cancelled or (lambda: False)
-        session = self.store.session(session_id)
-        if not session.messages:
+        if not self.store.messages(session_id):
             self.store.append_message(
                 session_id, Message("system", self.system_instruction)
             )
@@ -205,10 +226,30 @@ class Harness:
                 )
 
             turns += 1
+            try:
+                context = self.context_builder.build(self.store.messages(session_id))
+                self.store.append_event(
+                    session_id,
+                    "context.built",
+                    {
+                        "turn": turns,
+                        "used_characters": context.used_characters,
+                        "dropped_messages": context.dropped_messages,
+                    },
+                )
+            except Exception as exc:
+                self.store.append_event(
+                    session_id,
+                    "context.failed",
+                    {"turn": turns, "error": f"{type(exc).__name__}: {exc}"},
+                )
+                return self._finish(
+                    session_id, StopReason.CONTEXT_ERROR, "", turns, tool_count
+                )
             self.store.append_event(session_id, "model.requested", {"turn": turns})
             try:
                 turn = self.provider.complete(
-                    tuple(session.messages), self.registry.manifest()
+                    context.messages, self.registry.manifest()
                 )
             except Exception as exc:  # Provider errors are evidence, not crashes.
                 self.store.append_event(
@@ -362,5 +403,5 @@ class Harness:
             output=output,
             turns=turns,
             tool_calls=tool_calls,
-            events=tuple(self.store.session(session_id).events),
+            events=self.store.events(session_id),
         )

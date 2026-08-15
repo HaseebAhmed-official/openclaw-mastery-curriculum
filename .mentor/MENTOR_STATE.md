@@ -34,8 +34,8 @@ Build a university-presentable, enterprise-relevant curriculum through which a s
 | --- | ---: | --- |
 | OpenClaw-oriented document set | 82% | live lab proofs, cohort evidence, calibration, independent rerun |
 | OpenClaw institution-ready package | 55-60% | reproducibility, accessibility, outcomes, assessor reliability |
-| Expanded agent-harness curriculum artifacts | 55% | remaining support assets, advanced reference implementation, lab reproduction |
-| Expanded curriculum institution/enterprise proof | 25-30% | cohort, calibration, accessibility, external adoption evidence |
+| Expanded agent-harness curriculum artifacts | 70% | advanced executable fixtures, lab reproduction, final audits |
+| Expanded curriculum institution/enterprise proof | 30% | cohort, measured calibration, accessibility audit, external adoption evidence |
 | Standalone Mentor OS static/native distribution | 75% | behavior and learner evidence remain; user paused work |
 | Mentor OS institution/enterprise proof | 20-25% | real learners, governance/security review, multi-directory outcomes |
 
@@ -43,15 +43,15 @@ These are planning estimates. Completion gates in `PROJECT_STATE.md` control cla
 
 ## Current Milestone
 
-Finish the platform-agnostic support assets and advanced executable evidence after the canonical curriculum migration.
+Extend advanced executable evidence and begin rigorous internal validation after completing canonical and support-asset migration.
 
 ## Next Actions
 
 1. Do not work on `../elite-mentor-os` until the user explicitly resumes it.
-2. Migrate or consolidate remaining examples, model answers, slides, templates, and maintenance assets.
-3. Extend the reference harness and tests into advanced contracts without framework lock-in.
-4. Finish the OpenClaw and comparative case-study evidence layer.
-5. Run internal adversarial validation, then clean lab reproduction and external reviews.
+2. Extend the reference harness into memory, orchestration, protocol/observability adapter boundaries, and richer eval fixtures.
+3. Mark lab verification from real execution only and reproduce critical labs cleanly.
+4. Run the new internal adversarial validation and repair findings.
+5. Complete comparative case evidence, then request external reviews and pilots.
 
 ## Required Curriculum Layers
 
@@ -77,6 +77,7 @@ Finish the platform-agnostic support assets and advanced executable evidence aft
 | 2026-08-15 | Expanded target from OpenClaw mastery to platform-agnostic Agent Harness Systems Engineering; measured 55/81 curriculum files as OpenClaw-referenced. | Migrate canonical outcomes and semester spine after product separation. |
 | 2026-08-15 | Published standalone Mentor OS v0.3 at `HaseebAhmed-official/elite-mentor-os`; static validators and isolated Codex/Claude remote installs passed. User then paused all Mentor OS work. | Focus only on curriculum until explicitly resumed. |
 | 2026-08-15 | Migrated canonical curriculum, semesters, teaching guides, labs, assessments, tracks, sources, governance, and case method; removed embedded plugin and redundant screenshot manuals; added tested minimal Python reference harness. | Consolidate remaining support assets and extend advanced executable evidence. |
+| 2026-08-15 | Consolidated model answers; migrated examples, templates, decks, environment lanes, maintenance, calibration, and validation prompt; added explicit PLO alignment plus context-budget and SQLite reset-recovery tests. | Extend advanced contracts and run internal adversarial validation. |
 
 ## Resume Protocol
 

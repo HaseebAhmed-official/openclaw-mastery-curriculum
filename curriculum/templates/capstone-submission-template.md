@@ -1,96 +1,92 @@
 # Capstone Submission Template
 
-## Capstone metadata
+## Identity and Contributions
 
-- Student or team name:
-- Track:
-- Project title:
-- Submission date:
-- OpenClaw version:
-- Release channel:
+- title and track:
+- team and individual responsibilities:
+- repository/release commit:
+- material agent/tool/external contributions:
 
-## Executive summary
+## Problem, Users, and Success
 
-Summarize the project in 1 to 2 paragraphs.
+- problem and evidence:
+- users/stakeholders:
+- constraints and non-goals:
+- deterministic baseline:
+- why agentic behavior is justified:
+- predeclared success and stop-ship criteria:
 
-## Problem and audience
+## Architecture
 
-- problem solved:
-- intended users:
-- why OpenClaw is appropriate here:
+- provider/model boundary:
+- loop/orchestration and stop/cancel/budgets:
+- context and provenance:
+- tools, schemas, side effects, policy, approval, execution:
+- sessions/events, durability, artifacts, memory:
+- protocols/adapters:
+- observability/evaluation:
+- deployment, identity, tenancy, data lifecycle:
 
-## Solution overview
+Link diagrams for control, data, authority/trust, state, and failure flow.
 
-Describe the architecture or workflow at a high level.
+## Implementation and Reproduction
 
-## Scope
+- environment and dependencies:
+- build/run/test instructions:
+- fixtures and deterministic path:
+- compatibility/version constraints:
 
-- in scope:
-- out of scope:
-- known limitations:
+## Evaluation
 
-## Technical design
+- intended workload and corpus design:
+- task classes and coverage:
+- trials and variance:
+- code/model/human/trace/end-state graders:
+- leakage and disagreement analysis:
+- latency/cost/tool failure/retry/human override:
+- threshold and release verdict:
 
-- gateway placement:
-- providers or models:
-- tools involved:
-- channels or nodes:
-- plugins or skills:
-- automation or detached work:
+## Security, Safety, and Privacy
 
-## Trust and security review
+- threat/data/identity model:
+- authorized exploits and blast radius:
+- preventive/detective/recovery controls:
+- mitigation and variant retest:
+- retention/deletion and sensitive observability:
+- residual risk, exceptions, and owners:
 
-- trust model:
-- prompt injection exposure:
-- sandboxing / approvals:
-- ingress and remote access:
-- webhook or hook exposure:
-- plugin supply-chain concerns:
-- residual risks:
+## Reliability and Operations
 
-## Operational readiness
+- SLOs and capacity assumptions:
+- failure injections and recovery:
+- incident timeline and corrective actions:
+- configuration/secrets, migration, backup, rollback:
+- runbook and escalation:
 
-- install or deployment summary:
-- health checks:
-- diagnostics:
-- rollback plan:
-- update strategy:
+## Portability and Cases
 
-## Evidence package
+- stable contract implemented through changed provider/framework/protocol:
+- semantic gaps:
+- comparison with at least two dated systems/frameworks:
+- observed/documented/inferred/unknown claim table:
 
-- demo evidence:
-- config or policy artifacts:
-- logs or diagnostics:
-- screenshots:
-- repository or files:
+## Accessibility, Ethics, and Governance
 
-## Track-specific artifact checklist
+- accessible interaction/evidence alternatives:
+- user notice/control and human override:
+- control-evidence-owner mapping:
+- high-stakes or professional-review boundaries:
 
-List the required artifacts for your track and mark each complete or incomplete.
+## Limitations and Roadmap
 
-- item 1:
-- item 2:
-- item 3:
+State unresolved technical, security, evaluation, operations, user, and governance evidence. Do not use “future work” to hide a failed current gate.
 
-## Release-aware note
+## Defense and Transfer
 
-- release notes consulted:
-- date consulted:
-- any current default that affected the project:
-- what would need re-validation in a future release:
+- likely challenge questions:
+- individual trace assignments:
+- delayed changed-condition task and result:
 
-## Lessons learned
+## Release Packet Index
 
-- biggest technical lesson:
-- biggest security lesson:
-- biggest operational lesson:
-
-## Defense preparation
-
-What are the top five challenge questions you expect and how will you answer them?
-
-1. 
-2. 
-3. 
-4. 
-5. 
+List exact commits, tests, trial data, traces, artifacts, threat/incident records, runbooks, review decisions, and source baselines.

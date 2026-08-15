@@ -1,80 +1,66 @@
 # Lab Submission Template
 
-## Submission metadata
+## Identity and Baseline
 
-- Student name:
-- Student ID:
-- Course / section:
-- Lab ID:
-- Submission date:
-- Environment lane:
-- OpenClaw version:
-- Release channel:
+- learner/team:
+- lab and competency targets:
+- date, environment, repository commit:
+- Python/framework/protocol/product versions:
+- source retrieval date:
+- material agent/tool/peer assistance:
 
-## Lab objective
+## Objective and Acceptance Criteria
 
-Write 2 to 4 sentences describing what this lab was meant to prove.
+State what capability the lab must prove and the predeclared pass/fail conditions.
 
-## Environment summary
+## Architecture and Boundary
 
-- Host OS:
-- Shell used:
-- Docker available: yes / no
-- Provider used:
-- Channel used, if any:
+- components and control/data flow:
+- authority/trust boundary:
+- side effects and protected data:
+- known implementation limits:
 
-## Steps completed
+## Prediction
 
-List the major steps you actually performed. Do not paste every command blindly. Summarize the meaningful sequence.
+Predict normal and injected-failure behavior before execution.
 
-1. 
-2. 
-3. 
-4. 
+## Work Performed
+
+Summarize meaningful steps and decisions. Reference commands, code, and artifacts instead of pasting noise.
 
 ## Evidence
 
-Provide the minimum evidence needed to prove the lab worked.
+- tests and exit status:
+- event/trace/log evidence:
+- end-state/artifact evidence:
+- measurements and repeated trials:
+- commit or file references:
 
-- command outputs or screenshots:
-- config snippet or policy artifact:
-- log or diagnostic evidence:
-- link to any supporting file:
+## Failure and Repair
 
-## Failure encountered
+- observed failure or near miss:
+- root cause and rejected diagnoses:
+- repair/containment:
+- regression and variant retest:
 
-Describe at least one failure, confusion point, or near-miss you encountered.
+## Security, Privacy, and Operations
 
-- failure description:
-- where it occurred:
-- how you diagnosed it:
-- how you resolved it:
+- threat/control exercised:
+- sensitive-data handling:
+- cleanup, recovery, or rollback:
+- residual risk and owner:
 
-## Security and trust reflection
+## Result and Claim Boundary
 
-Answer briefly:
+State `pass`, `partial`, or `fail`, supported by the criteria. State exactly what the evidence does not prove.
 
-1. What authority existed in this lab?
-2. What made the lab safe enough for a classroom context?
-3. What would make the same workflow unsafe in production?
+## Transfer Task
 
-## Release-aware note
+Record the changed-condition task, assistance allowed, date, result, and required repair.
 
-If the lab touched providers, plugins, security controls, automation, or deployment, include:
+## Assessor Decision
 
-- release notes checked:
-- date checked:
-- one current assumption that might drift later:
-
-## Final conclusion
-
-State clearly whether the lab succeeded fully, partially, or with caveats.
-
-## Instructor-only scoring block
-
-- technical completion:
-- evidence quality:
-- troubleshooting quality:
-- security reflection quality:
-- release awareness:
-- final score:
+- Master Rubric dimensions:
+- critical-gate verdict:
+- feedback/repair:
+- delayed-retest date:

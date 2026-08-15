@@ -64,6 +64,7 @@ Use the same core outcomes, then emphasize the Platform/SRE, Security/Assurance,
 - [Semester 1](curriculum/semester-1/index.md)
 - [Semester 2](curriculum/semester-2/index.md)
 - [Lab Catalog](curriculum/labs/lab-catalog.md)
+- [Executable Reference Harness](reference-harness/README.md)
 - [Tracks](curriculum/tracks/index.md)
 - [Versioned Case Studies](curriculum/case-studies.md)
 - [Official Reading Map](curriculum/sources/official-reading-map.md)

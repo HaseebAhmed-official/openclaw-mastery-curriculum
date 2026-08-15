@@ -1,68 +1,80 @@
 # Continuous Improvement System
 
-## Goal
+## Objectives
 
-Keep the curriculum current without sacrificing rigor.
+- keep claims current and correctly scoped
+- preserve outcome/module/lab/assessment alignment
+- improve learner transfer, not only satisfaction or pass rates
+- detect security, accessibility, reproducibility, and grading failures
+- retire stale or duplicate material instead of accumulating clutter
 
-## System design
+## Change Streams
 
-### Layer 1: automatic detection
+### Stable Foundations
 
-- GitHub workflow checks the latest official OpenClaw release
-- repository state tracks the last reviewed upstream release
-- if upstream moves ahead, the repo opens or updates a review issue
+Review research, CS/software-engineering alignment, pedagogy, and core contracts annually or when material evidence emerges.
 
-### Layer 2: structured review
+### Standards and Security
 
-The maintainer reviews:
+Review MCP, A2A, OpenTelemetry, NIST, OWASP, and critical security evidence each term and on material revision/advisory.
 
-- release notes
-- security implications
-- changed defaults
-- affected semester modules
-- affected labs
-- affected grading or submission templates
+### Frameworks and Providers
 
-### Layer 3: controlled curriculum updates
+Verify current versions, APIs, defaults, persistence, policy, tracing, and evaluation before every affected lab run.
 
-Maintainers update only the files that actually drifted. They do not rewrite broad sections without evidence.
+### Product Cases
 
-### Layer 4: publication discipline
+Review docs, releases, advisories, availability, and claim tables before delivery. OpenClaw has an automated release signal; other cases currently require manual primary-source review.
 
-After curriculum updates:
+### Delivery Evidence
 
-- update the review log
-- update `upstream-state.json`
-- push with a clear change summary
+After every cohort or pilot, review prerequisites, lab reproduction/time, failure patterns, assessment performance, assessor agreement, remediation, delayed transfer, accessibility, support load, and learner/instructor feedback.
 
-## Quality principles
+## Workflow
 
-- correctness beats speed
-- release-aware notes beat stale certainty
-- explicit trust-boundary reasoning beats generic "best practice" wording
-- no blind auto-merge of upstream claims into the curriculum
+1. Detect: source change, test failure, learner evidence, review finding, or adoption need.
+2. Triage: editorial, source, technical, security, pedagogical, assessment, accessibility, or breaking.
+3. Scope: affected outcomes, modules, labs, code/fixtures, assessment, case claims, and state.
+4. Verify: primary evidence, reproduction, contradiction, and residual uncertainty.
+5. Decide: keep, repair, pin, migrate, disable, split, or retire.
+6. Implement the smallest coherent aligned change.
+7. Validate with risk-appropriate static, executable, security, teaching, and review gates.
+8. Record decision, evidence, owner, and next trigger.
+9. Release with migration/rollback and known limitations.
+10. Measure whether the change improved the intended outcome.
 
-## What may be automated safely
+## Safe Automation
 
-- release detection
-- issue creation
-- checklists
-- review reminders
-- tracking of last reviewed baseline
+- link and JSON/schema checks
+- reference-harness tests and coverage reports
+- release/advisory detection
+- pinned-version inventory and drift alerts
+- outcome/lab/assessment ID consistency
+- stale-date and unresolved-marker reports
+- review reminders and evidence dashboards
 
-## What should not be fully automated
+## Human Decision Required
 
-- final curriculum wording changes
-- grading-policy changes
-- trust-model interpretation
-- security claims
-- teaching-sequence changes
+- interpreting conflicting sources
+- changing stable architecture or outcomes
+- security/privacy/tenancy claims
+- grading standards and critical gates
+- high-stakes or legal/regulatory meaning
+- learner data use
+- institution/enterprise/readiness claims
 
-## Definition of healthy maintenance
+## Health Measures
 
-The system is healthy when:
+- critical lab reproduction rate
+- broken/stale claim count and review latency
+- reference test and security regression pass rate
+- outcome-to-assessment coverage
+- assessor agreement and moderation changes
+- first-pass, remediation, and delayed-transfer success
+- accessibility/support incidents
+- critical external-review findings and repair time
+- duplicate/retired file count
 
-- the latest upstream release is either reviewed or queued for review
-- release-sensitive curriculum files are date-aware
-- the review log shows explicit decisions
-- no one has to guess which parts need revalidation
+## Claim Boundary
+
+An automated green status proves only the checks it executed. Curriculum effectiveness and institution/enterprise readiness require independent and real-user evidence.

@@ -1,23 +1,7 @@
-# Validation Reviews
+# Validation
 
-This folder contains independent review passes used to challenge and improve the curriculum.
+Use [Master Validation Prompt](master-validation-prompt.md) in a fresh, capable Codex/Claude/LLM session with repository and web access.
 
-## Included reviews
+The 2026-04-22 [Codex](codex-review/openclaw-curriculum-pack-validation-review-2026-04-22.md) and [Claude](Claude-code-review/openclaw-mastery-curriculum-full-validation-review-2026-04-22.md) reviews are preserved as historical evidence for the former OpenClaw-specific scope. They are not validation of the platform-agnostic Agent Harness Systems Engineering migration.
 
-- [Master validation prompt](master-validation-prompt.md)
-- [Codex review](codex-review/openclaw-curriculum-pack-validation-review-2026-04-22.md)
-- [Claude review](Claude-code-review/openclaw-mastery-curriculum-full-validation-review-2026-04-22.md)
-
-## Purpose
-
-These reviews are kept in the repository so the curriculum can evolve against explicit critiques instead of vague impressions.
-
-They should be treated as:
-
-- external audit inputs
-- not the final source of truth
-- useful for prioritizing revision work
-
-Official OpenClaw docs and release material remain the primary source of truth for platform correctness.
-
-Future validation sessions should read [../PROJECT_STATE.md](../PROJECT_STATE.md) first, then use the master validation prompt.
+Future review artifacts should record repository commit, date, tools/sources used, executable checks, claim boundaries, findings, repairs, and retest outcome. Independent review is evidence input, not the source of truth.

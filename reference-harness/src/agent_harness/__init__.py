@@ -2,6 +2,7 @@
 
 from .contracts import (
     Approval,
+    ContextBundle,
     Event,
     Message,
     ModelTurn,
@@ -11,11 +12,16 @@ from .contracts import (
     ToolCall,
     ToolSpec,
 )
+from .context import AllContextBuilder, ContextBudgetError, RecentContextBuilder
+from .persistence import SQLiteSessionStore
 from .runtime import Harness, InMemorySessionStore, Policy, ToolRegistry
 from .testing import EvalReport, EvalTask, ScriptedProvider, run_eval
 
 __all__ = [
     "Approval",
+    "AllContextBuilder",
+    "ContextBudgetError",
+    "ContextBundle",
     "EvalReport",
     "EvalTask",
     "Event",
@@ -24,9 +30,11 @@ __all__ = [
     "Message",
     "ModelTurn",
     "Policy",
+    "RecentContextBuilder",
     "RunLimits",
     "RunResult",
     "ScriptedProvider",
+    "SQLiteSessionStore",
     "StopReason",
     "ToolCall",
     "ToolRegistry",

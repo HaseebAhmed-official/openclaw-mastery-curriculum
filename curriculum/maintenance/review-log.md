@@ -42,6 +42,18 @@
 - Outcome: refreshed the supported Node floor and flagged conflicting Node 24/26 recommendation text across official docs; taught stable, extended-stable, beta, and dev semantics; added scoped `openclaw attach` and durable coding-agent evidence; strengthened approval, plugin persistence, sandbox/SSRF, credential ownership, channel identity, and detached-authority casework
 - Follow-up validation: map the advisory-family cases into assessment questions and model answers, run command-level labs on an installed stable OpenClaw environment, and obtain fresh external adversarial review
 
+## 2026-08-15 Platform-Agnostic Migration
+
+- Change category: curriculum architecture and product-boundary migration
+- Evidence reviewed: official agent-framework/harness guidance; MCP, A2A, and OpenTelemetry materials; NIST/OWASP/SSDF; ABET/CS2023/SWEBOK; foundational agent/evaluation research; current OpenClaw, Hermes Agent, ChatGPT Work, and xAI case sources
+- Curriculum change: replaced the OpenClaw-centered spine with Agent Harness Systems Engineering outcomes, semesters, labs, assessments, tracks, source policy, and comparative case method
+- Product boundary: removed embedded Elite Mentor OS plugin/marketplaces after publishing its standalone repository; Mentor OS work is paused by user decision
+- Simplification: removed unpopulated screenshot/classroom-manual layer and consolidated six repetitive role answer packs into one calibration pack
+- Executable evidence: added a standard-library-first Python reference harness; current tests cover bounded runtime, tools, approval, context budget, persistent session/event recovery, and repeated-trial evaluation
+- OpenClaw handling: preserved `upstream-state.json`, release/advisory review history, drift workflow/script, and OpenClaw as a dated source-visible case study
+- Validation: Markdown links, JSON parsing, formatting, Python compilation, and current reference tests passed during implementation; external validation and clean lab reproduction remain pending
+- Follow-up: finish advanced executable fixtures, run internal/external adversarial review, reproduce critical labs, calibrate assessors, and pilot with real learners before readiness claims
+
 ## Logging rule
 
 Every future upstream review should append:

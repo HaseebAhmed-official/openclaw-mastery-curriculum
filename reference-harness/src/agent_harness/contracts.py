@@ -17,6 +17,19 @@ class Message:
     content: str
     name: str | None = None
     call_id: str | None = None
+    metadata: JsonObject = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class ContextBundle:
+    messages: tuple[Message, ...]
+    used_characters: int
+    dropped_messages: int
+
+
+class ContextBuilder(Protocol):
+    def build(self, messages: Sequence[Message]) -> ContextBundle:
+        """Select the provider-visible working context."""
 
 
 @dataclass(frozen=True)
@@ -74,6 +87,7 @@ class StopReason(str, Enum):
     POLICY_DENIED = "policy_denied"
     NO_PROGRESS = "no_progress"
     CANCELLED = "cancelled"
+    CONTEXT_ERROR = "context_error"
     PROVIDER_ERROR = "provider_error"
 
 

@@ -1,41 +1,52 @@
 # Environment Lanes
 
-## Purpose
+## Common Outcome Rule
 
-Not every institution has the same budget, hardware, or operational risk tolerance. These lanes keep the curriculum usable without flattening the learning goals.
+Lanes vary cost, infrastructure, and realism, not competency. Every learner needs an equitable deterministic path for the common core.
 
-## Lane 1: low-cost student path
+## Lane 0: Offline/Deterministic Core
 
-- primary environment: personal Windows laptop with WSL2 or Linux laptop
-- provider strategy: hosted provider, minimal spend
-- deployment scope: local gateway plus one remote-access exercise
-- channel scope: webchat first, one optional mobile-friendly channel
-- local models: theory or lightweight comparison only
+- Python 3.11+, Git, and the reference harness
+- scripted provider; no API key or network model
+- in-memory/file fixtures and local process boundaries
+- supports all Semester 1 contract, testing, policy, trace, and basic evaluation outcomes
 
-## Lane 2: standard university lab path
+This is the minimum required and the default fallback for cost, outage, privacy, and accessibility.
 
-- primary environment: managed WSL2/Linux lab images
-- provider strategy: institution-managed API keys or controlled auth
-- deployment scope: local gateway, remote host lab, and controlled VPS exercise
-- channel scope: at least one real channel integration under policy
-- security scope: mandatory audit and hardening lab
+## Lane 1: Personal Learner
 
-## Lane 3: enterprise reference path
+- Linux, macOS, or Windows with WSL
+- optional low-cost hosted provider or feasible local model
+- local/container deployment and protocol fixtures
+- bounded case-study observation
 
-- primary environment: Linux or managed remote hosts
-- provider strategy: controlled provider auth profiles and change management
-- deployment scope: persistent gateway, remote access, and operational runbooks
-- channel scope: explicit business-use channel policies
-- security scope: full governance strand and capstone defense
+## Lane 2: University Lab
 
-## Canonical recommendation
+- managed reproducible Linux/WSL/container images
+- institution-controlled provider access where used
+- durable store/queue or workflow fixture
+- MCP/A2A integration fixtures
+- controlled network/failure/security lab and shared observability
+- canonical academic delivery lane
 
-Use Lane 2 as the default academic path. It balances realism, cost, and production relevance.
+## Lane 3: Enterprise Reference
 
-## Hardware and software minimums
+- organization-controlled identities, providers, secrets, data classes, and environments
+- durable execution, SLOs, incident, migration, backup, rollback, and governance systems
+- realistic but authorized tools/workflows and security exercises
+- organizational privacy/security/legal review
 
-- Node.js version meeting current OpenClaw support
-- Docker available where sandboxing labs are required
-- SSH client and stable internet connectivity
-- a browser for Control UI
-- a Windows machine with WSL2 or a Linux/macOS machine for the canonical baseline
+## Lane 4: Local-Model/Accelerator
+
+- declared CPU/GPU/accelerator and memory/storage limits
+- pinned serving stack and model artifacts
+- measured quality, latency, throughput, utilization, failure, privacy, and cost
+- fallback and degradation path
+
+## Environment Record
+
+Every lab records OS/runtime, commit, dependencies/versions, shell/path boundaries, provider/model or scripted fixture, network access, storage/state, compute, secrets source, and known deviations.
+
+## Equity and Safety
+
+Do not grade access to expensive models, cloud accounts, accelerators, fast networks, or particular operating systems. Provide equivalent fixtures while preserving the same reasoning and evidence gate. Announce requirements and accessible alternatives before enrollment/delivery.

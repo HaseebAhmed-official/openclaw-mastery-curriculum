@@ -1,109 +1,67 @@
 # Assessor Calibration Guide
 
-## Purpose
+## Goal
 
-This guide keeps grading standards stable across instructors, TAs, reviewers, and cohorts.
+Produce consistent, explainable decisions across instructors, TAs, reviewers, sections, and cohorts while separating artifact polish from demonstrated capability.
 
-## Calibration goals
+## Before Calibration
 
-- reduce grading drift
-- separate polished presentation from real competence
-- enforce the trust model consistently
-- keep pass/fail judgments aligned to the curriculum's risk posture
+Assessors review the relevant outcomes, task contract, Master/Track Rubrics, critical gates, source/version baseline, permitted assistance, and accessibility accommodations.
 
-## Before grading
+## Anchor Set
 
-Every assessor should:
+Use at least four common submissions:
 
-1. read the [Master Rubric](../rubrics/master-rubric.md)
-2. read the [Track Rubrics](../rubrics/track-rubrics.md)
-3. read the relevant lab guide or capstone spec
-4. review the current release-aware assumptions if the artifact depends on fast-moving features
+- clear fail with a critical gate
+- borderline repairable work
+- solid pass
+- distinction candidate
 
-## Evidence hierarchy
+Include code/evidence, not only prose. Remove unnecessary personal identifiers.
 
-Grade in this order:
+## Calibration Procedure
 
-1. demonstrated behavior or artifact evidence
-2. written reasoning
-3. oral defense quality
-4. polish or presentation quality
+1. Score independently by rubric dimension and critical gate.
+2. Record evidence citations and confidence for each decision.
+3. Compare pass/fail, dimension scores, severity, and required repair.
+4. Resolve whether disagreement comes from evidence, task wording, key, rubric, or assessor interpretation.
+5. Rescore after clarification without hiding the original difference.
+6. Record agreed anchors and unresolved ambiguity.
 
-Do not reverse this order.
+## Agreement Evidence
 
-## Calibration exercise
+For high-stakes delivery, report:
 
-Before a major grading cycle:
+- exact agreement on pass/fail and critical gates
+- dimension-score agreement within one scale point
+- disagreement themes and moderation decisions
+- sample size and limitations
 
-1. choose 3 sample submissions
-2. have all graders score them independently
-3. compare scores and reasoning
-4. identify where graders disagreed
-5. align on pass/fail gates and distinction criteria
+Set a local threshold before grading. A reasonable starting target is at least 90% pass/fail agreement and 80% dimension agreement within one point, but institutions must justify their threshold and improve weak dimensions; this is guidance, not a universal psychometric standard.
 
-## Non-negotiable fail gates
+## Evidence Priority
 
-Do not pass a major artifact if it:
+1. observed/reproducible behavior and end state
+2. tests, traces, events, measurements, and source evidence
+3. learner reasoning and oral defense
+4. documentation clarity
+5. polish
 
-- treats OpenClaw as a hostile multi-tenant boundary
-- exposes the gateway without explaining why the exposure is safe enough
-- ignores prompt injection in a tool-enabled or external-content workflow
-- ignores detached authority in an automation-heavy design
-- cannot explain why its chosen model or provider is acceptable
+Polish cannot compensate for a failed technical, security, evaluation, or authenticity gate.
 
-## Score interpretation
+## Moderation Triggers
 
-### Score 4
+- any critical-gate disagreement
+- assessor spread greater than one point on a dimension
+- accommodation or environment may affect evidence interpretation
+- task/source drift occurred during the cohort
+- conflict of interest or appeal
+- distinction or fail near institutional consequence
 
-- evidence is complete
-- reasoning is explicit
-- risks are named and bounded
-- the student rejects unsafe shortcuts proactively
+## Feedback Standard
 
-### Score 3
+Return the strongest evidence, the smallest material gap, a concrete repair task, retest criteria, and claim level. Avoid personality judgments and vague praise/criticism.
 
-- work is mostly correct
-- some depth is missing
-- operational or security reasoning is present but not exhaustive
+## Reassessment
 
-### Score 2
-
-- work is fragile or only partially reasoned
-- evidence is incomplete
-- the student relies on assumptions they cannot defend
-
-### Score 1
-
-- core misunderstanding
-- unsafe claims
-- weak or missing evidence
-
-## Oral defense calibration
-
-Reward:
-
-- concise, direct answers
-- explicit tradeoffs
-- correct limitation statements
-
-Do not reward:
-
-- confidence without evidence
-- vague references to "best practice"
-- unsupported claims about security, memory, or isolation
-
-## Feedback expectations
-
-Every graded artifact should receive:
-
-- one statement of what was strong
-- one statement of what was missing
-- one concrete next improvement
-
-## Regrade policy suggestion
-
-Allow regrade or resubmission when:
-
-- the student can correct evidence gaps
-- the issue is incomplete reasoning rather than dishonesty
-- the resubmission does not erase the original trace of what changed
+Preserve the original attempt. Use a changed task, not simple correction copying. Dishonesty/fabrication follows local policy; ordinary missing evidence should route to repair and transfer retest where permitted.

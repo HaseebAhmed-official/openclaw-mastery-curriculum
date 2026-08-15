@@ -1,116 +1,50 @@
 # Model Design Review
 
-## Context
+## Decision
 
-This example shows the level of clarity expected in a strong production-oriented design review.
+Build a bounded research-assistance workflow for an internal policy team. Use deterministic retrieval/filtering and citation checks first; use one agent only to synthesize ambiguous evidence. No autonomous publication or external communication.
 
-## Design title
+## Requirements and Non-Goals
 
-Trusted-Team Remote Access Design for a Shared OpenClaw Gateway
+- produce a source-linked briefing from approved internal and official sources
+- identify conflicts, dates, and uncertainty
+- permit a human reviewer to inspect evidence before export
+- retain task evidence for 30 days, then delete under policy
+- non-goals: legal advice, automatic policy decisions, unrestricted web browsing, public release
 
-## Problem statement
+## Alternatives
 
-A small trusted internal team wants remote access to a shared OpenClaw gateway for collaborative use, but does not want the gateway exposed publicly. The system must preserve operational clarity and avoid pretending that the gateway can safely host adversarial users.
+1. Deterministic search plus template: safest and cheapest, but weak for conflicting narrative synthesis.
+2. Single bounded synthesis agent: selected after deterministic retrieval; measurable benefit can be tested.
+3. Multi-agent research/debate: rejected until evidence shows one agent cannot meet quality; adds cost and coordination risk.
 
-## Proposed solution
+## Architecture
 
-Deploy a single OpenClaw gateway on a managed Linux host, keep the service loopback-bound, and provide remote access through Tailscale Serve for trusted team members only. Restrict dangerous tool authority by default, document a clear DM/shared-inbox policy, and require explicit review before enabling any hooks or plugin installs.
+- provider adapter with deterministic test double and one approved network provider
+- context builder selects approved records with source, owner, date, and trust label
+- read-only retrieval tool; export tool is side-effecting and requires exact human approval
+- append-only task/events and artifact references
+- no long-term semantic memory; only policy-governed task state
+- trace plus end-state evaluation of source coverage, unsupported claims, and export behavior
 
-## Context and assumptions
+## Threat and Data Review
 
-- intended users: one lead operator plus a small trusted internal team
-- trust model: cooperative trusted users only
-- environment: managed Linux host with Docker available
-- version / release assumptions: reviewed against current stable release on 2026-04-24
-- constraints: no public exposure, no hostile multi-tenant use, no unreviewed webhook ingress
+Primary risks: indirect prompt injection in documents, confidential-data leakage to provider/logs, stale policy source, unsupported synthesis, approval mismatch, and retained artifacts. Controls: instruction/data separation, source allowlist, content labels, provider data policy review, redaction, exact export approval, no network tool for the agent, retention/deletion job, and security eval variants.
 
-## Architecture summary
+## Evaluation and Release Gate
 
-- gateway location: managed Linux VPS
-- access method: Tailscale Serve to a loopback-bound service
-- provider / model strategy: hosted provider with strong default model; version-sensitive defaults checked before deployment
-- channels or nodes used: web UI and one approved team channel
-- plugins or skills involved: only reviewed built-in or explicitly approved additions
-- automation or detached work involved: none in phase 1; standing orders reviewed separately if added later
+Compare template baseline and bounded agent on 30 representative tasks with repeated trials for the agent arm. Grade factual support, source conflict handling, critical omission, unsupported claims, latency, cost, and human correction. Any unauthorized export or protected-data leak is stop-ship regardless of average score.
 
-## Trust boundary analysis
+## Operations
 
-### Who is trusted?
+Define success/latency SLOs, provider degradation to deterministic briefing, trace correlation, artifact deletion evidence, incident route, frozen source/provider versions, and rollback to the template baseline.
 
-- lead operator
-- explicitly approved internal team members with tailnet access
+## Open Questions
 
-### Who is not trusted?
+- Is provider handling acceptable for the most sensitive document class?
+- Can deletion be verified across derived indexes and backups?
+- Does synthesis improve reviewer time enough to justify model cost and risk?
 
-- the public internet
-- unreviewed plugin authors
-- external content sources by default
+## Review Verdict
 
-### Where does authority widen?
-
-- when a user can message the gateway
-- when tools can touch host resources
-- when plugins or hooks can execute code
-
-### What authority is durable?
-
-- gateway configuration
-- standing orders if enabled later
-- skill/plugin installation state
-
-## Operational design
-
-- install or deployment method: pinned stable install with documented update process
-- health checks: `openclaw status`, `doctor`, `gateway probe`, and log review
-- logging and diagnostics: retained diagnostic ladder plus release-aware note for each change window
-- rollback expectations: version-aware rollback and config backup before major updates
-- update strategy: review release notes before provider/security-affecting changes
-
-## Security review
-
-- prompt injection exposure: any external-content workflow must be reviewed before adoption
-- sandboxing / exec policy: sandbox enabled where relevant, host execution kept restricted
-- webhook or hook exposure: not enabled in baseline
-- plugin or supply-chain concerns: no plugin installs without provenance review
-- remote ingress concerns: ingress limited to trusted tailnet users; no public reverse proxy
-
-## Alternatives considered
-
-### Alternative 1
-
-- why considered: public reverse proxy is convenient
-- why rejected: widens exposure and creates unnecessary ingress risk for this trust model
-
-### Alternative 2
-
-- why considered: one gateway for any user in the organization
-- why rejected: drifts toward a hostile or mixed-trust model that OpenClaw docs do not support as a secure boundary
-
-## Failure modes
-
-1. Provider degradation or default drift across releases
-2. Team members assuming shared access implies adversarial isolation
-3. Plugin or automation additions widening authority without review
-
-## Evidence and references
-
-- official docs used:
-  - architecture
-  - security
-  - remote access
-  - trusted proxy / remote access guidance
-  - release notes
-
-## Final recommendation
-
-Approve with conditions:
-
-1. keep the gateway non-public
-2. document team-use policy explicitly
-3. require review before enabling plugins, hooks, or detached automation
-
-## Why this is a strong example
-
-- It matches OpenClaw's actual trust model.
-- It rejects attractive but unsafe convenience.
-- It distinguishes architecture, security, and operational choices clearly.
+Approve a synthetic-data prototype only. Production or legal-decision claims are blocked pending privacy/legal review, representative evaluation, deletion proof, and incident rehearsal.

@@ -1,90 +1,52 @@
-# Answer Key Guidance
+# Answer-Key Guidance
 
 ## Purpose
 
-This file is not a rigid script of exact answers. It tells instructors what a strong answer should contain so grading stays rigorous without forcing one wording.
+Build defensible grading anchors without forcing one architecture, freezing current product facts, or publishing hidden-transfer answers.
 
-## High-priority concept answers
+## Key Structure
 
-### What problem does OpenClaw solve that a normal hosted chatbot does not?
+For each item record:
 
-A strong answer should mention:
+- competency and evidence level
+- essential concepts/invariants
+- acceptable alternatives and required assumptions
+- evidence expected: code, trace, end state, source, measurement, or oral explanation
+- critical misconceptions or unsafe responses
+- likely partial-credit boundaries
+- follow-up or changed-condition probe
+- source/version date for time-sensitive facts
 
-- self-hosted gateway or control plane
-- channels, tools, nodes, and durable workspace state
-- operator control over deployment and integrations
+## Strong-Answer Pattern
 
-Weak answer signs:
+A strong answer usually:
 
-- says "it is just a chatbot with more features"
-- ignores tools, routing, or host control
+1. defines the exact problem and boundary
+2. selects the simplest valid design
+3. traces control, data, state, and authority
+4. states invariant, failure, and recovery behavior
+5. provides inspectable evidence
+6. addresses security/privacy and operations
+7. distinguishes fact, inference, decision, and unknown
+8. rejects claims stronger than evidence
+9. adapts when one condition changes
 
-### Why is OpenClaw a trusted-operator system rather than a hostile multi-tenant boundary?
+## Core Anchor Expectations
 
-A strong answer should mention:
+- **Architecture:** separates model, harness, tools/execution, state, operator, and external systems; justifies autonomy.
+- **Tools/policy:** runtime-validates arguments and binds authority to exact behavior; descriptions/prompts are not controls.
+- **Durability:** separates internal task state from external end state; does not claim exactly-once without proof.
+- **Memory/context:** tracks provenance, trust, freshness, isolation, budget, retention, and deletion.
+- **Protocols:** distinguishes interoperability/discovery from authorization and semantic compatibility.
+- **Security:** traces attack preconditions and authority, layers prevention/detection/recovery, and states residual risk.
+- **Evaluation:** defines tasks/trials/graders, repeats nondeterministic trials, and checks trace/end state where actions matter.
+- **Operations:** defines SLO, degradation, incident, migration, backup, rollback, owner, and evidence.
+- **Product cases:** dates claims and labels observed/documented/source-visible/inferred/unknown.
 
-- one trusted operator boundary per gateway
-- official docs do not position it as adversarial-user isolation
-- design and grading implications for shared inboxes and team use
+## Critical No-Credit Conditions
 
-Weak answer signs:
+Fabricated evidence, inability to explain submitted work, unsafe out-of-scope execution, hidden critical authority, evaluation leakage, or readiness/security claims that contradict known evidence trigger the Master Rubric gate regardless of wording.
 
-- claims it is safe for mutually untrusted users by default
+## Key Maintenance
 
-### Why is "the model remembers it" an unsafe explanation in OpenClaw?
-
-A strong answer should mention:
-
-- persisted memory is in workspace files
-- visible artifacts like `MEMORY.md`, daily notes, and related files matter
-- students should distinguish persisted state from assumed hidden state
-
-### Why should release notes matter in provider or security labs?
-
-A strong answer should mention:
-
-- default models and security behavior can drift across releases
-- labs can become inconsistent across cohorts without version awareness
-- teaching should anchor to current stable behavior plus release-note checks
-
-## Scenario grading guidance
-
-### Public exposure for convenience
-
-A strong response should:
-
-- reject convenience as sufficient justification
-- prefer loopback plus SSH or Tailscale Serve unless there is a defended reason otherwise
-- mention trust boundary and ingress risk
-
-### Shared gateway for untrusted users
-
-A strong response should:
-
-- reject the design as framed
-- explain why OpenClaw is not a hostile multi-tenant boundary
-- suggest separation, stronger isolation, or different architecture
-
-### Sandbox means host risk is solved
-
-A strong response should:
-
-- say sandboxing materially helps but is not a perfect security boundary
-- explain residual risk and why approvals and policy still matter
-
-### Memory strategy without `DREAMS.md`
-
-A strong response should:
-
-- challenge the omission
-- explain that dreaming is part of the documented memory system
-- ask how promotion, thresholds, or memory strategy were considered
-
-## Scoring reminder
-
-Do not award full marks to answers that are:
-
-- confident but vague
-- security-flavored but not OpenClaw-specific
-- operationally unrealistic
-- correct in spirit but missing the trust model
+Revalidate current sources before use, rotate task details, preserve old keys only with the assessment version they graded, and repair keys when assessor disagreement reveals ambiguity.
