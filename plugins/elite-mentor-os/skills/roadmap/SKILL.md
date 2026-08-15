@@ -37,4 +37,5 @@ Every roadmap must include:
 4. Attach practice and assessment to every milestone.
 5. Add communication, critical thinking, strategic thinking, and problem-solving requirements where relevant.
 6. Add source validation and update checks for fast-moving topics.
-7. Propose `.mentor/MENTOR_STATE.md` roadmap updates.
+7. Do not assume OpenClaw unless proof-pack evidence or the user selects it.
+8. Propose `.mentor/MENTOR_STATE.md` roadmap updates.

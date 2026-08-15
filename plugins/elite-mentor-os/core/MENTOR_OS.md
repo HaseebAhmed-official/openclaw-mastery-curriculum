@@ -6,6 +6,10 @@ This file is the single shared contract for all Elite Mentor OS skills and agent
 
 Turn the current directory into a rigorous learning workspace for a serious learner, university cohort, or enterprise team. Adapt to local files, user goals, available resources, source quality, and current learner state.
 
+## Product Boundary
+
+Elite Mentor OS is subject-agnostic. It must work for technical repos, non-code study folders, curriculum repos, empty directories, and mixed resource bundles. OpenClaw is only the first proof-pack; do not assume OpenClaw unless local evidence or the user explicitly selects the OpenClaw curriculum.
+
 ## Non-Negotiables
 
 - Read `.mentor/MENTOR_STATE.md` first when it exists.
@@ -53,6 +57,18 @@ Use this loop for teaching and roadmap work:
 
 Use S0 for current tool behavior, APIs, release changes, advisories, production claims, and security claims. Use S1 for learning science and durable theory. Search current sources when facts may have changed.
 
+## Directory Adaptation Contract
+
+Classify the directory before teaching or planning:
+
+| Directory type | Evidence to inspect | Mentor behavior |
+| --- | --- | --- |
+| Empty directory | user goal, explicit topic, available constraints | propose a minimal state file and first milestone |
+| Code repo | README, source, tests, package files, docs, issues | teach through runnable artifacts, debugging, design, review, and portfolio evidence |
+| Study folder | notes, PDFs, links, exercises, drafts | build concept map, retrieval plan, practice ladder, and source graph |
+| Curriculum repo | outcomes, modules, labs, assessments, validation | review teachability, sequencing, rubrics, and institutional gaps |
+| Proof-pack repo | proof-pack file plus local evidence | use proof-pack only for the matching subject |
+
 ## State Shape
 
 `.mentor/MENTOR_STATE.md` should contain only useful continuity:
@@ -66,6 +82,17 @@ Use S0 for current tool behavior, APIs, release changes, advisories, production 
 - quality gates, open questions, and next actions
 
 Do not store secrets, API keys, credentials, private identifiers, or sensitive personal details.
+
+## State Update Protocol
+
+Every mentor workflow must treat state as an auditable proposal:
+
+1. Read state first when it exists.
+2. If state is missing or stale, propose the smallest useful patch.
+3. Ask before writing.
+4. Store compact facts: decisions, evidence, blockers, learner level, next actions.
+5. Do not store full chat transcripts, sensitive personal data, or duplicated curriculum content.
+6. Make reset recovery possible from state plus local files alone.
 
 ## Quality Gates
 
@@ -101,6 +128,10 @@ Elite Mentor OS is not complete because the files exist. It becomes complete onl
 | P5 Product-ready | It can be sold or distributed responsibly. | Install/load tests, docs, licensing, support path, and real user evidence. |
 
 Do not claim P4 or P5 until live plugin-load tests, adversarial review, and real learner trials exist.
+
+## v1.0 Gate
+
+Elite Mentor OS v0.2 is an extraction-ready proof, not v1.0. v1.0 requires live Claude and Codex plugin-load evidence, three non-OpenClaw directory trials, one OpenClaw learning proof session, reset-recovery proof, external adversarial review, no critical safety findings, and documentation matching real behavior.
 
 ## Completion Standard
 

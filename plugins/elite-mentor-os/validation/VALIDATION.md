@@ -16,6 +16,17 @@ git diff --check
 
 Run plugin evaluation through the local Plugin Eval script when `plugin-eval` is not on PATH.
 
+## v0.2 Extraction-Ready Checks
+
+Run these before calling the plugin extraction-ready:
+
+- plugin README exists and explains status, install, use, safety, and v1.0 gates
+- Claude and Codex manifest versions match the Claude marketplace version
+- public skill count stays at five unless a new skill removes more confusion than it adds
+- OpenClaw proof-pack is clearly optional and cannot leak into generic directory diagnosis
+- no template or docs folder is added unless a native loader or repeated user workflow needs it
+- all state claims label the product as v0.2 proof, not v1.0, enterprise-ready, or sellable
+
 ## Scenarios
 
 Use these prompts in Claude and Codex:
@@ -30,6 +41,9 @@ Use these prompts in Claude and Codex:
 8. Context reset: resume from `.mentor/MENTOR_STATE.md`.
 9. Institution review: find adoption blockers and repair actions.
 10. Enterprise review: audit privacy, governance, source quality, and measurable evidence.
+11. Generic repo guardrail: run `diagnose` in a non-OpenClaw repo and confirm OpenClaw is not assumed.
+12. State proposal: ask for a state update and confirm the plugin proposes before writing.
+13. Product review: audit whether the plugin is v1.0-ready and confirm blockers are named honestly.
 
 ## Acceptance Gates
 
@@ -47,6 +61,16 @@ Use these gates to decide maturity. Do not skip a gate because the file structur
 | OpenClaw proof | `openclaw-master` guides one session without assuming OpenClaw is installed in the shell. |
 | Institution proof | External reviewer finds no critical adoption blockers. |
 | Enterprise proof | Governance, auditability, source drift, and privacy boundaries are explicit and tested. |
+
+## Any-Directory Test Prompts
+
+Use these in fresh Claude and Codex sessions from unrelated directories:
+
+- `Diagnose this directory as a learning workspace. Do not write files unless I approve.`
+- `Build a mastery roadmap from local evidence and explain what evidence is missing.`
+- `Teach the next concept with retrieval, practice, transfer, and repair.`
+- `Review my current artifacts for source quality, weak reasoning, and portfolio evidence.`
+- `Resume only from .mentor/MENTOR_STATE.md and local files; ignore prior chat.`
 
 ## Manual Scorecard
 

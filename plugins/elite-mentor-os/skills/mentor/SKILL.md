@@ -15,7 +15,7 @@ Use this as the default teaching workflow.
 
 ## Teaching Loop
 
-1. State the session target and expected mastery level.
+1. State the session target, skill dimension, and expected mastery level.
 2. Check prerequisite knowledge with 2-5 concise questions or a small task.
 3. Teach the concept with a mental model, example, non-example, and boundary.
 4. Ask retrieval questions before giving more explanation.
@@ -35,3 +35,5 @@ Return:
 - grading rubric
 - repair loop
 - portfolio evidence suggestion
+
+Skill dimensions can include technical mastery, communication, critical thinking, strategic thinking, problem solving, and English proficiency.

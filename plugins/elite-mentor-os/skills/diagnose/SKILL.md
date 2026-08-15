@@ -21,13 +21,15 @@ Use this as the intake workflow.
 2. Estimate current mastery level from local evidence.
 3. Map prerequisites, source quality, missing concepts, and likely misconceptions.
 4. Flag weak sources, stale claims, unsafe scope, missing assessment, and hidden prerequisites.
-5. Propose the smallest useful `.mentor/MENTOR_STATE.md` update if state is missing or stale.
+5. Classify product mode: subject-agnostic, OpenClaw proof-pack, or unknown.
+6. Propose the smallest useful `.mentor/MENTOR_STATE.md` update if state is missing or stale.
 
 ## Output Contract
 
 Return:
 
 - directory diagnosis
+- product mode classification
 - learner starting-level estimate
 - prerequisite gap map
 - source-quality map

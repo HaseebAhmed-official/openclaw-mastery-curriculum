@@ -1,6 +1,6 @@
 # OpenClaw Proof Pack
 
-OpenClaw Mastery is the first proof case for Elite Mentor OS.
+OpenClaw Mastery is the first proof case for Elite Mentor OS. This proof-pack is optional and domain-specific; it must not drive generic directory diagnosis unless local evidence or the user explicitly selects OpenClaw.
 
 ## Scope
 

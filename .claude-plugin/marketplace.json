@@ -5,13 +5,13 @@
     "url": "https://github.com/HaseebAhmed-official"
   },
   "description": "Native Claude Code plugins for rigorous local-first learning and curriculum mastery.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "plugins": [
     {
       "name": "elite-mentor-os",
       "source": "./plugins/elite-mentor-os",
       "description": "Turn any project directory into a rigorous AI mentor workspace.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "Haseeb Ahmed",
         "url": "https://github.com/HaseebAhmed-official"

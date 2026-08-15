@@ -6,7 +6,7 @@
 
 This repository is a university-grade, enterprise-usable **OpenClaw mastery curriculum** designed to take a learner from prerequisite foundations to production operations, security hardening, extension development, and contributor-level understanding.
 
-It also contains the first proof implementation of **Elite Mentor OS**, a local-first native plugin system for Claude Code and Codex that turns any directory into a rigorous AI mentor workspace.
+It also contains the v0.2 extraction-ready proof implementation of **Elite Mentor OS**, a local-first native plugin system for Claude Code and Codex that turns any directory into a rigorous AI mentor workspace.
 
 It is not just a reading list. It is a structured curriculum system with:
 
@@ -33,7 +33,7 @@ The broader Elite Mentor OS goal is to make this curriculum teachable through na
 
 ## Elite Mentor OS Native Plugin
 
-Elite Mentor OS is implemented under `plugins/elite-mentor-os/`. Its runtime contract is [Mentor OS Core](plugins/elite-mentor-os/core/MENTOR_OS.md). It is designed as:
+Elite Mentor OS is implemented under `plugins/elite-mentor-os/`. Start from [Elite Mentor OS README](plugins/elite-mentor-os/README.md) and its runtime contract, [Mentor OS Core](plugins/elite-mentor-os/core/MENTOR_OS.md). It is designed as:
 
 - a shared mentor core for Claude Code and Codex
 - a Claude native plugin with `.claude-plugin/plugin.json`, skills, and agents
@@ -41,6 +41,8 @@ Elite Mentor OS is implemented under `plugins/elite-mentor-os/`. Its runtime con
 - a local-first state system using `.mentor/MENTOR_STATE.md`
 - an OpenClaw proof-pack that maps this curriculum into mentor-guided sessions
 - a guided-action system that proposes writes before changing state, curriculum, or portfolio files
+
+Elite Mentor OS is subject-agnostic. OpenClaw is only the first proof-pack, not the product boundary. The plugin is testable now, but it is not v1.0, institution-ready, enterprise-ready, or sellable until the validation gates in [Elite Mentor OS Validation](plugins/elite-mentor-os/validation/VALIDATION.md) pass with evidence.
 
 Native marketplace files:
 
@@ -73,6 +75,7 @@ Then open `/plugins`, install `elite-mentor-os` from `Elite Mentor OS Marketplac
 
 Plugin references:
 
+- [Elite Mentor OS README](plugins/elite-mentor-os/README.md)
 - [Mentor OS Core](plugins/elite-mentor-os/core/MENTOR_OS.md)
 - [OpenClaw Proof-Pack](plugins/elite-mentor-os/proof-packs/openclaw/OPENCLAW_PROOF_PACK.md)
 - [Validation](plugins/elite-mentor-os/validation/VALIDATION.md)
@@ -273,6 +276,7 @@ This repository is in active build-out. The backbone now exists, including:
 The next major phase is iteration and refinement:
 
 - test plugin loading in Claude Code and Codex
+- test Elite Mentor OS in non-OpenClaw directories before extracting it to a standalone repo
 - run adversarial validation against the new plugin layer
 - populate the classroom manuals with locally captured reference screenshots
 - add cohort-tested timing adjustments and pacing evidence

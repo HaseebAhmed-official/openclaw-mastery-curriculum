@@ -22,6 +22,8 @@ Use this for assessment and adversarial review.
 - portfolio review
 - security and prompt-injection review
 - enterprise readiness review
+- product-readiness review
+- state-continuity review
 - high-stakes safety review
 - release-drift review
 
