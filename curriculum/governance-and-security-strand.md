@@ -1,76 +1,74 @@
 # Governance and Security Strand
 
-## Why this strand is mandatory
+## Purpose
 
-OpenClaw is valuable because it can connect models to channels, tools, nodes, and hosts. The exact same capabilities also create risk. Security is therefore not a side chapter; it is the spine of responsible OpenClaw use.
+Thread security, safety, privacy, accessibility, ethics, and accountable change through every module. These are system properties and operating practices, not a late compliance lecture.
 
-## Threaded topics across the full program
+## Stage 1: Scope, Assets, and Trust
 
-### Stage 1: trust model literacy
+Learners identify users, operators, developers, providers, tools, data, identities, execution environments, external systems, and adversaries. They label control, data, authority, and trust boundaries before implementation.
 
-- personal-assistant trust model
-- one trusted operator boundary per gateway
-- why hostile multi-tenant assumptions are wrong here
+Evidence: architecture/data-flow diagram, assumptions, misuse cases, and explicit single-user/team/multi-tenant boundary.
 
-### Stage 2: ingress and channel control
+## Stage 2: Input, Context, and Memory
 
-- pairing and allowlists
-- DM scope and shared inbox isolation
-- mention gating and group policies
+Teach instruction/data separation, source provenance, prompt injection, retrieval contamination, memory isolation, freshness, retention, deletion, and sensitive-context minimization.
 
-### Stage 3: tool and host control
+Evidence: malicious-context test, memory isolation/deletion test, and data lifecycle.
 
-- tool policy
-- sandboxing
-- exec approvals
-- node-host command exposure and Gateway/node approval equivalence
-- approval-display completeness and wrapper/interpreter revalidation
+## Stage 3: Capabilities and Authority
 
-### Stage 4: external content risk
+Teach least-authority tools, typed validation, requester provenance, policy, exact approval, capability discovery versus authorization, high-impact classification, and safe denial.
 
-- prompt injection
-- web content, hooks, Gmail, and document ingestion
-- unsafe bypass flags and why they should stay off in production
+Evidence: authority graph, argument-substitution test, deny-default test, and approval audit record.
 
-### Stage 5: deployment governance
+## Stage 4: Execution and Supply Chain
 
-- loopback-first design
-- SSH and Tailscale patterns
-- trusted proxy auth risks
-- webhook ingress and token hygiene
-- secret and config handling
-- config include and workspace dotenv ownership boundaries
+Teach process/filesystem/network isolation, secrets, dependency provenance, plugin/server trust, resource limits, egress, working-directory ownership, updates, and rollback.
 
-### Stage 6: automation and detached authority
+Evidence: execution-boundary test, dependency/source review, secret-redaction test, and recovery plan.
 
-- standing orders as durable authority
-- hooks as event-driven code execution
-- task records and detached auditability
-- sub-agents, ACP agents, and scoped `openclaw attach` grants as coordination boundaries
-- inherited child constraints, requester provenance, and task-record evidence
-- isolated automation must not regain tools denied by its effective policy
+## Stage 5: State, Durability, and Detached Work
 
-### Stage 7: formal assurance and threat models
+Teach sessions, task identity, events, retries, idempotency, cancellation, compensation, schedules, triggers, delegated work, inherited authority, and human review after context or time separation.
 
-- security audit usage
-- advisory-driven case review grouped by authorization, approval, plugin, sandbox/SSRF, credential, channel-identity, and detached-authority failure families
-- ATLAS-based threat modeling
-- formal verification models and their limits
+Evidence: crash/retry scenarios, duplicate prevention, cancellation test, and accountable task timeline.
 
-## Required learner behaviors
+## Stage 6: Detection, Evaluation, and Response
 
-- start from smallest access that still works
-- document every widening of trust or exposure
-- justify every dangerous capability
-- keep experimental and production profiles separate
-- treat unofficial or third-party content as untrusted by default
-- require explicit review for webhook tokens, hook code, plugin install records, and durable standing authority
+Teach correlated observability, security evals, abuse corpora, trace/end-state graders, alert ownership, containment, incident response, evidence preservation, recovery, and post-incident improvement.
 
-## Required instructor checks
+Evidence: exploit/mitigation variants, detection record, incident drill, and regression gate.
 
-- challenge unsafe defaults in design reviews
-- fail projects that treat one shared gateway as an adversarial-user boundary
-- require learners to explain the limits of sandboxing
-- require learners to explain the limits of formal verification claims
-- require learners to review current official advisories by affected component and exact version when evaluating production or contributor-facing changes
-- require learners to address prompt injection, detached authority, and webhook ingress in any production-facing design
+## Stage 7: Organizational Governance
+
+Teach risk ownership, NIST AI RMF/SSDF mapping, exceptions, change approval, user notice/control, privacy, accessibility, vendor review, assurance limits, and when qualified legal/domain/security review is required.
+
+Evidence: control-evidence-owner map, review cadence, exception record, user-facing limitation, and release decision.
+
+## Required Threat Families
+
+- direct and indirect prompt injection
+- confused-deputy and requester-provenance failure
+- excessive agency and approval mismatch
+- secret/data exfiltration and sensitive observability
+- malicious/stale memory and persistence
+- tool/plugin/protocol/dependency supply chain
+- identity, session, and tenant-boundary failure
+- retry/duplicate/partial-side-effect failure
+- model/provider manipulation or degradation
+- evaluation leakage, grader gaming, and false readiness claims
+
+## Required Learner Behaviors
+
+- test only within authorization and containment
+- never use real secrets or protected data in exercises
+- stop and report unexpected impact
+- label evidence and uncertainty
+- distinguish prevention, detection, response, and recovery
+- state residual risk and decision owner
+- reject claims stronger than the observed boundary
+
+## Program Gate
+
+No learner passes the core or capstone with an unresolved critical security/privacy failure, hidden authority, unsafe experiment, fabricated evidence, or inability to explain the trust boundary. Points elsewhere cannot compensate.

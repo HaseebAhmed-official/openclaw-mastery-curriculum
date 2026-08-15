@@ -1,35 +1,31 @@
-# Plugin Developer Track
+# Tools / Protocols Track
 
-## Goal
+## Role
 
-Produce developers who can extend OpenClaw with well-structured, schema-backed, operationally sane plugins and skills.
+Build reliable, least-authority capabilities and interoperability surfaces that agents and independent clients can use correctly.
 
-## Best fit for
+## Outcomes
 
-- application developers
-- integration engineers
-- ecosystem contributors
+- design discoverable typed tools with unambiguous schemas and errors
+- implement timeout, cancellation, idempotency, streaming, and lifecycle behavior
+- integrate MCP and A2A while preserving local policy and identity boundaries
+- test protocol versions, compatibility, failure, and malicious content
+- package dependencies and releases with provenance and rollback
+- measure whether interface design improves agent success and repair
 
-## Additional emphasis
+## Required Evidence
 
-- plugin architecture
-- plugin bundles and distribution surfaces
-- manifest design
-- JSON Schema validation
-- skills and six-layer precedence
-- ClawHub and npm ecosystem realities, install/update behavior, dependency status, runtime inspection, and compatibility gating
-- official externalized plugin behavior across OpenClaw updates
-- file-transfer plugin policy as a concrete tool-capability case study
-- capability ownership and config surfaces
+- LAB-B3, LAB-C4, LAB-C5, LAB-C6, LAB-D3
+- tested tool/plugin/protocol implementation
+- independent client interoperability
+- threat and supply-chain review
+- compatibility/version matrix
+- delayed changed-client or changed-protocol task
 
-## Extra labs
+## Advanced Topics
 
-- manifest inspection lab
-- config-schema design drill
-- skill and plugin interoperability exercise
-- plugin install-risk, dependency-status, runtime-inspection, and compatibility exercise
-- file-transfer policy review exercise
+JSON Schema, RPC and streaming, authentication/authorization, capability negotiation, SDK generation, protocol fuzzing, observability conventions, and marketplace governance.
 
-## Capstone
+## Capstone Emphasis
 
-Build a plugin or extension package with manifest, schema, config documentation, install/update notes, dependency and runtime-inspection evidence, compatibility assumptions, capability risk review, and a validation/test plan.
+Build one narrow capability deeply. Happy-path discovery, ambiguous schemas, or remote capability treated as authorization do not pass.

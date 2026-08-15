@@ -1,144 +1,124 @@
 # Competency Framework
 
-## Competency domains
+## Purpose
 
-### Domain A: Systems and environment literacy
+Define observable capabilities for curriculum alignment, learner progression, assessment, hiring adaptation, and program review. Topic exposure is not competency.
 
-- shells, WSL2, Linux basics
-- Node.js runtime and package management
-- Docker and networking basics
-- SSH and remote host access
+## Competency Domains
 
-### Domain B: OpenClaw conceptual model
+### C1: Foundations and Problem Analysis
 
-- gateway architecture
-- sessions, routing, and multi-agent boundaries
-- memory and workspace model
-- channels, nodes, and control-plane clients
+- trace programs, processes, network calls, data flow, concurrency, and failure propagation
+- decompose ambiguous requirements and identify when deterministic software is sufficient
+- use tests, measurement, and debugging to distinguish causes from symptoms
 
-### Domain C: Operator execution
+### C2: Agent and Harness Architecture
 
-- onboarding
-- config editing
-- model/provider setup
-- diagnostics, doctor, status, and logs
-- release and update awareness
-- remote access and persistent operation
+- distinguish models, tools, workflows, agents, harnesses, execution environments, and operators
+- define authority, state, data, control, stop, and failure boundaries
+- compare single-agent, manager, handoff, routing, parallel, and evaluator patterns
 
-### Domain D: Security and governance
+### C3: Harness Implementation
 
-- trust model
-- prompt injection and unsafe external content
-- hardening controls
-- exec approvals and tool policy
-- security audit and incident response
+- implement provider interfaces and deterministic test doubles
+- implement bounded loops, typed tools, validation, structured errors, and budgets
+- assemble context with provenance, relevance, freshness, and truncation behavior
 
-### Domain E: Production design
+### C4: State, Memory, and Durability
 
-- environment selection
-- remote host design
-- reverse proxy and trusted proxy patterns
-- Tailscale / SSH patterns
-- webhook ingress and detached-work auditability
-- change control and operational review
+- design sessions, event records, checkpoints, replay, and versioned state
+- implement retries, idempotency, compensation, cancellation, and recovery
+- evaluate memory retention, retrieval, deletion, contamination, and privacy
 
-### Domain F: Extensibility
+### C5: Tools, Protocols, and Interoperability
 
-- skills
-- plugins
-- plugin bundles and distribution surfaces
-- manifests and schema validation
-- capability ownership and configuration surfaces
+- design discoverable, typed, least-authority tools with useful errors
+- implement or integrate MCP and A2A contracts
+- port capabilities across frameworks without changing behavioral requirements silently
 
-### Domain G: Contribution and architecture depth
+### C6: Security, Safety, and Privacy
 
-- repo literacy
-- architecture and codegen surfaces
-- tests, docs, and contribution standards
-- formal models and threat-model contribution
+- threat-model prompt injection, tool misuse, confused deputy, exfiltration, persistence, supply chain, identity, and isolation
+- design layered policy, approval, sandbox, network, secret, and audit controls
+- state assurance limits and residual risk without security theater
 
-## Mastery levels
+### C7: Evaluation and Observability
 
-### Level 0: Bridge-ready
+- define task, trial, transcript, outcome, grader, dataset, and threshold
+- combine code, model, human, trace, and end-state graders appropriately
+- measure capability, regression, reliability, variance, latency, cost, and human override
 
-Can work safely in the terminal, WSL2/Linux, Git, JSON, Node.js, and Docker with supervision.
+### C8: Production and Operations
 
-### Level 1: OpenClaw literate
+- define SLOs, capacity, deployment, tenancy, rollback, and incident response
+- diagnose failures using correlated traces, metrics, logs, events, and artifacts
+- manage releases, migrations, compatibility, dependencies, and operational ownership
 
-Can explain what OpenClaw is, how the gateway works, and why trust boundaries matter.
+### C9: Governance and Responsible Engineering
 
-### Level 2: Hands-on operator
+- map risks, controls, evidence, owners, retention, privacy, accessibility, and review obligations
+- communicate limitations to users and decision-makers
+- distinguish internal readiness, regulatory obligations, certification, accreditation, and marketing claims
 
-Can install, onboard, chat, configure a baseline model/provider, and troubleshoot common issues.
+### C10: Research, Communication, and Transfer
 
-### Level 3: Secure operator
+- retrieve current primary evidence and label uncertainty
+- explain and defend design tradeoffs to multiple audiences
+- learn an unfamiliar framework or product, compare it to stable contracts, and transfer a solution to changed constraints
 
-Can run OpenClaw with explicit tool policy, safe channel exposure, and documented access controls.
+## Evidence Levels
 
-### Level 4: Production practitioner
+| Level | Name | Observable evidence |
+| --- | --- | --- |
+| L0 | Orientation | Defines scope and vocabulary; distinguishes facts from assumptions. |
+| L1 | Recall and trace | Retrieves core concepts and traces a supplied example. |
+| L2 | Guided construction | Completes a representative task with bounded hints and explains each step. |
+| L3 | Independent implementation | Builds and tests a standard component without procedural guidance. |
+| L4 | Transfer and debugging | Solves a changed task, diagnoses failures, and repairs the correct layer. |
+| L5 | System design | Chooses and defends architecture under conflicting constraints. |
+| L6 | Production judgment | Handles reliability, security, cost, privacy, operations, and governance evidence. |
+| L7 | Expert contribution | Audits, teaches, extends, or produces validated original work that survives external review. |
 
-Can design and defend a remote or persistent deployment with governance, webhook and automation controls, and operational controls.
+Mastery at L4 or above requires delayed, unaided, changed-task evidence. Agent-generated artifacts, immediate repetition, recognition, and self-confidence cannot establish the level alone.
 
-### Level 5: Extension developer
+## Core Graduation Profile
 
-Can create or adapt skills/plugins and reason about manifest-driven configuration and capability surfaces.
+Every graduate must achieve:
 
-### Level 6: Core contributor
+- C1-C4 at L4 or higher
+- C5-C8 at L4 or higher
+- C9-C10 at L4 or higher
+- at least two domains at L5
+- capstone-specific security, evaluation, and operations evidence at L5
 
-Can navigate the repo, contributor workflows, architecture surfaces, and validation/testing expectations.
+L6 requires real or high-fidelity production constraints and incident evidence. L7 is post-program expert evidence, not an automatic course award.
 
-### Level 7: Specialist
+## Role Profiles
 
-Can lead one of the specialization areas: production, security, plugin ecosystem, local models, or advanced operations.
+| Profile | Required depth |
+| --- | --- |
+| Product/Operator | C2, C6-C10 at L4; can configure, bound, evaluate, and govern existing systems. |
+| Harness Engineer | C1-C8 at L5; implements core contracts and ports across adapters. |
+| Platform/SRE | C4, C7-C9 at L5-L6; owns durability, observability, deployment, and incidents. |
+| Security/Assurance | C2, C5-C9 at L5-L6; attacks controls, verifies mitigations, and states assurance limits. |
+| Tools/Protocols | C3-C7 at L5; builds typed tools, MCP/A2A adapters, and compatibility tests. |
+| Core/Framework | C1-C8 at L5-L6; contributes runtime, orchestration, and evaluation infrastructure. |
+| Local-Model Infrastructure | C1, C3, C7-C9 at L5; owns model serving, routing, performance, privacy, and capacity. |
 
-## Evidence of mastery
+## Evidence Bundle
 
-Each level must be demonstrated by artifacts, not only quizzes.
+For every claimed domain/level, preserve:
 
-- Levels 0 to 1: bridge exercises and concept checks
-- Level 2: working installation, safe setup, and troubleshooting evidence
-- Level 3: hardening review and secure baseline lab
-- Level 4: production architecture document and operational runbook
-- Level 5: extension or plugin implementation with validation
-- Level 6: contributor-level code or design artifact
-- Level 7: capstone defense with explicit tradeoff analysis
+- artifact or commit reference
+- task and constraints
+- assistance received
+- tests and observed results
+- trace or end-state evidence where relevant
+- failure analysis and repair
+- source/version baseline
+- rubric decision and assessor
+- delayed transfer result
 
-## Role mapping
+## Anti-Outsourcing Standard
 
-### Student / foundational graduate
-
-- target: Levels 0 to 3
-
-### Operator / power user
-
-- target: Levels 1 to 4
-
-### Production / DevOps engineer
-
-- target: Levels 2 to 5
-
-### Security / governance practitioner
-
-- target: Levels 2 to 5
-
-### Plugin developer
-
-- target: Levels 2 to 5
-
-### Contributor / maintainer candidate
-
-- target: Levels 2 to 6
-
-### Specialist
-
-- target: Levels 4 to 7
-
-## Certification-style outcomes
-
-- Foundation: Level 1 plus prerequisite bridge
-- Operator: Level 2
-- Secure Operator: Level 3
-- Production: Level 4
-- Developer: Level 5
-- Contributor: Level 6
-- Specialist: Level 7
+Agents may help research, critique, generate tests, or accelerate implementation. The learner must still independently trace control flow, explain data and authority boundaries, reproduce failures, justify tests, verify claims, debug changed conditions, and defend final decisions. If these cannot be demonstrated, the artifact does not prove the learner's competency.

@@ -1,143 +1,137 @@
 # Lab Catalog
 
-## Phase A: bridge labs
+## Lab Contract
 
-### LAB-A1: WSL2 or Linux verification
+Every lab states prerequisites, environment, risk boundary, source/version baseline, objective, procedure or task contract, required evidence, failure injections, cleanup/rollback, grading criteria, and transfer variation. A lab guide that has not been executed in a clean target environment is `authored`, not `verified`.
 
-- focus: environment readiness
-- output: verified shell, package manager, filesystem, and editor workflow
+## Phase A: Foundation Labs
 
-### LAB-A2: Git discipline drill
+### LAB-A1: Reproducible Python and Git Environment
 
-- focus: branching, diffing, commit hygiene
-- output: clean branch workflow and review notes
+Build a typed Python project with tests and a deterministic entry point. Demonstrate a scoped Git change and reproduce it from a clean clone.
 
-### LAB-A3: Node.js and JSON config drill
+### LAB-A2: API, Process, and Failure Tracing
 
-- focus: runtime verification and config literacy
-- output: valid config edits and schema reasoning
+Trace a request through client, process, network, serialization, and state boundaries. Diagnose seeded timeout, authentication, and malformed-response failures.
 
-### LAB-A4: Docker and localhost basics
+### LAB-A3: Test-Driven Defect Repair
 
-- focus: containers, ports, and isolation
-- output: working container demo and explanation of host vs container network
+Reproduce a defect, create a failing regression test, repair the correct layer, and explain why the test rejects an incomplete fix.
 
-## Phase B: OpenClaw core labs
+### LAB-A4: Baseline Threat Model
 
-### LAB-B1: OpenClaw install and onboard
+Identify assets, actors, trust boundaries, data flows, abuse cases, controls, evidence, and residual risk for a small tool-using application.
 
-- focus: current official install path, provider auth, daemon setup, and package/release baseline
-- output: working OpenClaw installation with installed package version and current GitHub release noted
+## Phase B: Minimal Harness Labs
 
-### LAB-B2: Control UI and diagnostics ladder
+### LAB-B1: Deterministic Provider Adapter
 
-- focus: dashboard, `status`, `doctor`, `gateway probe`
-- required commands: `openclaw status`, `openclaw doctor`, `openclaw gateway probe`, `openclaw gateway status`, `openclaw channels status --probe`, `openclaw logs --follow`
-- output: diagnostic report with a fault-isolation ladder
-- evidence: one healthy run and one intentionally broken scenario
+Define provider request/response contracts and implement a scripted model test double. Verify timeout, malformed output, refusal, and provider-error handling.
 
-### LAB-B3: Session and memory inspection
+### LAB-B2: Bounded Agent Loop
 
-- focus: workspace, `MEMORY.md`, daily notes, session behavior
-- output: memory/session observation sheet
+Implement iteration, action/result flow, budgets, cancellation, stop reasons, and no-progress detection. Prove every path terminates or transfers control explicitly.
 
-### LAB-B4: Provider and model selection
+### LAB-B3: Typed Tool Registry
 
-- focus: auth, model defaults, fallback awareness, release-note drift, and cost/rate-limit awareness
-- output: configured model baseline, rationale, release-aware note, and npm/GitHub version comparison documenting the current default assumptions
+Implement discovery, input/output schemas, validation, structured errors, side-effect classification, and idempotency metadata. Reject unknown and malformed calls.
 
-### LAB-B5: Sandbox and exec policy
+### LAB-B4: Context Assembly and Budget
 
-- focus: sandboxing, exec settings, approval behavior
-- output: safety policy note with one misconfiguration and one mitigation
+Build instruction/data separation, provenance, relevance/freshness selection, token budgeting, and truncation behavior. Run ablations that reveal context dependence.
 
-### LAB-B6: Channel onboarding
+### LAB-B5: Session, Event Log, Checkpoint, and Replay
 
-- focus: Telegram or WhatsApp setup with safe access policy
-- output: working channel and documented policy
+Record append-only lifecycle events, reconstruct session state, checkpoint progress, simulate a crash, resume, and explain deterministic versus nondeterministic replay limits.
 
-### LAB-B7: Remote access baseline
+### LAB-B6: Policy, Approval, and Execution Boundary
 
-- focus: SSH tunnel or Tailscale Serve path
-- output: remote access runbook
+Bind capabilities to policy and approvals, enforce deny-by-default behavior, isolate execution, and test stale approval, argument substitution, and confused-deputy scenarios.
 
-## Phase C: production and governance labs
+### LAB-B7: Observability and Evaluation Baseline
 
-### LAB-C1: Multi-agent isolation design
+Emit correlated traces, metrics, logs, events, and artifact references. Define a small task corpus, repeat trials, and grade trace plus end state.
 
-- focus: workspaces, sessions, auth profiles, isolation, `SOUL.md`, `AGENTS.md`, and `USER.md`
-- output: isolation architecture note plus two differentiated agent workspace definitions
+## Phase C: Production Harness Labs
 
-### LAB-C2: Security audit and remediation
+### LAB-C1: Orchestration Pattern Comparison
 
-- focus: `openclaw security audit`, webhook findings, plugin and hook install records, and JSON export
-- output: audit findings, remediation plan, machine-readable audit artifact using `--json`, and current advisory/release note cross-check
+Implement at least two of routing, parallelization, manager, handoff, or evaluator-optimizer. Compare quality, latency, cost, failure propagation, and human control against a deterministic baseline.
 
-### LAB-C3: Trusted proxy and ingress review
+### LAB-C2: Durable Crash, Retry, and Recovery
 
-- focus: reverse proxy assumptions and failure modes
-- output: deployment risk review
+Inject process loss, timeout, duplicate delivery, partial side effect, and cancellation. Demonstrate idempotency, retry classification, compensation or manual recovery, and auditable state transitions.
 
-### LAB-C4: Shared inbox policy lab
+### LAB-C3: Memory Contamination and Deletion
 
-- focus: dmScope and shared control risk
-- output: routing policy recommendation
+Test retrieval quality, stale or malicious memory, cross-session isolation, retention, deletion, and provenance. Measure both task benefit and contamination harm.
 
-### LAB-C5: Threat model workshop
+### LAB-C4: MCP Integration and Contract Test
 
-- focus: ATLAS-style threat analysis
-- output: threat register
+Connect a minimal host/client/server path, negotiate capabilities, expose a bounded tool or resource, validate errors and authorization, and test protocol-version assumptions.
 
-### LAB-C6: Automation and standing-orders design
+### LAB-C5: A2A Task and Artifact Exchange
 
-- focus: cron, heartbeat, task flow, standing orders, hooks, `/steer`, and `/side`
-- output: detached-work design note choosing the correct primitive for multiple scenarios and explaining when steering is not a new task
+Publish or consume an AgentCard, exchange messages and tasks, return artifacts, handle async or streaming state, and test identity/auth failure behavior.
 
-### LAB-C7: Sub-agent and ACP auditability lab
+### LAB-C6: Agentic Attack and Mitigation
 
-- focus: sub-agents, ACP agents, background task records, and delegated-work ownership
-- output: detached-task audit report
+Execute authorized prompt-injection, confused-deputy, exfiltration, excessive-agency, persistence, or supply-chain scenarios. Capture exploit preconditions, blast radius, controls, bypasses, repair, and retest.
 
-## Phase D: specialization labs
+### LAB-C7: Evaluation Corpus and Regression Gate
 
-### LAB-D1: Plugin manifest inspection
+Create realistic tasks, repeated trials, graders, thresholds, leakage controls, and failure taxonomy. Compare capability and regression suites and explain grader disagreement.
 
-- focus: `openclaw.plugin.json`, plugin bundles, ClawHub/npm source choice, dependency status, runtime inspection, file-transfer policy, schema-driven validation, and install/update behavior
-- output: manifest, runtime, supply-chain, and file-transfer policy review
+### LAB-C8: Observability, SLO, and Incident Simulation
 
-### LAB-D2: Skills precedence and install flow
+Define service objectives, inject a production-like failure, reconstruct the timeline, mitigate, recover, and write an incident report with corrective actions.
 
-- focus: all six skill-precedence layers: extra dirs, bundled, managed/local, personal-agent, project-agent, and workspace
-- output: skill precedence map with a name-collision resolution exercise
+### LAB-C9: Deployment, Tenancy, and Rollback
 
-### LAB-D3: Headless node design
+Deploy in a bounded environment, manage secrets/configuration, test migration and rollback, and defend single-user, team, or multi-tenant trust claims with evidence.
 
-- focus: node-host command surface and approvals
-- output: distributed execution design
+## Phase D: Transfer and Specialization Labs
 
-### LAB-D4: Local-model tradeoff lab
+### LAB-D1: Cross-Framework Portability
 
-- focus: cost, quality, latency, and fallback strategy
-- output: comparative design memo
+Implement one harness contract through two selected SDKs/frameworks. Preserve behavior tests, identify semantic gaps, and avoid framework-specific claims in core architecture.
 
-### LAB-D5: Contributor toolchain orientation
+### LAB-D2: Versioned Product Case Study
 
-- focus: `pnpm check:changed`, `pnpm test:changed`, scoped `AGENTS.md`, and contributor-safe workflow
-- output: contributor workflow checklist
+Audit one current system such as OpenClaw, Hermes Agent, ChatGPT Work, or xAI agent tooling against the stable contract model. Date product facts and distinguish observed, documented, inferred, and unknown behavior.
 
-## Suggested minimum lab set by program type
+### LAB-D3: Tool or Protocol Extension
 
-### Semester-only university run
+Build a production-quality tool, plugin, MCP server/client, or A2A adapter with schemas, errors, least authority, tests, release policy, and security review.
 
-- LAB-A1 to LAB-A4
-- LAB-B1 to LAB-B7
-- LAB-C1 to LAB-C3
+### LAB-D4: Local-Model Serving and Routing
 
-### Full expert program
+Measure model serving, hardware fit, throughput, latency, quality, privacy, failure, and routing tradeoffs. Avoid universal model recommendations.
 
-- all labs
+### LAB-D5: Core Runtime Contribution
 
-### Enterprise onboarding adaptation
+Trace an unfamiliar harness/framework code path, reproduce an issue, propose or implement a scoped change, run upstream tests, and document compatibility and maintenance impact.
 
-- LAB-B1, B2, B4, B5, B7
-- LAB-C1, C2, C3, C4
+## Minimum Sets
+
+### One-Semester Foundations Course
+
+LAB-A1-A4 and LAB-B1-B7, ending with the minimal-harness practical.
+
+### Two-Semester Engineering Program
+
+All Phase A-C labs, LAB-D1, LAB-D2, and one additional specialization lab.
+
+### Enterprise Capability Program
+
+Diagnostic Phase A evidence, LAB-B2-B7, LAB-C2, LAB-C6-C9, and a role-specific Phase D lab. Use production controls and incident simulations instead of academic-only exercises.
+
+## Verification States
+
+- `authored`: task and evidence contract exist
+- `dry-reviewed`: an independent reviewer checked clarity and safety
+- `executed`: instructor completed it in the declared environment
+- `reproduced`: a second person completed it from clean instructions
+- `calibrated`: learner timing, common failures, and grading anchors are evidenced
+
+Only `reproduced` or `calibrated` labs may support a standalone ready-to-teach claim.

@@ -1,119 +1,41 @@
 # Specialization Lab Guides
 
-## LAB-D1: Plugin manifest inspection
+## LAB-D1: Cross-Framework Portability
 
-### Objective
+Implement one stable capability through two current frameworks or SDKs. Keep acceptance tests, task corpus, policy, and evidence constant. Record current versions, default differences, hidden state, tool/error semantics, tracing gaps, and migration cost.
 
-Teach extension review with manifest, schema, and install/update behavior in view.
+Pass when behavior tests run against both adapters and the learner can identify which differences belong in the adapter rather than the core. Transfer by adding a third provider or framework design without rewriting the domain contract.
 
-### Duration
+## LAB-D2: Versioned Product Case Study
 
-- 75 minutes
+Select OpenClaw, Hermes Agent, ChatGPT Work, xAI agent tooling, or an approved current system. Build a dated claim table from primary evidence and map observed/documented capabilities to:
 
-### Procedure
+- loop and orchestration
+- providers/models
+- context and memory
+- tools and execution
+- policy/approval and trust boundary
+- sessions/durability
+- protocols/integrations
+- observability/evaluation
+- deployment/governance
 
-1. Inspect a native plugin manifest.
-2. Identify capabilities, config surface, and schema expectations.
-3. Compare ClawHub, npm, git, and local-path install sources for the plugin.
-4. Inspect or describe `openclaw plugins list --json` dependency status.
-5. Inspect or describe `openclaw plugins inspect <plugin-id> --runtime --json` as proof of runtime loading.
-6. Review the official file-transfer plugin as a capability and policy example.
-7. Record install/update and compatibility assumptions.
-8. Flag one supply-chain or operational concern.
+Label every item `observed`, `documented`, `inferred`, `unknown`, or `not applicable`. Pass when no private implementation is inferred from product marketing and at least one changed-version risk is identified.
 
-### Required evidence
+## LAB-D3: Tool or Protocol Extension
 
-- manifest review
-- runtime inspection note
-- dependency status note
-- file-transfer policy note
+Build one tool, plugin, MCP server/client, or A2A adapter. Require clear naming, typed schemas, least authority, structured errors, timeout/cancellation, idempotency semantics, tests, threat model, dependency provenance, release/version policy, and usage evidence.
 
-### Common failure modes
+Pass when an unfamiliar client can discover and use it, malformed/untrusted inputs fail safely, and a reviewer can reproduce tests from clean instructions.
 
-- assuming installed inventory means the running Gateway loaded the plugin
-- skipping source provenance because the plugin appears official or familiar
-- ignoring per-node file-transfer path policy and byte limits
+## LAB-D4: Local-Model Serving and Routing
 
-## LAB-D2: Skills precedence and install flow
+Given declared hardware, budget, privacy, workload, context, concurrency, and quality requirements, compare at least two feasible serving/model configurations. Measure task success, variance, throughput, time to first token, completion latency, memory/accelerator use, failure behavior, and cost proxy.
 
-### Objective
+Pass when the recommendation follows measured constraints, includes fallback/degradation behavior, and avoids universal “best model” claims. Transfer under one changed hardware, privacy, or workload constraint.
 
-Make six-layer skill precedence operationally clear.
+## LAB-D5: Core Runtime Contribution
 
-### Duration
+Choose an unfamiliar source-visible harness or framework. Trace one request across at least three core layers, reproduce an issue or limitation, add a regression test, and implement or propose a scoped change using the project's contribution rules.
 
-- 60 to 75 minutes
-
-### Procedure
-
-1. Map all six layers.
-2. Create one name-collision scenario.
-3. Predict which skill wins and explain why.
-4. Record how to debug a precedence issue.
-
-### Required evidence
-
-- skill precedence map
-
-## LAB-D3: Headless node design
-
-### Objective
-
-Teach distributed execution with explicit host authority and approval concerns.
-
-### Duration
-
-- 75 minutes
-
-### Procedure
-
-1. Define a headless node use case.
-2. Document the command surface.
-3. Explain approval boundaries.
-4. Record why the node should or should not exist for that scenario.
-
-### Required evidence
-
-- distributed execution design
-
-## LAB-D4: Local-model tradeoff lab
-
-### Objective
-
-Compare hosted vs local or hybrid models without ideology.
-
-### Duration
-
-- 90 minutes
-
-### Procedure
-
-1. Pick one workload.
-2. Compare hosted and local options.
-3. Evaluate quality, cost, latency, safety, and hardware assumptions.
-4. Recommend one design and justify the fallback strategy.
-
-### Required evidence
-
-- comparative design memo
-
-## LAB-D5: Contributor toolchain orientation
-
-### Objective
-
-Make contributor workflow concrete on day one.
-
-### Duration
-
-- 60 minutes
-
-### Procedure
-
-1. Read the current contributor guidance.
-2. Run the changed-scope validation commands conceptually or in practice where appropriate.
-3. Identify at least one scoped `AGENTS.md`.
-4. Explain how a safe contribution differs from an unscoped edit.
-
-### Required evidence
-
-- contributor workflow checklist
+Evidence includes source locations, control/data flow, test result, compatibility impact, security/operations impact, maintainer feedback if available, and unresolved tradeoffs. A proposal may pass when upstream contribution is impractical, but only if the reasoning and executable reproduction are strong.

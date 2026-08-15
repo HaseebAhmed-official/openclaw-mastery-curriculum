@@ -1,35 +1,31 @@
-# Production / DevOps Track
+# Platform / SRE Track
 
-## Goal
+## Role
 
-Produce engineers who can design and operate OpenClaw as a persistent service with explicit trust boundaries, secure ingress, diagnostics, and change management.
+Own durable execution, deployment, observability, reliability, capacity, incident response, and safe change for agent systems.
 
-## Best fit for
+## Outcomes
 
-- DevOps engineers
-- platform engineers
-- SRE-minded operators
+- design task/session/event state and recovery semantics
+- implement retries, idempotency, compensation, cancellation, and backpressure
+- define and instrument SLOs across model, tool, state, queue, and user outcome
+- manage configuration, secrets, migrations, backups, release, rollback, and dependencies
+- model single-user, team, and multi-tenant boundaries accurately
+- lead incident diagnosis, mitigation, recovery, and corrective action
 
-## Additional emphasis
+## Required Evidence
 
-- WSL2/Linux and VPS operations
-- SSH tunnels, Tailscale Serve, and reverse-proxy patterns
-- security audit and hardening loops
-- Docker usage for sandboxing and packaging choices
-- webhook ingress, task auditability, update channels, rollback, and recovery
-- `openclaw update --dry-run`, `--json`, update status, npm hotfix awareness, `doctor`, restart, and health verification
-- externalized official plugin repair and runtime-load verification after updates
-- operational runbooks and environment lanes
+- LAB-C2, LAB-C7, LAB-C8, LAB-C9
+- durable deployed harness path
+- capacity and provider/tool degradation test
+- incident report and regression control
+- migration plus rollback or restore demonstration
+- delayed changed-scale or changed-dependency task
 
-## Extra labs
+## Advanced Topics
 
-- VPS deployment lab
-- trusted proxy risk review
-- update and rollback governance exercise
-- package-vs-GitHub release drift exercise
-- webhook and detached-task audit exercise
-- operational rollback exercise
+Workflow engines, queues and leases, distributed tracing, chaos engineering, autoscaling, multi-region design, data residency, cost governance, and platform APIs.
 
-## Capstone
+## Capstone Emphasis
 
-Design and implement a persistent OpenClaw deployment with documented ingress, authentication, hardening, webhook and detached-work controls, backup, update strategy, plugin repair/runtime verification, package-channel policy, and incident-response decisions.
+Prove recovery and operational ownership under injected failures. Containerization, dashboards, or cloud deployment without state semantics, SLOs, and rollback do not pass.

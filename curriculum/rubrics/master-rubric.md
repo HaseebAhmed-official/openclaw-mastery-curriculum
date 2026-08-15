@@ -1,52 +1,85 @@
 # Master Rubric
 
-## Scoring dimensions
+## Scale
 
-### 1. Technical correctness
+| Score | Meaning |
+| ---: | --- |
+| 0 | Missing, fabricated, unsafe, or cannot be explained. |
+| 1 | Fragmentary; works only under copied/guided conditions; major errors remain. |
+| 2 | Baseline task works; evidence or boundary reasoning is incomplete. |
+| 3 | Independent, correct, tested, and defensible under representative failures. |
+| 4 | Transfers under changed constraints, handles tradeoffs, and improves evidence or design. |
 
-- 4: correct, reproducible, and clearly validated
-- 3: mostly correct with minor gaps
-- 2: partially correct but unstable or weakly validated
-- 1: major functional misunderstandings
+Scores describe the submitted evidence, not a learner's identity or potential.
 
-### 2. Operational maturity
+## Dimensions
 
-- 4: explicit runbooks, diagnostics, rollback thinking, and environment awareness
-- 3: workable operations with some missing depth
-- 2: fragile operations and weak recovery planning
-- 1: no meaningful operational thinking
+### R1: Problem Framing and Architecture
 
-### 3. Security and trust reasoning
+Assesses requirements, deterministic baseline, agentic justification, stable contracts, alternatives, data/control/authority boundaries, and simplicity.
 
-- 4: explicit trust model, controlled exposure, principled risk tradeoffs
-- 3: mostly sound but incomplete security reasoning
-- 2: superficial or confused hardening choices
-- 1: unsafe assumptions or ignored trust boundaries
+### R2: Implementation Correctness
 
-### 4. Documentation and explanation
+Assesses typed contracts, bounded loop, tools, context, state, memory, protocols/adapters, code quality, and correct end state.
 
-- 4: concise, accurate, and teachable
-- 3: understandable with small gaps
-- 2: unclear or incomplete
-- 1: weak communication and poor evidence
+### R3: Testing and Debugging
 
-### 5. Capstone defense
+Assesses reproducibility, test quality, seeded failures, root-cause diagnosis, regression coverage, and changed-condition repair.
 
-- 4: responds clearly to challenge questions and justifies choices
-- 3: answers most challenges competently
-- 2: unclear reasoning under pressure
-- 1: unable to defend design choices
+### R4: Security, Safety, and Privacy
 
-## Automatic downgrade triggers
+Assesses threat model, least authority, policy/approval, isolation, identity, secrets, data lifecycle, attack evidence, mitigation, recovery, and residual risk.
 
-- claims hostile multi-tenant isolation where official docs do not
-- exposes the gateway without adequate auth or trust explanation
-- uses dangerous bypass flags without explicit containment
-- produces a tool-enabled deployment design without addressing prompt injection or unsafe external content
-- omits discussion of tool risk for tool-enabled agents
-- designs a production memory strategy without considering `DREAMS.md` and dreaming configuration
-- ignores webhook ingress, detached authority, or auditability in a production-facing design that uses automation or hooks
-- treats `openclaw security audit --fix` as equivalent to completed hardening
-- proposes trusted-proxy auth without a proxy-only path, explicit origin policy, or by relying on a same-host loopback proxy
-- uses sub-agents or ACP agents without explaining inherited child-session constraints
-- cannot explain why a chosen model/provider is acceptable for the use case
+### R5: Evaluation Validity
+
+Assesses task corpus, repeated trials, grader suitability, trace/end-state inspection, variance, leakage, thresholds, failure taxonomy, and claim limits.
+
+### R6: Reliability and Operations
+
+Assesses durability, retries/idempotency, cancellation, observability, SLOs, capacity, latency/cost, deployment, incident response, migration, backup, and rollback.
+
+### R7: Communication and Governance
+
+Assesses source provenance, fact/inference separation, diagrams, decision records, accessibility, ethics, stakeholder communication, ownership, and change control.
+
+### R8: Independence and Transfer
+
+Assesses assistance disclosure, unaided tracing, oral defense, delayed retention, portability, and performance under changed constraints.
+
+## Default Weighting
+
+| Dimension | Semester 1 | Semester 2/capstone |
+| --- | ---: | ---: |
+| R1 | 15% | 12.5% |
+| R2 | 25% | 17.5% |
+| R3 | 20% | 12.5% |
+| R4 | 15% | 15% |
+| R5 | 10% | 15% |
+| R6 | 5% | 12.5% |
+| R7 | 5% | 7.5% |
+| R8 | 5% | 7.5% |
+
+Local programs may adjust weights, but not critical gates.
+
+## Pass Rules
+
+- Overall weighted score: at least 2.5/4.
+- R2, R3, R4, R5, and R8: at least 2 for Semester 1 and at least 3 for capstone release.
+- No unresolved critical gate failure.
+- Delayed transfer must pass independently; it cannot be replaced by points elsewhere.
+
+## Critical Gate Failures
+
+- fabricated, unverifiable, or misrepresented evidence
+- learner cannot trace or explain material submitted behavior
+- hidden high-impact side effect or unsafe execution
+- critical authorization, isolation, secret, or exfiltration defect presented as acceptable without explicit authorized risk decision
+- no meaningful tests or tests weakened to hide failure
+- evaluation leakage or post-result threshold manipulation
+- final output conflicts with trace/end state and conflict is ignored
+- unrecoverable production claim without rollback/recovery evidence
+- current product/security claim based only on unsourced or stale material
+
+## Distinction
+
+Distinction requires at least 3.5/4 overall, no dimension below 3, changed-task transfer at 4, and an externally useful contribution such as a reproducible evaluation, verified security repair, protocol adapter, core change, or teaching artifact that survives independent review.

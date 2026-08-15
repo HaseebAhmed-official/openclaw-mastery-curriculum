@@ -1,77 +1,74 @@
-# Automation and Detached Work
+# Durable, Automated, and Detached Work
 
-## Why this topic is core
+## Why It Is Core
 
-OpenClaw is no longer just an interactive chat-and-tool system. It has a durable background execution model built around tasks, cron, hooks, heartbeat, standing orders, sub-agents, and ACP agents. Any mastery curriculum that omits these surfaces leaves learners with an incomplete mental model of authority, auditability, and production risk.
+Work that continues after the initiating turn, process, operator attention, or context window changes authority, state, failure, and accountability. Product names differ; the engineering contracts remain.
 
-## Core mechanisms
+## Mechanism Families
 
-### Scheduled tasks (cron)
+### Deterministic Schedules and Triggers
 
-- precise timing
-- one-shot reminders and recurring jobs
-- can deliver to channels or webhooks
-- isolated runs create task records and can use their own model/tool restrictions
+Cron-like schedules, event hooks, webhooks, queues, and monitors initiate known work. Teach trigger identity, deduplication, missed/late execution, concurrency, pause/disable, and audit.
 
-### Background tasks
+### Background and Asynchronous Tasks
 
-- task ledger for detached work
-- audit surface for cron jobs, sub-agent runs, ACP runs, and detached CLI operations
-- should be part of any production troubleshooting workflow
+A task outlives the request that created it. Teach task identity, state transitions, progress, artifacts, cancellation, timeout, retry, and result retrieval.
 
-### Task Flow
+### Durable Workflows
 
-- durable orchestration layer above individual background tasks
-- used when work spans multiple steps and needs revision-aware flow control
+Workflow engines persist steps and coordinate retries, timers, signals, compensation, and recovery. Teach delivery semantics and external-side-effect limits rather than assuming durability from a library name.
 
-### Standing orders
+### Standing or Recurring Intent
 
-- persistent authority and operating rules
-- usually live in workspace files like `AGENTS.md`
-- injected into every session
+Long-lived instructions or policies may generate future work. Teach owner, scope, expiry, change review, input trust, escalation, and revocation.
 
-### Hooks
+### Delegated and Multi-Agent Work
 
-- event-driven scripts
-- trigger on lifecycle and tool events
-- create a real authority boundary and supply-chain surface
+Subagents, remote agents, coding agents, and worker pools receive tasks and capabilities. Teach requester provenance, least delegation, inherited versus independent policy, artifact validation, and result trust.
 
-### Heartbeat
+### Human Checkpoints
 
-- periodic main-session turn
-- best for routine awareness work with full session context
-- does not create task records like cron does
-- completion and notification delivery are separate concerns; quiet acknowledgment failure must not cause duplicate work
+Interrupts and approvals transfer control to a human. Teach exact action binding, freshness, context display, role separation, timeout, revocation, and safe resume.
 
-### Sub-agents
+## Canonical Task State
 
-- bounded delegated work inside the agent runtime
-- introduce task ownership, auditability, and coordination concerns
+A durable task should identify:
 
-### ACP agents and scoped coding-agent attachment
+- task, attempt, parent/requester, and session
+- state and valid transitions
+- capability and policy snapshot or version
+- input and artifact references
+- schedule/trigger and deduplication key
+- checkpoint and progress
+- timeout, retry, cancellation, and recovery
+- approval records
+- trace correlation
+- final outcome and owner
 
-- external or protocol-based agent coordination surface
-- `openclaw attach` can grant Claude Code temporary access to one selected Gateway session through a strict MCP configuration
-- grants, credentials, target-session selection, TTL, revocation, and requester provenance must be taught as explicit trust-boundary evidence
+## Failure Matrix
 
-## Security and governance implications
+Learners test:
 
-- cron and hooks widen execution authority; isolated work must not regain tools denied by its effective policy
-- webhook-driven automation creates its own ingress and token-management surface
-- standing orders grant durable authority and must be reviewed like policy
-- detached work must be auditable through task records and logs, with idempotent delivery and duplicate-retry reasoning
-- sub-agents, ACP agents, and attached coding agents require scoped authority, explicit ownership, requester provenance, and result-tracking discipline
+- trigger delivered twice or not delivered
+- worker crashes before and after side effect
+- provider/tool timeout or partial result
+- stale policy or approval after delay
+- cancellation races with completion
+- child receives too much or too little authority
+- context/state schema changes during work
+- result arrives after requester/session closes
+- malicious artifact or delegated response
+- observability or notification failure
 
-## What learners must be able to do
+## Security and Governance
 
-- choose the correct detached-work primitive for a use case
-- explain the difference between cron, heartbeat, hooks, and standing orders
-- inspect task records and defend an audit trail
-- restrict tool/model/session scope for isolated background work
-- identify webhook and hook-specific security risks
+- Time separation does not expand authority automatically.
+- Retries do not make irreversible effects safe.
+- Child/delegated work must have explicit capability boundaries.
+- Long-lived intent requires owner, expiry, review, and revocation.
+- Every material action needs an attributable task/attempt and outcome.
+- Recovery must account for both system state and external end state.
 
-## Best insertion points in the program
+## Mastery Evidence
 
-- Semester 2 Week 5: approvals and host authority
-- Semester 2 Week 10: automation, hooks, and standing orders
-- Semester 2 Week 11: sub-agents, ACP agents, headless nodes, and detached task auditability
+Learners choose the simplest valid mechanism, model the task state machine, inject duplicate/crash/cancellation failures, demonstrate recovery, and defend authority and audit evidence. Product-specific automation surfaces are assessed only as dated implementations of these contracts.

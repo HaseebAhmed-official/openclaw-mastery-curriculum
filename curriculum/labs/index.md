@@ -1,25 +1,30 @@
 # Labs
 
-## Lab strategy
+## Purpose
 
-Labs are the proof layer of this curriculum. They should make learners touch the real platform, not just memorize terminology.
+Turn curriculum outcomes into reproducible implementation, failure, security, evaluation, operations, and transfer evidence.
 
-## Lab guides
+## Canonical Assets
 
-- [Lab Authoring Standard](lab-authoring-standard.md)
-- [Lab Catalog](lab-catalog.md)
-- [Core Lab Guides](core-lab-guides.md)
-- [Advanced Lab Guides](advanced-lab-guides.md)
-- [Specialization Lab Guides](specialization-lab-guides.md)
-- [Environment Lanes](environment-lanes.md)
-- [Classroom Lab Manuals](../lab-manuals/index.md)
-- [Screenshot Capture Standard](../lab-manuals/screenshot-capture-standard.md)
+- [Lab Catalog](lab-catalog.md) - IDs, scope, minimum sets, and verification states
+- [Core Lab Guides](core-lab-guides.md) - foundation and minimal-harness labs
+- [Advanced Lab Guides](advanced-lab-guides.md) - production, protocol, security, evaluation, and operations labs
+- [Specialization Lab Guides](specialization-lab-guides.md) - portability, cases, extensions, local models, and core contribution
+- [Lab Authoring Standard](lab-authoring-standard.md) - required structure and safety/evidence contract
+- [Environment Lanes](environment-lanes.md) - supported environment distinctions
 
-## Lab rules
+The separate screenshot/classroom-manual layer was removed during the platform-agnostic migration because it duplicated guides and had no populated proof assets. Executed evidence now belongs with the lab verification record, not in placeholder directories.
 
-- every lab must state prerequisites
-- every lab must define success criteria and evidence
-- every lab must include rollback or recovery guidance
-- every lab must identify security implications
-- high-risk labs must explain why a safer baseline exists
-- classroom delivery should include required visual checkpoints
+## Required Progression
+
+1. Diagnose and repair prerequisites.
+2. Complete Phase A foundation labs.
+3. Build the Phase B minimal harness in order.
+4. Pass the Semester 1 practical before advanced autonomy.
+5. Complete Phase C production labs with injected failures.
+6. Complete portability and one specialization lab.
+7. Preserve evidence for capstone and external review.
+
+## Claim Boundary
+
+`authored` or `dry-reviewed` labs are not enough for ready-to-teach claims. Critical labs must be executed and independently reproduced in the declared environment; calibrated claims additionally require learner timing, common-failure, and grading-anchor evidence.

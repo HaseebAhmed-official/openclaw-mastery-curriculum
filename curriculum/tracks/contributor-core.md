@@ -1,32 +1,31 @@
-# Contributor / Core Developer Track
+# Core / Framework Track
 
-## Goal
+## Role
 
-Produce learners who can work with the OpenClaw codebase and ecosystem like serious contributors rather than casual readers.
+Implement, audit, and maintain harness runtime, orchestration, context, state, policy, observability, or evaluation internals.
 
-## Best fit for
+## Outcomes
 
-- advanced students
-- open source contributors
-- internal platform maintainers
+- trace unfamiliar source across multiple runtime layers
+- define stable core contracts and isolate provider/framework adapters
+- implement bounded concurrency, state transitions, cancellation, and failure propagation
+- design regression, performance, compatibility, and migration tests
+- evaluate complexity and remove abstractions that do not improve evidence
+- contribute within upstream conventions and communicate maintenance impact
 
-## Additional emphasis
+## Required Evidence
 
-- architecture literacy
-- contributor workflows
-- pnpm-based local gates and changed-scope validation
-- config and protocol surfaces
-- validation and docs generation
-- scoped `AGENTS.md` navigation
-- formal models and threat-model contribution paths
+- LAB-B2-B7, LAB-C1, LAB-C2, LAB-D1, LAB-D5
+- source-level control/data-flow trace
+- tested runtime subsystem or scoped upstream change
+- performance and failure evidence
+- compatibility and maintenance analysis
+- delayed unfamiliar-code change
 
-## Extra labs
+## Advanced Topics
 
-- repo-reading and architecture tracing lab
-- doc-to-code consistency review
-- contributor-toolchain orientation lab
-- contribution proposal and patch planning exercise
+Runtime architecture, schedulers, event sourcing, workflow engines, concurrency, protocol internals, compilers/DSLs, model routing, observability pipelines, and benchmark infrastructure.
 
-## Capstone
+## Capstone Emphasis
 
-Produce a repo-level contribution artifact: design doc, issue investigation, documentation improvement, or code contribution plan backed by architecture reasoning.
+Prefer a small high-leverage subsystem over an unreviewable framework rewrite. Code volume without traced invariants, tests, and maintenance evidence does not pass.

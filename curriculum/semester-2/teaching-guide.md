@@ -1,149 +1,134 @@
 # Semester 2 Teaching Guide
 
-## How to use this guide
+## Instructor Goal
 
-This guide assumes learners have passed the Semester 1 baseline. The emphasis now shifts from "can operate" to "can design, secure, extend, and defend."
+Teach production judgment under uncertainty and failure. Feature count, autonomy, benchmark scores, and framework vocabulary are not substitutes for secure behavior, recovery, evaluation validity, or operational ownership.
 
-## Week 1: Production framing
+## Delivery Pattern
 
-- Goal: reframe baseline operation as a production design problem
-- Prep: prepare three deployment scenarios: solo operator, small trusted team, and enterprise bounded service
-- Live session: environment choice, auth placement, secrets handling, and operational ownership
-- Activity: students produce a gap analysis from Semester 1 baseline to production
-- Homework: readiness memo
-- Watchouts: students assuming "production" only means "move it to a VPS"
+Each week uses a production case:
 
-## Week 2: Multi-agent routing and workspace identity files
+1. State requirements, constraints, risk, and decision owner.
+2. Predict failure modes before implementation.
+3. Compare the simplest valid architectures.
+4. Implement or operate one bounded slice.
+5. Inject a failure or attack.
+6. Inspect traces and end state.
+7. Repair and rerun the evidence gate.
+8. Defend tradeoffs and residual risk.
 
-- Goal: teach isolation by workspace, session store, and identity files
-- Prep: prepare examples of `SOUL.md`, workspace `AGENTS.md`, and `USER.md`
-- Live session: why agents need separated workspaces and what each identity file does
-- Activity: students define two agents with different behavior and context
-- Homework: complete LAB-C1
-- Watchouts: students talking about multi-agent routing without changing the workspace identity surfaces
+## Week-by-Week Guide
 
-## Week 3: Configuration architecture
+### Week 1: Production Requirements
 
-- Goal: make students comfortable navigating real config complexity
-- Prep: prepare examples of core config, plugin-owned config, schema-backed validation, and workspace `.env` ownership boundaries
-- Live session: schema reading, ownership boundaries, environment loading, and where settings should live
-- Activity: trace a config key from reading map to operational outcome
-- Homework: configuration review note
-- Watchouts: students scattering settings without understanding ownership, or assuming workspace `.env` is an acceptable place to steer security-sensitive connector endpoints
+- Teach SLOs, threat/data models, failure domains, capacity, cost, tenancy, and ownership as design inputs.
+- Require measurable acceptance and rollback criteria.
+- Reject “production-ready” when workload, operator, data, or trust assumptions are unstated.
 
-## Week 4: Security audit, advisories, webhook ingress, and hardening
+### Week 2: Orchestration Patterns
 
-- Goal: make the audit workflow real and actionable
-- Prep: run `openclaw security audit` on a controlled setup, compare it with `openclaw security audit --deep` when the environment permits, prepare a webhook-focused example, and review the latest official OpenClaw security advisories
-- Live session: audit categories, baseline vs deep-probe coverage, JSON export, `--fix` limits, remediation prioritization, advisory-driven case analysis, and webhook token/path hygiene
-- Activity: students triage findings into must-fix, should-fix, and accepted-risk
-- Homework: complete LAB-C2
-- Watchouts: students treating the audit as a checklist rather than a risk review, or assuming `--fix` solves auth, exposure, token rotation, or plugin-risk decisions
+- Compare deterministic workflows, routing, parallelization, manager, handoff, and evaluator-optimizer.
+- Measure added quality against latency, cost, coordination failure, and observability burden.
+- Require a simpler baseline and an explicit reason for every agent boundary.
 
-## Week 5: Exec approvals and host authority
+### Week 3: Durable Execution
 
-- Goal: teach authority boundaries inside the tool plane
-- Prep: prepare examples of deny, allowlist, and full approvals
-- Live session: host execution, policy modes, node-host controls, and why convenience is not a sufficient justification
-- Activity: students write a policy for a constrained operator use case
-- Homework: approval policy defense
-- Watchouts: students confusing interactive convenience with safe governance
+- Inject crash, duplicate delivery, timeout, partial side effect, and cancellation.
+- Distinguish retryable, terminal, compensatable, and human-recovery states.
+- Challenge exactly-once claims and require idempotency evidence.
 
-## Week 6: Remote access and proxy patterns
+### Week 4: Memory Systems
 
-- Goal: move from "it works remotely" to "it is remotely exposed with intent"
-- Prep: compare SSH, Tailscale Serve, and trusted proxy auth with explicit trust assumptions, including the official same-host loopback failure case for trusted-proxy auth
-- Live session: ingress, headers, identity forwarding, explicit origin policy, proxy-only path requirements, and failure modes
-- Activity: students review and reject one unsafe proxy design
-- Homework: deployment review
-- Watchouts: students over-trusting reverse proxies, under-documenting identity assumptions, or proposing trusted-proxy auth where the proxy is not the only path to the gateway
+- Teach indexing, retrieval, reranking, retention, deletion, provenance, isolation, and contamination.
+- Measure both benefit and harm; do not grade only retrieval recall.
+- Include malicious and stale memories.
 
-## Week 7: Shared inboxes and DM scope
+### Week 5: MCP
 
-- Goal: reason clearly about cooperative usage vs adversarial assumptions
-- Prep: prepare scenarios involving one operator, a trusted team, and mixed-trust participants
-- Live session: session isolation, shared inbox behavior, DM scope, and mention gating
-- Activity: students design a routing policy for a real team scenario
-- Homework: shared-inbox critique
-- Watchouts: students claiming one gateway safely separates hostile users
+- Trace host/client/server responsibilities, capability negotiation, transport, authorization, and lifecycle.
+- Test error and version behavior.
+- Prevent learners from equating discovery with trust.
 
-## Week 8: Plugins, bundles, ClawHub, and supply-chain controls
+### Week 6: A2A
 
-- Goal: teach the extension surface as an operational and security surface
-- Prep: prepare at least one plugin manifest and one install/update scenario
-- Live session: manifest structure, bundle concept, ClawHub distribution, install records, and supply-chain caution
-- Activity: students classify plugin risks and identify compatibility assumptions
-- Homework: plugin-install risk review
-- Watchouts: students assuming ecosystem maturity is the same as core-platform maturity
+- Trace AgentCard, message, task, artifact, parts, streaming, asynchronous state, and bindings.
+- Test identity, authorization, duplicate delivery, and task cancellation.
+- Compare A2A's system boundary with MCP rather than treating them as interchangeable.
 
-## Week 9: Skills, ClawHub, and six-layer precedence
+### Week 7: Agentic Threat Modeling
 
-- Goal: make precedence bugs teachable instead of mysterious
-- Prep: prepare a name-collision example across multiple skill layers
-- Live session: six-layer precedence, workspace override power, and debugging strategy
-- Activity: collision tracing exercise
-- Homework: complete LAB-D2
-- Watchouts: students flattening all agent-level skills into one conceptual layer
+- Start from assets and authority, then model prompt injection, confused deputy, exfiltration, excessive agency, persistence, identity, and supply chain.
+- Require exploit preconditions and blast radius, not threat-name lists.
 
-## Week 10: Automation, hooks, heartbeat, and standing orders
+### Week 8: Defense in Depth
 
-- Goal: teach detached work as a change in authority and auditability
-- Prep: prepare examples where cron, heartbeat, hooks, and standing orders are each the right choice
-- Live session: detached execution, event-driven execution, durable authority, and task visibility
-- Activity: students choose primitives for multiple operational scenarios
-- Homework: complete LAB-C6
-- Watchouts: students selecting hooks because they are "powerful" rather than because they are appropriate
+- Combine policy, approval, sandbox, filesystem/network controls, secrets, identity, audit, and recovery.
+- Test bypasses and stale assumptions.
+- Grade residual-risk accuracy and repair evidence.
 
-## Week 11: Sub-agents, ACP agents, headless nodes, and task auditability
+### Week 9: Evaluation Engineering
 
-- Goal: teach delegation and detached execution with control and traceability
-- Prep: prepare one delegated-workflow example and one ACP-style integration example that shows inherited security-envelope constraints
-- Live session: ownership, audit trail, task records, inherited child-session limits, and distributed execution
-- Activity: students inspect a delegated workflow and identify what must be logged or reviewed
-- Homework: complete LAB-C7
-- Watchouts: students treating sub-agents as magic parallelism without governance, or forgetting that child sessions must stay inside the parent security envelope
+- Separate capability, regression, safety, reliability, and production monitoring suites.
+- Require repeated trials, grader rationale, disagreement analysis, leakage controls, and thresholds tied to a decision.
+- Include trace and end-state grading for side-effecting tasks.
 
-## Week 12: Memory strategy, Dreaming, and advanced knowledge layers
+### Week 10: Reliability and Observability
 
-- Goal: teach memory as a design surface, not just a background feature
-- Prep: review `MEMORY.md`, daily notes, and `DREAMS.md` concepts from official docs
-- Live session: memory persistence, promotion, dreaming thresholds, and when search or memory wiki layers matter
-- Activity: students compare three memory strategies for three deployment profiles
-- Homework: memory architecture note
-- Watchouts: students ignoring dreaming while claiming production memory design competence
+- Define SLOs and error budgets before instrumentation.
+- Inject queue pressure, provider degradation, tool failure, and state inconsistency.
+- Require timeline reconstruction, mitigation, recovery, and corrective action.
 
-## Week 13: Threat modeling, draft artifacts, and formal verification limits
+### Week 11: Deployment and Tenancy
 
-- Goal: teach students to use assurance artifacts without overstating them
-- Prep: review ATLAS threat model docs and formal verification docs with current maturity labels
-- Live session: threat modeling, draft vs stable artifacts, and bounded formal models
-- Activity: threat workshop using one concrete deployment
-- Homework: threat report
-- Watchouts: students treating formal verification language as blanket proof of total system security
+- Compare local, container, VM, managed, and distributed boundaries only against stated needs.
+- Teach secret/config ownership, migrations, rollback, backups, isolation, and data lifecycle.
+- Challenge hostile multi-tenant claims with concrete evidence requirements.
 
-## Week 14: Contributor and ecosystem literacy
+### Week 12: Governance, Privacy, and Accessibility
 
-- Goal: make contributor-level work real instead of aspirational
-- Prep: inspect the current OpenClaw contributor workflow and repo guidance
-- Live session: pnpm workflow, changed-scope checks, scoped `AGENTS.md`, docs validation, and contribution planning
-- Activity: students sketch a contributor-safe change plan
-- Homework: contributor proposal
-- Watchouts: students designing contributions without understanding affected scope and validation gates
+- Map risk to control, owner, evidence, review cadence, and exception process.
+- Address user notice/control, retention/deletion, protected data, incident escalation, accessibility, and human override.
+- State when legal or domain-professional review is required.
 
-## Week 15: Track capstone sprint
+### Week 13: Framework Adapters
 
-- Goal: create enough supervised build time for quality capstones
-- Prep: require milestone review before students enter the sprint
-- Live session: build support, risk review, and one-on-one architecture checks
-- Activity: capstone implementation
-- Homework: finalize deliverables and demo package
-- Watchouts: students adding features late instead of strengthening evidence and defense notes
+- Hold behavioral requirements constant while changing adapter/framework.
+- Identify defaults, hidden state, policy differences, trace semantics, and portability gaps.
+- Require contract tests before migration claims.
 
-## Week 16: Final defense
+### Week 14: Product Case Studies
 
-- Goal: validate judgment, not only working output
-- Prep: use the oral defense bank and track rubrics
-- Live session: demos, critique, and oral defense
-- Activity: capstone review panels
-- Homework: post-course reflection and repository handoff
-- Watchouts: instructors letting polished demos outweigh poor security reasoning
+- Use dated primary sources and observable behavior.
+- Map product capabilities to stable harness contracts and unknowns.
+- Do not infer private architecture or treat marketing pages as security proof.
+
+### Week 15: Capstone Operation and Red Team
+
+- Freeze a release candidate.
+- Run the evaluation suite, performance/cost tests, threat scenarios, incident drill, rollback, and evidence audit.
+- Block defense if critical findings remain unresolved or falsely downgraded.
+
+### Week 16: Defense and Transfer
+
+- Use a multi-role board: engineering, security, operations, product/governance.
+- Ask each learner to trace a withheld failure and adapt one capability under a changed provider, protocol, policy, or tenancy condition.
+- Schedule a delayed individual retest for the highest-risk competency.
+
+## Case-Study Selection
+
+Select cases for contrasting architecture, trust, distribution, or operating models. At least one source-visible system should permit code tracing. At least one product case should teach the boundary between public behavior and unknown internal implementation.
+
+OpenClaw remains a useful source-visible operator/platform case. Hermes Agent can support skills/memory/provider and trust-boundary analysis. ChatGPT Work and xAI agent tooling can support product-capability and managed-system analysis. Verify every current claim before delivery.
+
+## Capstone Review Cadence
+
+- proposal: problem, deterministic baseline, agentic justification
+- architecture gate: contracts, data, authority, failure, evidence plan
+- alpha gate: core path and deterministic tests
+- security/evaluation gate: attacks, corpus, graders, thresholds
+- release-candidate gate: deployment, SLO, incident, rollback, privacy
+- final board: live evidence, oral defense, changed task
+
+## Instructor Readiness Gate
+
+The instructor team must include or consult implementation, security, operations, and assessment expertise; execute all critical labs; calibrate anchor submissions; verify current standards/product sources; and rehearse the capstone incident and red-team scenarios.

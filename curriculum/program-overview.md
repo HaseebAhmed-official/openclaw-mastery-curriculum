@@ -2,126 +2,134 @@
 
 ## Mission
 
-Build learners who can understand, operate, secure, extend, and evaluate OpenClaw at an expert level, while staying grounded in how the platform actually works today.
+Develop engineers who can build and govern agent harnesses from first principles, not merely operate one current product. The program treats models as fallible components inside larger software systems and makes human judgment, evidence, and explicit trust boundaries central.
 
-This curriculum is not just "how to use a bot." It is a structured path through:
+## Definitions
 
-- systems and operator foundations
-- OpenClaw architecture and trust model
-- hands-on deployment and troubleshooting
-- durable automation, detached work, and authority boundaries
-- production operations and governance
-- extension and plugin development
-- contributor-level understanding of the platform
+- **Model:** a probabilistic component that produces or scores outputs from context.
+- **Tool:** a typed capability that reads, computes, changes state, or communicates with an external system.
+- **Workflow:** a mostly predetermined control path around models and tools.
+- **Agent:** a model-directed process that chooses actions within bounded authority and stop conditions.
+- **Harness:** the software and operational control plane that assembles context, exposes tools, enforces policy, persists state, executes actions, observes behavior, and evaluates outcomes.
+- **Agent system:** one or more agents plus their harness, execution environments, data, protocols, operators, and governance.
 
-## Design principles
+These are working engineering definitions. Learners must compare alternate definitions and state which boundary they use in design work.
 
-### 1. Stable-first, reality-based
+## Audience
 
-Required teaching material should track stable OpenClaw behavior. Preview and source-build topics are included, but they must be labeled clearly so institutions do not mistake them for universal baseline requirements.
+- undergraduate or graduate computing students
+- independent learners seeking first-principles capability
+- software, AI, platform, security, and reliability engineers
+- instructors building agent-systems courses
+- organizations creating internal capability programs
 
-Release-sensitive modules must also teach learners how to check current release notes, update channels, and current defaults before they trust old screenshots or old lab answers.
+## Entry Profile
 
-### 2. Security is part of the core, not an elective
+Learners may start near zero, but they must pass the prerequisite bridge before core implementation. Prior framework use does not waive programming, debugging, networking, testing, security, or statistical reasoning evidence.
 
-OpenClaw is powerful because it can touch real tools, real channels, and real hosts. That means threat modeling, approvals, hardening, and deployment boundaries are core literacy.
+## Design Principles
 
-### 3. Theory and practice move together
+### Stable contracts before products
 
-Every important concept should be paired with a hands-on exercise, an operational review, or a debugging scenario.
+Teach concepts that survive vendor churn. Frameworks and products are adapters or case studies, not foundational truth.
 
-This is especially important for detached execution features like cron, tasks, hooks, standing orders, sub-agents, and ACP agents because they change authority, auditability, and failure modes.
+### Build before abstraction
 
-### 4. Reusable by different institutions
+Learners first implement a small deterministic harness with a model test double. Frameworks are introduced only after learners can trace the equivalent control flow and failure modes.
 
-The curriculum is modular so a university, bootcamp, or enterprise team can adapt it without rewriting the whole program.
+### Evidence before confidence
 
-### 5. Source-backed instruction
+Claims require tests, traces, end-state inspection, source provenance, oral defense, and changed-task transfer. Self-reported confidence and generated artifacts are supporting evidence only.
 
-Official docs and repo materials are the primary source of truth. Inferences and community knowledge are allowed, but they must be marked separately.
+### Security and governance by construction
 
-## Audience model
+Authority, isolation, data flow, approvals, auditability, privacy, and recovery are designed with the loop, not added after deployment.
 
-### Primary audience
+### Simplicity before autonomy
 
-- university students
-- instructors building an AI systems, agent engineering, or platform operations course
+Use deterministic code or workflows when they satisfy the requirement. Add model-directed autonomy only where its value exceeds its uncertainty, cost, and attack surface.
 
-### Secondary audience
+### Current claims are versioned
 
-- power users and operators
-- platform / DevOps engineers
-- AI safety and security engineers
-- plugin authors
-- contributors to the OpenClaw ecosystem
+Standards, frameworks, product behavior, releases, and advisories are dated. Stable theory and time-sensitive implementation facts are stored and assessed separately.
 
-## Entry assumptions
+## Program Learning Outcomes
 
-This program is designed so a learner can start near zero, but not below basic computer use.
+Graduates will be able to:
 
-The curriculum therefore includes a bridge in:
+| ID | Outcome |
+| --- | --- |
+| PLO-1 | Apply programming, systems, networking, data, testing, security, and statistical foundations to agent-system problems. |
+| PLO-2 | Analyze requirements and choose appropriately among deterministic code, workflows, single agents, and multi-agent systems. |
+| PLO-3 | Design and implement a bounded harness with provider abstraction, typed tools, context management, policy, execution, sessions, memory, and explicit stop conditions. |
+| PLO-4 | Design stateful and durable behavior using event records, checkpoints, replay, retries, idempotency, compensation, cancellation, and recovery. |
+| PLO-5 | Integrate and evaluate interoperability through MCP, A2A, observability conventions, and framework adapters. |
+| PLO-6 | Threat-model and mitigate prompt injection, excessive agency, confused-deputy behavior, exfiltration, supply-chain, persistence, and isolation failures. |
+| PLO-7 | Construct evaluation corpora and run repeated trials using appropriate code, model, human, trace, and end-state graders. |
+| PLO-8 | Operate agent systems against reliability, latency, cost, capacity, privacy, incident-response, and change-control objectives. |
+| PLO-9 | Communicate architecture, evidence, uncertainty, ethics, and tradeoffs to technical and non-technical audiences and work effectively in review teams. |
+| PLO-10 | Independently learn, compare, port, audit, and extend unfamiliar agent products or frameworks from primary evidence. |
 
-- terminal and filesystem literacy
-- Linux and WSL2 basics
-- Git and GitHub workflow
-- Node.js and package management
-- TypeScript and JSON config literacy
-- Docker and container basics
-- networking, SSH, port forwarding, and tailnet concepts
-- LLM and tool-use fundamentals
-- security fundamentals for agentic systems
+## Delivery Architecture
 
-## Delivery architecture
+### Prerequisite Bridge
 
-### Semester 1: foundations and safe operation
+Diagnostic and repair modules establish the minimum foundations. Learners test out only with evidence.
 
-Learners build the baseline needed to understand how OpenClaw works, how to install and operate it, and how to reason about tools, sessions, memory, channels, and nodes without drifting into unsafe habits.
+### Semester 1: Harness Foundations
 
-### Semester 2: production, security, and expert paths
+Learners build a minimal harness from a model test double through tools, context, state, policy, observability, and evaluation. The semester ends with a changed-requirement practical and oral defense.
 
-Learners move from competent operation to production readiness, governance, extensibility, distributed execution, and contributor-level reasoning.
+### Semester 2: Production Agent Systems
 
-## Canonical technical baseline
+Learners add orchestration, memory, durable execution, protocols, security, reliability, deployment, governance, and comparative framework/product analysis. The semester ends with a defended production capstone.
 
-- Windows learners should prefer WSL2 for the full experience because OpenClaw's own docs recommend it as the more stable path.
-- The canonical deployment progression is local WSL2/Linux -> loopback-only gateway -> remote access over SSH/Tailscale -> VPS deployment -> advanced reverse-proxy or multi-agent setups.
-- Docker is taught as both an optional gateway packaging method and as the mechanism behind sandboxing.
+### Specialization
 
-## Learning outcomes
+Tracks deepen platform/SRE, security/assurance, tools/protocols, core/framework, product/operator, or local-model infrastructure capability without replacing the common core.
 
-By the end of the full program, learners should be able to:
+## Canonical Build Progression
 
-- explain the OpenClaw gateway architecture, control-plane model, and node model
-- install, onboard, validate, and troubleshoot OpenClaw on supported environments
-- choose and configure model providers, fallbacks, and operational defaults
-- check release notes, update channels, and default changes before running provider or security-sensitive labs
-- reason about sessions, memory, workspace state, and multi-agent isolation
-- explain detached work surfaces including cron, tasks, hooks, standing orders, heartbeat, sub-agents, and ACP agents
-- apply tool policy, sandboxing, and exec approvals safely
-- deploy remote or persistent gateway setups with appropriate security boundaries
-- reason about webhook ingress, delivery modes, audit records, and release/rollback policy
-- evaluate risk in channels, hooks, remote control, and shared inbox designs
-- build and validate plugins, skills, or contributor-level changes
-- defend a production-ready OpenClaw design using explicit trust, security, and operational arguments
+1. Deterministic model test double and contract tests.
+2. Single-turn provider interface.
+3. Bounded agent loop with explicit termination.
+4. Typed tool registry with validation and structured errors.
+5. Context assembly with provenance and token/cost budgets.
+6. Session state, event log, checkpoints, and replay.
+7. Policy, approval, execution isolation, and audit records.
+8. Memory with retention, retrieval, deletion, and quality tests.
+9. Traces, metrics, logs, and correlation.
+10. Eval harness with tasks, repeated trials, graders, and regression gates.
+11. Durable and multi-agent orchestration.
+12. MCP/A2A adapters and cross-framework comparison.
+13. Production deployment, operations, governance, and incident response.
 
-## Required supporting artifacts
+## Required Graduate Evidence
 
-This program depends on the following companion documents:
+- a tested reference-harness implementation
+- a trace and end-state evidence bundle for representative tasks
+- an evaluation corpus with repeated-trial results and documented variance
+- a threat model plus exploit-and-mitigation demonstrations
+- an incident exercise and recovery report
+- an interoperability adapter or protocol exercise
+- a comparative case-study analysis based on current primary sources
+- a capstone deployed in a bounded environment
+- an oral defense and delayed, unaided transfer task
 
-- [Instructor Handbook](instructor-handbook.md)
-- [Prerequisite Bridge](prerequisite-bridge.md)
-- [Competency Framework](competency-framework.md)
-- [Assessment Map](assessment-map.md)
-- [Assessment Assets](assessment/index.md)
-- [Governance and Security Strand](governance-and-security-strand.md)
-- [Automation and Detached Work](automation-and-detached-work.md)
-- [Update and Release Discipline](update-and-release-discipline.md)
-- [Semester 1](semester-1/index.md)
-- [Semester 2](semester-2/index.md)
+## Claim Boundaries
 
-## What this curriculum will not pretend
+The curriculum does not claim that:
 
-- It will not treat OpenClaw as a multi-tenant hostile isolation system when the official docs explicitly do not.
-- It will not flatten preview and source-build topics into fake baseline requirements.
-- It will not separate "security" from "usage" as if agent systems remain safe that way.
-- It will not teach fast-moving defaults as timeless facts without anchoring them to a validation date and release channel.
+- autonomous agents are preferable to deterministic software by default
+- a framework supplies production safety, durability, or evaluation automatically
+- sandboxing or approvals eliminate all risk
+- benchmark success proves real-world reliability
+- one successful trial proves a probabilistic system is correct
+- one operator-oriented harness is safe hostile multi-tenant infrastructure
+- institution-ready or enterprise-ready status can be established without external and real-user evidence
+
+## Alignment
+
+Program design is informed by ABET computing outcomes, ACM/IEEE-CS CS2023, SWEBOK v4, NIST AI RMF, NIST SSDF, OWASP agentic security guidance, and primary agent-system specifications and documentation. This is alignment evidence, not accreditation or endorsement.
+
+See the [Competency Framework](competency-framework.md), [Assessment Map](assessment-map.md), and [Official Reading Map](sources/official-reading-map.md).

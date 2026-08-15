@@ -1,158 +1,162 @@
 # Semester 1 Teaching Guide
 
-## How to use this guide
+## Instructor Goal
 
-Each week below includes:
+Teach learners to trace and build the minimal harness contracts themselves. Do not begin with a framework demo and then describe its abstractions as fundamentals.
 
-- teaching goal
-- instructor prep
-- live-session structure
-- in-class activity
-- homework or lab
-- watchouts
+## Weekly Learning Cycle
 
-Use this guide with the core lab guides and the official reading map.
+1. Retrieval from the prior week without notes.
+2. Predict the behavior of a small trace or failure.
+3. Teach the mental model, boundary, example, and non-example.
+4. Instructor live-traces or builds one minimal slice.
+5. Learners complete a guided variation.
+6. Learners complete an independent changed-condition task.
+7. Review code, trace, end state, security, and explanation against a rubric.
+8. Assign the smallest repair and schedule a later recheck.
 
-## Week 1: Environment baseline
+Use class time for construction, debugging, review, and defense. Readings and short orientation material belong before class.
 
-- Goal: make every student operational in WSL2/Linux, shell, editor, and package tooling
-- Prep: verify the institution-approved install path for WSL2 or Linux
-- Live session: explain why the environment matters for OpenClaw and where Windows-native paths usually fail learners
-- Activity: students verify shell, home directory, editor, Node path, and browser access
-- Homework: complete LAB-A1
-- Watchouts: students mixing Windows paths with Linux paths; students without virtualization enabled
+## Agent-Use Contract
 
-## Week 2: Git and repo hygiene
+Agents may help locate sources, generate test ideas, critique a design, or explain an error. Learners must disclose material assistance and independently:
 
-- Goal: give learners enough Git discipline to survive repo-based work without damaging state
-- Prep: have a demo repo or branch workflow ready
-- Live session: status, add, commit, branch, diff, and safe recovery
-- Activity: students create a branch, make a change, review the diff, and revert safely
-- Homework: complete LAB-A2
-- Watchouts: students committing generated files blindly or working on `main`
+- trace control and data flow
+- predict behavior before execution
+- explain every changed contract
+- reproduce and diagnose failures
+- justify tests and security boundaries
+- complete designated no-agent and oral tasks
 
-## Week 3: Node.js, JSON, TypeScript literacy
+If a learner cannot do those things, the artifact is not evidence of mastery.
 
-- Goal: make learners capable of reading runtime expectations and editing config intentionally
-- Prep: verify the currently supported OpenClaw Node version and update class notes if needed
-- Live session: explain Node runtime checks, npm/pnpm roles, JSON config shape, and light TypeScript reading
-- Activity: inspect a sample structured config and identify required fields vs optional fields
-- Homework: complete LAB-A3
-- Watchouts: students treating JSON like prose; students not understanding schema-driven validation
+## Week-by-Week Guide
 
-## Week 4: Docker and networking basics
+### Week 1: Discipline Map and Boundaries
 
-- Goal: build the minimum container and network literacy required for sandboxing and remote access
-- Prep: have one container example and one local port-mapping example ready
-- Live session: images, containers, localhost, bridges, ports, and why Docker matters to OpenClaw sandboxing
-- Activity: students run a simple container and explain which port is exposed where
-- Homework: complete LAB-A4
-- Watchouts: students confusing `localhost` inside WSL2, Windows, and containers
+- Mental model: model reasoning is one component; the harness controls context, capabilities, state, execution, observation, and evaluation.
+- Demonstration: trace one deterministic workflow and one bounded agent loop.
+- Misconception to expose: “agent” means any application with an LLM call.
+- Evidence: learner labels data/control/trust boundaries and defends whether autonomy is needed.
 
-## Week 5: LLM agent fundamentals
+### Week 2: Reproducible Engineering
 
-- Goal: give a non-magical explanation of model providers, tool use, and prompt injection
-- Prep: prepare one benign tool flow and one malicious external-content scenario
-- Live session: provider vs model vs tool, why stronger models matter, why prompt injection remains real
-- Activity: analyze one unsafe workflow and identify the trust failure
-- Homework: short reflection plus tool-risk analysis worksheet
-- Watchouts: students assuming better models eliminate security concerns
+- Mental model: reproducibility is an input to every later claim.
+- Demonstration: clean environment, test discovery, deterministic fixture, scoped Git diff.
+- Misconception: a successful run on the author's machine proves a lab.
+- Evidence: clean-clone reproduction and failure log.
 
-## Week 6: OpenClaw overview and trust model
+### Week 3: Contracts and Test Doubles
 
-- Goal: establish the mental model of gateway, control plane, channels, nodes, and operator boundary
-- Prep: use the architecture docs and security docs together
-- Live session: what OpenClaw is, what it is not, and why the trusted-operator boundary matters
-- Activity: students draw the gateway architecture and label where trust widens
-- Homework: architecture concept check
-- Watchouts: students describing OpenClaw as multi-tenant secure by default
+- Mental model: depend on a provider contract; use deterministic doubles to test harness logic.
+- Demonstration: scripted provider returns final, malformed, tool-call, and error turns.
+- Misconception: mocking removes all useful realism or a live API is required for every test.
+- Evidence: contract tests and explanation of what the double cannot prove.
 
-## Week 7: Installation and onboarding
+### Week 4: Bounded Loop
 
-- Goal: complete a first working OpenClaw install
-- Prep: verify the latest supported install path and onboarding flow
-- Live session: installation sequence, onboarding wizard, auth bootstrap, and daemon concepts
-- Activity: instructor live install plus student install start
-- Homework: complete LAB-B1
-- Watchouts: provider auth confusion, Windows shell vs WSL shell drift
+- Mental model: every autonomous cycle requires observable progress, budgets, cancellation, and explicit termination.
+- Demonstration: normal completion, max-turn, repeated-call, and provider-error paths.
+- Misconception: the model will reliably decide when to stop.
+- Evidence: loop invariant and stop-reason test matrix.
 
-## Week 8: Control UI, doctor, status, health
+### Week 5: Typed Tools
 
-- Goal: make diagnosis normal instead of reactive guesswork
-- Prep: pre-stage at least one broken setup for a demo
-- Live session: Control UI basics, `status`, `doctor`, `gateway probe`, `gateway status`, and live logs
-- Activity: students compare a healthy and broken status sequence
-- Homework: complete LAB-B2
-- Watchouts: students skipping logs and jumping to reinstall
+- Mental model: a tool contract is for model usability, runtime validation, security review, and operations.
+- Demonstration: discover, validate, reject, execute, and return a structured error.
+- Misconception: type hints or tool descriptions validate runtime arguments.
+- Evidence: malformed/unknown/duplicate call tests and improved error design.
 
-## Week 9: Sessions, workspace, and memory
+### Week 6: Execution Boundary
 
-- Goal: teach the workspace state model clearly enough that students stop imagining hidden memory
-- Prep: prepare one example workspace with `MEMORY.md` and daily notes
-- Live session: sessions, workspace, memory files, and what actually persists
-- Activity: students inspect workspace artifacts and explain what would survive a new session
-- Homework: complete LAB-B3
-- Watchouts: students assuming the model "just remembers" outside persisted state
+- Mental model: tool choice and tool execution are different authority layers.
+- Demonstration: working directory, environment, timeout, resource, and side-effect boundaries.
+- Misconception: a prompt instruction is a sandbox.
+- Evidence: execution ownership diagram and bounded failure test.
 
-## Week 10: Models, providers, and release-aware defaults
+### Week 7: Context Engineering
 
-- Goal: teach students how to configure providers without freezing assumptions in time
-- Prep: check current release notes for model default changes
-- Live session: provider auth, default selections, fallback strategy, rate-limit awareness, and release drift
-- Activity: compare a current release note with older assumptions and document the delta
-- Homework: complete LAB-B4
-- Watchouts: students memorizing a specific default model as a timeless truth
+- Mental model: context is a selected, budgeted, provenance-bearing working set, not unlimited memory.
+- Demonstration: instruction/data separation and an ablation that removes one context source.
+- Misconception: more context always improves output.
+- Evidence: selection rationale, token budget, truncation test, and ablation result.
 
-## Week 11: Tools, sandboxing, and approvals
+### Week 8: Midterm Trace and Debug
 
-- Goal: make host authority and sandbox boundaries concrete
-- Prep: prepare one sandboxed example and one host-exec policy example
-- Live session: built-in tools, sandbox purpose, exec approvals, allowlists, and danger of bypass flags
-- Activity: students classify actions into safe, risky, and prohibited
-- Homework: complete LAB-B5
-- Watchouts: students overstating what sandboxing guarantees
+- Use unseen code with seeded failures in at least three layers.
+- Require prediction before tests and root-cause explanation after repair.
+- Do not grade only the final passing state.
 
-## Week 12: Channels and pairing
+### Week 9: Sessions and Events
 
-- Goal: connect at least one communication surface safely
-- Prep: decide whether the cohort will use Telegram, WhatsApp, or webchat-only fallbacks
-- Live session: pairing, DM scope, group mention controls, and channel-specific policy
-- Activity: policy design for one one-to-one channel and one group scenario
-- Homework: complete LAB-B6
-- Watchouts: students enabling channels without a written policy
+- Mental model: state is reconstructed from identified records; transcript text alone is insufficient.
+- Demonstration: append events and rebuild a session timeline.
+- Misconception: conversation history is equivalent to durable task state.
+- Evidence: schema, ordering, identity, artifact reference, and reconstruction test.
 
-## Week 13: Nodes and multimodal surfaces
+### Week 10: Checkpoint and Replay
 
-- Goal: teach nodes as capability surfaces, not novelty features
-- Prep: verify what is stable, preview, or source-build-only at the current validation date
-- Live session: node role, pairing, talk mode, voice wake, and dependency risks like TTS services
-- Activity: architecture walkthrough and dependency-risk discussion
-- Homework: node concept note
-- Watchouts: students mistaking preview or source-build-only node features for universal baseline
+- Mental model: checkpointing bounds lost work; replay semantics depend on determinism and side effects.
+- Demonstration: crash between planned and completed side effect.
+- Misconception: retrying a failed turn is always safe.
+- Evidence: resume test and explicit exactly-once limitation.
 
-## Week 14: Remote access patterns
+### Week 11: Policy and Approval
 
-- Goal: teach remote access by safest defaults first
-- Prep: prepare examples of loopback-only, SSH tunnel, Tailscale Serve, and a rejected unsafe public exposure
-- Live session: compare remote access patterns and their security tradeoffs
-- Activity: students choose a remote access pattern for three scenarios
-- Homework: complete LAB-B7
-- Watchouts: students jumping directly to public exposure or reverse proxy without understanding trust
+- Mental model: approval must bind actor/session, capability, exact arguments, scope, and freshness.
+- Demonstration: stale or display-mismatched approval attack.
+- Misconception: a generic “allow tool” click authorizes every later argument.
+- Evidence: deny-default and confused-deputy tests.
 
-## Week 15: Troubleshooting and hardening baseline
+### Week 12: Memory Foundations
 
-- Goal: consolidate the first semester into disciplined ops
-- Prep: stage multiple failure cases across provider, channel, and local runtime
-- Live session: full diagnostic ladder and secure baseline review
-- Activity: rotating troubleshooting stations
-- Homework: complete secure baseline review artifact
-- Watchouts: students focusing on symptoms and not tracing from ingress to provider to host state
+- Mental model: memory is governed retained state with retrieval and deletion quality, not magical recall.
+- Demonstration: useful memory, stale memory, malicious memory, and deletion.
+- Misconception: retrieval relevance implies truth or authorization.
+- Evidence: retention/provenance policy and measured retrieval task.
 
-## Week 16: Practical exam and mini-project
+### Week 13: Observability
 
-- Goal: prove independent safe operation
-- Prep: assign project prompts and final practical conditions in advance
-- Live session: practical build, short demonstration, and defense
-- Activity: supervised build and review
-- Homework: final package submission
-- Watchouts: students prioritizing flashy channels over documented safety and operational maturity
+- Mental model: traces, metrics, logs, events, and artifacts answer different questions and share correlation.
+- Demonstration: reconstruct one failure without reading source first.
+- Misconception: verbose logs equal observability.
+- Evidence: correlated timeline with sensitive-data review.
+
+### Week 14: Evaluation Foundations
+
+- Mental model: an eval harness surrounds the agent harness with tasks, trials, graders, and decision thresholds.
+- Demonstration: one output-only grader misses a bad side effect; end-state check catches it.
+- Misconception: one successful demo or benchmark score proves correctness.
+- Evidence: repeated-trial suite and failure taxonomy.
+
+### Week 15: Integration Review
+
+- Freeze requirements before review.
+- Review interfaces, invariants, failure propagation, security, tests, and evidence.
+- Require learners to delete unnecessary abstractions and document intentional limitations.
+
+### Week 16: Practical and Transfer
+
+- Give a changed tool, provider, policy, or state condition not rehearsed verbatim.
+- Require individual execution, defense, and a delayed retest.
+- Grade the reasoning path, evidence, and repair as well as output.
+
+## Feedback and Remediation
+
+- Return critical safety or conceptual feedback before the learner builds on it.
+- Label feedback by competency and evidence level.
+- Prescribe one repair task, not another long explanation.
+- Retest with changed conditions.
+- Escalate persistent foundation gaps back to the prerequisite bridge.
+
+## Accessibility and Inclusion
+
+- Provide text alternatives for diagrams and captions/transcripts for audiovisual material.
+- Do not make speed of typing or spoken English accent a proxy for engineering mastery.
+- Allow equivalent accessible interfaces while preserving the same technical evidence.
+- Publish tool, compute, network, and cost requirements before the course.
+- Supply deterministic/offline paths for core labs.
+
+## Instructor Readiness Gate
+
+Before delivery, the instructor must execute every required lab from a clean environment, preserve expected evidence, rehearse seeded failures, calibrate grading anchors, verify current sources, and document known platform differences.

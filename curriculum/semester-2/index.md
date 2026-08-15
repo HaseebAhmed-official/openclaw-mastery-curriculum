@@ -1,61 +1,68 @@
-# Semester 2
+# Semester 2: Production Agent Systems
 
 ## Goal
 
-Move learners from competent baseline operation to production-grade reasoning, security maturity, extensibility, and specialization.
+Transform the minimal harness into a secure, observable, durable, interoperable, and governable agent system. Learners must prove production judgment under failures and changing requirements rather than merely adding autonomy or framework features.
 
-By the end of Semester 2, a learner should be able to design and defend an OpenClaw deployment architecture, harden it within the documented trust model, reason about advanced integrations, and complete a role-specific capstone.
+## Exit Capability
 
-## Weekly sequence
+The learner can choose an orchestration pattern, implement durable state transitions, integrate protocols, attack and harden authority boundaries, construct meaningful evaluations, operate against explicit objectives, compare current products/frameworks, and defend a deployed capstone.
 
-| Week | Theme | Core outcomes | Hands-on focus | Assessment |
-| --- | --- | --- | --- | --- |
-| 1 | Production framing | Translate baseline setups into production design questions | Production gap analysis | Readiness memo |
-| 2 | Multi-agent routing and workspace identity files | Explain agent isolation, session stores, `SOUL.md`, `AGENTS.md`, `USER.md`, and workspace boundaries | Multi-agent design lab with differentiated agent files | Isolation review |
-| 3 | Configuration architecture | Navigate config schema, plugin-owned config, control-plane settings, environment ownership boundaries, and current fail-closed invalid-config behavior | Schema, config, dotenv-boundary, and doctor-repair drill | Config review |
-| 4 | Security audit, advisories, webhook ingress, and hardening | Use `openclaw security audit`, compare baseline and `--deep` findings, explain `--fix` limits, classify current advisories by failure family and exact affected version, review webhook risks, and prioritize fixes | Audit plus advisory-family case lab with JSON export and remediation plan | Hardening worksheet |
-| 5 | Exec approvals and host authority | Explain host execution, approval-display integrity, wrapper revalidation, allowlists, and Gateway/node environment equivalence | Approval-integrity and policy lab | Policy defense |
-| 6 | Remote access and proxy patterns | Compare SSH, Tailscale Serve, and trusted proxy auth, including loopback failure cases and proxy/header trust | Proxy and remote lab | Deployment review |
-| 7 | Shared inboxes and DM scope | Reason about cooperative vs adversarial usage and session isolation | Shared-inbox design lab | Routing critique |
-| 8 | Plugins, bundles, ClawHub, npm, file-transfer, and supply-chain controls | Understand plugin manifests, runtime payload provenance, owner-only install/persistence boundaries, release-channel convergence, dependency status, runtime inspection, schemas, and capability ownership | Manifest, marketplace-payload, plugin-persistence, and file-transfer policy lab | Midterm practical 2 |
-| 9 | Skills, ClawHub, and six-layer precedence | Understand all six skill-precedence layers, install flows, and workspace vs shared skills | Skill installation and collision lab | Skill policy check |
-| 10 | Automation, hooks, heartbeat, standing orders, and live steering | Choose the right detached-work primitive, prove denied tools remain denied in isolated work, and distinguish `/steer` or `/side` from durable task/session work | Automation policy-inheritance, standing-orders, and command-steering lab | Automation design review |
-| 11 | Sub-agents, ACP agents, `openclaw attach`, headless nodes, and task auditability | Explain delegated execution, temporary session-scoped coding-agent grants, inherited child constraints, requester provenance, and task records | Scoped attach plus distributed execution and task-audit lab | Distributed execution review |
-| 12 | Memory strategy, Dreaming, and advanced knowledge layers | Compare default memory, memory wiki, search/indexing choices, `DREAMS.md`, and dreaming thresholds | Memory strategy and dreaming lab | Memory architecture note |
-| 13 | Threat modeling, draft artifacts, and formal verification limits | Use ATLAS threat modeling, label draft maturity correctly, and understand bounded formal-model limits | Threat model workshop | Threat report |
-| 14 | Contributor and ecosystem literacy | Understand repo contribution, pnpm-based toolchain, scoped `AGENTS.md`, docs validation, and community interfaces | Contribution plan lab | Contribution proposal |
-| 15 | Track capstone sprint | Build the selected track artifact | Capstone build | Milestone review |
-| 16 | Final defense | Defend technical and security choices | Capstone demo and viva | Final capstone |
+## Weekly Sequence
 
-## Required Semester 2 deliverables
+| Week | Theme | Build/evidence | Assessment |
+| --- | --- | --- | --- |
+| 1 | Production requirements and architecture | SLOs, threat model, data classification, failure domains, cost and ownership | Architecture review |
+| 2 | Orchestration patterns | Routing, parallelization, manager, handoff, evaluator-optimizer; simplest-valid choice | Pattern selection practical |
+| 3 | Durable execution | Idempotency, retry policy, checkpoints, compensation, cancellation, crash recovery | Failure-injection lab |
+| 4 | Memory systems | Retrieval pipeline, isolation, freshness, contamination, deletion, quality metrics | Memory adversarial evaluation |
+| 5 | MCP interoperability | Capability negotiation, tools/resources/prompts, transport/auth boundaries, client/server tests | MCP adapter practical |
+| 6 | A2A interoperability | AgentCard, message, task, artifact, streaming, async and auth boundaries | Cross-agent task practical |
+| 7 | Agentic threat modeling | Injection, confused deputy, exfiltration, excessive agency, supply chain, persistence | Red-team plan and exploit |
+| 8 | Defense in depth | Policy, approvals, sandbox, network egress, secrets, identity, audit, recovery | Midterm attack-and-repair exam |
+| 9 | Evaluation engineering | Corpus design, repeated trials, graders, disagreement, leakage, capability/regression gates | Evaluation review |
+| 10 | Reliability and observability | SLOs, traces, metrics, logs, queues, backpressure, capacity, latency, cost | Incident simulation |
+| 11 | Deployment and tenancy | Packaging, secrets, migrations, isolation, single- versus multi-tenant claims, rollback | Deployment defense |
+| 12 | Governance, privacy, and accessibility | AI risk management, secure development, data lifecycle, review roles, user controls | Control-evidence mapping |
+| 13 | Framework adapters | Implement the same contract with at least two frameworks or SDKs; document semantic gaps | Portability test |
+| 14 | Versioned product case studies | Audit OpenClaw, Hermes Agent, ChatGPT Work, xAI agent tooling, or approved alternatives | Evidence-backed comparison |
+| 15 | Capstone operation and red team | Deploy, run trials, attack, repair, measure, and prepare rollback | Release-candidate gate |
+| 16 | Final defense and changed task | Defend architecture/evidence, then adapt under a withheld constraint | Capstone board and delayed retest |
 
-- one production architecture document
-- one security audit and hardening report
-- one detached-work or webhook risk review
-- one policy review for approvals, channels, or remote access
-- one extension, design artifact, or contributor proposal
-- one track-specific capstone and defense
+## Required Labs
 
-## Core readings
+- LAB-C1 orchestration pattern comparison
+- LAB-C2 durable crash/retry/recovery
+- LAB-C3 memory contamination and deletion
+- LAB-C4 MCP integration and contract test
+- LAB-C5 A2A task and artifact exchange
+- LAB-C6 agentic attack-and-mitigation lab
+- LAB-C7 evaluation corpus and regression gate
+- LAB-C8 observability/SLO incident simulation
+- LAB-C9 deployment, tenancy, and rollback review
+- LAB-D1 cross-framework portability
+- LAB-D2 versioned product case study
 
-- multi-agent routing
-- configuration reference
-- security guide and audit docs
-- current official security advisories
-- sandboxing and exec approvals
-- remote access, Tailscale, and trusted proxy auth
-- automation, tasks, cron, hooks, standing orders, heartbeat, sub-agents, and ACP agents
-- plugins, plugin manifest, plugin lifecycle, and file-transfer plugin policy
-- skills and skills CLI
-- formal verification and threat model docs, labeled for maturity
-- updating and release channels
+## Capstone Release Gates
 
-See the [Official Reading Map](../sources/official-reading-map.md) for the exact links.
+The capstone must:
 
-## Teaching support
+- solve a justified problem where agentic behavior adds value
+- expose a clear provider/model boundary and deterministic test path
+- use typed, least-authority tools and explicit stop conditions
+- persist auditable state and recover from injected failure
+- enforce policy and human approval for material effects
+- produce correlated traces and inspectable end-state artifacts
+- pass a repeated-trial evaluation suite with declared thresholds
+- survive an authorized red-team exercise and mitigation retest
+- document SLO, cost, privacy, deployment, rollback, and residual risk
+- port one meaningful capability across two frameworks, protocols, or provider environments
+- pass oral defense and delayed changed-task transfer
+
+## Teaching Support
 
 - [Semester 2 Teaching Guide](teaching-guide.md)
 - [Advanced Lab Guides](../labs/advanced-lab-guides.md)
 - [Specialization Lab Guides](../labs/specialization-lab-guides.md)
-- [Question Bank](../assessment/question-bank.md)
+- [Assessment Map](../assessment-map.md)
 - [Oral Defense Bank](../assessment/oral-defense-bank.md)

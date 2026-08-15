@@ -1,238 +1,207 @@
 # Advanced Lab Guides
 
-## LAB-C1: Multi-agent isolation design
+## Common Production Evidence
+
+Every advanced lab preserves requirements, architecture, source/version baseline, failure injection, trace and end state, security/privacy review, rollback or recovery, measured result, and residual risk. Use bounded disposable environments for attack labs.
+
+## LAB-C1: Orchestration Pattern Comparison
 
 ### Objective
 
-Demonstrate meaningful agent separation using workspace and identity surfaces.
+Choose the simplest pattern that meets a measurable requirement.
 
-### Duration
+### Task
 
-- 90 minutes
+Implement a deterministic baseline plus two patterns selected from routing, parallelization, manager/orchestrator, handoff, or evaluator-optimizer. Hold task corpus and acceptance criteria constant.
 
-### Procedure
+### Required Tests
 
-1. Define two agent roles with different responsibilities.
-2. Create or describe separate workspaces.
-3. Write differentiated `SOUL.md` content.
-4. Add workspace-level `AGENTS.md`.
-5. Add or justify `USER.md`.
-6. Explain session and auth separation.
+- route ambiguity and misclassification
+- partial parallel failure and slow worker
+- delegated authority mismatch
+- duplicated or conflicting result
+- orchestrator/evaluator loop budget
 
-### Required evidence
+### Evidence and Gate
 
-- two differentiated agent definitions
-- one isolation architecture note
+Compare success, variance, latency, model/tool calls, cost proxy, failure propagation, trace complexity, and human intervention. Pass only if the selected pattern's added complexity is justified by evidence. Transfer: remove one agent and determine whether quality materially changes.
 
-### Common failure modes
-
-- same behavior in both workspaces
-- no explanation of why separation matters
-
-## LAB-C2: Security audit and remediation
+## LAB-C2: Durable Crash, Retry, and Recovery
 
 ### Objective
 
-Use the security audit like an operator, not like a checkbox runner.
+Preserve correct, auditable state across failures and retries.
 
-### Duration
+### Task
 
-- 90 to 120 minutes
+Back the session/event contract with a durable store or approved workflow engine. Model transitions explicitly and inject crash before/after external side effects.
 
-### Procedure
+### Required Tests
 
-1. Run `openclaw security audit`.
-2. Run `openclaw security audit --deep` when the environment permits, or explain why only the baseline audit was feasible.
-3. Export machine-readable findings with `--json` from at least one audit run.
-4. Review current official advisories for the deployment components, classify at least two by failure family, and record exact affected and patched versions before drawing conclusions.
-5. Identify webhook, plugin, hook, auth, proxy, file-transfer, or advisory-related findings.
-6. Explain which findings `openclaw security audit --fix` could address and which require manual/operator action.
-7. Cross-check whether open issue signals suggest extra caution without treating issues as authoritative documentation.
-8. Prioritize remediation.
-9. Record accepted risks and why.
+- retryable provider timeout
+- non-retryable validation failure
+- duplicate task delivery
+- process loss during work
+- cancellation during pending work
+- partial external side effect
+- incompatible state/schema version
 
-### Required evidence
+### Evidence and Gate
 
-- audit report
-- remediation plan
-- JSON artifact
-- short note comparing baseline audit, deep audit, and `--fix` limits
-- source note distinguishing official docs/release notes from non-authoritative issue signals
-- advisory matrix with component, failure family, affected version, patched version, control, and residual risk
+Pass with an idempotency strategy, transition log, checkpoint/recovery result, compensation or manual-repair path, and stated delivery semantics. “Exactly once” requires proof across the external boundary; otherwise reject the claim.
 
-### Common failure modes
-
-- collecting findings without prioritization
-- ignoring webhook-specific controls
-- ignoring plugin, file-transfer, or hook authority
-- assuming `--fix` completes hardening or exposure remediation
-- ignoring upstream advisories because the local audit output looked clean
-
-## LAB-C2A: Config fail-closed and doctor repair drill
+## LAB-C3: Memory Contamination and Deletion
 
 ### Objective
 
-Teach learners that invalid configuration is an operational safety event, not a formatting inconvenience.
+Measure whether memory improves tasks without violating isolation, freshness, privacy, or deletion requirements.
 
-### Duration
+### Task
 
-- 60 minutes
+Implement a memory interface with write policy, provenance, retrieval, retention, and deletion. Build a corpus with useful, stale, irrelevant, malicious, and cross-user records.
 
-### Procedure
+### Required Tests
 
-1. Inspect the current configuration reference and release notes for config-load behavior.
-2. Review a safe instructor-provided invalid config sample.
-3. Explain why fail-closed behavior is safer than auto-restoring invalid config during startup or hot reload.
-4. Run or conceptually trace the `doctor --fix` repair path in a controlled environment.
-5. Record which repairs are safe migrations and which require operator judgment.
+- retrieval precision and task effect
+- stale contradiction
+- injected instruction inside memory
+- namespace/tenant isolation
+- deletion and downstream cache/index cleanup
+- unavailable memory store
 
-### Required evidence
+### Evidence and Gate
 
-- config repair note
-- before/after explanation
-- one decision table separating automatic repair from manual review
+Report benefit, contamination rate, privacy boundary, deletion evidence, failure behavior, and residual risk. Pass only if the system treats retrieved text as untrusted data and does not silently cross isolation boundaries.
 
-### Common failure modes
-
-- assuming every config error should auto-repair
-- treating `doctor --fix` as permission to ignore review
-- failing to preserve operator-owned secrets or plugin config boundaries
-
-## LAB-C3: Trusted proxy and ingress review
+## LAB-C4: MCP Integration and Contract Test
 
 ### Objective
 
-Evaluate remote ingress patterns rather than blindly deploying them.
+Integrate an MCP capability while preserving harness policy and observability.
 
-### Duration
+### Task
 
-- 75 minutes
+Pin a current MCP specification/SDK version. Build or use a minimal server and connect it through the harness adapter. Expose one read capability and one controlled side effect.
 
-### Procedure
+### Required Tests
 
-1. Compare SSH, Tailscale Serve, and trusted proxy auth.
-2. Write the identity and trust assumptions for each.
-3. Identify where headers can be spoofed or misapplied.
-4. Explain why same-host loopback reverse proxies do not satisfy trusted-proxy auth.
-5. Document the proxy-only path, explicit origin policy, and mixed-token rejection requirements for trusted-proxy mode.
-6. Recommend one approach for a bounded scenario.
+- initialization and capability negotiation
+- unsupported capability/version behavior
+- invalid arguments and server error
+- authorization denial
+- disconnect, timeout, and retry boundary
+- prompt injection in returned content
+- side effect still requiring harness approval
 
-### Required evidence
+### Evidence and Gate
 
-- deployment risk review
+Preserve protocol messages or safe traces, contract tests, policy decisions, and end state. Pass when MCP discovery never bypasses local authority and version assumptions are explicit.
 
-### Common failure modes
-
-- over-trusting proxy headers
-- not explaining where auth happens
-- proposing trusted-proxy auth without a proxy-only path or with a same-host loopback proxy
-
-## LAB-C4: Shared inbox policy lab
+## LAB-C5: A2A Task and Artifact Exchange
 
 ### Objective
 
-Separate collaborative convenience from security boundary claims.
+Exchange delegated work across an agent boundary with explicit identity, lifecycle, and artifacts.
 
-### Duration
+### Task
 
-- 60 minutes
+Pin a current A2A specification/SDK version. Publish or consume an AgentCard, send a task/message, return an artifact, and handle one asynchronous or streaming transition.
 
-### Procedure
+### Required Tests
 
-1. Evaluate one shared-team scenario.
-2. Document DM scope, session routing, and mention policy.
-3. Explain why the gateway is or is not appropriate for that trust environment.
+- capability mismatch
+- identity/authentication failure
+- authorization failure
+- duplicate task/message
+- cancellation and timeout
+- malformed artifact
+- untrusted content returned by remote agent
 
-### Required evidence
+### Evidence and Gate
 
-- routing policy recommendation
+Pass with a task state diagram, protocol trace, artifact validation, duplicate handling, trust analysis, and local-policy enforcement. Transfer: replace the remote agent with a different implementation while preserving contract tests.
 
-### Common failure modes
-
-- claiming hostile-user safety on one gateway
-
-## LAB-C5: Threat model workshop
-
-### Objective
-
-Build a threat register grounded in a real OpenClaw deployment.
-
-### Duration
-
-- 90 minutes
-
-### Procedure
-
-1. Pick a concrete deployment.
-2. Identify assets, actors, and trust boundaries.
-3. Enumerate threats using the ATLAS frame where relevant.
-4. Propose controls and residual risks.
-
-### Required evidence
-
-- threat register
-
-### Common failure modes
-
-- generic AI risk statements with no deployment specificity
-
-## LAB-C6: Automation and standing-orders design
+## LAB-C6: Agentic Attack and Mitigation
 
 ### Objective
 
-Choose the right detached-work primitive and defend the choice.
+Demonstrate exploitable authority paths and verify layered mitigation.
 
-### Duration
+### Task
 
-- 90 minutes
+Select at least four scenarios spanning prompt injection, confused deputy, exfiltration, excessive agency, persistence/memory, supply chain, identity, or approval mismatch.
 
 ### Procedure
 
-1. Compare cron, heartbeat, hooks, task flow, standing orders, `/steer`, and `/side`.
-2. Match each primitive to one scenario.
-3. Identify authority, auditability, failure, retry, and delivery implications.
-4. Prove an isolated job cannot regain a tool denied by its effective policy, using a safe simulation or documented trace.
-5. Explain how completed heartbeat work is distinguished from notification delivery and duplicate retry.
-6. Explain why `/steer` changes the active run while cron/tasks create durable work records.
-7. Reject at least one tempting but wrong choice.
+1. Declare authorization, data, and containment boundaries.
+2. Write exploit success criteria before testing.
+3. Capture preconditions, execution path, trace, end state, and blast radius.
+4. Implement preventive and detective controls plus recovery.
+5. Retest the original exploit and at least one variant.
 
-### Required evidence
+### Evidence and Gate
 
-- detached-work design note
-- steering-vs-task distinction
-- policy-inheritance and idempotent-delivery evidence
+Pass when critical paths are blocked or explicitly accepted by an authorized owner, detection evidence is reliable, recovery is rehearsed, and residual risk is not hidden. Do not use real credentials, targets, or third-party data.
 
-### Common failure modes
-
-- using hooks where scheduled or session-bound behavior would be safer
-- using `/steer` when the work needs a durable task record
-
-## LAB-C7: Sub-agent and ACP auditability lab
+## LAB-C7: Evaluation Corpus and Regression Gate
 
 ### Objective
 
-Teach delegation with ownership and traceability.
+Build an evaluation system that can support a release decision.
 
-### Duration
+### Task
 
-- 90 minutes
+Create 20-50 realistic initial tasks or justify a smaller high-cost corpus. Separate capability, regression, security, and reliability subsets. Run repeated trials where behavior is nondeterministic.
 
-### Procedure
+### Required Analysis
 
-1. Define a delegated task.
-2. Explain whether sub-agents, ACP agents, or `openclaw attach` fit better.
-3. For an attach case, document target-session selection, grant TTL, credential transport, strict MCP configuration, and revocation behavior.
-4. Document the inherited child-session constraints that must remain in force.
-5. Document expected task records, artifacts, requester provenance, and ownership.
-6. Explain how you would audit the result later.
+- task coverage and representativeness
+- contamination/leakage risk
+- code/model/human grader validity
+- trace versus end-state disagreements
+- variance and confidence limits
+- severity-weighted failure taxonomy
+- latency, cost, tool failure, retry, and human override
+- threshold selected before final release verdict
 
-### Required evidence
+### Evidence and Gate
 
-- detached-task audit report
+Pass when another reviewer can reproduce the report and the decision follows predeclared criteria. Averages cannot hide critical safety failures.
 
-### Common failure modes
+## LAB-C8: Observability, SLO, and Incident Simulation
 
-- treating delegation as invisible parallelism
-- no ownership model
-- no explanation of depth, child-count, sandbox, or target-agent constraints on child sessions
-- treating temporary attach access as ambient or process-wide authority
+### Objective
+
+Operate the system through degradation and produce actionable learning.
+
+### Task
+
+Define availability, success, latency, recovery, cost, and human-override objectives. Inject provider latency/failure, tool degradation, queue pressure, or state inconsistency.
+
+### Evidence and Gate
+
+Preserve alerts, correlated timeline, diagnosis, mitigation, recovery, user impact, evidence gaps, and corrective actions. Pass when the learner identifies the actual failure layer, restores service within the exercise objective, and adds a regression/control test.
+
+## LAB-C9: Deployment, Tenancy, and Rollback
+
+### Objective
+
+Defend a deployable architecture and its trust claims.
+
+### Task
+
+Deploy the harness in a bounded local, container, VM, or approved managed environment. Define configuration/secrets, network, filesystem, identity, storage, backup, migration, update, and rollback ownership.
+
+### Required Tests
+
+- missing or invalid configuration fails safely
+- secret is absent from logs/artifacts
+- migration success and failure
+- rollback to a compatible version
+- backup restore or declared alternative
+- cross-session and, if claimed, cross-tenant isolation
+- unavailable dependency behavior
+
+### Evidence and Gate
+
+Pass with deployment diagram, runbook, test evidence, rollback result, data lifecycle, and accurate single-user/team/multi-tenant boundary. Do not claim enterprise readiness from containerization alone.

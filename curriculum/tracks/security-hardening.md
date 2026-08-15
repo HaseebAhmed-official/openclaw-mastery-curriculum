@@ -1,34 +1,31 @@
-# Security / Hardening Track
+# Security / Assurance Track
 
-## Goal
+## Role
 
-Produce practitioners who can evaluate OpenClaw setups against the official trust model, identify risky assumptions, and recommend controls that fit the platform's actual security posture.
+Find, demonstrate, mitigate, and communicate agent-system risk without exceeding authorization or making unsupported assurance claims.
 
-## Best fit for
+## Outcomes
 
-- security students
-- platform security engineers
-- AI governance teams
+- model assets, identities, data, authority, trust, and attacker paths
+- test prompt injection, confused deputy, excessive agency, exfiltration, persistence, supply chain, and isolation
+- design policy, exact approvals, sandbox/network controls, secrets, audit, detection, and recovery
+- evaluate control bypasses and variants
+- map NIST/OWASP/secure-development requirements to inspectable evidence
+- state residual risk, assurance limits, exceptions, and review ownership
 
-## Additional emphasis
+## Required Evidence
 
-- trust boundaries and personal-assistant model limits
-- prompt injection and unsafe external content
-- tool risk, sandboxing, approval-display integrity, wrapper revalidation, and Gateway/node environment equivalence
-- webhook ingress, hook code, plugin runtime-payload provenance, owner-only install/persistence, and file-transfer/node file authority
-- current release/advisory review with exact affected/patched versions, recurring failure-family classification, official-source priority, and issue signals labeled separately
-- threat modeling and formal verification boundaries
-- channel exposure and shared inbox risk
+- LAB-C3, LAB-C4 or C5, LAB-C6, LAB-C7, LAB-C9
+- authorized exploit/mitigation portfolio
+- identity/authority graph and data-flow threat model
+- detection and recovery exercise
+- control-evidence map and residual-risk decisions
+- delayed exploit variant
 
-## Extra labs
+## Advanced Topics
 
-- threat model workshop
-- prompt-injection scenario review
-- security audit and remediation lab
-- webhook and hook-risk review
-- plugin and file-transfer policy review
-- detached-work policy-inheritance and scoped `openclaw attach` review
+Capability security, policy engines, sandbox escapes, egress control, workload identity, software supply chain, red-team methodology, privacy engineering, formal methods, and security operations.
 
-## Capstone
+## Capstone Emphasis
 
-Produce a full security assessment of an OpenClaw deployment, including threat model, control recommendations, and a defended hardening baseline.
+Produce reusable security evidence, not a generic checklist. Unsafe testing, prompt-only defenses, or total-security claims are automatic failures.

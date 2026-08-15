@@ -1,33 +1,31 @@
-# Local Models Specialization
+# Local-Model Infrastructure Track
 
-## Goal
+## Role
 
-Produce specialists who can evaluate when local or self-hosted models fit OpenClaw and when they do not.
+Select, serve, route, evaluate, and operate models under explicit hardware, workload, privacy, quality, latency, and cost constraints.
 
-## Important note
+## Outcomes
 
-This is a specialization, not the program baseline. OpenClaw can work with many providers, and serious local-model setups require deliberate decisions about hardware, latency, quality, and security.
+- characterize task and model requirements rather than choose from popularity
+- measure serving throughput, latency, accelerator/system memory, concurrency, and failure
+- build task-specific quality and tool-use evaluations
+- design routing, fallback, degradation, and capacity behavior
+- protect prompts, outputs, model artifacts, caches, and telemetry
+- integrate local and remote providers behind stable contracts
 
-## Best fit for
+## Required Evidence
 
-- learners exploring on-prem or offline-ish setups
-- infra teams evaluating model sovereignty
-- researchers comparing provider strategies
+- LAB-B1, LAB-C7-C9, LAB-D1, LAB-D4
+- measured hardware/workload profile
+- at least two feasible model/serving configurations
+- quality, latency, throughput, resource, and failure report
+- routing/fallback and privacy design
+- delayed changed-hardware, workload, or privacy task
 
-## Additional emphasis
+## Advanced Topics
 
-- provider and model selection strategy
-- hardware and performance tradeoffs
-- fallback models and degraded quality paths
-- operational complexity vs control
-- risk of weak models on tool-enabled systems
+Quantization, batching, speculative techniques, model loading, KV cache, scheduling, accelerators, distributed inference, fine-tuning/adapters, model supply chain, and energy/cost measurement.
 
-## Extra labs
+## Capstone Emphasis
 
-- local-vs-hosted tradeoff analysis
-- performance and quality evaluation worksheet
-- safe downgrade strategy design
-
-## Capstone
-
-Design a local-model or hybrid-model OpenClaw architecture, including hardware assumptions, fallback strategy, and a safety justification for model choice.
+Recommendations must follow measured constraints. Benchmark-only “best model” claims, undisclosed hardware assumptions, or no degradation plan do not pass.

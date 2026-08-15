@@ -1,89 +1,128 @@
 # Practical Exams
 
-## Semester 1 Practical Exam
+## Administration Standard
 
-### Goal
+- Use a fresh disposable environment and unique seeded variants.
+- Freeze permitted references, agents, tools, network access, and time before the exam.
+- Capture commands, commits, tests, event/trace evidence, and end state.
+- Include an individual oral check and a later transfer task.
+- Do not expose hidden fixtures in public practice material.
+- Stop unsafe or out-of-bound execution immediately.
 
-Validate that the learner can operate a safe baseline OpenClaw setup independently.
+## Semester 1 Practical: Repair and Extend a Minimal Harness
 
-### Recommended duration
+### Goal and Duration
 
-- 120 to 180 minutes
+Assess PLO-1 through PLO-4, PLO-6, PLO-7, PLO-9, and PLO-10 over 4-6 hours plus 20-minute defense.
 
-### Exam packet
+### Candidate Packet
 
-Students must:
+Provide a variant of the reference harness containing:
 
-1. verify the environment baseline
-2. install or validate an OpenClaw installation
-3. configure one approved provider
-4. demonstrate the diagnostic ladder
-5. explain one remote access choice
-6. complete one secure baseline note
+- one provider-contract defect
+- one loop termination or budget defect
+- one schema/tool error defect
+- one approval or policy defect
+- one incomplete event/evaluation condition
+- one changed feature request, such as cancellation, context builder, one-time approval, or persistent-store interface
 
-### Required deliverables
+### Required Work
 
-- terminal transcript or screen recording excerpt
-- working configuration evidence
-- one-page troubleshooting note
-- one-page security note
+1. Run the baseline and record observed state.
+2. Trace the supplied architecture and rank defects by impact.
+3. Add failing regression tests before repairs.
+4. Repair defects without coupling core logic to a vendor.
+5. Implement the changed feature with tests and events.
+6. Run the complete suite and inspect final state.
+7. Produce a concise design/failure note and disclose assistance.
 
-### Fail conditions
+### Required Evidence
 
-- cannot explain the trust model
-- cannot run or interpret `doctor`
-- exposes the gateway unsafely
-- configures a provider without documenting current defaults or release assumptions
+- prediction and diagnostic log
+- scoped diff and tests
+- stop/tool/policy/event evidence
+- final regression result
+- limitations and residual risk
+- oral trace of one withheld path
 
-## Semester 2 Practical Exam
+### Critical Failures
 
-### Goal
+- unbounded loop or silent failure path
+- invalid tool input reaches a side-effect handler
+- approval is not bound to the tested action
+- tests are weakened to make implementation pass
+- learner cannot explain the repaired control path
+- fabricated or copied evidence
 
-Validate that the learner can reason about production and detached authority, not only baseline use.
+### Transfer
 
-### Recommended duration
+Within 3-14 days, require one new provider, tool, policy, or state condition without procedural help.
 
-- 150 to 210 minutes
+## Semester 2 Midterm: Attack, Evaluate, and Recover
 
-### Exam packet
+### Goal and Duration
 
-Students must:
+Assess PLO-4 through PLO-8 over 4-6 hours plus 20-minute defense.
 
-1. review a multi-agent or production scenario
-2. write an isolation or ingress design
-3. run or interpret a security audit workflow, including `--deep` when feasible and the limits of `--fix`
-4. document one automation or detached-work authority review and map at least one current official advisory to the scenario
-5. identify one plugin or supply-chain risk
-6. defend the design orally
+### Candidate Packet
 
-### Required deliverables
+Provide a deployed or locally networked harness with:
 
-- architecture note
-- audit findings and remediation note
-- detached-work or webhook risk note
-- oral defense summary sheet
+- one durable duplicate/partial-side-effect failure
+- one prompt-injection or confused-deputy path
+- one observability gap
+- one misleading output-only grader
+- one current MCP or A2A integration boundary
 
-### Fail conditions
+### Required Work
 
-- no explanation of webhook, hook, or detached authority risk
-- misuse of multi-agent language without workspace separation
-- treats `security audit --fix` as sufficient remediation for exposure, auth, or token-rotation problems
-- proposes trusted-proxy auth with a same-host loopback proxy or without a proxy-only path
-- overstating formal verification
+1. Declare authorization and containment.
+2. Reproduce the durability failure and reconstruct the event timeline.
+3. Execute the bounded exploit and capture blast radius.
+4. Repair controls and recovery behavior.
+5. Replace or complement the weak grader with trace/end-state evidence.
+6. Rerun repeated trials and issue a release verdict against predeclared thresholds.
 
-## Practical exam administration notes
+### Critical Failures
 
-- allow official docs and the curriculum repo unless the institution wants a closed-book variant
-- do not allow blind copy-paste from prior solutions
-- grade explanation quality as heavily as task completion
-- require students to annotate where current release notes affected their choices
+- attack crosses the authorized boundary
+- duplicate or irreversible effect is hidden
+- mitigation blocks only the exact prompt string without addressing authority
+- release verdict ignores critical failures
+- product/protocol claim lacks current evidence
 
-## Distinction criteria
+## Semester 2 Final: Production Capstone Board
 
-Award top marks only when the learner:
+### Goal and Duration
 
-- works methodically
-- documents assumptions
-- rejects unsafe shortcuts explicitly
-- demonstrates release-aware judgment
-- explains tradeoffs rather than reciting commands
+Assess integrated PLO-1 through PLO-10. Run a 30-45 minute board per team plus individual changed tasks.
+
+### Pre-Board Release Packet
+
+- requirements and deterministic baseline
+- architecture, data, trust, and failure diagrams
+- source/version ledger
+- working system and reproducible tests
+- evaluation corpus and repeated-trial report
+- threat model, exploit, mitigation, and retest
+- SLO, latency/cost, deployment, incident, and rollback evidence
+- privacy, accessibility, governance, and residual-risk record
+- portability comparison
+- contribution and assistance record
+
+### Live Board
+
+1. Select a random task from the corpus and observe execution.
+2. Inject one withheld provider/tool/state/policy failure.
+3. Ask the team to diagnose from evidence before editing.
+4. Challenge one security and one evaluation claim.
+5. Require rollback or recovery demonstration.
+6. Assign each learner an individual control-flow trace.
+
+### Final Transfer
+
+After the board, give a new provider, framework, protocol version, tenancy rule, or tool authority constraint. The learner adapts one capability while preserving behavioral tests and explains semantic gaps.
+
+### Distinction Standard
+
+Distinction requires not more features but stronger evidence: simple justified architecture, effective failure recovery, valid evaluation, accurate assurance limits, clean portability boundaries, and independent judgment under challenge.

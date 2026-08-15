@@ -1,407 +1,253 @@
 # Core Lab Guides
 
-## How to use these guides
+## Common Rules
 
-Each lab includes:
+- Work in an isolated learning branch or disposable copy.
+- Record OS, Python, Git commit, command, exit status, and assistance used.
+- Predict expected behavior before execution.
+- Preserve tests, selected event/trace evidence, and final state; redact secrets and unnecessary personal data.
+- Use `reference-harness/` as the baseline unless the instructor supplies an equivalent fixture.
+- Never perform harmful side effects outside the authorized lab boundary.
+- Complete the transfer variation without step-by-step agent guidance.
 
-- objective
-- recommended duration
-- default environment lane
-- prerequisites
-- procedure
-- required evidence
-- common failure modes
-- grading hooks
+Baseline command from `reference-harness/`:
 
-## LAB-A1: WSL2 or Linux verification
+```powershell
+$env:PYTHONPATH = "src"
+python -m unittest discover -s tests -v
+```
 
-### Objective
+Use the shell-equivalent `PYTHONPATH=src python -m unittest discover -s tests -v` on Linux/WSL.
 
-Verify that the learner has a usable shell, package manager, filesystem, editor workflow, and browser path for the rest of the course.
-
-### Duration
-
-- 45 to 60 minutes
-
-### Default lane
-
-- low-cost student path
-- standard university lab path
-
-### Prerequisites
-
-- machine access
-- instructor-approved installation instructions
-
-### Procedure
-
-1. Open the terminal and confirm the active environment.
-2. Print the current working directory and home directory.
-3. Verify the shell can create, edit, move, and delete a test file.
-4. Verify package manager access.
-5. Verify browser launch path and copy/paste from terminal to browser.
-6. Record environment details in a setup worksheet.
-
-### Required evidence
-
-- screenshot or transcript showing shell, home path, and package manager
-- one short note explaining host path vs Linux path distinction
-
-### Common failure modes
-
-- WSL2 not actually enabled
-- student running commands in PowerShell while following Linux directions
-- file path confusion across Windows and Linux mounts
-
-### Grading hooks
-
-- pass only if the student can explain which shell they used and why
-- deduct if the evidence does not distinguish Windows from WSL2 paths
-
-## LAB-A2: Git discipline drill
+## LAB-A1: Reproducible Python and Git Environment
 
 ### Objective
 
-Teach safe repo movement: branch, edit, diff, commit, inspect, and recover.
+Prove that the learner can reproduce, test, change, and inspect the reference project safely.
 
-### Duration
+### Prerequisites and Time
 
-- 60 to 75 minutes
+Bridge B0-B3; 60-90 minutes.
 
 ### Procedure
 
-1. Clone or receive a practice repository.
-2. Create a feature branch.
-3. Make a small change to a markdown file.
-4. Review `git status` and `git diff`.
-5. Commit the change with a meaningful message.
-6. Reset the branch back to a clean working tree without deleting history.
+1. Record Python and Git versions and active working directory.
+2. Run the baseline suite and capture all eight test outcomes.
+3. Create a learning branch.
+4. Add one harmless assertion to an existing test, make it fail intentionally, then correct it.
+5. Inspect status and diff; explain every changed line.
+6. Reproduce from a clean clone or fresh disposable copy without relying on an unrecorded global dependency.
 
-### Required evidence
+### Required Evidence
 
-- branch name
-- short commit hash
-- screenshot or transcript of `git diff`
+- environment record and exact commands
+- failing and passing test output
+- scoped diff and commit identifier
+- clean reproduction result
+- explanation of what the test does and does not prove
 
-### Common failure modes
+### Pass Gate and Transfer
 
-- editing on `main`
-- committing unrelated files
-- not understanding staged vs unstaged state
+Pass when another person can reproduce the result and the learner explains the diff unaided. Transfer: repeat after changing shell, path, or Python minor version and diagnose any difference.
 
-### Grading hooks
-
-- require clean working tree at submission
-- require a short explanation of staged vs unstaged state
-
-## LAB-A3: Node.js and JSON config drill
+## LAB-A2: API, Process, and Failure Tracing
 
 ### Objective
 
-Build confidence reading structured configuration and verifying runtime requirements.
-
-### Duration
-
-- 60 minutes
+Trace request, provider, tool, event, and state boundaries and classify a failure correctly.
 
 ### Procedure
 
-1. Verify Node.js version.
-2. Record the current OpenClaw-supported version range from official docs.
-3. Check the current OpenClaw release notes and installed package channel.
-4. Inspect a sample JSON or JSON-like config.
-5. Identify required fields, optional fields, and one likely validation risk.
-6. Make a valid edit and explain its effect.
+1. Draw the call path from `Harness.run()` through provider completion and optional tool execution.
+2. Run `test_valid_tool_call_is_recorded_and_returned_to_provider` and map each event/message to source code.
+3. Seed one provider exception and one malformed tool response in a disposable test.
+4. Predict stop reason and state before running.
+5. Verify the event timeline and explain whether the defect is provider, contract, tool, policy, or state related.
 
-### Required evidence
+### Required Evidence
 
-- terminal output showing Node version
-- release-aware note comparing current release notes with installed package version
-- a before/after config snippet
-- one paragraph explaining the edit
+- annotated control/data-flow diagram
+- prediction versus observation table
+- event timeline and root-cause classification
+- repair or containment test
 
-### Common failure modes
+### Pass Gate and Transfer
 
-- quoting mistakes
-- trailing commas in strict JSON contexts
-- editing values without knowing field meaning
+Pass when the learner identifies the correct layer and rejects at least one plausible but wrong diagnosis. Transfer: diagnose a failure where the final text looks valid but the event/end state is wrong.
 
-### Grading hooks
-
-- no credit if the student cannot explain what changed semantically
-
-## LAB-A4: Docker and localhost basics
+## LAB-A3: Test-Driven Defect Repair
 
 ### Objective
 
-Teach container thinking well enough for sandboxing and networking labs later.
-
-### Duration
-
-- 75 minutes
+Repair a defect with a regression test that discriminates cause from symptom.
 
 ### Procedure
 
-1. Verify Docker availability.
-2. Run a simple container.
-3. Inspect running containers and ports.
-4. Compare localhost inside host vs container.
-5. Explain how Docker supports OpenClaw sandboxing.
+1. Instructor selects one bounded mutation: remove boolean rejection for numeric schemas, weaken approval binding, change a budget comparison, or omit a lifecycle event.
+2. Learner reproduces the behavior without editing first.
+3. Add the smallest failing test that captures the violated invariant.
+4. Repair the implementation and run the full suite.
+5. Explain why a superficial alternative fix would still fail.
 
-### Required evidence
+### Required Evidence
 
-- one container run log
-- one paragraph explaining host vs container boundary
+- defect reproduction
+- red/green test evidence
+- root cause and rejected alternatives
+- full regression result
 
-### Common failure modes
+### Pass Gate and Transfer
 
-- Docker service not running
-- misunderstanding published port vs internal port
+Pass when the regression fails on the mutation and passes on the repair without weakening another gate. Transfer: handle a second mutation in a different layer.
 
-### Grading hooks
-
-- require explanation, not only command output
-
-## LAB-B1: OpenClaw install and onboard
+## LAB-A4: Baseline Threat Model
 
 ### Objective
 
-Produce a working local OpenClaw install with a successful onboarding flow.
-
-### Duration
-
-- 90 to 120 minutes
-
-### Default lane
-
-- standard university lab path
-
-### Prerequisites
-
-- LAB-A1 through LAB-A3
-- current official install instructions
+Construct a concrete threat model for the reference harness and connect threats to evidence.
 
 ### Procedure
 
-1. Confirm current supported install path, Node guidance, and version guidance from official docs.
-2. Check the latest GitHub release and the latest package version for the install channel actually used.
-3. Install OpenClaw using the official documented method.
-4. Run `openclaw onboard --install-daemon`.
-5. Configure one provider or approved classroom auth path.
-6. Verify the gateway launches and responds.
-7. Record version, environment, provider, package channel, and any deviations from default instructions.
+1. Identify assets, actors, entry points, trust boundaries, side effects, and sensitive records.
+2. Model at least: malicious user input, compromised provider output, malformed tool arguments, stale approval, malicious tool, event leakage, and state tampering.
+3. Rank likelihood and impact under declared assumptions.
+4. Map preventive, detective, and recovery controls.
+5. Demonstrate one safe exploit in a disposable test and propose a mitigation/retest.
 
-### Required evidence
+### Required Evidence
 
-- version output
-- GitHub release and installed package version note
-- onboarding completion evidence
-- one page install runbook
+- data/trust diagram
+- abuse-case table with preconditions and blast radius
+- exploit trace
+- mitigation test and residual risks
 
-### Common failure modes
+### Pass Gate and Transfer
 
-- stale install instructions
-- GitHub release and npm package version mismatch not documented
-- provider auth pasted into the wrong environment
-- students skipping version checks
+Pass when threats are tied to actual authority and data flow rather than generic labels. Transfer: revise for a network provider or persistent database.
 
-### Grading hooks
-
-- require explicit version/date notation
-- require one troubleshooting note even if install succeeded
-
-## LAB-B2: Control UI and diagnostics ladder
+## LAB-B1: Deterministic Provider Adapter
 
 ### Objective
 
-Normalize disciplined troubleshooting using the documented command ladder.
-
-### Duration
-
-- 90 minutes
+Implement a provider contract and deterministic test double without coupling the harness to one vendor.
 
 ### Procedure
 
-1. Open the Control UI and identify the main operational panels.
-2. Run `openclaw status`.
-3. Run `openclaw doctor`.
-4. Run `openclaw gateway probe`.
-5. Run `openclaw gateway status`.
-6. Run `openclaw channels status --probe`.
-7. Run `openclaw logs --follow`.
-8. Compare the output against one instructor-provided broken scenario.
+1. Trace `Provider`, `ModelTurn`, and `ScriptedProvider`.
+2. Add contract tests for final response, tool call, malformed turn, refusal representation, and provider exception.
+3. Implement a second deterministic provider that selects turns from input patterns or fixtures.
+4. Keep vendor-specific fields outside the stable runtime contract.
+5. State which live-provider behaviors the double cannot validate.
 
-### Required evidence
+### Evidence and Pass Gate
 
-- full diagnostic ladder transcript
-- a fault-isolation note that narrows one issue to one layer
+Preserve the adapter, contract tests, request capture, and limitation note. Pass when either deterministic provider can drive the same runtime tests. Transfer: design, but do not necessarily call, a current network-provider adapter from official API docs.
 
-### Common failure modes
-
-- students stopping after the first error
-- students not reading logs long enough to identify sequence
-
-### Grading hooks
-
-- highest marks require a clear isolation path, not just raw output
-
-## LAB-B3: Session and memory inspection
+## LAB-B2: Bounded Agent Loop
 
 ### Objective
 
-Teach what really persists between sessions.
-
-### Duration
-
-- 60 to 75 minutes
+Prove that all loop paths terminate or explicitly transfer control.
 
 ### Procedure
 
-1. Start from an existing OpenClaw workspace.
-2. Locate `MEMORY.md` and any daily note files.
-3. Trigger or inspect a small conversational change.
-4. Compare what is visible in workspace files with what students think the agent "remembers."
-5. Write a short note distinguishing persisted state from non-persisted state.
+1. Enumerate every `StopReason` and its trigger.
+2. Add tests for cancellation, provider error, tool budget, turn budget, and no progress.
+3. Create a script that alternates two useless calls and decide whether fingerprint-only detection is sufficient.
+4. Add one justified progress signal or document why the current policy intentionally remains simple.
+5. Confirm `run.finished` is emitted on every path.
 
-### Required evidence
+### Evidence and Pass Gate
 
-- memory/session observation sheet
-- one screenshot or snippet of workspace memory files
+Pass with a state-machine diagram, branch-complete test matrix, and no unbounded path. Transfer: add a wall-clock or cost budget without hiding nondeterminism in tests.
 
-### Common failure modes
-
-- assuming internal model state is visible nowhere
-- confusing session transcript with long-term memory
-
-### Grading hooks
-
-- require explicit use of the phrase "persisted to disk" or equivalent
-
-## LAB-B4: Provider and model selection
+## LAB-B3: Typed Tool Registry
 
 ### Objective
 
-Teach learners to choose a provider baseline with current release awareness.
-
-### Duration
-
-- 90 minutes
+Design model-usable and runtime-verifiable tool contracts.
 
 ### Procedure
 
-1. Read the latest release notes relevant to provider defaults.
-2. Compare the current GitHub release with the installed package or update channel.
-3. Identify the current default or recommended model path.
-4. Configure the provider.
-5. Explain why the selected model is acceptable for the use case.
-6. Record one fallback or alternative.
-7. Note one cost or rate-limit consideration.
+1. Add a read-only tool and a side-effecting tool with schemas and structured outputs.
+2. Test missing, extra, wrong-type, unknown, handler-error, and duplicate-registration cases.
+3. Improve one error so a model can repair its call without exposing sensitive internals.
+4. Identify limits of the teaching schema validator and define the boundary to a full JSON Schema implementation.
+5. Review descriptions for ambiguity and overlapping tools.
 
-### Required evidence
+### Evidence and Pass Gate
 
-- provider setup review
-- release-aware note with date and release reference
-- installed package or update-channel note when it differs from GitHub latest
+Pass when invalid input cannot reach the handler, side-effect metadata is accurate, and errors support repair. Transfer: redesign a poorly shaped real API as a bounded tool.
 
-### Common failure modes
-
-- using outdated defaults from old screenshots
-- selecting weak models for tool-heavy tasks without justification
-
-### Grading hooks
-
-- no full credit without release-aware documentation
-
-## LAB-B5: Sandbox and exec policy
+## LAB-B4: Context Assembly and Budget
 
 ### Objective
 
-Make tool authority tangible and governable.
-
-### Duration
-
-- 75 to 90 minutes
+Implement explicit context selection, provenance, and budget behavior.
 
 ### Procedure
 
-1. Identify which tools are sandboxed and which can reach the host.
-2. Review exec approval modes.
-3. Propose a policy for a student-safe environment.
-4. Document one dangerous misconfiguration and one mitigation.
+1. Replace direct `session.messages` forwarding with a `ContextBuilder` contract.
+2. Separate trusted system instructions from user/tool/retrieved data.
+3. Attach source identity, freshness, and trust label to selected context records.
+4. Enforce a deterministic test budget and declare truncation order.
+5. Run ablations: remove instructions, stale memory, recent tool result, and irrelevant long text.
 
-### Required evidence
+### Evidence and Pass Gate
 
-- safety policy note
-- one scenario table with safe, unsafe, and conditional actions
+Pass with selection tests, provenance evidence, truncation tests, and an ablation report. Transfer: adapt selection for a long-running session with one malicious retrieved record.
 
-### Common failure modes
-
-- overstating Docker as total security
-- assuming approvals can be skipped in teaching environments
-
-### Grading hooks
-
-- require explicit least-privilege language
-
-## LAB-B6: Channel onboarding
+## LAB-B5: Session, Event Log, Checkpoint, and Replay
 
 ### Objective
 
-Connect a communication surface without widening trust accidentally.
-
-### Duration
-
-- 90 minutes
+Make task state inspectable and recoverable without claiming impossible replay guarantees.
 
 ### Procedure
 
-1. Select the approved channel or webchat fallback.
-2. Pair or configure the channel.
-3. Document DM scope or mention policy.
-4. Test one allowed interaction and one blocked or disallowed interaction.
+1. Define session and attempt identity.
+2. Version event/checkpoint schemas and record artifact references instead of embedding large payloads.
+3. Simulate crash before tool start, during handler failure, and after tool completion but before next model turn.
+4. Reconstruct the timeline and choose retry, compensate, resume, or human review.
+5. Test a schema migration and a corrupted checkpoint.
 
-### Required evidence
+### Evidence and Pass Gate
 
-- working interaction proof
-- written channel policy
+Pass when recovery decisions prevent silent duplicate side effects and every state transition is auditable. Transfer: replace in-memory state with a transactional store interface and test process restart.
 
-### Common failure modes
-
-- unclear group mention rules
-- exposing a channel before writing the policy
-
-### Grading hooks
-
-- require both technical completion and policy clarity
-
-## LAB-B7: Remote access baseline
+## LAB-B6: Policy, Approval, and Execution Boundary
 
 ### Objective
 
-Teach safest-default remote access.
-
-### Duration
-
-- 90 to 120 minutes
+Bind authority to exact behavior and separate model choice from execution permission.
 
 ### Procedure
 
-1. Start from a loopback-only local gateway.
-2. Implement the approved remote access method such as SSH tunnel or Tailscale Serve.
-3. Confirm the access path works remotely.
-4. Record the trust assumptions.
-5. Reject one unsafe alternative in writing.
+1. Test tool allowlist and exact session/tool/argument approval behavior.
+2. Attempt argument substitution, stale-session reuse, approval-display mismatch, and unknown tool.
+3. Define side-effect risk classes and expiry/one-time-use requirements.
+4. Design an execution interface with working directory, environment, timeout, resource, filesystem, and network controls.
+5. State which controls the local teaching runtime does not implement.
 
-### Required evidence
+### Evidence and Pass Gate
 
-- remote access runbook
-- trust-boundary statement
+Pass when unauthorized side effects fail closed and approval evidence identifies the exact requested action. Transfer: add one-time approval consumption or a two-person approval class.
 
-### Common failure modes
+## LAB-B7: Observability and Evaluation Baseline
 
-- direct public exposure
-- incomplete explanation of identity flow
+### Objective
 
-### Grading hooks
+Connect runtime evidence to a repeatable decision about behavior.
 
-- require an explicit "why not public exposure" answer
+### Procedure
+
+1. Define trace/span or equivalent correlation across run, model turn, policy, and tool events.
+2. Redact or hash sensitive fields while preserving diagnostic value.
+3. Create at least five tasks covering success, repairable malformed call, denial, no progress, and provider failure.
+4. Run at least three trials per nondeterministic task or justify a deterministic fixture.
+5. Combine output, event/trace, and end-state graders.
+6. Define a regression threshold before inspecting final results.
+
+### Evidence and Pass Gate
+
+Pass with corpus, trial records, grader rationale, failure taxonomy, and threshold decision. Transfer: add latency/cost fields and explain measurement error.

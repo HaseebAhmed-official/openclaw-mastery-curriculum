@@ -1,599 +1,243 @@
-# OpenClaw Mastery Curriculum Project State
+# Agent Harness Systems Engineering Curriculum - Project State
 
-## Purpose of this file
+## Purpose
 
-This is the standalone source of truth for resuming the OpenClaw Mastery Curriculum project after chat history is cleared, compacted, or unavailable.
+This is the canonical long-form source of truth for continuing the curriculum after context reset, compaction, or agent handoff. Read it before changing scope or claiming progress. Use `.mentor/MENTOR_STATE.md` for the compact operational checkpoint.
 
-If a new Codex, Claude, or other LLM session starts from this file, it should understand the goal, repository state, quality bar, implementation history, current files, and next steps without needing the original conversation.
+## Vision
 
-## Current date captured
+Create a platform-agnostic, evidence-driven Agent Harness / Agent Systems Engineering curriculum that can be presented to universities, used by independent learners, and adapted by engineering organizations. A graduate must be able to reason about, build, test, secure, operate, and evolve systems in the class of OpenClaw, Hermes Agent, ChatGPT Work, xAI agent tooling, and future agent products.
 
-- Captured on: 2026-08-15
-- Timezone context: Asia/Karachi
-- Primary repo branch: `main`
-- Committed baseline before this state-file update: `50f6439` - `Harden Elite Mentor OS v0.2 proof`
-- To get the latest commit after future edits, run `git log -1 --oneline`
+This is not a vendor tutorial, a reading list, or a collection of generated documents. The final program must join:
 
-## Mandatory state-preservation protocol
+- computer science and software-engineering prerequisites
+- agent-loop and harness architecture from first principles
+- typed tools, context, memory, sessions, policy, and execution
+- durable workflows, multi-agent patterns, MCP, and A2A
+- security, safety, privacy, governance, and human approval
+- observability, evaluation, reliability, cost, and operations
+- implementation labs with executable evidence
+- calibrated assessments, oral defense, transfer, and capstones
+- current product case studies without making any product the curriculum spine
+- source provenance and a maintainable change-control system
 
-State continuity is the highest-priority operating rule for this project. The curriculum and plugin can be improved only if future Codex, Claude, or other LLM sessions can resume without guessing from chat history.
+The quality target is defensible university and enterprise adoption, not a literal claim of perfection. Maturity claims require observed evidence, not file count, static scores, or self-review.
 
-Use only the existing state surfaces unless a new file is clearly necessary:
+## Two-Product Boundary
 
-- `PROJECT_STATE.md` is the canonical long-form source of truth for project vision, decisions, progress, gaps, rules, and future-session startup.
-- `.mentor/MENTOR_STATE.md` is the compact operational source of truth for current mentor/product state, current roadmap, evidence, session log, and next actions.
-- `curriculum/maintenance/upstream-state.json` is the machine-readable OpenClaw release baseline.
-- `curriculum/maintenance/review-log.md` is the human-readable release/advisory review history.
+There are exactly two separately versioned products:
 
-Every meaningful work session must update state before stopping, compacting, committing a milestone, changing direction, or pushing. A meaningful update is any change to curriculum scope, release baseline, plugin architecture, validation outcome, user goal, unresolved blocker, or next action. Tiny typo fixes do not require state updates.
+1. **Agent Harness Systems Engineering Curriculum**: this repository. It owns the academic program, labs, assessments, reference harness, case studies, sources, and course maintenance.
+2. **Elite Mentor OS**: a subject-agnostic Claude Code and Codex mentor plugin in sibling repository `../elite-mentor-os`. It owns generic diagnosis, mentoring, roadmap, review, learning-state, and validation behavior.
 
-Future agents must follow this sequence:
+Rules:
 
-1. Read `PROJECT_STATE.md`.
-2. Read `.mentor/MENTOR_STATE.md`.
-3. Run `git status -sb`.
-4. Check `curriculum/maintenance/upstream-state.json`.
-5. If OpenClaw release-sensitive work is requested, verify current upstream release before editing.
-6. Edit only targeted files that reduce real gaps.
-7. Run validation appropriate to the changed files.
-8. Update `PROJECT_STATE.md` and `.mentor/MENTOR_STATE.md` with concise facts, not chat transcripts.
-9. Commit and push only when the staged scope is understood.
+- The curriculum may integrate with Mentor OS, but must remain teachable without it.
+- Mentor OS must not own OpenClaw or any other subject-specific content.
+- Product releases, issue tracking, evidence, and roadmaps must remain separate.
+- The legacy embedded Mentor OS plugin and marketplace files were removed after the standalone repository was validated and published. The curriculum links to the separate product but does not own its runtime.
+- Do not create a third product or duplicate the complete curriculum across old and new trees.
 
-State entries should be compressed into decisions, evidence, blockers, and next actions. Do not paste long conversation summaries, release notes, or duplicate curriculum content into state files.
+## Current Repositories
 
-## Product separation and repository boundary
+Curriculum:
 
-There are two related but separate products:
-
-1. **OpenClaw Mastery Curriculum**: the domain-specific curriculum in this repository. It teaches OpenClaw from beginner to expert, with production, enterprise, security, extension, contributor, and teaching pathways.
-2. **Elite Mentor OS**: a subject-agnostic mentor-learning system intended to work for any subject, topic, repo, directory, or provided resource set.
-
-The current repository owns the OpenClaw curriculum. It currently includes `plugins/elite-mentor-os/` only as a v0.2 extraction-ready proof/integration case so the mentor system can be tested against a real curriculum and installed remotely during early validation.
-
-Future work must label changes explicitly:
-
-- `OpenClaw Curriculum update`: changes to OpenClaw teaching content, labs, assessment, release drift, screenshots, or curriculum validation.
-- `Elite Mentor OS update`: changes to the subject-agnostic mentor engine, plugin behavior, skills, agents, pedagogy, or product packaging.
-- `Integration/proof-pack update`: changes that connect Elite Mentor OS to the OpenClaw curriculum.
-
-Long-term target: split Elite Mentor OS into its own standalone repository after the proof case stabilizes. The OpenClaw curriculum should then consume it as a proof-pack/user, not own it as the final product.
-
-## Primary vision
-
-Build a world-class, all-in-one OpenClaw mastery curriculum that starts from absolute beginner level and progresses to expert, production, enterprise, security, extension, contributor, and teaching mastery.
-
-The goal is not a simple course, roadmap, tutorial, or reading list. The target is a complete, standalone curriculum system that can be used by:
-
-- millions of self-learners
-- universities
-- instructors
-- enterprise onboarding teams
-- AI operations teams
-- DevOps and platform teams
-- security and governance teams
-- plugin developers
-- open-source contributors
-
-The curriculum must be strong enough that a serious instructor or institution can teach from it without reconstructing the structure from scratch.
-
-## Expanded Elite Mentor OS vision
-
-The repository now also contains the first proof implementation of **Elite Mentor OS**: a local-first native plugin system for Claude Code and Codex that can turn any directory into a rigorous AI mentor workspace. This proof implementation is related to the OpenClaw curriculum but is not the same product.
-
-The expanded product vision is broader than OpenClaw:
-
-- adapt to any directory, subject, topic, repo, study folder, or provided resource set
-- help serious self-learners compete with elite university students and top-company developers
-- teach technical subjects plus communication, critical thinking, strategic thinking, problem solving, English proficiency, business, philosophy, and other academic domains
-- preserve context through project-local `.mentor/MENTOR_STATE.md`
-- produce roadmaps, lessons, deliberate practice, assessments, source validation, and portfolio evidence
-- remain local-first, consent-first, evidence-first, mastery-first, portfolio-first, and safety-first
-- work through native Claude Code and Codex plugin surfaces, not custom installers or package installers
-- use English by default, with Roman Urdu only when explicitly requested as clarification
-
-OpenClaw Mastery is the first proof case for Elite Mentor OS. The two should evolve with clear separation of concerns.
-
-## Product standard
-
-The curriculum should aim for:
-
-- standalone ready-to-teach quality
-- university-grade structure
-- enterprise-aware operations
-- production readiness
-- security realism
-- hands-on labs
-- theory and concept depth
-- capstone and assessment rigor
-- instructor usability
-- future maintainability under OpenClaw release changes
-- evidence-backed validation
-- adversarial review readiness
-
-The desired final quality is "world-class", meaning:
-
-- no vague claims without evidence
-- no shallow tutorial-only coverage
-- no security theater
-- no unsupported hostile multi-tenant claims
-- no frozen assumptions about moving OpenClaw defaults
-- no curriculum content that cannot be traced to official sources, verified inference, or clearly labeled secondary material
-
-## Repository locations
-
-Primary local repo:
-
-- `/mnt/c/Users/Administrator/Documents/Codex/2026-04-22-openclaw-search-deeply-on-internet-github/openclaw-mastery`
-
-User-facing Windows study copy:
-
-- `E:\Study\Openclaw mastery`
-- WSL path: `/mnt/e/Study/Openclaw mastery`
-
-GitHub repo:
-
-- `https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum`
-
-Old GitHub remote retained locally:
-
-- `https://github.com/mhaseebahmed/openclaw-mastery.git`
-
-## Current Git state
-
-At the time this file was written:
-
+- local: `C:\Users\Administrator\Documents\Codex\2026-04-22-openclaw-search-deeply-on-internet-github\openclaw-mastery`
 - branch: `main`
-- latest pushed commit before this state-file update: `870e7dc`
-- latest actual commit should be checked with `git log -1 --oneline`
-- local repo was clean before the Elite Mentor OS v0.2 hardening began
-- Elite Mentor OS v0.2 hardening is preserved separately in commit `50f6439`
-- current working tree contains only the uncommitted August OpenClaw drift repair and shared continuity updates
-- current remote `origin`: `https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum.git`
-- repo visibility: public
-- license: MIT
+- remote: `https://github.com/HaseebAhmed-official/openclaw-mastery-curriculum.git`
+- latest verified pushed commits on 2026-08-15: `94aa38d` and `50f6439`
 
-Recent important commits:
+Mentor OS extraction:
 
-- `50f6439` - Harden Elite Mentor OS v0.2 proof
-- `870e7dc` - Update OpenClaw release baseline and state boundaries
-- `6d243d5` - Add Elite Mentor OS native plugin
-- `366d3e0` - Add WSL screenshot capture curriculum assets
-- `f791682` - Add classroom delivery and calibration assets
-- `a3e120e` - Deepen Semester 2 security teaching guidance
-- `5ed2e55` - Integrate current OpenClaw advisory guidance
-- `814fee7` - Add model artifacts and maintenance automation
-- `d331fae` - Add submission templates and grading assets
-- `3526f4a` - Add ready-to-teach curriculum delivery assets
-- `bd8071e` - Polish repository for public release
+- local: `C:\Users\Administrator\Documents\Codex\2026-04-22-openclaw-search-deeply-on-internet-github\elite-mentor-os`
+- target remote: `https://github.com/HaseebAhmed-official/elite-mentor-os`
+- current version: `0.3.0` standalone alpha
+- current status: v0.3 static/native distribution milestone published at commit `8b637c3`; Codex and Claude remote installation were verified, but behavioral and learner-outcome testing remains. User froze Mentor OS work on 2026-08-15; do not continue it until explicitly resumed.
 
-## Current implementation status
+User study environment:
 
-Estimated status:
-
-- Standalone ready-to-teach curriculum: approximately 85-90%
-- True world-class, institution-proof polished product: approximately 70-75%
-- Elite Mentor OS native plugin v0.2 extraction-ready proof: approximately 92-94% for local proof scope after this hardening
-- Elite Mentor OS production/sellable institutional product: early proof stage, approximately 40-50%
-
-The core architecture is implemented. The remaining work is mainly validation, depth expansion, real-world calibration, and final polish.
-
-For the plugin layer, the implementation has been hardened toward a lean comfort-first surface: consolidated core, five public skills, three Claude agents, one product README, one OpenClaw proof-pack, one validation file, and one mentor state file. Remaining work is mainly real plugin-load testing in Claude Code and Codex, non-OpenClaw directory trials, external adversarial review, packaging polish, and user-tested learning sessions.
-
-The completion path is now explicit in `.mentor/MENTOR_STATE.md` and `plugins/elite-mentor-os/core/MENTOR_OS.md`: P0 lean plugin foundation, P1 live plugin proof, P2 learning proof, P3 validation proof, P4 institution proof, P5 enterprise proof, and P6 product proof. Do not claim 99% confidence until those exit gates are satisfied with evidence.
-
-## Implemented major components
-
-### Elite Mentor OS native plugin
-
-Plugin package:
-
-- `plugins/elite-mentor-os/README.md`
-- `plugins/elite-mentor-os/core/MENTOR_OS.md`
-- `plugins/elite-mentor-os/.claude-plugin/plugin.json`
-- `plugins/elite-mentor-os/.codex-plugin/plugin.json`
-- `.claude-plugin/marketplace.json`
-- `.agents/plugins/marketplace.json`
-
-Shared core:
-
-- `plugins/elite-mentor-os/core/MENTOR_OS.md`
-
-Native skills:
-
-- `plugins/elite-mentor-os/skills/diagnose/SKILL.md`
-- `plugins/elite-mentor-os/skills/mentor/SKILL.md`
-- `plugins/elite-mentor-os/skills/roadmap/SKILL.md`
-- `plugins/elite-mentor-os/skills/review/SKILL.md`
-- `plugins/elite-mentor-os/skills/openclaw-master/SKILL.md`
-
-Practice, research, state, and portfolio behavior are folded into the five public skills to reduce clutter.
-
-Claude-only agents:
-
-- `plugins/elite-mentor-os/agents/mentor-professor.md`
-- `plugins/elite-mentor-os/agents/research-auditor.md`
-- `plugins/elite-mentor-os/agents/assessment-board.md`
-
-State and proof-pack:
-
-- `.mentor/MENTOR_STATE.md`
-- `plugins/elite-mentor-os/proof-packs/openclaw/OPENCLAW_PROOF_PACK.md`
-- `plugins/elite-mentor-os/validation/VALIDATION.md`
-
-Local validation completed on 2026-05-04 for v0.1:
-
-- all plugin and marketplace JSON files parse with `python3 -m json.tool`
-- `claude plugin validate .` passed for the marketplace before final tiny cleanup
-- `claude plugin validate plugins/elite-mentor-os` passed for the Claude plugin manifest before final tiny cleanup
-- all skill and agent files have frontmatter and descriptions
-- key manifest-referenced paths exist
-- `git diff --check` reported no whitespace errors
-- plugin-eval improved from 46/100 Grade F to 91/100 Grade B after the main lean hardening pass
-- final plugin-eval and Claude validator reruns after the last tiny cleanup were blocked by WSL/Windows interop socket errors, not by plugin file errors
-
-Elite Mentor OS v0.2 hardening on 2026-05-05:
-
-- added one product README instead of multiple docs/templates
-- updated native plugin version metadata to `0.2.0`
-- made the subject-agnostic/OpenClaw proof-pack boundary explicit in README, core, proof-pack, validation, and state
-- added directory adaptation, state-update protocol, any-directory prompts, and v1.0 gates
-- kept the five public skills and avoided adding public skill clutter
-
-### Core curriculum
-
-- `README.md`
-- `curriculum/program-overview.md`
-- `curriculum/prerequisite-bridge.md`
-- `curriculum/competency-framework.md`
-- `curriculum/assessment-map.md`
-- `curriculum/governance-and-security-strand.md`
-- `curriculum/automation-and-detached-work.md`
-- `curriculum/update-and-release-discipline.md`
-- `curriculum/instructor-handbook.md`
-- `curriculum/course-syllabus-template.md`
-
-### Semester structure
-
-- `curriculum/semester-1/index.md`
-- `curriculum/semester-1/teaching-guide.md`
-- `curriculum/semester-2/index.md`
-- `curriculum/semester-2/teaching-guide.md`
-
-Semester 1 focuses on:
-
-- environment readiness
-- Git and repo hygiene
-- Node.js, JSON, TypeScript literacy
-- Docker and networking basics
-- LLM agent fundamentals
-- OpenClaw architecture and trust model
-- installation and onboarding
-- Control UI, diagnostics, status, doctor
-- sessions, workspace, memory
-- providers and release-aware defaults
-- tools, sandboxing, approvals
-- channels and pairing
-- nodes and multimodal surfaces
-- remote access
-- troubleshooting and secure baseline
-- practical exam and mini-project
-
-Semester 2 focuses on:
-
-- production framing
-- multi-agent routing and identity files
-- configuration architecture
-- security audit, advisories, webhook ingress, and hardening
-- exec approvals and host authority
-- remote access and trusted proxy patterns
-- shared inboxes and DM scope
-- plugins, bundles, ClawHub, supply chain
-- skills and six-layer precedence
-- automation, hooks, heartbeat, standing orders
-- sub-agents, ACP agents, task auditability
-- memory strategy and Dreaming
-- threat modeling and formal verification limits
-- contributor and ecosystem literacy
-- track capstone sprint
-- final defense
-
-### Tracks
-
-- `curriculum/tracks/index.md`
-- `curriculum/tracks/operator.md`
-- `curriculum/tracks/production-devops.md`
-- `curriculum/tracks/security-hardening.md`
-- `curriculum/tracks/plugin-developer.md`
-- `curriculum/tracks/contributor-core.md`
-- `curriculum/tracks/local-models.md`
-
-Tracks are:
-
-- Operator / Power User
-- Production / DevOps
-- Security / Hardening
-- Plugin Developer
-- Contributor / Core Developer
-- Local Models Specialization
-
-### Labs and manuals
-
-- `curriculum/labs/index.md`
-- `curriculum/labs/lab-authoring-standard.md`
-- `curriculum/labs/lab-catalog.md`
-- `curriculum/labs/core-lab-guides.md`
-- `curriculum/labs/advanced-lab-guides.md`
-- `curriculum/labs/specialization-lab-guides.md`
-- `curriculum/labs/environment-lanes.md`
-
-Classroom manuals:
-
-- `curriculum/lab-manuals/index.md`
-- `curriculum/lab-manuals/core-classroom-manuals.md`
-- `curriculum/lab-manuals/advanced-classroom-manuals.md`
-- `curriculum/lab-manuals/specialization-classroom-manuals.md`
-- `curriculum/lab-manuals/screenshot-capture-standard.md`
-- `curriculum/lab-manuals/reference-screenshot-manifest.md`
-- `curriculum/lab-manuals/wsl-ubuntu-capture-workflow.md`
-- `curriculum/lab-manuals/assets/README.md`
-
-Screenshot asset directories:
-
-- `curriculum/lab-manuals/assets/core/`
-- `curriculum/lab-manuals/assets/advanced/`
-- `curriculum/lab-manuals/assets/specialization/`
-
-Important note:
-
-- The screenshot system is now structured, but real screenshots are not yet populated.
-- The user clarified that their real OpenClaw learning environment is WSL Ubuntu with OpenClaw installed.
-- Do not spend future effort trying to install or run OpenClaw from the Windows-side Codex shell unless the user explicitly asks.
-
-### Assessment assets
-
-- `curriculum/assessment/index.md`
-- `curriculum/assessment/question-bank.md`
-- `curriculum/assessment/practical-exams.md`
-- `curriculum/assessment/oral-defense-bank.md`
-- `curriculum/assessment/assessor-calibration-guide.md`
-- `curriculum/assessment/grading-packet-templates.md`
-- `curriculum/assessment/answer-key-guidance.md`
-- `curriculum/assessment/feedback-bank.md`
-- `curriculum/assessment/track-evaluation-sheets.md`
-
-### Rubrics
-
-- `curriculum/rubrics/index.md`
-- `curriculum/rubrics/master-rubric.md`
-- `curriculum/rubrics/track-rubrics.md`
-
-### Submission templates
-
-- `curriculum/templates/index.md`
-- `curriculum/templates/lab-submission-template.md`
-- `curriculum/templates/runbook-template.md`
-- `curriculum/templates/design-review-template.md`
-- `curriculum/templates/threat-model-template.md`
-- `curriculum/templates/capstone-submission-template.md`
-- `curriculum/templates/release-aware-note-template.md`
-
-### Model artifacts and model answer packs
-
-Student/instructor examples:
-
-- `curriculum/examples/index.md`
-- `curriculum/examples/model-lab-submission.md`
-- `curriculum/examples/model-design-review.md`
-- `curriculum/examples/model-capstone-summary.md`
-- `curriculum/examples/instructor-model-feedback.md`
-- `curriculum/examples/weak-submission-red-flags.md`
-
-Track-specific instructor calibration packs:
-
-- `curriculum/model-answers/index.md`
-- `curriculum/model-answers/operator-answer-pack.md`
-- `curriculum/model-answers/production-devops-answer-pack.md`
-- `curriculum/model-answers/security-hardening-answer-pack.md`
-- `curriculum/model-answers/plugin-developer-answer-pack.md`
-- `curriculum/model-answers/contributor-core-answer-pack.md`
-- `curriculum/model-answers/local-models-answer-pack.md`
-
-### Slide outlines
-
-- `curriculum/slides/index.md`
-- `curriculum/slides/semester-1-weekly-outlines.md`
-- `curriculum/slides/semester-2-weekly-outlines.md`
-- `curriculum/slides/track-workshop-outlines.md`
-
-### Sources, validation, and maintenance
-
-- `curriculum/sources/official-reading-map.md`
-- `curriculum/sources/validation-register.md`
-- `Validations/README.md`
-- `Validations/codex-review/openclaw-curriculum-pack-validation-review-2026-04-22.md`
-- `Validations/Claude-code-review/openclaw-mastery-curriculum-full-validation-review-2026-04-22.md`
-
-Maintenance:
-
-- `curriculum/maintenance/index.md`
-- `curriculum/maintenance/continuous-improvement-system.md`
-- `curriculum/maintenance/upstream-review-playbook.md`
-- `curriculum/maintenance/change-control-checklist.md`
-- `curriculum/maintenance/review-log.md`
-- `curriculum/maintenance/upstream-state.json`
-- `scripts/check_openclaw_release_drift.py`
-- `.github/workflows/openclaw-upstream-drift-check.yml`
-
-## Validation history
-
-Two external-style reviews were added previously:
-
-- Codex review in `Validations/codex-review/`
-- Claude review in `Validations/Claude-code-review/`
-
-Those reviews found important gaps, many of which were later addressed:
-
-- automation and detached work
-- tasks, task flow, standing orders, hooks, heartbeat
-- sub-agents and ACP agents
-- Dreaming and `DREAMS.md`
-- `SOUL.md`, `USER.md`, workspace `AGENTS.md`
-- six-layer skill precedence
-- webhook security
-- detached-task auditability
-- update and release discipline
-- contributor workflow details
-- formal verification maturity labeling
-- advisory-aware security teaching
-
-The reviews should remain preserved as historical validation artifacts, but future reviewers must independently verify them.
-
-## Current source baseline and advisory state
-
-As of the latest maintenance work:
-
-- OpenClaw tracked repo: `openclaw/openclaw`
-- Reviewed stable GitHub/npm baseline: `v2026.7.1-2` / `openclaw@2026.7.1-2`
-- Reviewed extended-stable npm baseline: `openclaw@2026.6.34`
-- Observed beta npm tag: `openclaw@2026.8.1-beta.1`, not a teaching baseline
-- Last reviewed date in state file: `2026-08-13`
-- Latest reviewed advisory publication date: `2026-06-30`
-- Full post-cutoff advisory scope: 112 official advisories published after 2026-04-24
-
-Representative advisory families integrated into teaching:
-
-- approval display and exact command/environment binding: `GHSA-xww8-gqvh-92x9`, `GHSA-3fp5-v549-9v66`, `GHSA-8f46-3xx3-8c9m`
-- plugin payload provenance and owner-only persistence: `GHSA-v6r2-jh58-xx6w`, `GHSA-7vrr-rp4x-4g76`
-- MCP and requester authority: `GHSA-52xj-c9p8-78cv`, `GHSA-jhfx-v2j8-x3m6`
-- sandbox, SSRF, and browser containment: `GHSA-mgvr-6gvw-3rgr`, `GHSA-575v-8hfq-m3mc`, `GHSA-x863-pqjw-hmgf`
-- credential and detached-authority inheritance: `GHSA-4pqj-3c56-5fqq`, `GHSA-mm9g-83wh-mhwj`
-
-Future validation must re-check current releases, docs, npm dist-tags, and advisories because the project moves quickly.
-
-Latest release-drift repair integrated on 2026-08-13:
-
-- current Node runtime floor plus an explicit official-doc inconsistency: Install/Getting Started recommend Node 26 while Security still says Node 24
-- stable, package-only extended-stable, beta, and dev channel semantics
-- redesigned Control UI/task visibility, durable sessions and goals, and scheduled-work recovery
-- scoped `openclaw attach` grants plus Codex/connected coding-agent task evidence
-- guarded workspace terminals as administrative capability surfaces
-- correction-release plugin updates and channel-aware plugin convergence
-- advisory-family teaching for authorization, approvals, plugins, sandbox/SSRF, credentials, channel identity, and detached authority
-- exact-version evidence and current official sources retained as the claim boundary
-
-## Key design decisions
-
-- The curriculum is university-first but enterprise-usable.
-- The program is English-only.
-- Elite Mentor OS uses English by default and Roman Urdu only on explicit request.
-- Elite Mentor OS is native-plugin-first for Claude Code and Codex.
-- Elite Mentor OS must not use a custom command installer or package installer.
-- Elite Mentor OS uses shared core files plus native adapters to avoid Claude/Codex behavior drift.
-- `.mentor/MENTOR_STATE.md` is the project-local source of truth for AI-mentor continuity.
-- Elite Mentor OS is guided-action by default: it proposes writes and asks before changing state, curriculum, portfolio, or repo files.
-- High-stakes domains are learning-only unless qualified professional context is supplied.
-- The main shape is a two-semester core plus specialization tracks.
-- The canonical learning lane is WSL Ubuntu / Linux plus browser-based Control UI.
-- Stable OpenClaw behavior is the baseline.
-- Preview, internal-preview, source-build, beta, or dev behavior must be labeled.
-- Local models are an advanced specialization, not the core baseline.
-- Security and governance are mandatory across the main path.
-- Detached authority is first-class: cron, tasks, task flow, hooks, standing orders, heartbeat, sub-agents, ACP agents.
-- The trust model must not be misrepresented as hostile multi-tenant isolation.
-- Release and advisory drift must be explicitly handled.
-- Real screenshots should be captured from the user's WSL Ubuntu lane, not invented or forced from the Windows-side Codex shell.
-
-## Current known gaps
-
-The curriculum is strong, but not final-perfect. Remaining likely gaps:
-
-- Elite Mentor OS has not yet been plugin-load tested inside Claude Code or Codex after implementation
-- Elite Mentor OS needs fresh adversarial review after this native plugin layer
-- Elite Mentor OS is an early proof system, not yet a packaged commercial product
-- real captured screenshots are not yet committed
-- slide outlines are not full slide decks
-- no rendered docs site or GitHub Pages layer yet
-- labs are strong manuals but not all are fully command-by-command runnable scripts
-- certification tiers are implied but could be formalized more
-- external validation after the newest commits is still needed
-- August 2026 release/advisory drift repair needs command-level lab validation and fresh adversarial review after its separate commit
-- more top-quality community/blog/Reddit evidence can be reviewed and categorized, but official sources must stay primary
-
-## Current best next step
-
-First validate and commit the in-progress Elite Mentor OS v0.2 hardening and this OpenClaw Curriculum drift repair as separate scopes. Then run a fresh external validation round using:
-
-- `Validations/master-validation-prompt.md`
-- `plugins/elite-mentor-os/validation/VALIDATION.md`
-
-Recommended reviewers:
-
-- new Codex session
-- Claude session
-- optionally another strong model
-
-The reviewers should:
-
-- inspect the local repo and GitHub repo
-- browse current official OpenClaw docs, GitHub, releases, advisories
-- search high-quality external sources including serious blogs, community threads, Reddit, issue discussions, and expert posts
-- label source quality clearly
-- validate the whole curriculum from technical, pedagogical, security, enterprise, production, and maintenance perspectives
-- produce a ranked remediation plan
-
-After receiving new reviews:
-
-1. Save the review outputs under `Validations/`.
-2. Compare overlap across reviewers.
-3. Create a prioritized remediation backlog.
-4. Patch the curriculum.
-5. Patch the Elite Mentor OS plugin if needed.
-6. Update this `PROJECT_STATE.md` and `.mentor/MENTOR_STATE.md`.
-7. Commit and push.
-8. Sync the Windows study copy at `E:\Study\Openclaw mastery`.
-
-## Future session startup instructions
-
-If a future session starts after chat clear:
-
-1. Open this file first.
-2. Open `.mentor/MENTOR_STATE.md`.
-3. Run `git status --short` in the repo.
-4. Read `README.md`.
-5. Read `plugins/elite-mentor-os/core/MENTOR_OS.md`.
-6. Read `Validations/master-validation-prompt.md`.
-7. Check `curriculum/maintenance/upstream-state.json`.
-8. If the user asks for validation, use the prompt and source rules from `Validations/master-validation-prompt.md` plus `plugins/elite-mentor-os/validation/VALIDATION.md`.
-9. If the user asks for implementation, inspect relevant files before editing.
-10. After any meaningful update, update this file and `.mentor/MENTOR_STATE.md`, commit, push, and sync to `E:\Study\Openclaw mastery` if possible.
-
-## Strict working rules for future agents
-
-- Do not delete or rewrite the curriculum wholesale.
-- Do not treat old chat history as more authoritative than this file plus the repo.
-- Do not run OpenClaw installation experiments unless explicitly asked.
-- Do not invent screenshots.
-- Do not add unsupported claims just to make the curriculum look complete.
-- Do not over-trust secondary sources.
-- Do not ignore official advisories.
-- Do not represent OpenClaw as a hostile multi-tenant security boundary.
-- Do not mark the curriculum world-class without fresh validation.
-- Do not mark Elite Mentor OS production-ready or sellable without plugin-load testing, adversarial review, and real learner trials.
-- Always preserve source-quality labels: official, verified inference, secondary, weak, uncertain, incorrect.
-
-## Definition of done for final world-class target
-
-The curriculum can be considered near final when:
-
-- fresh Codex and Claude reviews both find no critical blockers
-- all high-severity findings are patched or explicitly accepted with rationale
-- official OpenClaw release/docs/advisory baseline is current
-- every major module has teachable objectives, readings, labs, failure modes, assessments, and security implications
-- every track has a defensible capstone, rubric, and model answer pack
-- classroom lab manuals have either real screenshots or a clearly documented capture path
-- maintenance automation and manual review workflow are working
-- the README and instructor handbook can onboard a new instructor without chat context
-- this `PROJECT_STATE.md` is current
-- Elite Mentor OS loads correctly in Claude Code and Codex
-- Elite Mentor OS passes its validation scenarios and adversarial plugin review
-- `.mentor/MENTOR_STATE.md` can restore context after clearing chat
+- Windows path: `E:\Study\Openclaw mastery`
+- WSL path: `/mnt/e/Study/Openclaw mastery`
+- OpenClaw is already installed in the user's WSL Ubuntu environment. Do not divert curriculum work into Windows-side installation checks unless explicitly requested.
+
+## Current Baseline
+
+The OpenClaw-specific curriculum baseline is clean, committed, and pushed. It contains 81 curriculum files plus validation, maintenance, and the legacy plugin snapshot. Fifty-five of the 81 curriculum files directly reference OpenClaw, including both semester spines, core labs, assessments, sources, and most specialization tracks.
+
+The existing package is strong as an OpenClaw-oriented document set, but it has not demonstrated institution-ready delivery through real cohorts or complete command-level lab evidence. It also does not yet meet the expanded platform-agnostic build-your-own-harness vision.
+
+### Honest Progress Snapshot
+
+| Scope | Evidence-based completion | Interpretation |
+| --- | ---: | --- |
+| Original OpenClaw document-set scope | about 82% | Broad structure, teaching guides, assessments, rubrics, maintenance, and release-aware content exist. |
+| Original OpenClaw institution-ready scope | about 55-60% | Live labs, cohort timing, assessor calibration, screenshots, learner outcomes, and independent revalidation are incomplete. |
+| Expanded platform-agnostic curriculum artifact implementation | about 55% | Canonical outcomes, prerequisites, competencies, semesters, labs, assessments, tracks, sources, case method, and tested minimal reference harness exist; remaining support assets and advanced implementation/evidence still need migration. |
+| Expanded curriculum institution/enterprise proof | about 25-30% | No real cohort, assessor-reliability, full lab-reproduction, accessibility, or independent adoption evidence yet. |
+| Standalone Mentor OS static/native distribution | about 75% | v0.3 static validation and isolated Claude/Codex remote install pass; behavioral and learning evidence remain, but work is paused. |
+| Standalone Mentor OS institution/enterprise proof | about 20-25% | No real learner study, multi-directory evidence set, governance audit, or independent adoption proof yet. |
+
+Percentages are planning estimates, not quality claims. The gate ledger below is authoritative.
+
+## Preserved Strengths
+
+- two-semester instructional structure
+- prerequisite bridge and competency framework
+- labs, classroom manuals, rubrics, practical exams, oral defenses, and feedback assets
+- production, security, operations, extension, and contributor tracks
+- release-aware maintenance and source-validation mechanisms
+- OpenClaw security/advisory baseline through the August 2026 review
+- historical Codex and Claude validation reports
+- lean dual-native Mentor OS design with explicit mastery and write-consent rules
+
+These assets should be migrated and improved, not discarded merely to make the repository look new.
+
+## Material Gaps
+
+### Curriculum Architecture
+
+- Mission, outcomes, semester sequence, tracks, and capstones are still centered on operating and extending OpenClaw.
+- Stable abstractions are not separated from framework adapters and product case studies.
+- There is no canonical build-from-scratch harness progression.
+- Cross-platform comparison and portability are not assessed.
+
+### Technical Depth
+
+- No executable reference harness currently proves model adapters, typed tools, context assembly, policy, sessions, event logs, durable execution, memory, protocols, observability, or evaluations.
+- MCP and A2A are not taught as independent interoperability contracts.
+- Durable workflow engines, checkpoint/replay semantics, idempotency, cancellation, and recovery need first-class treatment.
+- Evaluation does not yet include a maintained task corpus, repeated trials, graders, trace inspection, end-state checks, regression thresholds, cost, and latency.
+- Threat modeling needs platform-independent agentic attack labs and measurable mitigations.
+
+### Delivery Evidence
+
+- Many labs are authored guidance rather than executed, frozen proof bundles.
+- No real cohort timing or completion data exists.
+- No inter-rater reliability evidence exists for assessors.
+- No delayed, unaided, changed-task transfer study exists.
+- Accessibility, localization, and learning-analytics evidence are incomplete.
+- Presentation outlines are not a substitute for complete lecture delivery materials.
+
+### Validation
+
+- Historical reviews predate the expanded vision.
+- Independent reviewers have not evaluated the migrated curriculum.
+- Product claims have not passed legal/licensing, privacy, accessibility, or enterprise adoption review.
+- No pilot institution or enterprise has supplied adoption evidence.
+
+## Target Curriculum Architecture
+
+Teach four layers explicitly:
+
+1. **Stable foundations**: programming, operating systems, networking, distributed systems, databases, software engineering, security, statistics, LLM fundamentals, and human factors.
+2. **Harness contracts**: agent loop, model/provider adapter, context assembly, typed tools, policy/approval, execution environments, sessions/event log, memory, orchestration, observability, evaluation, and release governance.
+3. **Standards and adapters**: MCP, A2A, OpenTelemetry, durable execution engines, and selected framework adapters such as OpenAI Agents SDK, Google ADK, Microsoft Agent Framework, LangGraph, and PydanticAI.
+4. **Versioned case studies**: OpenClaw, Hermes Agent, ChatGPT Work, xAI agent tooling, and future systems. Product facts must be dated and sourced.
+
+Canonical implementation language: Python for the reference harness, with TypeScript literacy and at least one cross-language adapter exercise. Prefer standard-library-first foundations before framework convenience.
+
+## Proposed Program Spine
+
+### Prerequisite Bridge
+
+- command line, Git, Python, TypeScript/JSON literacy
+- testing, debugging, APIs, HTTP, authentication, databases
+- processes, containers, networking, concurrency, queues
+- probability/statistics, experimental design, basic ML/LLM concepts
+- threat modeling, least privilege, secrets, and secure development
+
+### Semester 1: Harness Foundations
+
+- define agents, workflows, harnesses, and trust boundaries
+- build a deterministic model-adapter test double
+- implement a bounded agent loop and stop conditions
+- implement schemas, typed tool registry, validation, errors, and idempotency
+- build context assembly and budget management
+- implement session state, event log, checkpoints, and replay
+- add policy, approval, sandbox boundaries, and audit records
+- add structured traces, metrics, logs, and a basic eval harness
+- complete a minimal-harness practical and oral defense
+
+### Semester 2: Production Agent Systems
+
+- planning, routing, parallelization, manager/handoff patterns
+- memory architecture and retrieval quality
+- durable execution, retries, compensation, cancellation, recovery
+- MCP and A2A interoperability
+- prompt injection, confused deputy, supply chain, data exfiltration, and tool abuse
+- reliability, SLOs, capacity, cost, latency, and incident response
+- evaluation corpora, repeated trials, graders, regression gates, red teaming
+- deployment, tenancy, governance, privacy, accessibility, and change control
+- comparative product/framework case studies
+- capstone: build, defend, attack, evaluate, operate, and port a working harness
+
+## Source Standard
+
+Primary anchors already researched for the migration:
+
+- OpenAI practical agent guide and Agents SDK documentation
+- Anthropic effective agents, context engineering, tool design, long-running harness, sandboxing, and agent-evaluation guidance
+- Google Agent Development Kit documentation and source
+- Microsoft Agent Framework documentation
+- LangGraph persistence and human-in-the-loop documentation
+- PydanticAI durable-execution documentation
+- MCP and A2A specifications
+- OpenTelemetry semantic conventions
+- NIST AI RMF and Generative AI Profile
+- NIST Secure Software Development Framework
+- OWASP Agentic AI threats and Agent Security Cheat Sheet
+- ABET 2026-2027 computing accreditation criteria
+- ACM/IEEE-CS CS2023 and SWEBOK v4
+- ReAct, Toolformer, Reflexion, MemGPT, AgentBench, tau-bench, OSWorld, and METR time-horizon research
+
+Official standards, specifications, source repositories, current docs, releases, and advisories are authoritative for current behavior. Peer-reviewed research supports durable theory. Maintainer engineering posts support rationale. Blogs, issues, forums, Reddit, and product commentary are discovery signals that require verification.
+
+## Completion Gates
+
+The project is complete only when every applicable gate has evidence:
+
+| Gate | Required evidence | Current state |
+| --- | --- | --- |
+| G0 Scope and boundary | Stable outcomes, product separation, claim limits | In progress |
+| G1 Source integrity | Claim-source map, versions/dates, independent spot checks | Partial |
+| G2 Curriculum alignment | Outcome-to-module-to-lab-to-assessment traceability | Needs migration |
+| G3 Reference implementation | Runnable harness, tests, fixtures, documented failure modes | Missing |
+| G4 Hands-on reproducibility | Labs executed in clean environments with expected evidence | Partial/OpenClaw-only |
+| G5 Assessment validity | Authentic tasks, oral defense, transfer, anti-outsourcing controls | Partial |
+| G6 Security and governance | Threat labs, controls, privacy, change management, audits | Partial |
+| G7 Teaching readiness | Instructor notes, pacing, accessibility, calibration | Partial |
+| G8 Learner evidence | Pilot data and delayed changed-task transfer | Missing |
+| G9 External validation | Independent academic, practitioner, security reviews repaired | Missing for new scope |
+| G10 Release readiness | Clean repo, licensing, versioning, release notes, support boundary | Not started for migrated product |
+
+No completion percentage overrides a failed gate.
+
+## Implementation Sequence
+
+1. Complete the remaining support-asset migration: examples, model answers, slides, templates, and maintenance.
+2. Extend the tested reference harness from Semester 1 contracts into durable state, context, protocols/adapters, observability, and stronger evaluation fixtures.
+3. Finish case-study evidence and migration/retirement of remaining OpenClaw-specific teaching surfaces.
+4. Execute every critical lab in clean environments and record reproduction status.
+5. Run security, accessibility, source, assessment-alignment, and reset-recovery validation.
+6. Run independent adversarial academic, enterprise, security, and practitioner reviews; repair findings.
+7. Pilot with real learners and assessors before institution-ready or enterprise-ready claims.
+
+## Immediate Next Actions
+
+1. Keep `../elite-mentor-os` frozen until the user explicitly resumes that product.
+2. Consolidate or migrate remaining examples/model-answer/slide/template assets; delete redundancy rather than preserve stale OpenClaw duplication.
+3. Generalize maintenance while preserving the OpenClaw drift monitor as one case-specific implementation.
+4. Extend reference-harness tests and align detailed lab status with actual execution evidence.
+5. Run a full internal adversarial audit before requesting external review.
+
+## State-Preservation Protocol
+
+At every meaningful milestone:
+
+1. Read `PROJECT_STATE.md`, `.mentor/MENTOR_STATE.md`, `git status -sb`, and the latest commit.
+2. Verify current sources for release-sensitive claims.
+3. Change the smallest coherent scope and run matching checks.
+4. Update both state files with decisions, evidence, blockers, and next action.
+5. Commit and push separate product or milestone scopes only after validation.
+
+Do not store chat transcripts, credentials, secrets, or speculative claims in state. Do not mark completion from document count. Do not ask the user to repeat decisions already recorded here.

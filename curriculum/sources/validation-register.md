@@ -1,59 +1,78 @@
 # Validation Register
 
-## Validation categories
+## Purpose
 
-- `official-docs`: official OpenClaw documentation
-- `official-repo`: official GitHub repository content, release notes, manifests, or code-adjacent docs
-- `official-ecosystem`: official docs for prerequisite technologies such as Node.js, Docker, Microsoft WSL, Tailscale, Git, JSON Schema, and OWASP
-- `validated-inference`: conclusions drawn from multiple primary sources
-- `community-derived`: useful but non-authoritative material
+Track the evidence class and claim boundary for curriculum-wide claims. Product- and release-specific facts belong in dated case-study or maintenance records, not in the stable core.
 
-## Curriculum claims and source status
+## Claim Status
 
-| Domain | Claim | Status | Primary sources |
-| --- | --- | --- | --- |
-| Install baseline | OpenClaw requires Node 22.22.3+, 24.15+, or 25.9+; Install/Getting Started recommend Node 26 while the current Security page still says Node 24, so the recommendation is documented drift rather than a settled claim | official-docs | Install, Getting Started, Security |
-| Windows baseline | WSL2 is the recommended Windows path for the full experience | official-docs | Windows, Getting Started |
-| Architecture | The gateway is the long-lived owner of messaging surfaces and control-plane APIs | official-docs | Gateway Architecture |
-| Trust model | OpenClaw is designed around one trusted operator boundary per gateway | official-docs | Security |
-| Security posture | OpenClaw should not be taught as hostile multi-tenant isolation on one shared gateway | official-docs | Security |
-| Memory model | Memory is persisted in markdown files in the agent workspace; there is no hidden memory state | official-docs | Memory Overview |
-| Dreaming | `DREAMS.md` and dreaming are real, optional background memory-promotion surfaces and should be taught as such | official-docs | Memory Overview |
-| Sandboxing | Docker-based sandboxing reduces blast radius but is not a perfect security boundary | official-docs | Sandboxing |
-| Remote access | Loopback plus SSH or Tailscale Serve is the safer default remote-access pattern | official-docs | Remote Access, Tailscale |
-| Channels | Telegram is one of the fastest beginner channel paths; WhatsApp is production-ready via WhatsApp Web plugin | official-docs | OpenClaw overview, WhatsApp |
-| Skills | Skills load from six documented layers with explicit precedence rules and workspace-level override power | official-docs | Skills |
-| Plugins | Plugins extend channels, providers, tools, and skills, and native plugins require `openclaw.plugin.json` | official-docs | Plugins, Plugin Manifest |
-| Multi-agent workspaces | Per-agent workspaces include `SOUL.md`, `AGENTS.md`, and optional `USER.md` alongside isolated state and sessions | official-docs | Multi-Agent Routing |
-| Approvals | Host exec must be governed by tool policy plus approvals/allowlists when enabled | official-docs | Exec Tool, Exec Approvals, Approvals CLI |
-| Diagnostics | `doctor`, `status`, `gateway probe`, and `security audit` form the operational debugging backbone | official-docs | Doctor, Troubleshooting, Security CLI |
-| Security maintenance | Current official OpenClaw advisories should be treated as first-class teaching inputs for security and production modules | official-repo | Security Advisories |
-| Automation | Cron, tasks, task flow, hooks, standing orders, heartbeat, sub-agents, and ACP agents are core OpenClaw execution surfaces | official-docs | Automation & Tasks, Sub-Agents, ACP Agents |
-| Updates | Teaching materials should account for update channels, dry runs, pinning, and rollback when behavior can drift across releases | official-docs | Updating, Release Channels |
-| Updates | `openclaw update` should be taught with dry-run, JSON/status inspection, channel semantics, `doctor`, restart, health verification, rollback, and correction-release awareness | official-docs/official-repo | Updating, Release `v2026.7.1-2` |
-| Release channels | Stable, package-only extended-stable, beta, and dev have different fallback, update, and production semantics; npm dist-tags are authoritative for package installs | official-docs | Release Channels, Updating |
-| Connected coding agents | `openclaw attach` grants Claude Code temporary, session-scoped Gateway access and revokes normal-launch grants on exit | official-docs/official-repo | Attach CLI, Release `v2026.7.1` |
-| Durable work | Sessions, goals, tasks, coding-agent delegation, and heartbeat/cron recovery are release-sensitive operational surfaces that require audit evidence | official-docs/official-repo | Release `v2026.7.1`, Tasks, Automation |
-| Workspace terminals | Guarded workspace terminals are authenticated administrative capability surfaces, can be disabled by policy, and must not be taught as ordinary chat UI | official-docs/official-repo | Release `v2026.7.1`, Control UI |
-| Advisory case method | Current advisories should be grouped into recurring failure families such as authorization provenance, approval equivalence, plugin persistence, sandbox/SSRF containment, credential ownership, and detached-authority inheritance | official-repo/validated-inference | Security Advisories reviewed through 2026-06-30 |
-| Plugin lifecycle | Plugin install, update, uninstall, runtime inspect, dependency status, ClawHub/npm source choice, and official externalized plugin repair are required mastery topics | official-docs/official-repo | Manage Plugins, Release `v2026.5.3` |
-| File transfer | The official file-transfer plugin introduces node file fetch/list/write capabilities with policy and size boundaries that belong in plugin/security teaching | official-docs/official-repo | File Transfer Plugin, Release `v2026.5.3` |
-| Channel streaming | Streaming progress drafts and channel-specific delivery behavior can affect learner expectations and evidence collection | official-docs/official-repo | Release `v2026.5.3`, channel docs |
-| Command steering | `/steer` and `/side` are current command surfaces for queue-independent steering and side questions, so advanced operator training should label them as current release behavior | official-repo | Release `v2026.5.3` |
-| Config safety | Invalid config now fails closed in current release notes; `doctor --fix` owns safe repair/migration workflows | official-repo | Release `v2026.5.3` |
-| Formal assurance | OpenClaw has formal security models, but they are bounded models rather than proof of total implementation security | official-docs | Formal Verification |
-| Security curriculum requirement | Governance and hardening must be first-class teaching material | validated-inference | Security, Exec Approvals, Sandboxing, Threat Model |
+- `verified-primary`: directly supported by current S0 evidence
+- `supported-research`: supported by applicable S1 evidence
+- `triangulated`: supported by multiple independent relevant sources with an explicit inference
+- `case-specific`: valid only for the dated implementation or product
+- `contested`: credible sources or definitions disagree
+- `pending`: evidence is incomplete
+- `retired`: no longer taught as current
 
-## Freshness target
+## Core Claim Register
 
-- baseline date: August 13, 2026
-- reviewed stable baseline: OpenClaw `v2026.7.1-2` / `openclaw@2026.7.1-2`
-- reviewed extended-stable baseline: `openclaw@2026.6.34`
-- observed beta tag: `openclaw@2026.8.1-beta.1`, not a teaching baseline
-- reviewed advisory publication cutoff: June 30, 2026
-- teaching baseline: stable-release behavior
-- preview or source-build material: must be labeled in module notes and capstone expectations
+| ID | Claim | Status | Evidence and boundary | Revalidation trigger |
+| --- | --- | --- | --- | --- |
+| VR-001 | Agent systems should distinguish model reasoning from harness-controlled tools, instructions/context, execution, state, and governance. | triangulated | OpenAI agent guide; Anthropic effective agents/harness posts; curriculum uses an explicit working definition. | Major field-definition or architecture review |
+| VR-002 | Deterministic code or workflows should be preferred when they satisfy the requirement; autonomy adds uncertainty, cost, and attack surface. | triangulated | Anthropic effective agents; OpenAI practical guide; engineering inference. Not a ban on agents. | New comparative evidence |
+| VR-003 | Single- and multi-agent patterns include routing, parallelization, manager/orchestrator, handoffs, and evaluator-optimizer variants. | verified-primary | OpenAI guide/SDK and Anthropic effective agents. Names and semantics vary by framework. | Framework docs materially change |
+| VR-004 | Context quality depends on selection, provenance, freshness, budget, and separation of instructions from untrusted data. | triangulated | Anthropic context/tool guidance; MCP architecture; security guidance. | New context-engineering evidence |
+| VR-005 | Long-running work needs explicit state, handoff, recovery, and verification artifacts across context boundaries. | triangulated | Anthropic long-running harness guidance; LangGraph/PydanticAI durable execution. Exact mechanism is architecture-specific. | Durable-runtime changes or new evidence |
+| VR-006 | Reliability requires explicit timeout, retry classification, idempotency, cancellation, compensation/recovery, and audit behavior. | triangulated | General distributed-systems/software-engineering principles plus durable framework docs. | Core architecture review |
+| VR-007 | MCP uses host/client/server roles and capability negotiation; protocol support alone does not prove safe authorization or correct behavior. | verified-primary | MCP specification; latter clause is engineering inference. | MCP specification release |
+| VR-008 | A2A represents agents/capabilities and task/message/artifact exchange; compatibility and trust require binding/auth tests. | verified-primary | A2A specification; curriculum adds test requirement. | A2A specification release |
+| VR-009 | Shared observability semantics improve portability, but GenAI semantic conventions must be version-pinned where unstable. | verified-primary | OpenTelemetry semantic-convention documentation. | Convention stability/version change |
+| VR-010 | Agent evaluation needs defined tasks, trials, transcripts/outcomes, graders, repeated trials, and suitable capability/regression suites. | triangulated | Anthropic eval guidance; benchmark papers; statistics foundations. Exact sample sizes depend on decision risk and variance. | Evaluation-method review |
+| VR-011 | Trace-only or output-only grading can miss material failures; use both when actions and state matter. | triangulated | Anthropic eval guidance and benchmark methods; applicability depends on task. | New evaluation evidence |
+| VR-012 | Benchmark success does not establish universal production reliability. | supported-research | AgentBench, tau-bench, OSWorld scopes/limitations; general external-validity principle. | Benchmark or methodology change |
+| VR-013 | Prompt injection, excessive agency, confused deputy, exfiltration, persistence, and supply-chain compromise are material agent-system threats. | verified-primary | OWASP agentic materials, NIST AI RMF/GenAI profile, current advisories/case studies. | OWASP/NIST revision or major incident evidence |
+| VR-014 | Policy, approvals, sandboxing, network controls, identity, secrets, audit, and recovery are complementary layers; none alone proves security. | triangulated | OWASP, NIST, Anthropic sandboxing, product advisories. | Security architecture review |
+| VR-015 | Single-user or trusted-operator designs must not be represented as hostile multi-tenant isolation without evidence. | triangulated | Product security boundaries plus least-privilege/isolation principles. | Product/architecture changes |
+| VR-016 | AI risk management and secure development require ongoing governance, mapping, measurement, management, and lifecycle evidence. | verified-primary | NIST AI RMF, GenAI Profile, and SSDF. | NIST revision |
+| VR-017 | ABET, CS2023, and SWEBOK can inform outcome and content alignment but do not confer accreditation or endorsement. | verified-primary | Official criteria/body-of-knowledge scope. | Criteria revision |
+| VR-018 | Delayed, unaided, changed-task performance is stronger mastery evidence than immediate repetition or polished artifacts. | supported-research | Retrieval, spacing, transfer, deliberate-practice, active-learning, and assessment literature. Strength varies by domain/task. | Pedagogy evidence review |
+| VR-019 | OpenClaw, Hermes Agent, ChatGPT Work, and xAI agent tooling illustrate different harness/product boundaries; no case proves a universal architecture. | case-specific | Current official docs/source/product pages. Internal architecture cannot be inferred where not public. | Every case-study delivery |
+| VR-020 | A learner can build a transferable harness only if implementation, tests, security, evaluation, operations, and defense are directly assessed. | pending | Constructive-alignment rationale is strong; effectiveness still requires pilot learner evidence. | Pilot and external review |
 
-## Usage rule
+## Product Baselines
 
-Any future file added to this pack should reference one of the categories above when making a platform claim.
+### OpenClaw
+
+The existing release/advisory baseline is preserved in:
+
+- `../maintenance/upstream-state.json`
+- `../maintenance/review-log.md`
+- `../maintenance/upstream-review-playbook.md`
+
+OpenClaw facts in legacy files remain case-specific until migrated. Verify them before delivery.
+
+### Other Cases
+
+Hermes Agent, ChatGPT Work, and xAI case-study claims currently have source-map entries but no complete local evidence ledger. They are `pending` for classroom delivery until dated claim tables and exercises are implemented.
+
+## Validation Workflow
+
+1. Identify the exact claim and whether it is stable theory, protocol/framework behavior, product behavior, research finding, or inference.
+2. Open the best current primary source; do not rely on this register's summary.
+3. Record version/date, supporting passage or code location, contradictions, and scope.
+4. Downgrade or split claims that exceed the evidence.
+5. Update the affected outcome, lab, assessment, and case study together.
+6. Run an independent spot check for security-, standards-, or release-sensitive changes.
+7. Record unresolved uncertainty and the next revalidation trigger.
+
+## Freshness Targets
+
+| Claim class | Default review cadence |
+| --- | --- |
+| Active security advisories and critical product changes | before each delivery and on alert |
+| Product/framework releases and APIs | before each lab run |
+| Protocol specifications and semantic conventions | each term and before compatibility claims |
+| Security/governance standards | each term and on revision |
+| Foundational research and pedagogy | annually or when material evidence emerges |
+
+Cadence is a maximum interval, not a guarantee of freshness.

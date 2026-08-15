@@ -1,115 +1,123 @@
 # Official Reading Map
 
-## OpenClaw core
+## Use Policy
 
-- [OpenClaw overview](https://docs.openclaw.ai/)
-- [Getting Started](https://docs.openclaw.ai/start/getting-started)
-- [Onboarding Overview](https://docs.openclaw.ai/start/onboarding-overview)
-- [Gateway Architecture](https://docs.openclaw.ai/concepts/architecture)
-- [Control UI](https://docs.openclaw.ai/web/control-ui)
-- [Configuration Reference](https://docs.openclaw.ai/gateway/configuration-reference)
+This map separates durable foundations from fast-moving implementations. Record retrieval date, version or commit where available, relevant claim, and residual uncertainty in substantial work.
 
-## OpenClaw operations
+- **S0:** official standard, specification, documentation, source, release, or advisory
+- **S1:** peer-reviewed research, academic text, or government guidance
+- **S2:** maintainer engineering explanation or reputable technical analysis
+- **S3:** issue, forum, Reddit, community report, or practitioner anecdote; discovery signal only
+- **S4:** unsourced summary or model output; lead only
 
-- [Windows](https://docs.openclaw.ai/windows)
-- [Docker](https://docs.openclaw.ai/install/docker)
-- [Remote Access](https://docs.openclaw.ai/gateway/remote)
-- [Tailscale](https://docs.openclaw.ai/gateway/tailscale)
-- [Doctor](https://docs.openclaw.ai/doctor)
-- [General Troubleshooting](https://docs.openclaw.ai/help/troubleshooting)
-- [Status CLI](https://docs.openclaw.ai/cli/status)
+Current behavior, APIs, releases, advisories, and product capabilities require current S0 evidence. Durable theory may use S1. Do not cite this map as proof; open and inspect the source.
 
-## OpenClaw agent behavior
+## Program and Software-Engineering Alignment
 
-- [Memory Overview](https://docs.openclaw.ai/concepts/memory)
-- [Dreaming](https://docs.openclaw.ai/concepts/memory#dreaming)
-- [Sessions CLI](https://docs.openclaw.ai/cli/sessions)
-- [Model Provider Quickstart](https://docs.openclaw.ai/providers/models)
-- [Models CLI](https://docs.openclaw.ai/models)
-- [Channels CLI](https://docs.openclaw.ai/cli/channels)
-- [Nodes](https://docs.openclaw.ai/nodes)
-- [Talk Mode](https://docs.openclaw.ai/nodes/talk)
-- [Voice Wake](https://docs.openclaw.ai/nodes/voicewake)
-- [Multi-Agent Routing](https://docs.openclaw.ai/multi-agent)
-- [SOUL.md Personality Guide](https://docs.openclaw.ai/concepts/soul)
+- [ABET 2026-2027 Computing Criteria](https://www.abet.org/accreditation/accreditation-criteria/criteria-for-accrediting-computing-programs-2026-2027/) - student outcomes, curriculum, assessment, and continuous improvement; alignment only, not accreditation
+- [ACM/IEEE-CS CS2023](https://csed.acm.org/final-report/) - computing knowledge areas and curricular guidance
+- [SWEBOK v4](https://www.computer.org/education/bodies-of-knowledge/software-engineering) - software-engineering knowledge and professional practice
+- [NIST Secure Software Development Framework, SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) - secure lifecycle practices
 
-## OpenClaw security and controls
+## Agent-System Architecture
 
-- [Security](https://docs.openclaw.ai/security)
-- [Security Advisories](https://github.com/openclaw/openclaw/security/advisories)
-- [Sandboxing](https://docs.openclaw.ai/sandboxing)
-- [Exec Tool](https://docs.openclaw.ai/tools/exec)
-- [Exec Approvals](https://docs.openclaw.ai/tools/exec-approvals)
-- [Approvals CLI](https://docs.openclaw.ai/cli/approvals)
-- [Security CLI](https://docs.openclaw.ai/cli/security)
-- [Trusted Proxy Auth](https://docs.openclaw.ai/gateway/trusted-proxy-auth)
-- [Threat Model (MITRE ATLAS)](https://docs.openclaw.ai/security/THREAT-MODEL-ATLAS)
-- [Formal Verification](https://docs.openclaw.ai/security/formal-verification/)
+- [OpenAI: A Practical Guide to Building AI Agents](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/) - model/tools/instructions, loop, single versus multi-agent choice, manager and handoff patterns, guardrails, evaluation
+- [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) - current SDK contracts, agents, tools, handoffs, guardrails, sessions, tracing
+- [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - workflows versus agents, routing, parallelization, orchestrator-workers, evaluator-optimizer, simplest-system principle
+- [Anthropic: Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) - context selection and management
+- [Anthropic: Writing Tools for Agents](https://www.anthropic.com/engineering/writing-tools-for-agents) - tool interfaces and agent usability
+- [Anthropic: Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) - structured handoff and multi-context continuity
+- [Anthropic: Harness Design for Long-Running Apps](https://www.anthropic.com/engineering/harness-design-long-running-apps) - planner/generator/evaluator roles, structured artifacts, simplification and ablation
+- [Anthropic: Managed Agents](https://www.anthropic.com/engineering/managed-agents) - separation of model reasoning, execution capabilities, and session management
 
-### Current advisory families reviewed at the 2026-08-13 baseline
+## Foundational Agent Research
 
-The official feed published 112 advisories after the previous 2026-04-24 cutoff. Do not turn that feed into a memorization list. Use these representative cases to teach recurring boundary failures, then require learners to query the current feed for the component they are assessing:
+- [ReAct](https://arxiv.org/abs/2210.03629) - interleaving reasoning and action; historical research, not a production architecture mandate
+- [Toolformer](https://arxiv.org/abs/2302.04761) - learned tool-use research
+- [Reflexion](https://arxiv.org/abs/2303.11366) - feedback/reflection research and limitations
+- [MemGPT](https://arxiv.org/abs/2310.08560) - memory hierarchy research
 
-- [GHSA-xww8-gqvh-92x9](https://github.com/openclaw/openclaw/security/advisories/GHSA-xww8-gqvh-92x9) - approval-display truncation and human decision integrity
-- [GHSA-3fp5-v549-9v66](https://github.com/openclaw/openclaw/security/advisories/GHSA-3fp5-v549-9v66) - durable exec approval binding through command wrappers
-- [GHSA-7vrr-rp4x-4g76](https://github.com/openclaw/openclaw/security/advisories/GHSA-7vrr-rp4x-4g76) - plugin installation, ownership, and persistence
-- [GHSA-v6r2-jh58-xx6w](https://github.com/openclaw/openclaw/security/advisories/GHSA-v6r2-jh58-xx6w) - marketplace metadata and unscanned runtime payloads
-- [GHSA-52xj-c9p8-78cv](https://github.com/openclaw/openclaw/security/advisories/GHSA-52xj-c9p8-78cv) - MCP loopback and owner-only tool authority
-- [GHSA-mm9g-83wh-mhwj](https://github.com/openclaw/openclaw/security/advisories/GHSA-mm9g-83wh-mhwj) - isolated automation regaining denied exec tools
-- [GHSA-575v-8hfq-m3mc](https://github.com/openclaw/openclaw/security/advisories/GHSA-575v-8hfq-m3mc) - sandbox bind-mount containment
-- [GHSA-4pqj-3c56-5fqq](https://github.com/openclaw/openclaw/security/advisories/GHSA-4pqj-3c56-5fqq) - workspace dotenv and provider-credential ownership
-- [GHSA-x863-pqjw-hmgf](https://github.com/openclaw/openclaw/security/advisories/GHSA-x863-pqjw-hmgf) - browser navigation and current-tab SSRF revalidation
-- [GHSA-8f46-3xx3-8c9m](https://github.com/openclaw/openclaw/security/advisories/GHSA-8f46-3xx3-8c9m) - approval equivalence across Gateway and node environments
+Read papers for method, assumptions, evaluation, and limitations. Do not convert research prototypes into universal production recommendations.
 
-## OpenClaw extensibility
+## Framework and Adapter Studies
 
-- [Plugins](https://docs.openclaw.ai/plugins)
-- [Manage Plugins](https://docs.openclaw.ai/plugins/manage-plugins)
-- [Plugin Manifest](https://docs.openclaw.ai/plugins/manifest)
-- [Plugin Inventory](https://docs.openclaw.ai/plugins/plugin-inventory)
-- [File Transfer Plugin](https://docs.openclaw.ai/plugins/reference/file-transfer)
-- [Skills](https://docs.openclaw.ai/skills)
-- [Skills CLI](https://docs.openclaw.ai/cli/skills)
-- [ClawHub](https://docs.openclaw.ai/tools/clawhub)
+- [Google Agent Development Kit](https://adk.dev/agents/) and [source](https://github.com/google/adk-python) - agents, workflows, tools, sessions, artifacts, evaluation, deployment
+- [Google ADK Plugins](https://adk.dev/plugins/) - cross-cutting policies and lifecycle behavior
+- [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/) - agents, workflows, persistence, hosting, and migration context
+- [Microsoft Agent Resources](https://microsoft.github.io/agent-resources/develop-agents/) - development and harness examples
+- [LangGraph Overview](https://docs.langchain.com/oss/python/langgraph/overview) - graph runtime and durable execution
+- [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence) - checkpoints and state
+- [LangGraph Human-in-the-Loop](https://docs.langchain.com/oss/python/langchain/human-in-the-loop) - interrupts and approval patterns
+- [PydanticAI Durable Execution](https://ai.pydantic.dev/durable_execution/overview/) - integration with durable workflow systems
 
-## OpenClaw automation and detached work
+Framework documentation is an adapter study. Learners must compare semantics against the curriculum's stable contracts and verify current versions.
 
-- [Automation & Tasks](https://docs.openclaw.ai/automation)
-- [Scheduled Tasks](https://docs.openclaw.ai/automation/cron-jobs)
-- [Background Tasks](https://docs.openclaw.ai/automation/tasks)
-- [Task Flow](https://docs.openclaw.ai/automation/taskflow)
-- [Standing Orders](https://docs.openclaw.ai/automation/standing-orders)
-- [Hooks](https://docs.openclaw.ai/automation/hooks)
-- [Heartbeat](https://docs.openclaw.ai/gateway/heartbeat)
-- [Sub-Agents](https://docs.openclaw.ai/tools/subagents)
-- [ACP Agents](https://docs.openclaw.ai/tools/acp-agents)
-- [Attach CLI](https://docs.openclaw.ai/cli/attach)
+## Protocols and Observability
 
-## OpenClaw maintenance and release discipline
+- [Model Context Protocol Architecture, 2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18/architecture) - host/client/server architecture and capability negotiation
+- [MCP 2026 Roadmap](https://blog.modelcontextprotocol.io/posts/2026-07-28/) - current direction including stateless core, routing, cache hints, authorization hardening, and Tasks; roadmap items are not settled behavior
+- [Agent2Agent Protocol Specification](https://github.com/a2aproject/A2A/blob/main/docs/specification.md) - AgentCard, message, task, artifact, parts, streaming, asynchronous work, bindings, and authentication
+- [A2A Project](https://a2a-protocol.org/) - current ecosystem and specification entry point
+- [OpenTelemetry Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/) - shared trace, metric, and log semantics
+- [OpenTelemetry Concepts: Semantic Conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) - stability and versioning guidance
 
-- [Updating](https://docs.openclaw.ai/install/updating)
-- [Release Channels](https://docs.openclaw.ai/install/development-channels)
-- [Releases](https://github.com/openclaw/openclaw/releases)
-- [OpenClaw 2026.7.1 release notes](https://docs.openclaw.ai/releases/2026.7.1)
-- [OpenClaw 2026.7.1-2 correction release](https://github.com/openclaw/openclaw/releases/tag/v2026.7.1-2)
-- [OpenClaw 2026.6.34 extended-stable release](https://github.com/openclaw/openclaw/releases/tag/v2026.6.34)
+Pin protocol and semantic-convention versions in labs. Compatibility claims require contract tests, not only manifest discovery.
 
-### Current release baseline reviewed at the 2026-08-13 baseline
+## Security, Safety, Privacy, and Governance
 
-- stable GitHub/npm release: `v2026.7.1-2` / `openclaw@2026.7.1-2`
-- extended-stable npm release: `openclaw@2026.6.34`
-- observed beta npm tag: `openclaw@2026.8.1-beta.1`, not a teaching baseline
-- Documentation inconsistency to teach explicitly: Install and Getting Started recommend Node 26, while the current Security page still recommends Node 24; the supported minimums agree, but the preferred runtime must be rechecked before teaching
-- High-impact teaching surfaces: four-channel release policy, current Node runtime floor, redesigned Control UI/task visibility, session-scoped `openclaw attach`, durable goals and coding-agent delegation, scheduled-work recovery, guarded workspace terminals, plugin correction releases, browser/network hardening, and advisory-driven authorization/approval/sandbox casework
-- The full advisory feed was reviewed; representative cases are integrated by failure family rather than copied wholesale into the curriculum
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) - Govern, Map, Measure, and Manage functions
+- [NIST Generative AI Profile, AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) - generative-AI risk actions and considerations
+- [OWASP Agentic AI Threats and Mitigations](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/) - agentic threat categories and mitigations
+- [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) - practical architecture and control guidance
+- [Anthropic: Claude Code Sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing) - filesystem/network isolation approach and boundaries
 
-## Prerequisite technologies
+High-stakes, privacy, regulatory, and security claims need jurisdiction- and context-specific primary evidence. Framework guardrails, prompts, and approvals are controls, not proof of safety.
 
-- [Install WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
-- [Node.js Learn](https://nodejs.org/en/learn)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro)
-- [Docker Get Started](https://docs.docker.com/get-started/)
-- [Tailscale Serve](https://tailscale.com/docs/features/tailscale-serve)
-- [Git documentation](https://git-scm.com/docs)
-- [JSON Schema docs](https://json-schema.org/docs)
-- [OWASP Prompt Injection](https://owasp.org/www-community/attacks/PromptInjection)
+## Evaluation and Benchmarking
+
+- [Anthropic: Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) - task, trial, grader, transcript, outcome, eval harness, capability versus regression suites
+- [AgentBench](https://arxiv.org/abs/2308.03688) - multi-environment agent benchmark and limitations
+- [tau-bench](https://arxiv.org/abs/2406.12045) - tool-agent-user interaction benchmark
+- [OSWorld](https://arxiv.org/abs/2404.07972) - computer-use environment and evaluation
+- [METR Task Completion Time Horizons](https://metr.org/time-horizons/) - capability measurement over task duration; inspect current methodology and caveats
+
+Benchmarks are evidence about a defined setup, not universal production readiness. Course evaluations require local realistic tasks, repeated trials, trace inspection, and end-state verification.
+
+## Product Case Studies
+
+### OpenClaw
+
+- [OpenClaw source](https://github.com/openclaw/openclaw)
+- [OpenClaw documentation](https://docs.openclaw.ai/)
+- [OpenClaw releases](https://github.com/openclaw/openclaw/releases)
+- [OpenClaw security advisories](https://github.com/openclaw/openclaw/security/advisories)
+
+The machine-readable baseline remains in `../maintenance/upstream-state.json`; human review history remains in `../maintenance/review-log.md`.
+
+### Hermes Agent
+
+- [NousResearch Hermes Agent source](https://github.com/NousResearch/hermes-agent)
+- [Hermes Agent security policy](https://github.com/NousResearch/hermes-agent/security)
+
+Use as a source-visible case in skills, memory, tools, provider adapters, gateways, plugins, and single-tenant trust assumptions.
+
+### ChatGPT Work
+
+- [ChatGPT Work and Codex Help](https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex)
+- [ChatGPT Work](https://openai.com/chatgpt-work/)
+- [ChatGPT for ambitious work](https://openai.com/index/chatgpt-for-your-most-ambitious-work/)
+
+Use only official observed/documented capabilities as a product case. Do not infer internal architecture from product behavior.
+
+### xAI Agent Tooling
+
+- [Grok Voice Agent Builder](https://x.ai/news/grok-voice-agent-builder)
+- [Grok 4.1 Fast and Agent Tools API](https://x.ai/news/grok-4-1-fast)
+- [xAI Workflows](https://x.ai/news/workflows)
+- [xAI Skills, Plugins, and Marketplaces](https://docs.x.ai/build/features/skills-plugins-marketplaces)
+
+Use official Grok Build, Agent Tools, workflow, skill, and plugin materials. Treat community claims about a separate “Grok Bot” as unverified unless an official source is found.
+
+## Retrieval Baseline
+
+This map was restructured on 2026-08-15. Fast-moving sources must be re-opened before teaching or assessment. Stable URLs do not guarantee stable content.

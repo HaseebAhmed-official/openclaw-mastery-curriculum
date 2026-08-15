@@ -1,95 +1,71 @@
 # Course Syllabus Template
 
-## Course title
+Replace every bracketed field and remove unused options. Verify institutional policy language locally.
 
-OpenClaw Mastery: Architecture, Operations, Security, and Extension
+## Course Identity
 
-## Course description
+- title: `[Agent Harness Systems Engineering I or II]`
+- code/section: `[code]`
+- term/credits/contact hours: `[details]`
+- instructor/team/contact/support hours: `[details]`
+- repository release/commit: `[commit]`
 
-This course teaches students how to understand, operate, secure, extend, and evaluate OpenClaw as a modern self-hosted AI assistant platform. It combines systems literacy, agent architecture, production operations, security hardening, extensibility, and contributor-level reasoning.
+## Description
 
-## Course format
-
-- default model: 2 semesters, 16 weeks each
-- alternative model: 1 accelerated semester using Semester 1 plus selected Semester 2 modules
-- delivery style: lecture, supervised lab, design review, and capstone defense
+This course develops evidence-driven capability to design, implement, test, secure, evaluate, and operate agent harness systems. It teaches stable engineering contracts before framework/product adapters and requires practical, oral, and changed-task evidence.
 
 ## Prerequisites
 
-- basic computer literacy
-- willingness to work in a terminal environment
-- no advanced programming requirement for the main path
-- stronger programming background recommended for plugin and contributor tracks
+State required courses or the exact [Prerequisite Bridge](prerequisite-bridge.md) exit evidence. Include programming, testing/debugging, systems/networking, security, statistics, and LLM foundations appropriate to the selected semester.
 
-## Learning outcomes
+## Learning Outcomes
 
-By the end of the course, students should be able to:
+Select and map applicable PLOs from the [Program Overview](program-overview.md). Add local outcomes only when their teaching and assessment evidence are defined.
 
-- explain OpenClaw architecture and trust boundaries
-- install and troubleshoot a safe OpenClaw baseline
-- configure providers, tools, and channels responsibly
-- reason about sandboxing, approvals, and remote access
-- evaluate detached work, automation, hooks, and standing authority
-- complete a role-specific capstone with defended technical judgment
+## Weekly Schedule
 
-## Course materials
+Use the relevant [Semester 1](semester-1/index.md) or [Semester 2](semester-2/index.md) spine. Record local dates, readings, labs, assessments, source/version checks, holidays, and contingency sessions.
 
-- this repository
-- official OpenClaw docs
-- current release notes relevant to each module
-- instructor-selected prerequisite references from the official reading map
+## Learning Materials and Technology
 
-## Assessment breakdown
+- required repository commit and documents
+- Python/Git/environment requirements
+- deterministic/offline core path
+- optional providers/frameworks/products and expected cost
+- protocol/SDK versions
+- accessibility alternatives
+- data/network/security restrictions
 
-### Semester 1 recommendation
+## Assessment
 
-- 20% concept checks
-- 50% labs
-- 15% design review
-- 15% practical exam or mini-project
+Use the [Assessment Map](assessment-map.md) and publish weights, critical gates, rubrics, permitted assistance, practical/oral/transfer conditions, late/repair rules, moderation, and appeal route.
 
-### Semester 2 recommendation
+Critical implementation, security/privacy, evidence-integrity, and independent-transfer failures cannot be averaged away.
 
-- 15% concept checks
-- 35% labs
-- 20% design reviews
-- 30% capstone and defense
+## Agent and Tool Use
 
-## Submission expectations
+For each activity state `required`, `permitted with disclosure`, `restricted`, or `not permitted`. Learners remain responsible for tracing, verification, source checking, debugging, security judgment, and final claims. Material assistance must be disclosed.
 
-- all operational claims must be supported by evidence
-- screenshots alone are not enough
-- runbooks, risk reviews, and architecture notes must be written clearly
-- release-aware notes are required for provider, security, plugin, and deployment work
+## Submission Evidence
 
-## Academic integrity and safety
+Require task/constraints, source/version baseline, design, implementation, tests, trace/end state, failure/repair, security/privacy, assistance record, residual risk, and reproducible commit/artifact references.
 
-- students must not share credentials publicly
-- students must not expose gateways publicly unless that is explicitly approved by the instructor
-- unsafe bypass flags, unreviewed hooks, and unreviewed plugin installs must be documented and justified if used in any experiment
-- plagiarism or blind copy-paste without understanding counts as failure in practical work
+## Safety and Privacy
 
-## Weekly structure
+Define authorized environments, prohibited targets/data, credentials policy, stop/escalation procedure, cleanup, incident reporting, high-stakes boundaries, and retention/deletion for course artifacts.
 
-- see [Semester 1 Teaching Guide](semester-1/teaching-guide.md)
-- see [Semester 2 Teaching Guide](semester-2/teaching-guide.md)
-- optional lecture support: [Slide Deck Outlines](slides/index.md)
+## Accessibility and Inclusion
 
-## Lab structure
+State accommodation route, accessible formats, captions/transcripts, keyboard/screen-reader alternatives, hardware/network/cost support, communication-language policy, and how equivalent evidence will be assessed.
 
-- see [Core Lab Guides](labs/core-lab-guides.md)
-- see [Advanced Lab Guides](labs/advanced-lab-guides.md)
-- see [Specialization Lab Guides](labs/specialization-lab-guides.md)
-- classroom delivery support: [Classroom Lab Manuals](lab-manuals/index.md)
+## Academic Integrity
 
-## Assessment support
+Include local policy plus this course's authenticity checks: version history, hidden variants, trace/debug practicals, oral defense, and delayed transfer. Distinguish legitimate collaboration from fabricated or misrepresented evidence.
 
-- see [Question Bank](assessment/question-bank.md)
-- see [Practical Exams](assessment/practical-exams.md)
-- see [Oral Defense Bank](assessment/oral-defense-bank.md)
-- see [Model Artifacts](examples/index.md)
-- see [Model Answer Packs](model-answers/index.md)
-- see [Submission Templates](templates/index.md)
-- see [Assessor Calibration Guide](assessment/assessor-calibration-guide.md)
-- see [Grading Packet Templates](assessment/grading-packet-templates.md)
-- see [Track Rubrics](rubrics/track-rubrics.md)
+## Communication and Support
+
+State feedback timing, office/support hours, remediation process, team conflict route, incident route, and how changes to tools or schedule will be communicated.
+
+## Change and Version Policy
+
+Freeze graded environments where fairness requires it. Record necessary updates, migration support, affected assessments, rollback, and source evidence. Current product defaults are never treated as timeless facts.

@@ -1,133 +1,71 @@
 # Track Rubrics
 
-## How to use these rubrics
+## Use
 
-Use the [Master Rubric](master-rubric.md) for common scoring dimensions, then apply the track-specific anchors below.
+Apply the [Master Rubric](master-rubric.md) first. These criteria add role-specific evidence; they do not remove common security, evaluation, operations, communication, or transfer gates.
 
-## Operator Track Rubric
+## Product / Operator
 
-### Required artifacts
+Required evidence:
 
-- workflow deployment note
-- channel policy
-- troubleshooting runbook
-- secure baseline note
+- user/workflow requirements and deterministic baseline
+- bounded configuration with authority and escalation paths
+- realistic task evaluation and human-override evidence
+- adoption, accessibility, privacy, and operating guide
 
-### Distinction indicators
+Distinction: improves user outcomes with less unnecessary autonomy and clear governance. Fail: feature demo without task evidence or hidden authority.
 
-- explicit DM/group policy
-- clean diagnostic ladder
-- realistic operator recovery procedure
+## Platform / SRE
 
-### Fail indicators
+Required evidence:
 
-- undocumented unsafe channel exposure
-- no troubleshooting evidence
-- no prompt injection awareness for external content
+- durable state and recovery design
+- deployment, secrets/config, migrations, backups, rollback
+- SLOs, traces/metrics/logs, capacity and cost evidence
+- incident simulation and corrective action
 
-## Production / DevOps Track Rubric
+Distinction: recovers under multiple failure modes with low ambiguity and reproducible operations. Fail: “production-ready” without failure, rollback, or ownership evidence.
 
-### Required artifacts
+## Security / Assurance
 
-- deployment architecture
-- ingress and auth note
-- update and rollback note
-- webhook or detached-work control note
-- operational runbook
+Required evidence:
 
-### Distinction indicators
+- concrete threat/data/identity model
+- authorized exploit portfolio
+- layered preventive/detective/recovery controls
+- mitigation variants, residual risks, and control-evidence map
 
-- clear trust boundary diagram
-- explicit release-aware change control
-- auditable detached-work policy
+Distinction: discovers a non-obvious authority path and validates a reusable fix. Fail: generic threat list, unsafe testing, or unsupported assurance claim.
 
-### Fail indicators
+## Tools / Protocols
 
-- public exposure without defense
-- no rollback path
-- no explanation of auth and identity flow
+Required evidence:
 
-## Security / Hardening Track Rubric
+- typed and discoverable interface
+- least-authority and error design
+- MCP/A2A or plugin/tool contract tests
+- version compatibility, timeout/cancellation, dependency and supply-chain review
 
-### Required artifacts
+Distinction: interoperates across independent implementations with strong failure semantics. Fail: happy-path demo or discovery treated as authorization.
 
-- threat model
-- audit review
-- prioritized remediation plan
-- residual-risk statement
+## Core / Framework
 
-### Distinction indicators
+Required evidence:
 
-- distinguishes must-fix from accepted risk clearly
-- connects controls to concrete attack surfaces
-- correctly limits claims about sandboxing and formal verification
+- source-level control/data-flow trace
+- runtime/orchestration/state subsystem implementation or scoped contribution
+- performance, compatibility, regression, and maintenance evidence
+- design alternatives and upstream conventions
 
-### Fail indicators
+Distinction: accepted upstream change or independently validated subsystem improvement. Fail: large untraceable rewrite or framework-specific code presented as universal core.
 
-- treats OpenClaw as hostile multi-tenant safe
-- ignores webhook, hook, plugin, or external-content risk
-- uses generic AI safety language without deployment specificity
+## Local-Model Infrastructure
 
-## Plugin Developer Track Rubric
+Required evidence:
 
-### Required artifacts
+- declared hardware, workload, privacy, budget, and quality constraints
+- measured serving/routing comparison
+- throughput, latency, resource, failure, and quality evaluation
+- fallback, capacity, deployment, and operations design
 
-- manifest or design artifact
-- schema note
-- install/update behavior note
-- compatibility note
-- validation/test plan
-
-### Distinction indicators
-
-- strong configuration ergonomics
-- explicit compatibility and failure handling
-- awareness of supply-chain and ecosystem maturity
-
-### Fail indicators
-
-- no install/update path reasoning
-- no precedence reasoning for skills or config ownership
-- no validation story
-
-## Contributor / Core Track Rubric
-
-### Required artifacts
-
-- contribution proposal
-- architecture impact note
-- validation plan
-- docs plan
-
-### Distinction indicators
-
-- correct use of scoped contributor boundaries
-- right-sized change scope
-- clear affected-surface reasoning
-
-### Fail indicators
-
-- ignores contributor toolchain
-- proposes sweeping changes without scope control
-- no validation gate awareness
-
-## Local Models Track Rubric
-
-### Required artifacts
-
-- local or hybrid model architecture
-- hardware assumptions
-- quality and safety tradeoff note
-- fallback and cost note
-
-### Distinction indicators
-
-- rejects local models where they are not justified
-- ties workload quality to model strength honestly
-- documents fallback logic clearly
-
-### Fail indicators
-
-- ideology instead of tradeoff analysis
-- no fallback plan
-- no explanation of why the chosen model is safe enough for tool-enabled work
+Distinction: adapts routing under changed constraints with measured improvement. Fail: universal model recommendation or benchmark-only decision.
