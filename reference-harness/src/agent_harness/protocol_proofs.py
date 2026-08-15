@@ -313,16 +313,20 @@ def run_otel_proof(*, sensitive_input: str, sensitive_arguments: str) -> OtelPro
             _ = len(sensitive_input) + len(sensitive_arguments)
 
     provider.force_flush()
-    snapshots = tuple(
-        SpanSnapshot(
-            name=span.name,
-            attributes=tuple(sorted(span.attributes.items())),
-            span_id=span.context.span_id,
-            parent_span_id=span.parent.span_id if span.parent else None,
-            schema_url=span.instrumentation_scope.schema_url or "",
+    snapshots_list: list[SpanSnapshot] = []
+    for span in exporter.get_finished_spans():
+        attributes = span.attributes or {}
+        scope = span.instrumentation_scope
+        snapshots_list.append(
+            SpanSnapshot(
+                name=span.name,
+                attributes=tuple(sorted(attributes.items())),
+                span_id=span.context.span_id,
+                parent_span_id=span.parent.span_id if span.parent else None,
+                schema_url=(scope.schema_url if scope else "") or "",
+            )
         )
-        for span in exporter.get_finished_spans()
-    )
+    snapshots = tuple(snapshots_list)
     roots = [span for span in snapshots if span.name.startswith("invoke_agent")]
     tools = [span for span in snapshots if span.name.startswith("execute_tool")]
     linked = (
