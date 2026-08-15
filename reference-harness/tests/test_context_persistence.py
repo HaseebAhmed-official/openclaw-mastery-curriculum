@@ -10,8 +10,8 @@ from agent_harness import (
     Message,
     ModelTurn,
     RecentContextBuilder,
-    SQLiteSessionStore,
     ScriptedProvider,
+    SQLiteSessionStore,
     StopReason,
 )
 

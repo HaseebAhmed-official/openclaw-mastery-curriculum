@@ -70,12 +70,15 @@ Framework documentation is an adapter study. Learners must compare semantics aga
 
 - [Model Context Protocol Architecture, 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/architecture) - host/client/server architecture, stateless requests, per-request capabilities, and `server/discover`
 - [MCP Base Protocol, 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/basic) - JSON-RPC messages, statelessness, version metadata, schema rules, authorization boundary, and trace-context propagation
+- [MCP Python SDK v2.0.0](https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0) - exact SDK used by the bounded reference proof; its in-process client/server path is a contract fixture, not network deployment evidence
 - [MCP TypeScript SDK Protocol Eras](https://github.com/modelcontextprotocol/typescript-sdk/blob/main/docs/protocol-versions.md) - implementation-facing differences between initialization-era revisions and the modern `2026-07-28` revision; pin SDK behavior as well as specification text
 - [MCP 2026 Roadmap](https://blog.modelcontextprotocol.io/posts/2026-07-28/) - historical planning evidence; distinguish proposals from behavior now present in the normative specification
 - [Agent2Agent Protocol Specification, latest released version 1.0.0](https://a2a-protocol.org/latest/specification/) - AgentCard, message, task, artifact, parts, streaming, asynchronous work, bindings, versioning, and authentication
+- [A2A Python SDK v1.1.2](https://github.com/a2aproject/a2a-python/releases/tag/v1.1.2) - exact SDK used by the bounded JSON-RPC/ASGI proof; SDK release and protocol release are separate pins
 - [A2A Project](https://a2a-protocol.org/) - current ecosystem and specification entry point
 - [OpenTelemetry Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/) - shared trace, metric, and log semantics
 - [OpenTelemetry GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai) - dedicated current source for GenAI, agent, MCP, and provider conventions after migration from the core repository
+- [Pinned OpenTelemetry GenAI source snapshot](https://github.com/open-telemetry/semantic-conventions-genai/tree/a685613a207a580163353b8e48a7ad88967e7b42) - development-status source used by the reference span proof; source pinning does not convert development conventions into a stable standard
 - [OpenTelemetry Concepts: Semantic Conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) - stability and versioning guidance
 
 Pin protocol and semantic-convention versions in labs. Compatibility claims require contract tests, not only manifest discovery.
@@ -137,4 +140,4 @@ Use official Grok Build, Agent Tools, workflow, skill, and plugin materials. Tre
 
 ## Retrieval Baseline
 
-This map was restructured and protocol-spot-checked on 2026-08-15. At that check, MCP was `2026-07-28`, A2A's latest released specification was `1.0.0`, and GenAI conventions had moved out of the core OpenTelemetry semantic-conventions repository. Fast-moving sources must be re-opened before teaching or assessment; stable URLs do not guarantee stable content.
+This map was restructured on 2026-08-15 and its executable protocol pins were checked again on 2026-08-16. The bounded proof uses MCP Python SDK `2.0.0`, A2A Python SDK `1.1.2` against protocol `1.0`, and OpenTelemetry SDK `1.44.0` against a commit-pinned development GenAI schema. Fast-moving sources must be re-opened before teaching or assessment; stable URLs do not guarantee stable content.

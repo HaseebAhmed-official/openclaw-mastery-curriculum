@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
-from typing import Any, Callable, Mapping, Protocol, Sequence
+from typing import Any, Protocol
 from uuid import uuid4
 
+from .context import AllContextBuilder
 from .contracts import (
     Approval,
     ContextBuilder,
@@ -22,7 +24,6 @@ from .contracts import (
     ToolCall,
     ToolSpec,
 )
-from .context import AllContextBuilder
 
 
 class SchemaError(ValueError):
@@ -259,7 +260,7 @@ class Harness:
                         "dropped_messages": context.dropped_messages,
                     },
                 )
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001 - context failures become evidence.
                 self.store.append_event(
                     session_id,
                     attempt_id,
@@ -286,7 +287,7 @@ class Harness:
                 if call_ids & seen_call_ids:
                     raise ValueError("provider reused a tool-call identity")
                 seen_call_ids.update(call_ids)
-            except Exception as exc:  # Provider errors are evidence, not crashes.
+            except Exception as exc:  # noqa: BLE001 - provider failures become evidence.
                 self.store.append_event(
                     session_id,
                     attempt_id,
@@ -402,7 +403,7 @@ class Harness:
                         "tool.completed",
                         {"tool": call.name, "call_id": call.call_id},
                     )
-                except Exception as exc:
+                except Exception as exc:  # noqa: BLE001 - tool failures become evidence.
                     payload = {
                         "ok": False,
                         "error": f"{type(exc).__name__}: {exc}",

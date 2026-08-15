@@ -1,5 +1,6 @@
 """Educational agent-harness contracts and runtime."""
 
+from .context import AllContextBuilder, ContextBudgetError, RecentContextBuilder
 from .contracts import (
     Approval,
     ContextBundle,
@@ -12,7 +13,6 @@ from .contracts import (
     ToolCall,
     ToolSpec,
 )
-from .context import AllContextBuilder, ContextBudgetError, RecentContextBuilder
 from .integration import (
     AdapterContractError,
     BufferedEventExporter,
@@ -41,9 +41,9 @@ from .testing import (
 )
 
 __all__ = [
-    "Approval",
     "AdapterContractError",
     "AllContextBuilder",
+    "Approval",
     "BufferedEventExporter",
     "CapabilityManifest",
     "CapabilityRequest",
@@ -67,8 +67,8 @@ __all__ = [
     "RecentContextBuilder",
     "RunLimits",
     "RunResult",
-    "ScriptedProvider",
     "SQLiteSessionStore",
+    "ScriptedProvider",
     "StopReason",
     "ToolCall",
     "ToolRegistry",
@@ -76,7 +76,7 @@ __all__ = [
     "WorkerResult",
     "export_attempt",
     "invoke_checked",
-    "run_fan_out_sequential",
     "run_eval",
+    "run_fan_out_sequential",
     "run_routed",
 ]

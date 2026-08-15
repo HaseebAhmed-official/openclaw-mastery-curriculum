@@ -2,9 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
-from typing import Callable, Mapping, Sequence
-
 
 Worker = Callable[[str], str]
 
@@ -66,5 +65,5 @@ def _invoke(name: str, worker: Worker, task: str) -> WorkerResult:
         if not isinstance(output, str):
             raise TypeError("worker must return a string")
         return WorkerResult(worker=name, ok=True, output=output)
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - worker failures become evidence.
         return WorkerResult(worker=name, ok=False, error=f"{type(exc).__name__}: {exc}")

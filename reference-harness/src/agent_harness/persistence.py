@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import sqlite3
 from pathlib import Path
-from typing import Any
+from typing import Self
 
 from .contracts import Event, JsonObject, Message
 
@@ -51,7 +51,7 @@ class SQLiteSessionStore:
     def close(self) -> None:
         self._connection.close()
 
-    def __enter__(self) -> "SQLiteSessionStore":
+    def __enter__(self) -> Self:
         return self
 
     def __exit__(self, *_: object) -> None:
@@ -85,7 +85,7 @@ class SQLiteSessionStore:
 
     def append_message(self, session_id: str, message: Message) -> None:
         with self._connection:
-            sequence = self._next_sequence("messages", session_id)
+            sequence = self._next_message_sequence(session_id)
             self._connection.execute(
                 """
                 INSERT INTO messages
@@ -107,7 +107,7 @@ class SQLiteSessionStore:
         self, session_id: str, attempt_id: str, kind: str, data: JsonObject
     ) -> Event:
         with self._connection:
-            sequence = self._next_sequence("events", session_id)
+            sequence = self._next_event_sequence(session_id)
             event = Event(sequence, session_id, attempt_id, kind, dict(data))
             self._connection.execute(
                 """
@@ -149,11 +149,24 @@ class SQLiteSessionStore:
             ],
         }
 
-    def _next_sequence(self, table: str, session_id: str) -> int:
-        if table not in {"messages", "events"}:
-            raise ValueError("unsupported sequence table")
+    def _next_message_sequence(self, session_id: str) -> int:
         row = self._connection.execute(
-            f"SELECT COALESCE(MAX(sequence), 0) + 1 FROM {table} WHERE session_id = ?",
+            """
+            SELECT COALESCE(MAX(sequence), 0) + 1
+            FROM messages
+            WHERE session_id = ?
+            """,
+            (session_id,),
+        ).fetchone()
+        return int(row[0])
+
+    def _next_event_sequence(self, session_id: str) -> int:
+        row = self._connection.execute(
+            """
+            SELECT COALESCE(MAX(sequence), 0) + 1
+            FROM events
+            WHERE session_id = ?
+            """,
             (session_id,),
         ).fetchone()
         return int(row[0])

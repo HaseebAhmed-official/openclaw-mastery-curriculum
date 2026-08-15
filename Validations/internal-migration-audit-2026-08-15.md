@@ -56,8 +56,8 @@
 
 ## Residual Blockers
 
-- No actual pinned MCP or A2A adapter is implemented and reproduced.
-- No OpenTelemetry exporter, network model provider, or real provider compatibility fixture is reproduced.
+- A bounded pinned MCP `2.0.0` in-process proof and A2A SDK `1.1.2` JSON-RPC/ASGI proof are now instructor-executed, but neither proves external network transport, TLS/OAuth, disconnect/timeout/retry, cancellation, side-effect approval, streaming, duplicate handling, or cross-implementation compatibility.
+- A bounded OpenTelemetry SDK `1.44.0` in-memory span proof is instructor-executed against a commit-pinned development GenAI schema, but no OTLP backend, metrics/logs, SLO/alert path, production redaction audit, network model provider, or real provider compatibility fixture is reproduced.
 - Durable workflow, process isolation, handler timeout/cancellation, egress control, redaction, concurrency, distributed state, and hostile multi-tenant fixtures remain absent.
 - Authored labs have not been independently run in clean WSL/Linux, container, VPS, and constrained-budget lanes with retained evidence.
 - No representative maintained evaluation corpus, validated graders, uncertainty analysis, leakage study, or cost/latency baseline exists.
@@ -67,8 +67,16 @@
 
 ## Maturity Snapshot
 
-Planning estimates remain approximately **74% artifact implementation**, **25% hands-on reproducibility evidence**, and **30% institution/enterprise proof**. They are prioritization aids only. The completion-gate ledger in `PROJECT_STATE.md` overrides every percentage.
+At the 2026-08-15 audit, planning estimates were approximately **74% artifact implementation**, **25% hands-on reproducibility evidence**, and **30% institution/enterprise proof**. They are historical prioritization aids only; the addendum below supersedes them. The completion-gate ledger in `PROJECT_STATE.md` overrides every percentage.
 
 ## Next Gate
 
 Reproduce the critical lab path in a clean learner environment and retain commands, inputs, outputs, failures, environment fingerprints, timing, and assessor decisions. Do not promote readiness claims until that evidence is reviewed and the residual blockers are materially reduced.
+
+## 2026-08-16 Interoperability Addendum
+
+This addendum is still author-session evidence, not independent review. The reference harness gained one optional exact-version lane: MCP Python SDK `2.0.0`, A2A Python SDK `1.1.2`, and OpenTelemetry SDK `1.44.0`. The default standard-library lane remains dependency-free.
+
+The full 24-test suite passed on Windows Python 3.11.9 and in a fresh WSL `/tmp` copy using CPython 3.14.2, Linux 6.18.33.2 x86-64, glibc 2.35, and an offline Linux wheelhouse. The WSL run took 5.340 seconds after dependency installation. It observed MCP `2026-07-28` discovery and schema rejection, an authenticated A2A JSON-RPC task/artifact exchange plus `401` denial, and linked in-memory agent/tool spans that omitted supplied sensitive values. A2A emitted three upstream protobuf `label()` deprecation warnings.
+
+The fixture is `executed`; LAB-C4, LAB-C5, and LAB-C8 remain `authored`. No second person reproduced the work. Updated planning estimates are approximately **76% artifact implementation**, **28% hands-on reproducibility evidence**, and **30% institution/enterprise proof**. The strong readiness verdicts remain rejected.

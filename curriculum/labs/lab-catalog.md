@@ -135,3 +135,11 @@ Diagnostic Phase A evidence, LAB-B2 through LAB-B7, LAB-C2, LAB-C6 through LAB-C
 - `calibrated`: learner timing, common failures, and grading anchors are evidenced
 
 Only `reproduced` or `calibrated` labs may support a standalone ready-to-teach claim.
+
+## Reference Fixture Verification Ledger
+
+This ledger applies to shared starting fixtures, not to learner completion of the labs they support.
+
+| Date | Fixture and environment | State | Observed evidence | Claim boundary |
+| --- | --- | --- | --- | --- |
+| 2026-08-16 | Reference harness base plus optional interoperability lane; fresh WSL `/tmp` copy; Linux 6.18.33.2 on x86-64; glibc 2.35; CPython 3.14.2; offline wheelhouse; `mcp==2.0.0`, `a2a-sdk==1.1.2`, `opentelemetry-sdk==1.44.0` | `executed` | 24 of 24 tests passed in 5.340 seconds. MCP negotiated `2026-07-28`; A2A completed one JSON-RPC task/artifact exchange and rejected a missing bearer credential; two linked in-memory spans excluded supplied sensitive values. A2A emitted three upstream protobuf `label()` deprecation warnings. | Instructor/self-execution of a bounded fixture only. No independent learner reproduced it. It does not complete or promote LAB-C4, LAB-C5, or LAB-C8, and it does not prove external transport, production auth, resilience, OTLP operation, or protocol certification. |

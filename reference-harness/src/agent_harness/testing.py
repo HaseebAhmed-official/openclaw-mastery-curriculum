@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from collections import deque
+from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
-from typing import Callable, Iterable, Sequence
 
 from .contracts import JsonObject, Message, ModelTurn, Provider, RunResult
 from .runtime import Harness
@@ -149,7 +149,7 @@ def run_eval(
                 passed, reason = task.grader(run)
                 if not isinstance(passed, bool) or not isinstance(reason, str):
                     raise TypeError("grader must return (bool, str)")
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001 - grader failures fail the trial.
                 passed = False
                 reason = f"evaluation infrastructure error: {type(exc).__name__}: {exc}"
             results.append(

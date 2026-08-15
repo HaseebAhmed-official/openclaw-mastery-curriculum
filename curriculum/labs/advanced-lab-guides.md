@@ -10,9 +10,10 @@ The reference harness supplies bounded starting fixtures, not completed advanced
 | --- | --- | --- |
 | LAB-C1 | `reference-harness/src/agent_harness/orchestration.py` | a second real pattern, timing/cost evidence, concurrency where claimed, authority propagation, and comparative ablation |
 | LAB-C3 | `reference-harness/src/agent_harness/memory.py` | durable/indexed retrieval, contamination corpus, privacy/deletion propagation, quality metrics, and unavailable-store behavior |
-| LAB-C4 through LAB-C5 | `reference-harness/src/agent_harness/integration.py` | pinned MCP/A2A implementation, protocol traces, auth/transport behavior, malformed content, timeout, cancellation, and compatibility tests |
+| LAB-C4 | `reference-harness/src/agent_harness/integration.py` plus the optional MCP proof in `protocol_proofs.py` | external transport, controlled side effect plus harness approval, returned-content injection, disconnect/timeout/retry, legacy compatibility if claimed, and safe protocol traces |
+| LAB-C5 | `reference-harness/src/agent_harness/integration.py` plus the optional A2A JSON-RPC/ASGI proof in `protocol_proofs.py` | asynchronous or streaming transition, capability/authorization mismatch, duplicate handling, cancellation/timeout, malformed artifact, remote implementation swap, and safe protocol traces |
 | LAB-C7 | `reference-harness/src/agent_harness/testing.py` | representative corpus, valid graders, repeated nondeterministic trials, uncertainty, leakage controls, latency/cost, and release rationale |
-| LAB-C8 | attempt-correlated runtime events plus `integration.py` | timestamps, trace/span model, metrics/logs, exporter/version pin, redaction, SLOs, alerts, and incident reconstruction |
+| LAB-C8 | attempt-correlated runtime events, `integration.py`, and the optional in-memory OpenTelemetry proof in `protocol_proofs.py` | production exporter/backend, metrics/logs, correlation contract, redaction verification, SLOs, alerts, injected degradation, and incident reconstruction |
 
 Passing reference tests proves only the local contract examples. It cannot be submitted as advanced-lab evidence without the required extensions and measurements.
 
