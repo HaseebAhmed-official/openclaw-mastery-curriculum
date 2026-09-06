@@ -61,9 +61,11 @@ User study environment:
 
 ## Current Baseline
 
-The platform-agnostic architecture, support-asset migration, and advanced interoperability fixture are fixed through implementation commit `25d06ae`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
+2026-09-06 security milestone: the worktree adds an opt-in `ScopedPolicy` fixture and 14 adversarial test methods supporting LAB-C6. Host-issued per-session tool/resource/destination constraints, exact expiring/revocable one-use approvals, atomic in-process grant consumption, changed-tool binding rejection, and partial-effect retry denial are implemented. The advanced lab guide now supplies a runnable starting exercise, vulnerable positive control, benign control, required attack variants, detection/recovery evidence, and oral-defense criteria. All 48 tests passed in the existing Windows Python 3.13.1 exact-dependency environment; Ruff, MyPy (`--check-untyped-defs`, 19 source/test files), Bandit on `src`, four drift-script tests, and Git whitespace checks passed. This is author-run worktree evidence, not independent lab reproduction. The earlier baseline below retains the last clean WSL evidence until a new commit-bound run is recorded.
 
-The reference harness now covers the minimal runtime plus bounded Semester 2 starting fixtures for memory, orchestration, protocol/telemetry ports, per-attempt events, persistence, and policy-based evaluation. An optional exact-version lane adds real in-process MCP `2.0.0`, A2A SDK `1.1.2` JSON-RPC/ASGI, and OpenTelemetry SDK `1.44.0` in-memory proofs. All 24 tests passed on Windows and from a clean WSL extraction of Git archive `25d06ae` on 2026-08-16. These fixtures support learning; they do not replace complete labs, independent reproduction, external transports, or production infrastructure.
+The platform-agnostic architecture, support-asset migration, advanced interoperability fixture, and bounded durable-execution fixture are fixed through implementation head `ac25d63`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
+
+The reference harness now covers the minimal runtime plus bounded Semester 2 starting fixtures for memory, orchestration, protocol/telemetry ports, per-attempt events, persistence, policy-based evaluation, and single-host SQLite durable work. The durability fixture includes explicit state/version handling, atomic claims, lease-token fencing, retry and idempotency policy, cancellation, recovery, quarantine, and manual resolution. An optional exact-version lane adds real in-process MCP `2.0.0`, A2A SDK `1.1.2` JSON-RPC/ASGI, and OpenTelemetry SDK `1.44.0` in-memory proofs. All 34 tests passed on Windows and from a clean WSL extraction of Git archive `ac25d63` on 2026-08-16. These fixtures support learning; they do not replace complete labs, independent reproduction, external transports, distributed durability, or production infrastructure.
 
 The consolidated [internal migration audit](Validations/internal-migration-audit-2026-08-15.md) conditionally accepts a strong self-study draft and supervised-pilot candidate, but rejects standalone ready-to-teach, institution-ready, enterprise-ready, and world-class claims at the current evidence level.
 
@@ -71,8 +73,8 @@ The consolidated [internal migration audit](Validations/internal-migration-audit
 
 | Scope | Evidence-based completion | Interpretation |
 | --- | ---: | --- |
-| Platform-agnostic curriculum artifact implementation | about 76% | Canonical/support migration, dated case ledgers, bounded real protocol/telemetry proofs, and an internal audit exist; provider/durable/security depth, lab reproduction, and complete delivery evidence remain. |
-| Hands-on reproducibility evidence | about 28% | The complete reference fixture was instructor-executed in fresh WSL, but authored labs have not been independently reproduced or calibrated. |
+| Platform-agnostic curriculum artifact implementation | about 78% | Canonical/support migration, dated case ledgers, bounded protocol/telemetry and durable-work proofs, and an internal audit exist; provider/security/distributed-systems depth, lab reproduction, and complete delivery evidence remain. |
+| Hands-on reproducibility evidence | about 30% | The interoperability and durability starting fixtures were instructor-executed from clean Git archives in fresh WSL, but authored labs have not been independently reproduced or calibrated. |
 | Expanded curriculum institution/enterprise proof | about 30% | Alignment and delivery contracts are strong, but no real cohort, measured assessor reliability, full lab reproduction, accessibility audit, or independent adoption evidence exists. |
 
 Percentages are planning estimates, not quality claims. The gate ledger below is authoritative.
@@ -98,11 +100,11 @@ These assets should be migrated and improved, not discarded merely to make the r
 
 ### Technical Depth
 
-- The executable reference harness proves deterministic provider behavior, bounded loop, typed tools, exact approval, context budgeting, per-attempt event identity, session/event persistence, bounded memory/orchestration, checked adapter ports, event export, policy-based repeated-trial evaluation, and bounded real MCP/A2A/OpenTelemetry SDK behavior. It still lacks process isolation, full JSON Schema, distributed durability, external protocol transports, production telemetry infrastructure, and production provider adapters.
+- The executable reference harness proves deterministic provider behavior, bounded loop, typed tools, exact approval, context budgeting, per-attempt event identity, session/event persistence, bounded memory/orchestration, single-host durable task transitions, checked adapter ports, event export, policy-based repeated-trial evaluation, and bounded real MCP/A2A/OpenTelemetry SDK behavior. It still lacks process isolation, full JSON Schema, distributed durability, external protocol transports, production telemetry infrastructure, and production provider adapters.
 - MCP and A2A are taught as independent interoperability contracts and now have pinned executable starting proofs. Their labs still lack full failure/transport/security scope and independent reproduction evidence.
-- Durable workflow engines, checkpoint/replay semantics, idempotency, cancellation, and recovery need first-class treatment.
+- The bounded SQLite fixture teaches idempotency-intent checks, retry classification, lease recovery/fencing, cooperative cancellation, ambiguous-outcome repair, and state-version quarantine. LAB-C2 still requires real process loss, enforced handler timeouts, queue/worker heartbeat behavior, external-effect reconciliation, and independent reproduction; distributed workflow-engine comparison also remains.
 - Evaluation fixtures now implement repeated trials, per-task thresholds, critical gates, and retained runs, but the curriculum still lacks a maintained representative corpus, validated graders, uncertainty analysis, leakage checks, cost, and latency evidence.
-- Threat modeling needs platform-independent agentic attack labs and measurable mitigations.
+- LAB-C6 now has a runnable platform-independent authorization fixture and vulnerable/protected comparisons. Actual model susceptibility, network/process isolation, memory/supply-chain attack execution, external-effect reconciliation, and independent lab reproduction remain unproved. Its trusted-host model must not be represented as hostile multi-tenant security.
 
 ### Delivery Evidence
 
@@ -196,10 +198,10 @@ The project is complete only when every applicable gate has evidence:
 | G0 Scope and boundary | Stable outcomes, product separation, claim limits | Implemented; internal audit complete, independent audit pending |
 | G1 Source integrity | Claim-source map, versions/dates, independent spot checks | Improved but partial; current protocol and case claims rechecked internally |
 | G2 Curriculum alignment | Outcome-to-module-to-lab-to-assessment traceability | Implemented; internal structural audit passed, assessor calibration pending |
-| G3 Reference implementation | Runnable harness, tests, fixtures, documented failure modes | Partial; 24 bounded tests pass including optional real SDK proofs; production adapters absent |
-| G4 Hands-on reproducibility | Labs executed in clean environments with expected evidence | Early; shared fixture instructor-executed in fresh WSL, independent lab reproduction absent |
+| G3 Reference implementation | Runnable harness, tests, fixtures, documented failure modes | Partial; 48 bounded tests pass including optional real SDK, single-host durability, and authorization-boundary proofs; production adapters and distributed infrastructure are absent |
+| G4 Hands-on reproducibility | Labs executed in clean environments with expected evidence | Early; interoperability and durability starting fixtures are instructor-executed in fresh WSL, but LAB-C2/C4/C5/C8 and other labs lack independent reproduction |
 | G5 Assessment validity | Authentic tasks, oral defense, transfer, anti-outsourcing controls | Strong authored system; empirical validity pending |
-| G6 Security and governance | Threat labs, controls, privacy, change management, audits | Strong authored system; execution/audit pending |
+| G6 Security and governance | Threat labs, controls, privacy, change management, audits | Authored system plus an internally executed LAB-C6 authorization starting fixture; complete threat labs, operational isolation, and independent audit pending |
 | G7 Teaching readiness | Instructor notes, pacing, accessibility, calibration | Partial |
 | G8 Learner evidence | Pilot data and delayed changed-task transfer | Missing |
 | G9 External validation | Independent academic, practitioner, security reviews repaired | Missing for new scope |
@@ -219,11 +221,13 @@ No completion percentage overrides a failed gate.
 
 1. Keep `../elite-mentor-os` frozen until the user explicitly resumes that product.
 2. Reproduce the critical lab path independently and preserve environment, command, output, failure, timing, and assessor evidence.
-3. Add the next highest-value production fixture: durable cancellation/recovery or a bounded real provider adapter, selected by lab coverage and maintenance cost.
+3. Finish clean WSL validation of the new authorization fixture, then build the maintained evaluation corpus and uncertainty/leakage checks required by LAB-C7. Extend security into actual memory/persistence and process/network boundaries before stronger security claims.
 4. Run accessibility and assessor-calibration audits, then repair findings.
 5. Seek independent review and pilot evidence only after the internal blockers are materially reduced.
 
 ## State-Preservation Protocol
+
+Current continuation note (2026-09-06): previous sandbox failures prevented saving the security checkpoint; command and patch access have now resumed. The security fixture adds only two files; teaching, sources, audit, and continuity updates reuse existing files. Retain the earlier uncommitted durability evidence and drift-script `writelines` repair when committing this milestone. The OpenClaw upstream review remains dated 2026-08-15: later release observations in chat are not a completed review and must be refreshed against current primary sources. The user requested an English explanation of the goal after a long pause; the platform-agnostic curriculum vision and frozen sibling-product decision remain in force. No maturity percentage is being raised from these test results.
 
 At every meaningful milestone:
 

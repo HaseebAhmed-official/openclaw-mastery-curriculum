@@ -69,6 +69,13 @@ class Approval:
     arguments_fingerprint: str
 
 
+class AuthorizationPolicy(Protocol):
+    def authorize(
+        self, session_id: str, spec: ToolSpec, call: ToolCall
+    ) -> tuple[bool, str]:
+        """Decide before dispatch; implementations may consume a one-use grant."""
+
+
 @dataclass(frozen=True)
 class RunLimits:
     max_turns: int = 8

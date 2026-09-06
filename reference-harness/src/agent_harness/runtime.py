@@ -12,6 +12,7 @@ from uuid import uuid4
 from .context import AllContextBuilder
 from .contracts import (
     Approval,
+    AuthorizationPolicy,
     ContextBuilder,
     Event,
     JsonObject,
@@ -197,7 +198,7 @@ class Harness:
         self,
         provider: Provider,
         registry: ToolRegistry | None = None,
-        policy: Policy | None = None,
+        policy: AuthorizationPolicy | None = None,
         store: SessionStore | None = None,
         context_builder: ContextBuilder | None = None,
         system_instruction: str = "Act within the available tools and policy.",

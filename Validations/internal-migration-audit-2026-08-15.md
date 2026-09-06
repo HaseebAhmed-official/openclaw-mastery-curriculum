@@ -58,18 +58,28 @@
 
 - A bounded pinned MCP `2.0.0` in-process proof and A2A SDK `1.1.2` JSON-RPC/ASGI proof are now instructor-executed, but neither proves external network transport, TLS/OAuth, disconnect/timeout/retry, cancellation, side-effect approval, streaming, duplicate handling, or cross-implementation compatibility.
 - A bounded OpenTelemetry SDK `1.44.0` in-memory span proof is instructor-executed against a commit-pinned development GenAI schema, but no OTLP backend, metrics/logs, SLO/alert path, production redaction audit, network model provider, or real provider compatibility fixture is reproduced.
-- Durable workflow, process isolation, handler timeout/cancellation, egress control, redaction, concurrency, distributed state, and hostile multi-tenant fixtures remain absent.
+- A bounded single-host SQLite durability fixture is now instructor-executed. It covers persisted state transitions, idempotency conflicts, bounded retries, lease recovery and fencing, cooperative cancellation, ambiguous-outcome quarantine, and manual resolution; it does not prove real process killing, enforced handler deadlines, queue/worker heartbeats, distributed state, external-service reconciliation, or exactly-once effects. Process isolation, egress control, production redaction, hostile concurrency, and hostile multi-tenant fixtures remain absent.
 - Authored labs have not been independently run in clean WSL/Linux, container, VPS, and constrained-budget lanes with retained evidence.
 - No representative maintained evaluation corpus, validated graders, uncertainty analysis, leakage study, or cost/latency baseline exists.
 - No accessibility audit, learner timing study, measured assessor calibration, delayed unaided changed-task transfer result, or cohort pilot exists.
 - No independent academic, practitioner, security, privacy/legal, or enterprise-governance review has evaluated the migrated scope.
-- Optional static, security, secret-history, and workflow linters were unavailable during this audit.
+- Ruff, MyPy with untyped-body checking, and Bandit now pass for the reference harness. Specialized secret-history and workflow-linter evidence remains absent.
 
 ## Maturity Snapshot
 
 At the 2026-08-15 audit, planning estimates were approximately **74% artifact implementation**, **25% hands-on reproducibility evidence**, and **30% institution/enterprise proof**. They are historical prioritization aids only; the addendum below supersedes them. The completion-gate ledger in `PROJECT_STATE.md` overrides every percentage.
 
 ## Next Gate
+
+### 2026-09-06 Authorization Fixture Addendum
+
+This remains author-session evidence. `security.py` adds opt-in host-scoped resources and destinations with exact expiring/revocable single-use approval; the minimal foundations `Policy` retains its original reusable-grant behavior. Fourteen security methods exercise forced malicious provider calls and a deliberately vulnerable synthetic positive control, benign success, cross-resource/session denial, destination variants, changed arguments, replay, expiry/revocation, concurrent grant consumption, tool-binding drift, and denial after partial-effect failure or policy recreation. No real network request is made.
+
+The current Windows Python 3.13.1 exact-dependency environment passed all 48 tests in 4.521 seconds. Ruff, MyPy with `--check-untyped-defs` over 19 source/test files, Bandit on `src`, four drift-script tests, and `git diff --check` passed. Three existing upstream A2A protobuf deprecation warnings remain. A type error in the deliberate schema-mutation test was repaired with an explicit type narrowing. This is worktree execution; fresh archive/WSL evidence will be recorded separately.
+
+LAB-C6's existing guide now includes runnable commands, trust assumptions, exploit/control/end-state predictions, benign controls, detection/recovery evidence, required unseen variants, and oral-defense criteria. The fixture has trusted host identities/handlers and no real model, network/OS enforcement, persistent approvals, malicious-handler containment, or independent audit. Its single-grant lock is not full runtime concurrency safety. LAB-C6 remains `authored`, and the readiness verdicts above remain unchanged. Only two new files were needed; all teaching/state/source changes reuse canonical files.
+
+### Continuing Gate
 
 Reproduce the critical lab path in a clean learner environment and retain commands, inputs, outputs, failures, environment fingerprints, timing, and assessor decisions. Do not promote readiness claims until that evidence is reviewed and the residual blockers are materially reduced.
 
@@ -80,3 +90,11 @@ This addendum is still author-session evidence, not independent review. The refe
 The full 24-test suite passed on Windows Python 3.11.9 and from a Git archive of implementation commit `25d06ae` extracted into a fresh WSL `/tmp` directory. The commit-bound run used CPython 3.14.2, Linux 6.18.33.2 x86-64, glibc 2.35, and an offline Linux wheelhouse; tests took 3.182 seconds. It observed MCP `2026-07-28` discovery and schema rejection, an authenticated A2A JSON-RPC task/artifact exchange plus `401` denial, and linked in-memory agent/tool spans that omitted supplied sensitive values. A2A emitted three upstream protobuf `label()` deprecation warnings.
 
 The fixture is `executed`; LAB-C4, LAB-C5, and LAB-C8 remain `authored`. No second person reproduced the work. Updated planning estimates are approximately **76% artifact implementation**, **28% hands-on reproducibility evidence**, and **30% institution/enterprise proof**. The strong readiness verdicts remain rejected.
+
+## 2026-08-16 Durable Execution Addendum
+
+This addendum is also author-session evidence, not independent review. Implementation commit `a78f42a` added a standard-library SQLite durable-work starting fixture with an explicit state/version contract, atomic claims, per-claim lease-token fencing, bounded retry policy, idempotency-intent checks, cancellation, expired-lease recovery, quarantine, compensation/manual resolution, and an append-only application transition ledger.
+
+The exact-dependency 34-test suite passed on Windows. A Git archive of implementation head `ac25d63` then passed all 34 tests after fresh extraction under WSL using CPython 3.14.2, Linux 6.18.33.2 x86-64, glibc 2.35, and the offline exact-version wheelhouse; the test runner reported 3.150 seconds and the measured command elapsed time was 3.843 seconds. Ruff, exact-environment MyPy with `--check-untyped-defs`, Bandit, `uv lock --check`, compilation, drift tests, local-link checks, and Git whitespace checks also passed. The three A2A protobuf `label()` deprecation warnings remain upstream warnings in the optional integration lane.
+
+The durability fixture is `executed`; LAB-C2 remains `authored`. There was no independent learner, real process kill, enforced call timeout, distributed worker system, or external side-effect service. Updated planning estimates are approximately **78% artifact implementation**, **30% hands-on reproducibility evidence**, and **30% institution/enterprise proof**. The strong readiness verdicts remain rejected.

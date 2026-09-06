@@ -21,10 +21,11 @@ Build a university-presentable, enterprise-relevant curriculum through which a s
 
 ## Verified Baseline
 
-- Date: 2026-08-16, Asia/Karachi.
-- Platform-agnostic curriculum migration and advanced interoperability hardening are fixed through implementation commit `25d06ae`.
+- Date: 2026-09-06, Asia/Karachi; clean WSL baseline remains 2026-08-16 until the new run is recorded.
+- Platform-agnostic curriculum migration, advanced interoperability hardening, and bounded durable execution are fixed through implementation head `ac25d63`.
 - Current tree has 68 curriculum files; 15 OpenClaw references remain in intentional case/source/maintenance/comparative contexts.
-- The reference harness has a minimal runtime, bounded memory/orchestration/persistence/evaluation fixtures, and an optional exact-version MCP/A2A/OpenTelemetry lane; 24 tests pass on Windows and from a clean WSL extraction of Git archive `25d06ae`.
+- The reference harness has a minimal runtime, bounded memory/orchestration/persistence/evaluation fixtures, a single-host SQLite durable-work fixture, and an optional exact-version MCP/A2A/OpenTelemetry lane; 34 tests pass on Windows and from a clean WSL extraction of Git archive `ac25d63`.
+- The current worktree adds opt-in `ScopedPolicy` and 14 security tests; all 48 exact-dependency tests passed on Windows Python 3.13.1 in 4.521 seconds. Ruff, MyPy with untyped-body checking (19 files), Bandit on source, four drift tests, and Git whitespace checks passed. No independent reproduction or complete LAB-C6 claim follows.
 - The 2026-08-15 internal migration audit rejects standalone, institution, enterprise, and world-class readiness claims pending real evidence.
 - Elite Mentor OS is separate and frozen; do not work on it until the user explicitly resumes it.
 
@@ -32,21 +33,21 @@ Build a university-presentable, enterprise-relevant curriculum through which a s
 
 | Scope | Estimate | Critical remaining evidence |
 | --- | ---: | --- |
-| Expanded agent-harness curriculum artifacts | 76% | production adapters/durability, lab reproduction, complete delivery evidence, independent audits |
-| Hands-on reproducibility evidence | 28% | independent lab runs, learner reproduction, and calibration |
+| Expanded agent-harness curriculum artifacts | 78% | production adapters/security/distributed durability, lab reproduction, complete delivery evidence, independent audits |
+| Hands-on reproducibility evidence | 30% | independent lab runs, learner reproduction, and calibration |
 | Expanded curriculum institution/enterprise proof | 30% | cohort, measured calibration, accessibility audit, external adoption evidence |
 
 These are planning estimates. Completion gates in `PROJECT_STATE.md` control claims.
 
 ## Current Milestone
 
-Move from the instructor-executed shared fixture to independently reproduced critical labs, then address the next highest-value production-runtime gap.
+Finish commit-bound clean WSL validation of the LAB-C6 authorization fixture and preserve the results, then address LAB-C7's maintained evaluation corpus, uncertainty, and leakage controls. New security code and tests occupy two files; the teaching recipe and assessment criteria are in the existing advanced-lab guide.
 
 ## Next Actions
 
 1. Do not work on `../elite-mentor-os` until the user explicitly resumes it.
-2. Keep the shared interoperability fixture at `executed`; do not promote LAB-C4/C5/C8 without their full evidence contracts and independent reproduction.
-3. Add durable cancellation/recovery or a bounded real provider adapter only after selecting the larger lab-coverage gain.
+2. Keep interoperability, durability, and authorization starting fixtures distinct from lab completion; do not promote LAB-C2/C4/C5/C6/C8 without their full evidence contracts and independent reproduction.
+3. Add a maintained evaluation corpus with meaningful grader/uncertainty/leakage checks for LAB-C7; pursue actual memory/persistence and process/network security evidence next. OpenClaw upstream review is stale at 2026-08-15 and still needs a current source refresh.
 4. Run accessibility and measured assessor-calibration audits.
 5. Request independent reviews and pilots only after internal blockers are materially reduced.
 
@@ -70,6 +71,7 @@ Move from the instructor-executed shared fixture to independently reproduced cri
 
 | Date | Decision/evidence | Next |
 | --- | --- | --- |
+| 2026-09-06 | Added optional host-scoped tool/resource/destination policy and expiring/revocable single-use approvals, 14 adversarial test methods, and LAB-C6 teaching/assessment instructions. All 48 tests passed in the existing exact-dependency Windows environment; source/static checks passed. Sandbox command failures were temporarily handled with the available Node runtime for repository-local reads/tests; normal command/patch access has now resumed. State is saved here after the earlier failed checkpoint attempt. | Commit and cleanly validate in WSL; preserve pending durability evidence and drift-script repair. Then address LAB-C7 and current source drift. |
 | 2026-08-15 | Pushed clean OpenClaw baseline `94aa38d` and plugin snapshot `50f6439`; researched primary architecture, protocol, security, accreditation, and evaluation sources. | Finish standalone Mentor OS extraction. |
 | 2026-08-15 | Expanded target from OpenClaw mastery to platform-agnostic Agent Harness Systems Engineering; measured 55/81 curriculum files as OpenClaw-referenced. | Migrate canonical outcomes and semester spine after product separation. |
 | 2026-08-15 | Published standalone Mentor OS v0.3 at `HaseebAhmed-official/elite-mentor-os`; static validators and isolated Codex/Claude remote installs passed. User then paused all Mentor OS work. | Focus only on curriculum until explicitly resumed. |
@@ -78,6 +80,7 @@ Move from the instructor-executed shared fixture to independently reproduced cri
 | 2026-08-15 | Added per-attempt event identity, bounded memory/orchestration, checked protocol/telemetry ports, policy-based evaluation gates, schema migration coverage, and adversarial tests. Mentor OS remains frozen. | Complete internal curriculum audit and repair findings. |
 | 2026-08-15 | Fixed candidate `eb8d423`: 20 harness tests and 4 drift tests pass; current MCP/A2A/OpenTelemetry sources and non-OpenClaw case ledgers were repaired; internal audit conditionally accepts self-study/supervised-pilot use and rejects stronger readiness claims. | Reproduce the critical lab path cleanly; then add justified real adapters and run accessibility/calibration review. |
 | 2026-08-16 | Added exact optional MCP `2.0.0`, A2A SDK `1.1.2`, and OpenTelemetry SDK `1.44.0` proofs at `25d06ae`. All 24 tests passed on Windows and from that commit's Git archive in fresh offline WSL using Python 3.14.2; the WSL test run took 3.182 seconds. Only the shared fixture is `executed`; advanced labs remain `authored`, and Mentor OS remains frozen. | Implement the highest-value remaining production fixture and pursue independent lab reproduction without promoting unearned readiness claims. |
+| 2026-08-16 | Added bounded SQLite durable work at `a78f42a` and hardened exact-SDK telemetry typing at `ac25d63`: idempotency-intent checks, bounded retries, atomic claims, lease fencing/recovery, cancellation, ambiguous-outcome repair, and state-version quarantine. All 34 exact-dependency tests passed on Windows and from a clean `ac25d63` Git archive in fresh WSL; the WSL test runner took 3.150 seconds. LAB-C2 remains `authored`, and Mentor OS remains frozen. | Build the highest-value platform-independent security or evaluation fixture and pursue independent lab reproduction without promoting unearned readiness claims. |
 
 ## Resume Protocol
 

@@ -86,8 +86,7 @@ def build_issue_body(state: dict, latest: dict) -> str:
 
 def write_outputs(path: str, data: dict) -> None:
     with open(path, "a", encoding="utf-8") as handle:
-        for key, value in data.items():
-            handle.write(f"{key}={value}\n")
+        handle.writelines(f"{key}={value}\n" for key, value in data.items())
 
 
 def main() -> int:
