@@ -81,6 +81,10 @@ LAB-C6's existing guide now includes runnable commands, trust assumptions, explo
 
 ### Continuing Gate
 
+2026-09-06 follow-up: security implementation `b2a0221` passed all 48 tests from a clean Git archive in fresh WSL at `/tmp/harness-b2a0221.tyzzwz`, Python 3.13.9, Linux 6.18.33.2 x86-64, using `uv run --python 3.13 --extra interop --locked python -m unittest discover -s tests -v`. Test time was 6.949 seconds excluding environment setup. Three known upstream A2A warnings remained. This is instructor execution, not independent reproduction.
+
+A separate evaluator defect was reproduced: with zero pass-rate thresholds, a factory exception could approve a release. The repair records infrastructure failures explicitly and vetoes approval regardless of scoring thresholds. Ordinary negative grades remain task outcomes; available runs survive grader failure. Five evaluator methods now include factory exceptions, grader exceptions, malformed grade, critical-task veto, and valid negative-grade behavior. All 50 worktree tests passed in the Windows exact-dependency environment in 2.952 seconds; Ruff, MyPy with untyped-body checking, Bandit on source, and Git whitespace checks passed. LAB-C7's new exercise explains the measurement boundary and requires a maintained corpus and calibrated graders before stronger evaluation claims. No readiness percentage or verdict is raised by this repair.
+
 Reproduce the critical lab path in a clean learner environment and retain commands, inputs, outputs, failures, environment fingerprints, timing, and assessor decisions. Do not promote readiness claims until that evidence is reviewed and the residual blockers are materially reduced.
 
 ## 2026-08-16 Interoperability Addendum

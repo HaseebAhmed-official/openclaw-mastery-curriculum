@@ -64,6 +64,7 @@ class TrialResult:
     reason: str
     run: RunResult | None
     critical: bool = False
+    infrastructure_error: bool = False
 
 
 @dataclass(frozen=True)
@@ -99,6 +100,10 @@ class EvalReport:
         reasons: list[str] = []
         if not self.trials:
             reasons.append("no evaluation trials were executed")
+        if any(trial.infrastructure_error for trial in self.trials):
+            reasons.append(
+                "evaluation infrastructure failed; release evidence is incomplete"
+            )
         if self.pass_rate < self.policy.min_overall_pass_rate:
             reasons.append("overall pass rate is below the predeclared threshold")
         below_task_threshold = [
@@ -108,8 +113,7 @@ class EvalReport:
         ]
         if below_task_threshold:
             reasons.append(
-                "task pass rate is below threshold: "
-                + ", ".join(below_task_threshold)
+                "task pass rate is below threshold: " + ", ".join(below_task_threshold)
             )
         if self.policy.fail_on_critical_trial and any(
             trial.critical and not trial.passed for trial in self.trials
@@ -143,6 +147,7 @@ def run_eval(
     for task in task_list:
         for trial in range(1, policy.trials_per_task + 1):
             run: RunResult | None = None
+            infrastructure_error = False
             try:
                 harness = harness_factory(task, trial)
                 run = harness.run(f"{task.task_id}-{trial}", task.prompt)
@@ -151,8 +156,17 @@ def run_eval(
                     raise TypeError("grader must return (bool, str)")
             except Exception as exc:  # noqa: BLE001 - grader failures fail the trial.
                 passed = False
+                infrastructure_error = True
                 reason = f"evaluation infrastructure error: {type(exc).__name__}: {exc}"
             results.append(
-                TrialResult(task.task_id, trial, passed, reason, run, task.critical)
+                TrialResult(
+                    task.task_id,
+                    trial,
+                    passed,
+                    reason,
+                    run,
+                    task.critical,
+                    infrastructure_error,
+                )
             )
     return EvalReport(tuple(results), policy)

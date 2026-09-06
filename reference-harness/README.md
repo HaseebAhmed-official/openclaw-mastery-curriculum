@@ -19,6 +19,7 @@ It includes:
 - pinned capability-adapter and event-exporter ports for protocol/telemetry contract tests
 - an optional, exact-version interoperability lane with real MCP discovery/tool validation, A2A JSON-RPC task/artifact exchange plus an authentication boundary, and in-memory OpenTelemetry spans with sensitive content omitted
 - repeated-trial evaluation with per-task thresholds and critical-failure release gates
+- explicit evaluation-infrastructure failures that veto release even under permissive score thresholds, while retaining available runs for diagnosis
 
 It intentionally does **not** claim production readiness. It does not provide process isolation, handler timeouts, preemptive cancellation during a call, network egress control, cryptographic identity, full event/log redaction, full JSON Schema, or a network model client. The durable-task fixture is a single-host SQLite teaching model: it has no queue service, worker heartbeat, distributed consensus/lease guarantee, real process-kill harness, or exactly-once external-effect guarantee. Memory is in-process lexical retrieval and fan-out is sequential. The optional interoperability proofs use in-process MCP, in-process ASGI for A2A, and an in-memory OpenTelemetry exporter. They do not prove external network transport, TLS/OAuth, resilient protocol retries, an OTLP backend, SLO operation, protocol certification, or stable GenAI-convention compliance.
 

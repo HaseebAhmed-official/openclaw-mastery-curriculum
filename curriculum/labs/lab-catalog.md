@@ -140,6 +140,8 @@ Only `reproduced` or `calibrated` labs may support a standalone ready-to-teach c
 
 This ledger applies to shared starting fixtures, not to learner completion of the labs they support.
 
+Clean security evidence, 2026-09-06: Git archive `b2a0221`, extracted into fresh WSL directory `/tmp/harness-b2a0221.tyzzwz`, passed all 48 tests in 6.949 seconds. Command: `uv run --python 3.13 --extra interop --locked python -m unittest discover -s tests -v`, using CPython 3.13.9 and the committed lockfile on Linux 6.18.33.2 x86-64. Environment creation downloaded Python and installed 47 packages; the reported test duration excludes that setup. Three known upstream A2A protobuf warnings remained. The security starting fixture is `executed`, not `reproduced`; the full LAB-C6 remains `authored`. This supersedes the worktree-only checkpoint below for that commit.
+
 2026-09-06 authorization fixture checkpoint: the existing Windows Python 3.13.1 exact-dependency environment passed all 48 tests in 4.521 seconds, including 14 security methods. The new methods cover vulnerable/protected synthetic export, read-resource and session scope, destination variants, exact single-use approval, expiry/revocation, concurrent consumption, partial-effect retry denial, tool-binding drift, and restart denial. This is an author-executed worktree fixture, not a clean archive or independent reproduction. LAB-C6 remains `authored`; its complete detection/recovery, independently authored variants, memory/supply-chain/identity extension, and practical transfer gate are required by the advanced guide.
 
 | Date | Fixture and environment | State | Observed evidence | Claim boundary |

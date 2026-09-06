@@ -61,6 +61,10 @@ User study environment:
 
 ## Current Baseline
 
+Clean security validation recorded 2026-09-06: commit `b2a0221` passed all 48 tests from a fresh WSL Git archive, with CPython 3.13.9 and the committed optional-dependency lock. Test time was 6.949 seconds, excluding downloads/setup; three known A2A protobuf warnings remain. This supersedes the worktree-only security checkpoint below. It is author-executed evidence, not independent lab reproduction.
+
+Evaluator repair validated on Windows: a pre-fix reproducer returned `approved=True` after a factory exception when both rate thresholds were zero. `testing.py` now distinguishes infrastructure failure and applies an unconditional veto, preserving runs when a grader fails. LAB-C7 now teaches this distinction and specifies corpus provenance, final-state grading, held-out families, dependence assumptions, exclusions, and measured latency/cost evidence. All 50 exact-dependency tests passed in 2.952 seconds; Ruff, MyPy (19 source/test files), Bandit on source, and Git whitespace checks passed. Clean commit-bound WSL evidence for this repair is pending. A maintained representative corpus and validated graders remain unfinished.
+
 2026-09-06 security milestone: the worktree adds an opt-in `ScopedPolicy` fixture and 14 adversarial test methods supporting LAB-C6. Host-issued per-session tool/resource/destination constraints, exact expiring/revocable one-use approvals, atomic in-process grant consumption, changed-tool binding rejection, and partial-effect retry denial are implemented. The advanced lab guide now supplies a runnable starting exercise, vulnerable positive control, benign control, required attack variants, detection/recovery evidence, and oral-defense criteria. All 48 tests passed in the existing Windows Python 3.13.1 exact-dependency environment; Ruff, MyPy (`--check-untyped-defs`, 19 source/test files), Bandit on `src`, four drift-script tests, and Git whitespace checks passed. This is author-run worktree evidence, not independent lab reproduction. The earlier baseline below retains the last clean WSL evidence until a new commit-bound run is recorded.
 
 The platform-agnostic architecture, support-asset migration, advanced interoperability fixture, and bounded durable-execution fixture are fixed through implementation head `ac25d63`. The current tree has 68 curriculum files; 15 reference OpenClaw only in intentional case-study, source, maintenance, comparative, or historical contexts. The embedded Mentor plugin and empty screenshot/manual layer are gone.
@@ -221,7 +225,7 @@ No completion percentage overrides a failed gate.
 
 1. Keep `../elite-mentor-os` frozen until the user explicitly resumes that product.
 2. Reproduce the critical lab path independently and preserve environment, command, output, failure, timing, and assessor evidence.
-3. Finish clean WSL validation of the new authorization fixture, then build the maintained evaluation corpus and uncertainty/leakage checks required by LAB-C7. Extend security into actual memory/persistence and process/network boundaries before stronger security claims.
+3. Complete validation of the evaluator infrastructure-error repair, then build the maintained evaluation corpus and uncertainty/leakage checks required by LAB-C7. The authorization fixture's clean WSL run is complete; extend security into actual memory/persistence and process/network boundaries before stronger security claims.
 4. Run accessibility and assessor-calibration audits, then repair findings.
 5. Seek independent review and pilot evidence only after the internal blockers are materially reduced.
 

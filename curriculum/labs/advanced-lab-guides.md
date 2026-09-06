@@ -207,6 +207,27 @@ Build an evaluation system that can support a release decision.
 
 Create 20-50 realistic initial tasks or justify a smaller high-cost corpus. Separate capability, regression, security, and reliability subsets. Run repeated trials where behavior is nondeterministic.
 
+### Starting Exercise: Validate the Evaluator
+
+Before interpreting a score, check whether the evaluation produced valid evidence. From `reference-harness`, run `PYTHONPATH=src python -m unittest discover -s tests -p test_evaluation.py -v` in WSL/Linux. On PowerShell, set `$env:PYTHONPATH = "src"` first, then run the same Python command.
+
+The example distinguishes an ordinary failing task from an evaluation infrastructure failure. In `testing.py`, an exception escaping the harness factory, harness run, or grader, or an invalid grader return, sets `TrialResult.infrastructure_error=True` and vetoes release approval regardless of pass-rate thresholds. A valid `(False, reason)` grade is an observed task failure, governed by the declared task/overall thresholds and critical gate. The raw pass rate includes infrastructure failures as failed trials; it must not be presented as a valid model capability estimate when the infrastructure veto is present. Provider/tool errors already captured inside a valid `RunResult` remain observable candidate behavior for a task-specific grader to assess.
+
+1. Predict the decision for a failing ordinary task, a failed critical task, and a grader that raises an exception. Set both rate thresholds to zero only for the fault-injection exercise; even under this permissive policy, broken infrastructure must reject release.
+2. Inject a factory exception, a grader exception, and a malformed grade such as `("yes", "reason")`. Assert the infrastructure flag, decision reason, and retained run. A factory failure has no run; a grader failure retains the run that it could not grade. Repair the evaluator and rerun the same corpus. Never count deleting failed trials as repair.
+3. Replace a grader that checks only the final text with one that also verifies stop reason, policy events, and independently observed final state. Include a plausible successful answer paired with an unauthorized effect. Record disagreements and adjudicate them against the written task requirements.
+4. Add a learner-authored evaluator failure variant, such as a malformed reference answer or an unavailable evidence reader. Prove that it cannot silently become a passing or omitted trial. Explain which failures originate in the candidate and which originate in the measuring system.
+
+The existing five evaluator test methods are regression examples, not a representative task corpus or evidence of grader validity. LAB-C7 still requires the corpus, calibrated graders, uncertainty, leakage analysis, and cost/latency measurements below.
+
+### Corpus and Evidence Contract
+
+Keep the initial corpus in one versioned learner artifact with stable task IDs, task family, source/provenance, prompt, starting-state fixture, expected final-state predicates, allowed/forbidden actions, criticality, grading rule, and split. Record corpus hash, harness revision, model/provider configuration when applicable, trial identifiers, and the policy selected before examining held-out results.
+
+Separate development tasks from held-out variants by scenario family and source, not just by prompt spelling. Record exact duplicates, shared templates, near-duplicate judgments, and any overlap with examples supplied to the agent or grader. A public repository cannot promise private holdout secrecy; have the assessor supply a new changed task at assessment time. Keep raw trial outcomes, including errors, and publish exclusions with reasons and denominators.
+
+For nondeterministic trials, state the sampled population and dependence assumptions before reporting intervals. Repeated identical scripted-provider runs do not measure model uncertainty. Report per-family counts and failures beside aggregate rates; correlated retries of one task must not be treated as independent new tasks. Record measured end-to-end latency and actual provider/tool usage where available; label proxies and missing cost information explicitly. Do not tune thresholds on the same held-out outcomes later presented as final validation.
+
 ### Required Analysis
 
 - task coverage and representativeness

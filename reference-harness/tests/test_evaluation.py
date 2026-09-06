@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from typing import cast
 
 from agent_harness import (
     EvalPolicy,
@@ -10,6 +11,7 @@ from agent_harness import (
     ScriptedProvider,
     run_eval,
 )
+from agent_harness.testing import Grader
 
 
 class EvaluationTests(unittest.TestCase):
@@ -77,6 +79,66 @@ class EvaluationTests(unittest.TestCase):
                 lambda _task, _trial: Harness(ScriptedProvider([])),
                 trials_per_task=0,
             )
+
+    def test_infrastructure_failure_vetoes_even_permissive_thresholds(self):
+        def broken_factory(_task, _trial):
+            raise RuntimeError("synthetic factory failure")
+
+        def broken_grader(_run):
+            raise ValueError("synthetic grader failure")
+
+        policy = EvalPolicy(
+            trials_per_task=1,
+            min_overall_pass_rate=0,
+            min_task_pass_rate=0,
+            fail_on_critical_trial=False,
+        )
+        for failure in ("factory", "grader", "invalid_grade"):
+            with self.subTest(failure=failure):
+                grader = (
+                    broken_grader
+                    if failure == "grader"
+                    else (lambda run: ("yes", "invalid boolean"))
+                    if failure == "invalid_grade"
+                    else (lambda run: (True, "ok"))
+                )
+                report = run_eval(
+                    # Deliberately cross the typed boundary to test runtime rejection.
+                    [EvalTask("infrastructure", "answer", cast(Grader, grader))],
+                    broken_factory
+                    if failure == "factory"
+                    else (
+                        lambda task, trial: Harness(
+                            ScriptedProvider([ModelTurn(content="ok")])
+                        )
+                    ),
+                    policy=policy,
+                )
+                self.assertFalse(report.decision.approved)
+                self.assertTrue(report.trials[0].infrastructure_error)
+                self.assertIn(
+                    "evaluation infrastructure failed; release evidence is incomplete",
+                    report.decision.reasons,
+                )
+                self.assertEqual(failure == "factory", report.trials[0].run is None)
+
+    def test_valid_negative_grade_remains_a_task_failure_not_infrastructure(self):
+        report = run_eval(
+            [
+                EvalTask(
+                    "ordinary-failure",
+                    "answer",
+                    lambda run: (False, "incorrect answer"),
+                )
+            ],
+            lambda task, trial: Harness(ScriptedProvider([ModelTurn(content="wrong")])),
+            policy=EvalPolicy(
+                trials_per_task=1, min_overall_pass_rate=0, min_task_pass_rate=0
+            ),
+        )
+        self.assertFalse(report.trials[0].infrastructure_error)
+        self.assertFalse(report.trials[0].passed)
+        self.assertTrue(report.decision.approved)
 
 
 if __name__ == "__main__":
