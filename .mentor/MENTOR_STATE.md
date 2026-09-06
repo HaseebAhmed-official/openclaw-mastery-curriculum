@@ -21,7 +21,7 @@ Build a university-presentable, enterprise-relevant curriculum through which a s
 
 ## Verified Baseline
 
-- Date: 2026-09-06, Asia/Karachi; clean WSL security baseline is commit `b2a0221`.
+- Date: 2026-09-06, Asia/Karachi; clean WSL implementation baseline is commit `1423d88` (security plus evaluator repair).
 - Platform-agnostic curriculum migration, advanced interoperability hardening, and bounded durable execution are fixed through implementation head `ac25d63`.
 - Current tree has 68 curriculum files; 15 OpenClaw references remain in intentional case/source/maintenance/comparative contexts.
 - The reference harness has a minimal runtime, bounded memory/orchestration/persistence/evaluation fixtures, a single-host SQLite durable-work fixture, and an optional exact-version MCP/A2A/OpenTelemetry lane; 34 tests pass on Windows and from a clean WSL extraction of Git archive `ac25d63`.
@@ -43,7 +43,7 @@ These are planning estimates. Completion gates in `PROJECT_STATE.md` control cla
 
 LAB-C6 security milestone `b2a0221` passed all 48 exact-dependency tests from a clean Git archive in WSL in 6.949 seconds on Python 3.13.9, Linux 6.18.33.2 x86-64. Archive directory: `/tmp/harness-b2a0221.tyzzwz`. Command: `uv run --python 3.13 --extra interop --locked python -m unittest discover -s tests -v`. Three known A2A protobuf warnings remain. This author-executed fixture evidence does not complete LAB-C6 or count as independent reproduction.
 
-LAB-C7 evaluator repair: a factory exception previously yielded `approved=True` when both pass-rate thresholds were zero. `testing.py` now adds an explicit infrastructure-error flag and unconditional release veto. Five evaluation test methods cover ordinary versus critical failures, factory/grader exceptions, malformed grades, and retained evidence. All 50 exact-dependency tests passed on Windows Python 3.13.1 in 2.952 seconds; Ruff, MyPy (19 source/test files), Bandit on source, and Git whitespace checks passed. The lab guide now includes the evaluator-failure exercise and corpus/evidence contract. Next: commit and clean WSL validation of this repair, then build LAB-C7's maintained corpus. Last observed remote main was `7920d83`; publication still needs verification. The prior filesystem failure did not invalidate the completed `b2a0221` WSL run; its evidence is now saved here.
+LAB-C7 evaluator repair `1423d88`: a factory exception previously yielded `approved=True` when both pass-rate thresholds were zero. `testing.py` now adds an explicit infrastructure-error flag and unconditional release veto. Five evaluation test methods cover ordinary versus critical failures, factory/grader exceptions, malformed grades, and retained evidence. All 50 exact-dependency tests passed on Windows Python 3.13.1 in 2.952 seconds; Ruff, MyPy (19 source/test files), Bandit on source, and Git whitespace checks passed. A fresh Git archive of `1423d88` then passed all 50 tests in WSL Python 3.13.9 in 12.421 seconds at `/tmp/harness-1423d88.7iofeT`, using `uv run --offline --python 3.13 --extra interop --locked python -m unittest discover -s tests -v`. Setup used the cached exact dependencies; three known A2A warnings remained. Both WSL jobs are complete; do not resume or restart them as pending work. The lab guide includes the evaluator-failure exercise and corpus/evidence contract. Next: build LAB-C7's maintained corpus and uncertainty/leakage checks, then refresh stale product sources. Verify Git for publication status; no external-readiness claim follows from author-run tests.
 
 ## Next Actions
 
